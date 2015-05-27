@@ -1,0 +1,10 @@
+<div id="gold-links-holder">
+    <div id="gold-links">
+        <div id="header-links">
+            <a class="header-links-left" href="http://bmcc.sage.eou.edu/">[% l('BMCC Catalog Home') %]</a>
+            <a class="header-links-right" href="http://proxy.bluecc.edu:2048/login?url=http://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s9004578&profile=ehost&defaultdb=e000xna">BMCC E-Books Collection</a>
+            <a class="header-links-right" href="http://www.bluecc.edu/library/">[% l('BMCC Library Home Page') %]</a>
+            <a class="header-links-right" href="[% mkurl(ctx.opac_root _ '/myopac/main') %]">[% l('My Account') %]</a>
+        </div>
+    </div>
+</div>
