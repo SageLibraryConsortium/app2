@@ -1,0 +1,14 @@
+<div id="homesearch_main_logo">
+   <TABLE WIDTH=90%>
+    <TR>
+      <TD WIDTH=25% ALIGN="LEFT" VALIGN="TOP">
+        <FONT SIZE=6><CENTER>SageCat</CENTER> </FONT><BR> <FONT SIZE=5> a library catalog serving the members of the Sage Library System</FONT>
+      </TD>
+      <TD WIDTH=50% VALIGN="CENTER">
+         <a href="http://batchgeo.com/map/481237a7864ad0a6c74a7ac5cc4bcd0e">
+          <img src="/opac/images/countymap.gif" border="0"></a>
+      </TD>
+      <TD WIDTH=25%>&nbsp; </TD>
+    </TR>
+  </TABLE>
+</div>

@@ -1,0 +1,11 @@
+<div id="gold-links-holder">
+    <div id="gold-links">
+        <div id="header-links">
+            <a class="header-links-left" href="http://tvcc.sage.eou.edu/">[% l('TVCC Catalog Home') %]</a>
+            <a class="header-links-right" href="http://www.tvcc.cc/current/library/ask_librarian.cfm">[% l('Ask a Librarian') %]</a>
+            <a class="header-links-right" href="http://www.tvcc.cc/current/library/">[% l('TVCC Library Home Page') %]</a>
+            <a class="header-links-right" href="[% mkurl(ctx.opac_root _ '/myopac/main') %]">[% l('My Account') %]</a>
+        </div>
+    </div>
+</div>
+

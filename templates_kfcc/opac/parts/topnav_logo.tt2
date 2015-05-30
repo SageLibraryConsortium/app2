@@ -1,0 +1,2 @@
+       <div id="topnav_logo"> <a href="http://www.klamathcc.edu/Campus/Learning-Resources-Center"><img alt="[% l('KCC Learning Resources Center') %]" 
+            src="[% ctx.media_prefix %]/opac/images/small_logo_kcc.png"></a></div>

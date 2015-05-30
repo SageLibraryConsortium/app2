@@ -1,0 +1,14 @@
+<div id="gold-links-holder">
+    <div id="gold-links">
+        <div id="header-links">
+            <a href="http://catalog.sage.eou.edu">[% l('Catalog Home') %]</a>
+<a href="http://catalog.sage.eou.edu/eg/kpac/home">[% l('Kids Catalog') %]</a>
+            <a href="http://sage.plinkit.org">[% l('About Sage') %]</a>
+            <a href="http://catalog.sage.eou.edu/opac/extras/feed/freshmeat/htmlholdings-full/biblio/import/25">[% l('Newest Titles') %]</a>
+            <a href="http://www.fantasticfiction.co.uk">[% l('Fantastic Fiction') %]</a>
+            <a href="http://library2go.lib.overdrive.com">[% l('Library2Go') %]</a>
+           <a href="https://catalog.sage.eou.edu/eg/opac/myopac/main">[% l('My Account') %]</a>
+           <a href="http://sage.plinkit.org/web-forms/help-request">[% l('Need Help?') %]</a>
+        </div>
+    </div>
+</div>
