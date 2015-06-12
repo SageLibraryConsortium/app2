@@ -1,0 +1,7 @@
+<div class="footer_wrapper">
+    <a href=http://sage.plinkit.org/web-forms/generic-contact-form>Contact Us</a>
+    <!-- <div class="redblock"><p><a href="javascript:;">[% l('Site Help') %]</a></p></div> -->
+    <a href="[% mkurl(ctx.opac_root _ '/home') %]">[% l('Back to Main Catalog') %]</a>
+    <div class="clear">&nbsp;</div>
+</div>
+
