@@ -27,6 +27,7 @@ img {
 #homesearch_main_logo {
     padding-top: 20px;
     margin: auto;
+    margin-right: 30px;
     width: auto;
 }
 
