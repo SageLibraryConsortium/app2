@@ -399,6 +399,7 @@ for now until a better color is picked - if needed.
     color:[% css_colors.primary_fade %];
     font-weight:bold;
     font-size: [% css_fonts.size_bigger %];
+    text-decoration:none;
 }
 
 .rdetail_result_count {
@@ -412,6 +413,10 @@ for now until a better color is picked - if needed.
     font-weight:normal;
     padding-left: 1em;
     display: inline-block;
+}
+
+.rdetail_result_nav a {
+   text-decoration:none;
 }
 
 #rdetail_details_table {
