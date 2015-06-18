@@ -1,0 +1,9 @@
+<div id="homesearch_main_logo">
+<center>
+      <div style="font-family:helvetica neue;font-size:50px;">SageCat</div></br>
+      <div style="font-family:helvetica neue;font-size:20px;">A library catalog serving the members of the Sage Library System</div>
+</center>
+<br/>
+<hr style="border:2px solid;color:grey;">
+[% INCLUDE "opac/parts/book_carousel.tt2" %]
+</div>
