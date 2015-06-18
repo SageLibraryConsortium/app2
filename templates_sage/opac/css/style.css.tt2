@@ -417,6 +417,7 @@ for now until a better color is picked - if needed.
 
 .rdetail_result_nav a {
    text-decoration:none;
+   font-size: 125%;
 }
 
 #rdetail_details_table {
