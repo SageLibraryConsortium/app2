@@ -4,7 +4,7 @@
 -%]
 <div id="footer-wrap">
 <div id="footer">
-    <a href="http://sage.plinkit.org">[% l('About Sage') %]</a> &nbsp;|&nbsp;
+    <a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a> &nbsp;|&nbsp;
     <a href="http://kcc.sage.eou.edu">[% l('KCC Catalog Home') %]</a> &nbsp;|&nbsp;
     <a href="http://www.klamathcc.edu/Campus/Learning-Resources-Center">KCC Learning Resources Homepage</a>
     [% IF ctx.timing %]
