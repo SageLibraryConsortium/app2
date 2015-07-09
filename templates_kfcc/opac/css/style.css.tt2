@@ -1746,7 +1746,7 @@ a.preflib_change {
     #header {
         padding: 10px;
         margin: 0px;
-	      background: white;
+	      /* background: white; */
     }
     #homesearch_main_logo img {
         width:100px; /*changed from 75%*/
@@ -2057,3 +2057,20 @@ a.preflib_change {
         table#acct_holds_main_header td:nth-of-type(8):before { content: "[% l('Active') %]"; }
         table#acct_holds_main_header td:nth-of-type(9):before { content: "[% l('Status') %]"; }
 }
+
+/* 
+For text which is visible only to screen readers.
+Borrowed from http://getbootstrap.com/css/#helper-classes-screen-readers 
+See also http://webaim.org/techniques/css/invisiblecontent/
+*/
+
+.sr-only {                                                                     
+    position: absolute;                                                          
+    width: 1px;                                                                  
+    height: 1px;                                                                 
+    padding: 0;                                                                  
+    margin: -1px;                                                                
+    overflow: hidden;                                                            
+    clip: rect(0, 0, 0, 0);                                                      
+    border: 0;                                                                   
+} 
