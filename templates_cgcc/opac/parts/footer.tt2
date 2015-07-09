@@ -4,8 +4,7 @@
 -%]
 <div id="footer-wrap">
 <div id="footer">
-    <a href="http://catalog.sage.eou.edu/opac/en-US/skin/default/xml/index.xml">[% l('Old Catalog View') %]</a> &nbsp;|&nbsp;
-    <a href="http://sage.plinkit.org">[% l('About Sage') %]</a> &nbsp;|&nbsp;
+    <a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a> &nbsp;|&nbsp;
     <a href="http://www.cgcc.edu/library">[% l('CGCC Library Home') %]</a> &nbsp;|&nbsp;
     <a href="http://www.cgcc.edu/library/contact">[% l('Contact Us @ CGCC Library') %]</a> 
 
