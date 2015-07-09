@@ -4,7 +4,7 @@
 -%]
 <div id="footer-wrap">
 <div id="footer">
-    <a href="http://sage.plinkit.org">[% l('About Sage') %]</a> &nbsp;|&nbsp;
+    <a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a> &nbsp;|&nbsp;
     <a href="http://tvcc.sage.eou.edu">[% l('TVCC Catalog Home') %]</a> &nbsp;|&nbsp;
     <a href="http://www.tvcc.cc/current/library/ask_librarian.cfm">[% l('Ask a Librarian') %]</a> &nbsp;|&nbsp;
     <a href="http://www.tvcc.cc/current/library/">[% l('TVCC Library Home Page') %]</a>
