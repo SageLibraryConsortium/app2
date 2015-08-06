@@ -1,6 +1,6 @@
 /templates
-/templates_sage.old
 /templates_eou
+/templates_sage.old
 /updates.new
 /catalog
 /circ
@@ -12,13 +12,23 @@
 /run
 /updates
 /xsl
-/web
+/web/js/dojo
 /web/conify
 /web/notices
-/web/reports
 /web/reporter
+/web/reporter_sage
 /web/standalone
-/web/xul
+/web/xul/2_4sage_000.old
+/web/xul/2_5sage_000.old
+/web/xul/2_7sage_000
+/web/xul/server
+/web/opac/skin/default.orig
+/web/opac/skin/eou
+/web/opac/skin/eou-orig
+/web/opac/skin/eou.orig
+/web/opac/skin/rel_2_1_0
+/web/opac/skin/rel_2_1_0.test
+/web/opac/skin/rel_2_1_0.test2
 
 *.log
 *.zip
@@ -35,3 +45,6 @@ Thumbs.db
 
 eg_cache_hash
 Makefile*
+ldirectorping.txt
+robots.txt
+eg_cache_hash
