@@ -1,0 +1,9 @@
+<div>
+	<script language='javascript' type='text/javascript' src='<!--#echo var="OILS_OPAC_JS_HOST"-->/skin/original/js/sidebar_extras.js'></script>
+	<script language='javascript' type='text/javascript' src='<!--#echo var="OILS_OPAC_JS_HOST"-->/skin/original/js/rresult.js'></script>
+	<script language='javascript' type='text/javascript' src='<!--#echo var="OILS_OPAC_JS_HOST"-->/skin/original/js/result_common.js'></script>
+	<script language='javascript' type='text/javascript' src='<!--#echo var="OILS_OPAC_JS_HOST"-->/skin/original/js/tips.js'></script>
+	<script language='javascript' type='text/javascript' src='<!--#echo var="OILS_OPAC_JS_HOST"-->/skin/original/js/holds.js'></script>   
+	<!--#include virtual="result/result_common.xml"-->
+</div>
+

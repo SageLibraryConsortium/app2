@@ -1,0 +1,112 @@
+<!ENTITY vandelay.add.existing.queue "nebo přida k existující frontě">
+<!ENTITY vandelay.auth.attrs "Atributy autorit">
+<!ENTITY vandelay.auth.records "Autoritní záznamy">
+<!ENTITY vandelay.auto.import.noncolliding "Import Non-Matching Records">
+<!ENTITY vandelay.auto.import.auto_overlay_exact "Merge On Exact Match (901c)">
+<!ENTITY vandelay.auto.import.auto_overlay_1match "Merge On Single Match">
+<!ENTITY vandelay.auto.import.merge_profile "Merge Profile">
+<!ENTITY vandelay.auto.width "Auto Width">
+<!ENTITY vandelay.back.to.import.queue "Zpět k frontě importu">
+<!ENTITY vandelay.bib.attrs "Bibliografické atributy">
+<!ENTITY vandelay.bib.records "Bibliografický záznam">
+<!ENTITY vandelay.cancel "Zrušit">
+<!ENTITY vandelay.edit "Editovat">
+<!ENTITY vandelay.code "Kód">
+<!ENTITY vandelay.column "Sloupec">
+<!ENTITY vandelay.create.attr.def "Vytvořte definici atributů">
+<!ENTITY vandelay.create "Vytvořit">
+<!ENTITY vandelay.create.date "Datum vytvoření">
+<!ENTITY vandelay.create.upload.queue "Vytvořit novou frontu pro nahrání">
+<!ENTITY vandelay.creator "Vytvořil">
+<!ENTITY vandelay.delete.queue "Smazat frontu">
+<!ENTITY vandelay.delete.record "Smazat záznam">
+<!ENTITY vandelay.descrip "Popis">
+<!ENTITY vandelay.dest.match.point "Cílový Bod Shody">
+<!ENTITY vandelay.display "Zobrazit">
+<!ENTITY vandelay.done "Hotovo">
+<!ENTITY vandelay.edit.attributes "Editovat atributy">
+<!ENTITY vandelay.edit.attrs "Editovat atributy">
+<!ENTITY vandelay.edit.profiles "Upravit profily sloučení / překrytí">
+<!ENTITY vandelay.edit.import_item_attrs "Upravit Atributy Importu Položky">
+<!ENTITY vandelay.false "Nepravda">
+<!ENTITY vandelay.file.to.upload "Soubor k nahrání">
+<!ENTITY vandelay.for.example "Příklad">
+<!ENTITY vandelay.identifier "Identifikátor">
+<!ENTITY vandelay.id.field "Pole identifikátoru?">
+<!ENTITY vandelay.id "ID">
+<!ENTITY vandelay.import.matches "Importovat Shody">
+<!ENTITY vandelay.import.records "Importovat záznamy">
+<!ENTITY vandelay.import.selected "Importovat vybrané">
+<!ENTITY vandelay.import.all "Importovat vše">
+<!ENTITY vandelay.import.time "Čas importu">
+<!ENTITY vandelay.inspect.queue "Prohlížet frontu">
+<!ENTITY vandelay.last.edit.date "Datum poslední změny">
+<!ENTITY vandelay.limit.to.collision.matches "Zobrazit pouze kolize">
+<!ENTITY vandelay.limit.to.non.imported "Omezit na neimportované záznamy">
+<!ENTITY vandelay.marc.file.upload "Nahrání souboru Evergreen MARC">
+<!ENTITY vandelay.marc.record "Záznam ve formátu MARC">
+<!ENTITY vandelay.matches "Shody">
+<!ENTITY vandelay.next.page "Další Stránka &#187;">
+<!ENTITY vandelay.overlay.selected.record "Překrýt vybraný záznam importovaným">
+<!ENTITY vandelay.overlay.target "Cíl překrytí">
+<!ENTITY vandelay.page "Stránka">
+<!ENTITY vandelay.powered.by.evergreen "Powered by Evergreen!">
+<!ENTITY vandelay.prev.page "&#171; Předchozí Stránka">
+<!ENTITY vandelay.processing "Zpracovávání... ">
+<!ENTITY vandelay.queue "Fronta">
+<!ENTITY vandelay.queue.type "Typ fronty">
+<!ENTITY vandelay.record.queue "Fronta záznamů">
+<!ENTITY vandelay.record.type "Typ záznamu">
+<!ENTITY vandelay.refresh "Obnovit">
+<!ENTITY vandelay.remove.advanced "Odstranit (pokročilé)">
+<!ENTITY vandelay.remove "Odstranit">
+<!ENTITY vandelay.results.per.page "Počet výsledků na stránku">
+<!ENTITY vandelay.retrieve.queue "Načíst frontu">
+<!ENTITY vandelay.return "Návrat">
+<!ENTITY vandelay.select.cols "Vybrat sloupce">
+<!ENTITY vandelay.select.queue "Vybrat frontu k prohlížení">
+<!ENTITY vandelay.source.match.point "Stupeň shody zdroje">
+<!ENTITY vandelay.source "Zdroj">
+<!ENTITY vandelay.subfields "Podpole">
+<!ENTITY vandelay.subfield "Podlpole">
+<!ENTITY vandelay.sure.to.delete "Určitě chcete smazat tento záznam?">
+<!ENTITY vandelay.sure.to.delete.queue "Určitě chcete smazat tuto frontu?">
+<!ENTITY vandelay.tags "Návěští">
+<!ENTITY vandelay.tag "Návěští">
+<!ENTITY vandelay.tcn.source "Zdroj kontrolního čísla záznamu (TCN)">
+<!ENTITY vandelay.tcn.value "Hodnota kontrolního čísla záznamu (TCN)">
+<!ENTITY vandelay.tooltip.subfields "Můžete současně zadat více podpolí, oddělených mezerami a/nebo čárkami.">
+<!ENTITY vandelay.tooltip.tags "Můžete současně zadat více návěští, oddělených mezerami a/nebo čárkami.">
+<!ENTITY vandelay.true "Pravda">
+<!ENTITY vandelay.update "Aktualizovat">
+<!ENTITY vandelay.uploading "Probíhá nahrávání ...">
+<!ENTITY vandelay.upload.status "Status nahrávání">
+<!ENTITY vandelay.upload "Nahrát">
+<!ENTITY vandelay.vandelay "Vandelay">
+<!ENTITY vandelay.view.marc "Zobrazit formát MARC">
+<!ENTITY vandelay.xpath.advanced "XPath (pokročilý)">
+<!ENTITY vandelay.xpath "XPath">
+<!ENTITY vandelay.save "Uložit změny">
+<!ENTITY vandelay.record_saved "Záznam uložen">
+<!ENTITY vandelay.export.records "Exportovat záznamy">
+<!ENTITY vandelay.export.use_field_no "Použít číslo pole">
+<!ENTITY vandelay.export.from_csv "Z CSV souboru">
+<!ENTITY vandelay.export.record_id "ID záznamu">
+<!ENTITY vandelay.export.or "Nebo">
+<!ENTITY vandelay.export.format "Formát záznamu">
+<!ENTITY vandelay.export.format.marc21 "MARC21">
+<!ENTITY vandelay.export.format.unimarc "UNIMARC">
+<!ENTITY vandelay.export.format.xml "MARC XML">
+<!ENTITY vandelay.export.format.bre "Zápis záznamu Evergreen">
+<!ENTITY vandelay.export.encoding "Kódování záznamu">
+<!ENTITY vandelay.export.utf8 "UTF-8">
+<!ENTITY vandelay.export.marc8 "MARC8">
+<!ENTITY vandelay.export.holdings "Zahrnout údaje o exemplářích v bibliografických záznamech">
+<!ENTITY vandelay.export.retrieve "Načíst záznamy">
+<!ENTITY vandelay.export.field_no_hint "(začít od nuly)">
+<!ENTITY vandelay.export.bucket "ID kbelíku exemplářů">
+<!ENTITY vandelay.select_actions "--Akce--">
+<!ENTITY vandelay.queue.total "Celkem:">
+<!ENTITY vandelay.queue.imported "Importováno:">
+<!ENTITY vandelay.queue.column_picker.title "Výběr sloupců">
+<!ENTITY vandelay.import.bib_sources "Vyberte zdroj záznamu">

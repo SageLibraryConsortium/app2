@@ -1,0 +1,751 @@
+<!--	================================================================= 
+		Some generic stuff 
+		================================================================= -->
+<!ENTITY lang.version "vzdálený v1">
+<!ENTITY lang.description "Angličtina">
+<!ENTITY lang.author "PINES">
+<!ENTITY common.all "Vše">
+<!ENTITY common.currency "Kč">
+<!ENTITY common.language "Jazyk: ">
+<!ENTITY common.name "Jméno">
+<!ENTITY common.none "Žádné">
+<!ENTITY common.title "Název">
+<!ENTITY common.author "Autor">
+<!ENTITY common.authors "Autoři">
+<!ENTITY common.callnumber "Signatura">
+<!ENTITY common.edition "Vydání">
+<!ENTITY common.subject "Téma">
+<!ENTITY common.series "Edice">
+<!ENTITY common.keyword "Klíčové slovo">
+<!ENTITY common.type "Typ vyhledávání">
+<!ENTITY common.isbn "ISBN">
+<!ENTITY common.format "Nosič">
+<!-- Message displayed while search results are loading -->
+<!ENTITY common.loading "Načítání..."> 
+<!ENTITY common.login "Přihlásit se">
+<!ENTITY common.logout "Odhlásit se">
+<!ENTITY common.physical "Fyzický popis">
+<!ENTITY common.pubdate "Datum vydání">
+<!ENTITY common.publisher "Nakladatel">
+<!ENTITY common.results "Výsledky">
+<!ENTITY common.select "Vybrat">
+<!ENTITY common.status "Status">
+<!ENTITY common.at "v">
+<!ENTITY common.of "z">
+<!ENTITY common.no "Ne">
+<!ENTITY common.yes "Ano">
+<!ENTITY common.cancel "Storno">
+<!ENTITY common.library "Knihovna">
+<!ENTITY common.username "Uživatelské jméno">
+<!ENTITY common.password "Heslo">
+<!ENTITY common.submit "Potvrdit">
+<!ENTITY common.close "zavřít">
+<!ENTITY common.and "a">
+<!ENTITY common.user_not_found "Uživatel nenalezen">
+<!ENTITY opac.advanced.wizard.title "Pokročilé vyhledávání">
+<!ENTITY common.nowSearching "Vyhledávám v této knihovně: ">
+<!ENTITY common.ofAtLeast " z přibližně ">
+<!ENTITY common.relevancy "Skóre shody: ">
+<!ENTITY common.tips "Tipy:">
+<!ENTITY common.tips.tip1 "Pro rychlé vyhledání souvisejících dokumentů klikněte na ikonu složky (nebo vhodný odkaz) v postranním panelu.">
+<!ENTITY common.tips.tip2 "Pokud jste nenalezli, co jste hledali, zkuste rozšířit vyhledávací možnosti pomocí nástrojů napravo od vyhledávacího pole (např. na všechny formáty, všechny knihovny apod.).">
+<!ENTITY common.org.openAll "Rozbalit vše">
+<!ENTITY common.org.closeAll "Zavřít vše">
+<!ENTITY common.org.cancel "Storno">
+<!ENTITY common.org.loading "Načítám volbu knihovny...">
+<!ENTITY common.org.note "Tip:">
+<!ENTITY common.org.notetext "Požadovanou knihovnu vyberete kliknutím  na její název. 
+Kliknete-li na šipku nebo ikonu složky, zobrazí se další knihovny nebo jejich části.">
+<!ENTITY opac.login.login "Přihlásit se">
+<!ENTITY opac.basic "Základní katalog (pouze HTML)">
+<!ENTITY common.password_criteria  "Heslo musí být minimálně 7 znaků dlouhé, 
+obsahovat nejméně jedno písmeno (a-z/A-Z), 
+a nejméně jednu číslici.">
+<!ENTITY common.a2z.title "Název: A až Z">
+<!ENTITY common.z2a.title "Název: Z až A">
+<!ENTITY common.a2z.author "Autor: A až Z">
+<!ENTITY common.z2a.author "Autor: Z až A">
+<!ENTITY common.new2old.pubdate "Datum: od nejnovějšího po nejstarší">
+<!ENTITY common.old2new.pubdate "Datum: od nejstaršího po nejnovější">
+
+<!ENTITY opac.style.reddish "Načervenalý">
+
+<!ENTITY holds.where_am_i "Seznamy rezervací nefungují jednoduše na principu 
+'kdo dřív přijde, ten dřív mele'.  Priority rezervací určuje 
+složitý systém, který bere v úvahu vlastnictví exempláře,
+domovskou knihovnu čtenáře a datum nákupu exempláře;
+seznam je dynamický a mění se s každou zadanou rezervací.
+Proto je pořadí v seznamu rezervací vždy nepřesné. Systém
+rezervací je nastaven tak, aby byl požadovaný exemplář vždy
+doručen co nejrychleji a nejefektivněji. Vaše knihovna Vás
+bude kontaktovat, až budou Vámi rezervované exempláře
+k dispozici.">
+
+<!ENTITY holds.advanced_options  "Pokud chcete rozšířit svou rezervaci tak, aby zahrnovala 
+další verze tohoto titulu, zvolte nosiče, které jsou pro Vás přijatelné. 
+Bude Vám dodán první dostupný exemplář.">
+<!--	================================================================= 
+		Events and Permissions 
+		================================================================= -->
+
+<!ENTITY ilsevent.0 "Operace úspěšně dokončena">
+<!ENTITY ilsevent.1000 "Přihlášení se nezdařilo. Uživatelské jméno nebo heslo není správné.">
+<!ENTITY ilsevent.1001 "Přihlašovací relace vypršela nebo není vytvořena">
+<!ENTITY ilsevent.1002 "Uživatel nebyl nalezen v databázi">
+<!ENTITY ilsevent.1200 "Toto uživatelské jméno již v databázi existuje">
+<!ENTITY ilsevent.5000 "Přístup odmítnut">
+<!ENTITY ilsperm.CREATE_HOLD "Uživatel není oprávněn vytvářet rezervace pro ostatní uživatele v této knihovně">
+<!--	================================================================= 
+	common/pages
+	================================================================= -->
+
+
+<!ENTITY common.cn.loading "Načítání stránky se signaturami...">
+<!ENTITY common.cn.browsing "Nyní prohlížíte">
+<!ENTITY common.cn.previous "&lt;&lt; Předchozí stránka">
+<!ENTITY common.cn.shelf "Prohlížení regálu">
+<!ENTITY common.cn.next "Další stránka &gt;&gt;">
+
+<!ENTITY common.textsize.title "Velikost textu: ">
+<!ENTITY common.textsize.regular "Běžná">
+<!-- Regular / Large -->
+<!ENTITY common.textsize.separator "/"> 
+<!ENTITY common.textsize.large "Velká">
+<!ENTITY common.googlechromeframe.why "Instalování doplňku Google Chrome Frame pro Internet Explorer dodá Evergreenu vyšší rychlost a rozšířené funkce!">
+<!ENTITY common.googlechromeframe.install "Instalovat nyní!">
+<!ENTITY common.googlechromeframe.dontask "Již se mě znovu neptat">
+
+<!ENTITY home.js.disabled "Abyste mohli používat běžný katalog Evergreenu, musí být povolen JavaScript. 
+Vypadá to však, že JavaScript buď není povolen nebo není podporován vaším prohlížečem. 
+Pro používání běžného katalogu Evergrrenu povolte JavaScript v nastavení vašeho prohlížeče, poté 
+<a style='color: blue; text-decoration: underline;' href='/'>zkuste opakovat akci</a>. 
+<br/><br/>Případně můžete také použít základní katalog (pouze  HTML): ">
+<!--	================================================================= 
+	 MyOPAC bookbag page
+	================================================================= -->
+
+<!ENTITY myopac.delete.bookbag "Opravdu chcete smazat tento seznam knih, včetně položek, které obsahuje?">
+<!ENTITY myopac.no.bookbags "Nevytvořili jste žádný seznam knih.">
+<!ENTITY myopac.bookbags.title "Moje seznamy knih">
+<!ENTITY myopac.bookbag.items "Počet položek">
+<!ENTITY myopac.bookbag.shared "Sdílené">
+<!ENTITY myopac.bookbag.toggle "Sdílet / Skrýt pro ostatní">
+<!ENTITY myopac.bookbag.delete "Smazat tento seznam knih?">
+<!ENTITY myopac.items "Položky">
+<!ENTITY myopac.view "(Zobrazit)">
+<!ENTITY myopac.atom.feed "Kanál ATOM">
+<!ENTITY myopac.bookbag.hide "Skrýt pro ostatní">
+<!ENTITY myopac.delete "Smazat">
+<!ENTITY myopac.bookbag.create "Vytvořit nový seznam knih">
+<!ENTITY myopac.bookbag.naming "Zadejte název nového seznamu knih: ">
+<!ENTITY myopac.bookbag.share "Sdílet tento seznam knih">
+<!ENTITY myopac.bookbag.refworks "Exportovat do RefWorks">
+<!ENTITY myopac.bookbag.no.items "Zvolený seznam knih neobsahuje žádné položky...">
+<!ENTITY myopac.bookbag.remove "Odstranit tuto položku?">
+<!ENTITY myopac.remove.link "Odebrat">
+<!ENTITY myopac.publish.text "Sdílet seznam knih znamená, že jeho obsah bude viditelný pro ostatní. 
+Pro zobrazení veřejně sdíleného seznamu klikněte na odkaz &quot;Zobrazit&quot; ve 
+sloupci &quot;Sdílené&quot; seznamu knih nahoře na této stránce.">
+<!ENTITY myopac.item.confirm "Opravdu chcete odebrat tuto položku ze seznamu?">
+<!ENTITY myopac.publish.confirm "Sdílením tohoto seznamu knih povolíte ostatním,  
+aby viděli jeho obsah.  Opravdu chcete seznam sdílet?">
+<!ENTITY myopac.unpublish.confirm "Opravdu chcete tento seznam skrýt před ostatními?">
+<!ENTITY myopac.update.success "Seznam byl úspěšně aktualizován.">
+<!ENTITY myopac.updated.success "Seznam úspěšně aktualizován">
+<!ENTITY myopac.create.warning "Varování: Přidávání položek do seznamu knih vytváří propojení mezi vámi
+a položkami v databázi. Obsah seznamu knih NENÍ veřejně viditelný, 
+pokud není seznam knih sdílen. Pokud si však nepřejete, aby
+existovalo jakékoliv propojení mezi Vaším čtenářským záznamem
+a konkrétní položkou (položkami), doporučujeme vám
+příslušné položky nezařazovat do seznamu knih nebo seznam knih
+vůbec nepoužívat. Děkujeme.">
+<!ENTITY myopac.describe.bookbags "Seznamy knih jsou...">
+<!--	================================================================= 
+	MyOPAC Checked Page 
+	================================================================= -->
+
+<!ENTITY myopac.checked.out "Celkový počet výpůjček:">
+<!ENTITY myopac.checked.overdue "S překročenou výpůjční lhůtou:">
+<!ENTITY myopac.checked.renew "Prodloužit vybrané výpůjčky">
+<!ENTITY myopac.checked.renewing "Prodlužuji...">
+<!ENTITY myopac.checked.renew.remaining "Zbývající prodloužení">
+<!ENTITY myopac.checked.noitems "V tuto chvíli nemáte žádné výpůjčky">
+<!ENTITY myopac.checked.other.circ "Ostatní výpůjčky">
+<!ENTITY myopac.checked.circ.lib "Půjčující knihovna">
+<!ENTITY myopac.checked.item.type "Typ výpůjčky">
+<!ENTITY myopac.checked.circ.time "Vraťte prosím do...">
+<!ENTITY myopac.checked.renew.success "exemplář(e) úspěšně prodloužen(y)">
+<!ENTITY myopac.checked.renew.confirm "Opravdu chcet prodloužit výpůjční lhůtu vybraného exempláře / exemplářů?">
+<!ENTITY myopac.checked.renew.fail "Systém v tuto nemůže prodloužit výpůjční lhůtu zvoleného exempláře. To obvykle znamená, že exemplář je rezervovaný jiným uživatelem. Pro případné další informace kontaktujte knihovníka.">
+<!ENTITY myopac.checked.renew.fail2 "Tyto exempláře není možné prodloužit. Pro případné další informace kontatujte knihovníka.">
+<!--	================================================================= 
+	MyOPAC Fines Page 
+	================================================================= -->
+
+<!ENTITY myopac.fines.title "Přehled">
+<!ENTITY myopac.fines.owed "Celková dlužná částka">
+<!ENTITY myopac.fines.paid "Celkem zaplaceno">
+<!ENTITY myopac.fines.balance "Dlužná částka">
+<!ENTITY myopac.fines.status "Načítání...">
+<!ENTITY myopac.fines.overdue "Exempláře s překročenou výpůjční lhůtou">
+<!ENTITY myopac.fines.checkout "Datum výpůjčky">
+<!ENTITY myopac.fines.due "K vrácení dne">
+<!ENTITY myopac.fines.returned "Datum vrácení">
+<!ENTITY myopac.fines.accruing "(narůstající pokuty)">
+<!ENTITY myopac.fines.other "Seznam plateb">
+<!ENTITY myopac.fines.time.start "Datum zahájení transakce">
+<!ENTITY myopac.fines.time.paid "Čas poslední platby">
+<!ENTITY myopac.fines.owed.initial "Počáteční dlužná částka">
+<!ENTITY myopac.fines.paid.amount "Celkem zaplaceno">
+<!ENTITY myopac.fines.type "Typ poplatku">
+<!--	================================================================= 
+	MyOPAC Holds Page 
+	================================================================= -->
+
+
+<!ENTITY myopac.holds.formats "Nosiče">
+<!ENTITY myopac.holds.location "Knihovna pro vyzvednutí rezervace">
+<!ENTITY myopac.holds.edit "Editovat">
+<!ENTITY myopac.holds.status.none "Momentálně nemáte žádné rezervace">
+<!ENTITY myopac.holds.status.waiting "Čekání na exemplář">
+<!ENTITY myopac.holds.status.intransit "V přepravě">
+<!ENTITY myopac.holds.status.available "Připraveno k vyzvednutí">
+<!ENTITY myopac.holds.status.suspended "Pozastaveno">
+<!ENTITY myopac.holds.cancel "Storno">
+<!ENTITY myopac.holds.verify "Pokud si přejete zrušit vybranou rezervaci, klikněte na OK, jinak klikněte na Storno">
+<!ENTITY myopac.holds.freeze_selected "Pozastavit">
+<!ENTITY myopac.holds.thaw_selected "Aktivovat">
+<!ENTITY myopac.holds.thaw_date_selected "Nastavit datum aktivace">
+<!ENTITY myopac.holds.cancel_selected "Storno">
+<!ENTITY myopac.holds.processing "Probíhá zpracování rezervací... Zpracování může chvíli trvat.">
+<!ENTITY myopac.holds.actions "Akce pro vybrané rezervace">
+<!ENTITY myopac.holds.cancel.confirm "Opravdu chcete zrušit vybrané rezervace?">
+<!ENTITY myopac.holds.freeze.confirm "Opravdu chcete pozastavit vybrané rezervace? 
+Pokud již byl získán exemplář pro splnění rezervace, pak tato rezervace nebude pozastavena.">
+<!ENTITY myopac.holds.thaw.confirm "Opravdu chcete aktivovat zvolené rezervace?">
+<!ENTITY myopac.holds.thaw_date.confirm "Opravdu chcete změnit datum aktivace pro vybrané rezervace?">
+<!ENTITY myopac.holds.freeze.select_thaw "Vyberte datum automatické aktivace. Pokud datum není vybráno, rezervace zůstanou pozastaveny, dokud nebudou aktivovány ručně.">
+
+<!ENTITY opac.holds.freeze "Pozastavit tuto rezervaci">
+<!ENTITY opac.holds.freeze.help "Pozastavená rezervace zůstane na svém místě ve frontě, ale nebude vyřízena, dokud nebude aktivována.">
+<!ENTITY opac.holds.freeze.thaw_date "Automaticky aktivovat rezervaci:">
+<!ENTITY opac.holds.expire_time "Rezervovat do">
+<!ENTITY myopac.holds.estimated_wait "Odhadovaná čekací lhůta (dny)">
+<!--	================================================================= 
+	MyOPAC Preferences Page 
+	================================================================= -->
+
+<!ENTITY myopac.prefs.title "Nastavení">
+<!ENTITY myopac.prefs.hits "Výsledků na stránku">
+<!ENTITY myopac.prefs.font "Standardní velikost písma">
+<!ENTITY myopac.prefs.font.regular "Běžné písmo">
+<!ENTITY myopac.prefs.font.large "Velké písmo">
+<!ENTITY myopac.prefs.holds.notify "Standardní metoda oznámení rezervace">
+<!ENTITY myopac.prefs.holds.both "Použít telefon a e-mail">
+<!ENTITY myopac.prefs.holds.phone "Použít pouze telefon">
+<!ENTITY myopac.prefs.holds.email "Použít pouze e-mail">
+<!ENTITY myopac.prefs.search.location "Standardní knihovna pro vyhledávání">
+<!ENTITY myopac.prefs.search.home "Standardně vždy vyhledávat v mé domovské knihovně.">
+<!ENTITY myopac.prefs.search.range "Standardní rozsah vyhledávání">
+<!ENTITY myopac.prefs.save "Uložit změny nastavení">
+<!ENTITY myopac.prefs.save.success "Nastavení úspěšně změněna">
+<!ENTITY myopac.prefs.save.failed "Změna nastavení se nezdařila!">
+<!ENTITY myopac.prefs.help "Toto nastavení definuje, jak budete informováni o rezervacích, které jsou připraveny k vyzvednutí v knihovně. 
+Standardně bude při rezervacích použit vybraný způsob informování. 
+Budete však stále mít možnost změnit způsob oznámení u jednotlivých rezervací bez ohledu na toto nastavení.">
+<!ENTITY myopac.holds.unfrozen "Aktivní">
+<!ENTITY myopac.holds.frozen.until "Aktivovat...">
+<!--	================================================================= 
+	 MyOPAC Summary page
+	================================================================= -->
+
+<!ENTITY myopac.summary.expired "Vaše registrace vypršela  <span id='myopac.expired.date'/>! 
+Registraci můžete obnovit ve své knihovně.">
+<!ENTITY myopac.summary.notes "Zprávy z knihovny">
+<!ENTITY myopac.summary.phone.day "Telefonní číslo přes den">
+<!ENTITY myopac.summary.phone.evening "Telefonní číslo večer">
+<!ENTITY myopac.summary.phone.other "Jiné telefonní číslo">
+<!ENTITY myopac.summary.change "Změnit">
+<!ENTITY myopac.summary.username.enter "Zadejte nové uživatelské jméno:">
+<!ENTITY myopac.summary.password.text "(nezobrazeno)">
+<!ENTITY myopac.summary.password.current "Zadejte současné heslo:">
+<!ENTITY myopac.summary.password.new "Zadejte nové heslo:">
+<!ENTITY myopac.summary.password.reenter "Opakujte zadání nového hesla">
+<!ENTITY myopac.summary.email "E-mail">
+<!ENTITY myopac.summary.email.new "Zadejte novou e-mailovou adresu:">
+<!ENTITY myopac.summary.id.primary "Číslo dokladu">
+<!ENTITY myopac.summary.barcode "Čárový kód platného průkazu">
+<!ENTITY myopac.summary.home "Domovská knihovna">
+<!ENTITY myopac.summary.genesis "Datum vytvoření uživatelského účtu">
+<!ENTITY myopac.summary.addresses "Adresy">
+<!ENTITY myopac.summary.addresses.pending "Nevyřízené adresy">
+<!ENTITY myopac.summary.address.type "Typ adresy">
+<!ENTITY myopac.summary.address.street "Ulice">
+<!ENTITY myopac.summary.address.city "Město / obec">
+<!ENTITY myopac.summary.address.county "Kraj">
+<!ENTITY myopac.summary.address.state "Stát">
+<!ENTITY myopac.summary.address.country "Země">
+<!ENTITY myopac.summary.address.zip "PSČ">
+<!ENTITY myopac.summary.address.edit "Editovat adresu">
+<!ENTITY myopac.summary.address.invalid "Neplatná adresa">
+
+<!ENTITY myopac.summary.username.error "Zadejte prosím uživatelské jméno">
+<!ENTITY myopac.summary.username.dup "Požadované uživatelské jméno není k dispozici. Zvolte si prosím jiné.">
+<!ENTITY myopac.summary.username.success "Uživatelské jméno úspěšně změněno">
+<!ENTITY myopac.summary.username.failure "Změna uživatelského jména se nezdařila">
+<!ENTITY myopac.summary.username.invalid "Uživatelské jméno nesmí obsahovat mezery, nesmí mít stejný formát jako čárový kód, pro jeho tvorbu mohou platit také další omezení.">
+<!ENTITY myopac.summary.email.error "Zadejte prosím platnou e-mailovou adresu">
+<!ENTITY myopac.summary.email.success "E-mailová adresa úspěšně aktualizována">
+<!ENTITY myopac.summary.email.failed "Změna e-mailové adresy se nezdařila">
+<!ENTITY myopac.summary.password.error "Hesla nejsou vyplněna nebo nesouhlasí">
+<!ENTITY myopac.summary.password.success "Heslo úspěšně aktualizováno">
+<!ENTITY myopac.summary.password.failure "Změna hesla se nezdařila">
+<!--	================================================================= 
+	Advanced Search Page 
+	================================================================= -->
+
+<!ENTITY opac.advanced.wizard.contains "Vybrané pole obsahuje následující slova">
+<!ENTITY opac.advanced.wizard.nocontains "Vybrané pole  <u>neobsahuje</u> následující slova">
+<!ENTITY opac.advanced.wizard.exact "Vybrané pole obsahuje <u>přesný</u> výraz">
+<!ENTITY opac.advanced.refined.title "Zúžené pokročilé vyhledávání">
+<!ENTITY opac.advanced.refined.title_contains "Název obsahuje následující slova">
+<!ENTITY opac.advanced.refined.author_contains "Autor obsahuje následující slova">
+<!ENTITY opac.advanced.refined.subject_contains "Téma obsahuje následující slova">
+<!ENTITY opac.advanced.refined.series_contains "Edice obsahuje následující slova">
+<!ENTITY opac.advanced.refined.contains "Obsahuje">
+<!ENTITY opac.advanced.refined.nocontains "Neobsahuje">
+<!ENTITY opac.advanced.refined.exact "Obsahuje frázi">
+<!ENTITY opac.advanced.marc.warning "Pro knihovníky">
+<!ENTITY opac.advanced.marc.title "Expertní vyhledávání MARC">
+<!ENTITY opac.advanced.marc.tag "Identifikátor pole MARC">
+<!ENTITY opac.advanced.marc.ind1 "Indikátor 1">
+<!ENTITY opac.advanced.marc.ind2 "Indikátor 2">
+<!ENTITY opac.advanced.marc.subfield "Podpole">
+<!ENTITY opac.advanced.marc.value "Hodnota">
+<!ENTITY opac.advanced.marc.addrow "Přidat řádek">
+<!ENTITY opac.advanced.quick.title "Rychlé vyhledávání">
+<!ENTITY opac.advanced.quick.isbn "ISBN">
+<!ENTITY opac.advanced.quick.issn "ISSN">
+<!ENTITY opac.advanced.quick.lccn "LCCN"> 
+<!-- title control number -->
+<!ENTITY opac.advanced.quick.tcn "Kontrolní číslo záznamu (TCN)"> 
+<!ENTITY opac.advanced.quick.barcode "Čárový kód exempláře"> 
+<!ENTITY opac.advanced.quick.cn "Signatura"> 
+<!ENTITY opac.advanced.copy_loc_filter "Umístění regálu">
+<!-- ==========================================================
+     MARC expert search
+     ========================================================== -->
+
+<!ENTITY search.marc "Expertní vyhledávání MARC">
+<!ENTITY search.marc.tag "Identifikátor pole:">
+<!ENTITY search.marc.subfield "Podpole:">
+<!ENTITY search.marc.value "Hodnota:">
+<!ENTITY search.marc.add.row "Přidat řádek">
+<!-- ==========================================================
+     Status bar
+     ========================================================== -->
+
+
+<!ENTITY status.results "Obsahuje výsledky pro">
+<!-- ==========================================================
+     Tips
+     ========================================================== -->
+
+
+<!ENTITY tips.label "Tip:">
+<!-- ================================================================= 
+		More generic stuff 
+		================================================================= -->
+
+<!ENTITY opac.session_expiring "Pokud nebude zaznamenána aktivita, přihlášení vám během jedné minuty vyprší.">
+<!ENTITY opac.session_expired "Přihlášení vypršelo">
+<!ENTITY navigate.home "Domů">
+<!ENTITY navigate.home.title "Jít na domovskou stránku">
+<!ENTITY opac.navigate.advanced "Pokročilé vyhledávání">
+<!ENTITY opac.navigate.advanced.title "Jít na stránku pokročilého vyhledávání">
+<!ENTITY navigate.myopac "Moje konto">
+<!ENTITY opac.navigate.myopac "Moje konto">
+<!ENTITY navigate.myopac.title "Jdi na můj OPAC">
+<!ENTITY navigate.login "Přihlásit se">
+<!ENTITY navigate.login.title "Přihlásit se pro individuální nastavení">
+<!ENTITY navigate.logout "Odhlásit se">
+<!ENTITY navigate.logout.title "Odhlásit se">
+<!ENTITY opac.navigate.selectNewOrg "Zvolit jinou knihovnu">
+<!ENTITY opac.navigate.selectOrg "Zvolit knihovnu pro vyhledávání">
+<!ENTITY navigate.loggedinas "Jste přihlášen jako ">
+<!ENTITY navigate.loggedinas.title "Přihlášen jako...">
+<!ENTITY navigate.titleGroupResults "Výsledky vyhledávání">
+<!ENTITY navigate.titleResults "Seznam vyhledaných titulů">
+<!ENTITY navigate.facetRefine "Zúžit vyhledávání">
+<!ENTITY navigate.title.details "Detaily vyhledaných titulů">
+<!ENTITY navigate.record.details "Detaily záznamu">
+<!--	================================================================= 
+	Footer
+	================================================================= -->
+
+<!ENTITY footer.basic "Základní katalog (pouze HTML)">
+<!ENTITY footer.find.library "Najít knihovnu v mém okolí">
+<!ENTITY footer.find.url "http://www.georgialibraries.org/lib/directories/pineslibdir.html">
+<!ENTITY footer.help.url "http://open-ils.org/dokuwiki/doku.php?id=evergreen-user:opac_help">
+<!ENTITY footer.help "Nápověda">
+<!ENTITY footer.library.url "http://www.georgialibraries.org/public/pines.html">
+<!ENTITY footer.library.about "O PINES">
+<!ENTITY footer.union.url "http://www.galileo.usg.edu/">
+<!ENTITY footer.union "GALILEO">
+<!ENTITY footer.copyright "Copyright &#xA9; 2006-2012 Georgia Public Library Service, and others">
+<!-- Introduces the logo for the project -->
+<!ENTITY footer.logo "Provozováno v systému"> 
+<!--	================================================================= 
+	My OPAC
+	================================================================= -->
+
+<!ENTITY myopac.account "Osobní údaje">
+<!ENTITY myopac.checkouts "Vypůjčené exempláře">
+<!ENTITY myopac.holds "Rezervace">
+<!ENTITY myopac.fines "Pokuty">
+<!ENTITY myopac.preferences "Nastavení účtu">
+<!ENTITY myopac.bookbags "Moje seznamy knih">
+<!--	================================================================= 
+	Sidebar 
+	================================================================= -->
+
+<!ENTITY sidebar.relevantSubjects.headerLabel "Související témata">
+<!ENTITY sidebar.relevantAuthors.headerLabel "Související autoři">
+<!ENTITY sidebar.relevantSeries.headerLabel "Související edice">
+<!ENTITY sidebar.relevantReviews.headerLabel "Recenze">
+<!ENTITY sidebar.quick.search "Rychlé vyhledávání">
+<!ENTITY sidebar.authority.browse "Prohlížet autority">
+<!ENTITY sidebar.copy.not.found "Nebyl nalezen žádný exemplář se zadaným čárovým kódem">
+<!ENTITY sidebar.copy.not.cataloged "Exemplář s tímto čárovým kódem není zkatalogizován">
+<!--	================================================================= 
+		Search formats
+		================================================================= -->
+
+<!ENTITY opac.search.books "Knihy">
+<!ENTITY opac.search.allFormats "Všechny nosiče">
+<!ENTITY opac.search.largePrint "Knihy tištěné velkými písmeny">
+<!ENTITY opac.search.ebook "E-knihy">
+<!ENTITY opac.search.audioBooks "Audioknihy">
+<!ENTITY opac.search.videoRecordings "Videonahrávky">
+<!ENTITY opac.search.music "Hudba">
+<!ENTITY opac.search.electronic "Elektronické zdroje">
+<!ENTITY opac.search.nowSearching "Vyhledávám v knihovně:">
+<!--	================================================================= 
+		Page Titles
+		================================================================= -->
+
+
+<!ENTITY opac.title.home "Domovská stránka Evergreenu">
+<!ENTITY opac.title.mresult "Dílo v různých variantách">
+<!ENTITY opac.title.rresult "Tituly Evergreenu">
+<!ENTITY opac.title.myopac "Moje konto v Evergreenu">
+<!ENTITY opac.title.rdetail "Detaily titulu v Evergreenu">
+<!ENTITY opac.title.advanced "Pokročilé vyhledávání v Evergreenu">
+<!ENTITY opac.title.reqitems "Požadované exempláře v Evergreenu">
+<!ENTITY opac.title.cnbrowse "Prohledávání signatur v Evergreenu">
+<!ENTITY opac.title.authbrowse "Prohlížení autoritních záznamů Evergreenu">
+
+
+<!ENTITY opac.holds.forMe "Zarezervuj pro mě">
+<!ENTITY opac.holds.xulRecipient "Zadejte čárový kód příjemce">
+<!ENTITY opac.holds.recipient "Příjemce">
+<!ENTITY opac.holds.placeHold "Rezervovat">
+<!ENTITY opac.holds.exportRefWorks "Exportovat do RefWorks">
+<!ENTITY opac.holds.contactPhone "Kontaktní telefon">
+<!ENTITY opac.holds.contactEmail "Kontaktní e-mail">
+<!ENTITY opac.holds.pickupLocation "Knihovna pro vyzvednutí">
+<!ENTITY opac.holds.success "Rezervace byla úspěšně odeslána">
+<!ENTITY opac.holds.failure "Rezervace nebyla odeslána">
+<!ENTITY opac.hold.has_parts "Systém nemohl provést požadovanou rezervaci. Exemplář, který požadujete, se skládá z více částí.  Zkuste zadat konkrétní část, kterou chcete rezervovat.">
+<!--	================================================================= 
+	Advanced
+	================================================================= -->
+<!ENTITY advanced.search.title "Údaje pro vyhledávání">
+<!ENTITY advanced.add.row "Přidat vyhledávací řádek">
+<!ENTITY advanced.search.submit "Vyhledat">
+<!ENTITY advanced.search.reset "Vymazat formulář">
+<!ENTITY advanced.search.filters "Filtry pro vyhledávání">
+<!ENTITY advanced.item.form "Formát exempláře">
+<!ENTITY advanced.item.type "Typ exempláře">
+<!ENTITY advanced.link "Pokročilé vyhledávání">
+<!ENTITY advanced.basic.link "Základní">
+<!ENTITY advanced.literary.form "Literární žánr">
+<!ENTITY advanced.non.fiction "Literatura faktu">
+<!ENTITY advanced.fiction "Beletrie">
+<!ENTITY advanced.language "Jazyk">
+<!ENTITY advanced.audience "Čtenářské určení">
+<!ENTITY advanced.adult "Dospělí">
+<!ENTITY advanced.juvenile "Mládež">
+<!ENTITY advanced.general "Obecné">
+<!ENTITY advanced.sort.criteria "Kritéria řazení">
+<!ENTITY advanced.search.library "Vyhledávat v knihovně">
+<!ENTITY advanced.relevance "Relevance">
+<!ENTITY advanced.pubdate "Datum vydání">
+<!ENTITY advanced.sort.asc "Vzestupně / od A do Z">
+<!ENTITY advanced.sort.desc "Sestupně / od Z do A">
+<!ENTITY advanced.frbrize "Seskupit nosiče a vydání">
+<!ENTITY advanced.go "Vyhledat">
+<!ENTITY advanced.biblevel "Bibliografická úroveň">
+<!ENTITY advanced.filter.pubyear "Rok vydání">
+<!ENTITY advanced.filter.pubyear.equals "Je">
+<!ENTITY advanced.filter.pubyear.before "Před">
+<!ENTITY advanced.filter.pubyear.after "Po">
+<!ENTITY advanced.filter.pubyear.between "Mezi">
+<!--	================================================================= 
+	Rdetail
+	================================================================= -->
+
+<!ENTITY rdetail.print "Vytiskni tyto detaily">
+<!ENTITY rdetail.cn.part "Část">
+<!ENTITY rdetail.cn.barcode "Čárový kód">
+<!ENTITY rdetail.cn.location "Umístění">
+<!ENTITY rdetail.cn.hold.age "Omezení rezervace podle data zařazení do fondu">
+<!ENTITY rdetail.cn.genesis "Datum vytvoření">
+<!ENTITY rdetail.cn.active "Datum aktivace">
+<!ENTITY rdetail.cn.holdable "Rezervovatelné">
+<!ENTITY rdetail.cn.due "K vrácení dne">
+<!ENTITY rdetail.cn.more "více informací...">
+<!ENTITY rdetail.cn.less "méně informací">
+<!ENTITY rdetail.cn.hold "rezervovat">
+<!ENTITY rdetail.cn.reserve "Rezervovat jako zdroj">
+<!ENTITY rdetail.cn.multi_home "propojené tituly">
+<!ENTITY rdetail.cn.disabled "Nenastaveno">
+<!ENTITY rdetail.cn.note "Poznámka k exempláři">
+<!ENTITY rdetail.cn.category "Kategorie exempláře">
+<!ENTITY rdetail.cn.print "Tisk stránky">
+<!ENTITY rdetail.page.results "První stránka výsledků">
+<!-- Result # &common.of; # -->
+<!ENTITY rdetail.result "Výsledek"> 
+<!ENTITY rdetail.start "První">
+<!ENTITY rdetail.page.previous "Předchozí stránka">
+<!ENTITY rdetail.page.previous.short "&#171;">
+<!ENTITY rdetail.page.next "Další stránka">
+<!ENTITY rdetail.page.next.short "&#187;">
+<!ENTITY rdetail.page.last "Poslední stránka výsledků">
+<!ENTITY rdetail.end "Poslední">
+<!ENTITY rdetail.more "Více akcí...">
+<!ENTITY rdetail.bookbag.add "Přidat do seznamu knih">
+<!ENTITY rdetail.bookbag.create "Vytvořit nový seznam knih">
+<!ENTITY rdetail.record.deleted "Tento záznam byl smazán z databáze. 
+Doporučujeme vám odebrat tento titul ze seznamů knih, do kterých byl přidán.">
+<!ENTITY rdetail.none "(žádné)">
+<!ENTITY rdetail.bookbag.add.success "Položka úspěšně přidána do seznamu knih">
+<!ENTITY rdetail.bookbag.name "Zadejte název nového seznamu knih">
+<!ENTITY rdetail.bookbag.create.success "Seznam knih úspěšně vytvořen">
+<!ENTITY rdetail.detailMain.headerLabel "Detaily záznamu">
+<!ENTITY rdetail.detailMain.subjects "Témata">
+<!ENTITY rdetail.detailMain.abstract "Abstrakt">
+<!ENTITY rdetail.detailMain.viewMarc "Zobrazit formát MARC">
+<!ENTITY rdetail.detailMain.hideMarc "Zpět k detailům titulu">
+<!ENTITY rdetail.author.search "Vyhledávat podle autora">
+<!ENTITY rdetail.copyInfo.headerLabel "Informace o exempláři">
+<!ENTITY rdetail.copyInfo.library "Knihovna">
+<!ENTITY rdetail.copyInfo.callnumber "Signatura">
+<!ENTITY rdetail.copyInfo.copylocation "Umístění exempláře">
+<!ENTITY rdetail.copyInfo.local "Zobrazit pouze informace o exempláři v této knihovně">
+<!ENTITY rdetail.copyInfo.all "Zobrazit informace o exempláři pro všechny knihovny">
+<!ENTITY rdetail.copyInfo.actions "Akce">
+<!ENTITY rdetail.copyInfo.print "Tisk signatur pro tuto knihovnu">
+<!ENTITY rdetail.copyInfo.details "Detaily exempláře">
+<!ENTITY rdetail.copyInfo.browse "Prohlížení regálu">
+<!ENTITY rdetail.copyInfo.hold "Rezervovat">
+<!ENTITY rdetail.extras.summary "Detaiy exempláře">
+<!ENTITY rdetail.extras.browser "Prohlížení regálu">
+<!ENTITY rdetail.extras.bib_summary "Přehled">
+<!ENTITY rdetail.extras.reviews "Recenze">
+<!ENTITY rdetail.extras.toc "Obsah">
+<!ENTITY rdetail.extras.excerpt "Separát">
+<!ENTITY rdetail.extras.preview "Náhled">
+<!ENTITY rdetail.extras.author.notes "Poznámky o autorovi">
+<!ENTITY rdetail.extras.annotation "Anotace">
+<!ENTITY rdetail.extras.marc "Záznam ve formátu MARC">
+<!ENTITY rdetail.extras.foreign_items "Připojené názvy">
+<!ENTITY rdetail.extras.call.null "Pro tento exemplář nejsou v této knihovně k dispozici žádné signatury.">
+<!ENTITY rdetail.extras.call.local "Signatury v této knihovně">
+<!ENTITY rdetail.extras.preview.fulltext "Plný text">
+<!ENTITY rdetail.extras.preview.title "Zobrazit úplný text této knihy.">
+<!ENTITY rdetail.extras.preview.badge "Zobrazit náhled této knihy v Google Books">
+<!ENTITY rdetail.extras.novelist "Návrhy ze služby NoveList">
+<!ENTITY rdetail.loading "Načítám informace o exempláři...">
+<!ENTITY rdetail.noneAvailable " * Ve vybrané knihovně nejsou žádné exempláře">
+<!ENTITY rdetail.summary.online "Online zdroje">
+<!ENTITY rdetail.summary.subjects "Témata">
+<!ENTITY rdetail.summary.issues_held "Dostupná čísla">
+
+<!ENTITY result.sort_by "Řazení výsledků podle relevance">
+<!ENTITY result.sort_by.title "Řazení výsledků podle názvu">
+<!ENTITY result.sort_by.author "Řazení výsledků podle autora">
+<!ENTITY result.sort_by.pubdate "Řazení výsledků podle data vydání">
+
+<!ENTITY result.limit2avail "Omezit na dostupné">
+<!ENTITY result.info.copies "Dostupné exempláře / Celkový počet exemplářů">
+<!ENTITY result.info.no.items "Ve zvolené knihovně nebyly nalezeny žádné exempláře na vybraném nosiči.">
+<!ENTITY result.info.format.items "Níže jsou vypsány všechny exempláře na vybraném nosiči.">
+<!ENTITY result.info.show "Zobrazit záznamy pro">
+
+<!ENTITY result.lowhits.few "Na základě vašeho vyhledávání bylo nalezeno pouze několik výsledků.">
+<!ENTITY result.lowhits.zero "Na základě vašeho vyhledávání nebyl nalezen žádný výsledek.">
+<!ENTITY result.lowhits.did.you.mean "Možná jste mysleli:">
+<!ENTITY result.lowhits.formats "Více výsledků dostanete, pokud budete hledat ve všech nosičích">
+<!ENTITY result.lowhits.formats.search "Vyhledávat znovu, tentokrát všechny nosiče?">
+<!ENTITY result.lowhits.related "Možná budete chtít zkusit také tyto související vyhledávací dotazy:">
+<!ENTITY result.lowhits.expand "Možná také budete chtít rozšířit rozsah vyhledávání na:">
+<!ENTITY result.lowhits.class "Můžete vyhledávat s využitím stejných klíčových slov podle:">
+<!ENTITY result.lowhits.title "název">
+<!ENTITY result.lowhits.author "autor">
+<!ENTITY result.lowhits.subject "téma">
+<!ENTITY result.lowhits.series "edice">
+<!ENTITY result.lowhits.keyword "klíčové slovo">
+
+<!ENTITY result.table.keyword "Zobrazit tituly pro tento záznam">
+<!ENTITY result.table.author "Vyhledávat podle autora">
+<!ENTITY result.googleBooks.browse "Prohlížet v Google Books">
+<!ENTITY result.localCallNumbers "Signatury v této knihovně">
+
+<!ENTITY common.call.number.label "Signatura:">
+<!ENTITY common.isbn.label "ISBN:">
+<!ENTITY common.issn.label "ISSN:">
+<!ENTITY common.mono_parts.label "Části monografie:">
+<!ENTITY common.copy.barcode.label "Čárový kód exempláře:">
+<!ENTITY common.issuance_label.label "Označení ročníku">
+<!ENTITY common.hold.place "Rezervovat pro mé konto">
+<!ENTITY common.hold.check "Zjišťování možnosti splnění rezervace...">
+<!ENTITY common.hold.create "Vytvořit / Editovat rezervaci">
+<!ENTITY common.hold.update "Aktualizovat rezervaci">
+<!ENTITY common.hold.type.label "Typ rezervace:">
+<!ENTITY common.hold.volume "Rezervace svazku">
+<!ENTITY common.hold.copy "Rezervace exempláře">
+<!ENTITY common.hold.issuance "Rezervace ročníku">
+<!ENTITY common.hold.advanced "Pokročilé možnosti rezervace">
+<!ENTITY common.hold.delivery "Vyberte prosím fyzické umístění, kam může být vaše rezervace doručena.">
+<!ENTITY common.hold.checked_out "Tento exemplář je již vypůjčen.">
+<!ENTITY common.hold.checked_out.override "Tento exemplář je již vypůjčen. Chcete jej přesto rezervovat?">
+<!ENTITY common.hold.exists "Na požadovaný exemplář již existuje rezervace.">
+<!ENTITY common.hold.exists.override "Na požadovaný exemplář již existuje rezervace. Chtěli byste přesto rezervaci vytvořit?">
+<!ENTITY common.hold.age_protect.override "Splnění této rezervace může - s ohledem na nastavená pravidla - trvat velmi dlouho. Chcete přesto zadat tuto rezervaci?">
+<!ENTITY common.hold.place_unfillable.override "V současné době nemůže být požadovaná rezervace splněna. Pokud máte důvod se domnívat, že rezervace by časem mohla být splněna, můžete rezervaci zadat. Chcete zadat rezervaci za těchto podmínek?">
+<!ENTITY common.hold.barred "ČTENÁŘSKÉ TRANSAKCE JSOU OMEZENY. Zkontrolujte prosím poznámky 
+v sekci &quot;Zprávy z knihovny&quot;  na stránce &quot;Moje konto&quot; nebo kontaktujte svou knihovnu.">
+<!ENTITY common.hold.item.invalid "Tato rezervace již není platná. Je pravděpodobné, že 
+cíl rezervace byl smazán ze systému. Zrušte prosím tuto rezervaci 
+a vytvořte novou.">
+<!ENTITY common.hold.patron.invalid "Čárový kód čtenáře zadaný jako příjemce rezervace není platný.">
+<!-- Was (??), perhaps change to a button or icon? -->
+<!ENTITY common.help "(Nápověda)"> 
+<!ENTITY common.phone.format.help "Telefonní číslo nemá správný formát. Očekávaný formát je XXXYYYZZZ">
+<!ENTITY common.hold.failed "Splnění požadovaných rezervací nebyly nalezeny žádné exempláře.
+Je možné, že rezervace jiného nosiče bude úspěšná. 
+Je také možné, že jste překročili počet povolených rezervací. 
+Pro případné další informace prosím kontaktujte svého knihovníka.">
+<!ENTITY common.control.click "(chcete-li si vybrat více nosičů, držte při výběru klávesu CTRL)">
+<!ENTITY common.format.alternatives "Přijatelné alternativní nosiče:">
+<!ENTITY common.phone.format "(XXX-YYY-ZZZZ)">
+<!ENTITY common.phone.enable "Telefonické oznámení o rezervaci?">
+<!ENTITY common.email.enable "Oznámení o rezervaci e-mailem?">
+<!ENTITY common.email.none "(Čtenář nemá nastavenou e-mailovou adresu)">
+<!ENTITY common.email.set "(E-mail nastavíte ve <a class='classic_link' id='holds.no_email.my_account'>svém kontu</a>)">
+<!ENTITY common.keywords.label "Klíčová slova:">
+<!ENTITY common.physical.label "Fyzický popis:">
+<!ENTITY common.series.label "Edice:">
+<!ENTITY common.subject.label "Téma:">
+<!ENTITY common.title.label "Název:">
+<!ENTITY common.author.label "Autor:">
+<!ENTITY common.format.label "Nosič:">
+<!ENTITY library.select "Najít výsledky v">
+<!ENTITY library.select.label "Zvolit jinou knihovnu...">
+<!ENTITY library.select.help "Zvolit knihovnu pro vyhledávání">
+<!ENTITY login.username "Zadejte své uživatelské jméno nebo svůj čárový kód">
+<!ENTITY login.password.change "Změnit heslo">
+<!ENTITY login.first.time "Toto je vaše první přihlášení. 
+Změňte si prosím své heslo.">
+<!ENTITY login.password.current.enter "Zadejte své stávající heslo">
+<!ENTITY login.password.new.enter "Zadejte nové heslo">
+<!ENTITY login.password.new.reenter "Pro kontrolu znovu zadejte nové heslo">
+<!ENTITY login.password.update "Aktualizovat heslo">
+<!ENTITY login.password.nomatch "Hesla nesouhlasí">
+<!ENTITY login.password.success "Heslo úspěšně aktualizováno">
+<!ENTITY login.password.strength "Zadané heslo není dostatečně bezpečné.">
+<!ENTITY login.barcode.inactive "Čárový kód průkazu, který jste použili pro přihlášení, není aktivní. Kontaktujte prosím svou knihovnu.">
+<!ENTITY login.account.inactive "Toto konto bylo deaktivováno. Kontaktujte prosím svou knihovnu.">
+<!ENTITY login.failed "Přihlášení se nezdařilo. Bylo zadáno neplatné jméno nebo heslo. 
+Hesla rozlišuji velká a malá písmena. Zkontrolujte, zda není zapnutá klávesu Caps-Lock a zkuste to znovu nebo kontaktuje knihovnu.">
+<!ENTITY button.go "Vyhledat">
+<!--	================================================================= 
+	Slimpac Simple Search
+	================================================================= -->
+
+<!ENTITY slimpac.language.select "Vyberte jazyk">
+
+<!ENTITY slimpac.start.title "Jednoduché vyhledávání">
+<!ENTITY slimpac.start.nowSearching "Vyhledávám v knihovně: ">
+<!ENTITY slimpac.start.dynamic "Zobrazit záznam v katalogu">
+<!--	================================================================= 
+	Slimpac Advanced Search
+	================================================================= -->
+
+<!ENTITY slimpac.advanced.language "Jazyk exempláře">
+<!ENTITY slimpac.advanced.create_date "Datum vytvoření záznamu">
+<!ENTITY slimpac.advanced.edit_date "Datum editace záznamu">
+
+<!ENTITY opac.image_provided "Obrázek poskytl">
+<!ENTITY vendor.name "Amazon">
+<!ENTITY vendor.base_link "http://amazon.com/dp/">
+<!--	================================================================= 
+	Selfcheck
+	================================================================= -->
+
+<!ENTITY selfck.staff_login_label "Přihlášení zaměstnance">
+<!ENTITY selfck.staff_login "Čárový kód průkazu nebo uživatelské jméno">
+<!ENTITY selfck.staff_pw "Heslo">
+<!ENTITY selfck.submit "Potvrdit">
+<!ENTITY selfck.clear "Vymazat">
+<!ENTITY selfck.patron_barcode_label "Načtěte prosím čárový kód průkazku">
+<!ENTITY selfck.item_barcode_label "Načtěte prosím čárový kód exempláře, který chcete vypůjčit nebo prodloužit:">
+<!ENTITY selfck.barcode "Čárový kód">
+<!ENTITY selfck.title "Název">
+<!ENTITY selfck.author "Autor">
+<!ENTITY selfck.due_date "K vrácení dne">
+<!ENTITY selfck.remaining "Zbývající prodloužení">
+<!ENTITY selfck.cotype "Typ">
+<!ENTITY selfck.cotype_co "Vypůjčení">
+<!ENTITY selfck.cotype_rn "Prodloužení">
+<!ENTITY selfck.done "Hotovo">
+<!ENTITY selfck.welcome "Vítejte">
+<!ENTITY selfck.printing "Tisk stvrzenky...">
+<!-- event messages -->
+
+<!ENTITY selfck.event.co_success "Vypůjčení proběhlo úspěšně">
+<!ENTITY selfck.event.co_unknown "Vyskytla se neznámá chyba">
+<!ENTITY selfck.event.dupe_barcode "Exemplář již byl v průběhu této relace vypůjčen">
+<!ENTITY selfck.event.patron_not_found "Čárový kód čtenáře nebyl nalezen">
+<!ENTITY selfck.event.item_noncat "Požadovaný exemplář není v katalogu">
+<!ENTITY selfck.event.item_nocirc "Požadovaný exemplář není určen pro absenční půjčování">
+<!ENTITY selfck.event.already_out "Požadovaný exemplář je již zapůjčen jinému čtenáři">
+<!ENTITY selfck.items_out "Vypůjčili jste si následující exempláře">
+<!ENTITY selfck.org_hours "Otevírací doba">
+<!ENTITY selfck.org_phone "Telefonní číslo knihovny">
+<!ENTITY selfck.day0 "Pondělí">
+<!ENTITY selfck.day1 "Úterý">
+<!ENTITY selfck.day2 "Středa">
+<!ENTITY selfck.day3 "Čtvrtek">
+<!ENTITY selfck.day4 "Pátek">
+<!ENTITY selfck.day5 "Sobota">
+<!ENTITY selfck.day6 "Neděle">
+
+<!ENTITY circ.fail_part.actor.usr.barred "Čtenářské transakce jsou omezeny">
+<!ENTITY circ.fail_part.asset.copy.circulate "Tento exemplář nelze půjčovat">
+<!ENTITY circ.fail_part.asset.copy_location.circulate "Exempláře z tohoto umístění  nejsou určeny k absenční výpůjčce.">
+<!ENTITY circ.fail_part.asset.copy.status "Exemplář nemůže být v tento okamžik vypůjčen">
+<!ENTITY circ.fail_part.circ.holds.target_skip_me "Výpůjční knihovna tohoto exempláře nepovoluje rezervace">
+<!ENTITY circ.fail_part.config.circ_matrix_circ_mod_test "Čtenář má vypůjčeno příliš mnoho exemplářů tohoto typu">
+<!ENTITY circ.fail_part.config.circ_matrix_test.available_copy_hold_ratio "Procento  dostupných exempářů k rezervaci je příliž nízké">
+<!ENTITY circ.fail_part.config.circ_matrix_test.circulate "Výpůjční pravidla zamítla tento exemplář jako nevypůjčitelný">
+<!ENTITY circ.fail_part.config.circ_matrix_test.total_copy_hold_ratio "Celkové procento  exemplářů k rezervacím je příliš nízké">
+<!ENTITY circ.fail_part.config.hold_matrix_test.holdable "Rezervační pravidla zamítla tento exemplář jako nerezervovatelný">
+<!ENTITY circ.fail_part.config.hold_matrix_test.max_holds "Čtenář dosáhl maximálního počtu rezervací">
+<!ENTITY circ.fail_part.config.rule_age_hold_protect.prox "Exemplář je příliš nový, aby ho bylo možné přesunout do vzdálené destinace">
+<!ENTITY circ.fail_part.no_item "Systém nemohl najít tento exemplář">
+<!ENTITY circ.fail_part.no_ultimate_items "Systém nenalezl exempláře, které by odpovídaly pořadavku na rezervaci.">
+<!ENTITY circ.fail_part.no_matchpoint "Nejsou nastavena pravidla pro manipulaci s tímto exemplářem">
+<!ENTITY circ.fail_part.no_user "Systém tohoto čtenáře nenalezl.">
+<!ENTITY circ.fail_part.transit_range "Exemplář není možné přesunout tak daleko">

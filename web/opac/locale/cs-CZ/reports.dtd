@@ -1,0 +1,225 @@
+<!-- Common Entities -->
+<!ENTITY reports.common.logged_in_as "Jste přihlášen jako ">
+<!ENTITY reports.common.loading "Načítání...">
+
+<!ENTITY reports.oils_rpt.title "Evergreen: Zprávy">
+<!ENTITY reports.oils_rpt.insufficient_permissions "Nemáte dostečná oprávnění ke spouštění zpráv">
+<!ENTITY reports.oils_rpt.my_folders "Mé složky">
+<!ENTITY reports.oils_rpt.shared_folders "Sdílené složky">
+<!ENTITY reports.oils_rpt.manage_folder_contents "Spravovat obsah složky">
+<!ENTITY reports.oils_rpt.manage_folder "Spravovat složku">
+<!ENTITY reports.oils_rpt.created_by "vytvořil(a) ">
+<!ENTITY reports.oils_rpt.create_new_sub_folder "Vytvořit novou podsložku">
+<!ENTITY reports.oils_rpt.folder_type "Typ složky: ">
+<!ENTITY reports.oils_rpt.folder_name "Název složky:">
+<!ENTITY reports.oils_rpt.share_folder "Sdílet tuto složku:">
+<!ENTITY reports.oils_rpt.do_not_share "Nesdílet">
+<!ENTITY reports.oils_rpt.share "Sdílet">
+<!ENTITY reports.oils_rpt.share_with "Sdílet s:">
+<!ENTITY reports.oils_rpt.create_sub_folder "Vytvořit podsložku">
+
+
+<!ENTITY reports.oils_rpt_builder.title "Evergreen: Report Builder">
+<!ENTITY reports.oils_rpt_builder.reports_home "Hlavní strana Zpráv">
+<!ENTITY reports.oils_rpt_builder.cloning_template "Klonování šablony">
+<!ENTITY reports.oils_rpt_builder.template_name "Název šablony: ">
+<!ENTITY reports.oils_rpt_builder.template_description "Popis šablony: ">
+<!ENTITY reports.oils_rpt_builder.template_type "Typ šablony: ">
+<!ENTITY reports.oils_rpt_builder.save_this_template "Uložit tuto šablonu: ">
+<!ENTITY reports.oils_rpt_builder.filtering_note "Označuje,  že při filtrování položky  bude vygenerován seznam pojmenovaných možností.">
+<!ENTITY reports.oils_rpt_builder.temp_disp_items "Položky zobrazené v šabloně">
+<!ENTITY reports.oils_rpt_builder.remove_selected "Smazat vybrané">
+
+<!ENTITY reports.oils_rpt_builder.move_up "Posunout nahoru">
+<!ENTITY reports.oils_rpt_builder.move_down "Posunout dolů">
+<!-- The below two entity strings were the contents of the .xhtml file but I don't think that works when using XML entities -->
+<!-- ENTITY reports.oils_rpt_builder.move_up "Move &uarr;" -->
+<!-- ENTITY reports.oils_rpt_builder.move_down "Move &darr;" -->
+
+<!ENTITY reports.oils_rpt_builder.template_filters "Filtry šablony">
+<!ENTITY reports.oils_rpt_builder.report_aggregate_filters "Sdružení filtry zpráv">
+<!ENTITY reports.oils_rpt_builder.hint "Pokyn: ">
+<!ENTITY reports.oils_rpt_builder.hint_item_details "Dvojitým kliknutím na položku se zobrazí detaily.">
+<!ENTITY reports.oils_rpt_builder.template_types "Typy šablon">
+<!ENTITY reports.oils_rpt_builder.display_items "Zobrazit položky">
+<!ENTITY reports.oils_rpt_builder.filters "Filtry">
+<!ENTITY reports.oils_rpt_builder.aggregate_filters "Sdružené filtry">
+<!ENTITY reports.oils_rpt_builder.create_aggregate_filter "Vytvoření sdruženého  filtru">
+<!ENTITY reports.oils_rpt_builder.field_editor_window.label "Zvolt:e, jak by mělo být toto pole zobrazeno">
+<!ENTITY reports.oils_rpt_builder.add_item "Přidat položku">
+<!ENTITY reports.oils_rpt_builder.select_filter_to_apply "Zvolte, jaký filtr by měl být aplikován na toto pole">
+<!ENTITY reports.oils_rpt_builder.choose_a_transform "Zvolte transformaci: ">
+<!ENTITY reports.oils_rpt_builder.choose_a_filter "Zvolte filtr: ">
+<!ENTITY reports.oils_rpt_builder.create_filter "Vytvořit filtr">
+<!ENTITY reports.oils_rpt_builder.aggregate_filter_to_apply "Vyberte, který sdružený filtr by měl být  aplikován na toto pole:">
+<!ENTITY reports.oils_rpt_builder.selected_to_sort_columns "Vybrání toho, jak by měli být kolonky (rubriky) setříděny">
+<!ENTITY reports.oils_rpt_builder.choose_column "Vybrat kolonku (rubriku): ">
+<!ENTITY reports.oils_rpt_builder.choose_sorting_direction "Vybrat kontrolu třídění kdyby se vyskytoval: ">
+<!ENTITY reports.oils_rpt_builder.ascending "Vzestupně">
+<!ENTITY reports.oils_rpt_builder.descending "Sestupně">
+<!ENTITY reports.oils_rpt_builder.add_sort "Přidat druh, stav">
+<!ENTITY reports.oils_rpt_builder.close_window "Zavřít okno">
+<!ENTITY reports.oils_rpt_builder.confirm_new_report "Tímto bude zničena zpráva, kterou právě sestavujete. Opravdu to chcete udělat?">
+
+
+<!ENTITY reports.oils_rpt_common.action_succeeded "Akce úspěšně proběhla">
+<!ENTITY reports.oils_rpt_common.action_failed "Akce selhala">
+<!ENTITY reports.oils_rpt_common.generic_calendar_button "Datový selektor">
+
+
+<!ENTITY reports.oils_rpt_editor.template_name "Název šablony:">
+<!ENTITY reports.oils_rpt_editor.template_creator "Šablonu vytvořil(a):">
+<!ENTITY reports.oils_rpt_editor.doc_url "Template Documentation URL:">
+<!ENTITY reports.oils_rpt_editor.template_description "Popis šablony:">
+<!ENTITY reports.oils_rpt_editor.report_name "Název zprávy:">
+<!ENTITY reports.oils_rpt_editor.report_description "Popis zprávy">
+<!ENTITY reports.oils_rpt_editor.report_columns "Sloupce ve zprávě:">
+<!ENTITY reports.oils_rpt_editor.pivot_label_column "Ústřední  sloupec záhlaví:">
+<!ENTITY reports.oils_rpt_editor.select_option "Vyberte jeden (nepovinné)">
+<!ENTITY reports.oils_rpt_editor.pivot_data_column "Ústřední datový sloupec">
+<!ENTITY reports.oils_rpt_editor.store_report_definition "Zvolte složku pro uložení definice této zprávy: ">
+<!ENTITY reports.oils_rpt_editor.selected_folder "Zvolte složku: ">
+<!ENTITY reports.oils_rpt_editor.output_options "Nastavení výstupu">
+<!ENTITY reports.oils_rpt_editor.excel_output "Výstup v Excelu">
+<!ENTITY reports.oils_rpt_editor.csv_output "Výstup ve formátu CSV">
+<!ENTITY reports.oils_rpt_editor.html_output "Výstup ve formátu HTML">
+<!ENTITY reports.oils_rpt_editor.bar_charts "Sloupcové diagramy">
+<!ENTITY reports.oils_rpt_editor.line_charts "Spojnicové diagramy">
+<!ENTITY reports.oils_rpt_editor.recurring_report "Periodická zpráva: ">
+<!ENTITY reports.oils_rpt_editor.recurring_interval "Interval opakování: ">
+<!ENTITY reports.oils_rpt_editor.days "Den (dny)">
+<!ENTITY reports.oils_rpt_editor.weeks "Týden (týdny)">
+<!ENTITY reports.oils_rpt_editor.months "Měsíc(e)">
+<!ENTITY reports.oils_rpt_editor.run_asap "Spustit tak brzy jak je to možné">
+<!ENTITY reports.oils_rpt_editor.sent_to_email "Poslat hlášení o dokončení na tuto e-mailovou adresu:">
+<!ENTITY reports.oils_rpt_editor.midnight "Půlnoc">
+<!ENTITY reports.oils_rpt_editor.noon "Poledne">
+<!ENTITY reports.oils_rpt_editor.storage_folder_for_output "Vyberte složku pro uložení výstupu této zprávy:">
+<!ENTITY reports.oils_rpt_editor.save_report "Uložit zprávu:">
+<!ENTITY reports.oils_rpt_editor.apply_changes "Apply Changes">
+<!ENTITY reports.oils_rpt_editor.save_report_new "Save As New">
+<!ENTITY reports.oils_rpt_editor.confirm_sched "Changes will be applied to pending reports that have not yet run. Do you want to continue with modifying those pending reports?">
+<!ENTITY reports.oils_rpt_editor.cancel "Storno">
+<!ENTITY reports.oils_rpt_editor.exit_report "Return">
+<!ENTITY reports.oils_rpt_editor.empty_parameter "Jeden nebo více  uživatelem definovaných parametrů nebylo vyplněno. Vyplňte prosím všechna pole.">
+<!ENTITY reports.oils_rpt_editor.same_name "Zpráva s tímto názvem již ve složce existuje.">
+
+
+<!ENTITY reports.oils_rpt_folder_manager.change_folder_name "Změnit název složky">
+<!ENTITY reports.oils_rpt_folder_manager.delete_folder "Vymazat tuto složku">
+<!ENTITY reports.oils_rpt_folder_manager.create_new_sub_folder "Vytvořit novou podsložku">
+<!ENTITY reports.oils_rpt_folder_manager.share_this_folder "Sdílet tuto složku">
+<!ENTITY reports.oils_rpt_folder_manager.hide_folder "Skrýt (nesdílet) tuto složku">
+<!ENTITY reports.oils_rpt_folder_manager.disable_recurrence "Zrušit periodické opakování zprávy">
+<!ENTITY reports.oils_rpt_folder_manager.fldr_mngr_actions_submit "Provést">
+<!ENTITY reports.oils_rpt_folder_manager.change_name "Zadejte nové jméno:">
+<!ENTITY reports.oils_rpt_folder_manager.submit "Potvrdit">
+<!ENTITY reports.oils_rpt_folder_manager.folder_name "Název složky:">
+<!ENTITY reports.oils_rpt_folder_manager.do_not_share "Nesdílet">
+<!ENTITY reports.oils_rpt_folder_manager.share "Sdílet">
+<!ENTITY reports.oils_rpt_folder_manager.share_with "Sdílet s:">
+<!ENTITY reports.oils_rpt_folder_manager.create_sub_folder "Vytvořit podsložku">
+<!ENTITY reports.oils_rpt_folder_manager.change_name_confirm "Opravdu chcete změnit název složky?">
+<!ENTITY reports.oils_rpt_folder_manager.delete_name_confirm "Opravdu chcete smazat tuto složku?">
+<!ENTITY reports.oils_rpt_folder_manager.cannot_delete "Tato složka nemůže být smazána, protože není prázdná.">
+<!ENTITY reports.oils_rpt_folder_manager.already_shared "Tato složka je již sdílená">
+<!ENTITY reports.oils_rpt_folder_manager.folder_not_shared "Tato složka není sdílena">
+<!ENTITY reports.oils_rpt_folder_manager.confirm_hide_folder "Opravdu chcete skrýt (nesdílet) tuto složku?">
+
+
+<!ENTITY reports.oils_rpt_folder_window.new_report_from_template "Vytvořit novou zprávu z vybrané (označené) šablony">
+<!ENTITY reports.oils_rpt_folder_window.clone_template "Klonovat vybranou (označenou) šablonu">
+<!ENTITY reports.oils_rpt_folder_window.delete_template "Smazat vybranou (označenou) šablonu/ šablony">
+<!ENTITY reports.oils_rpt_folder_window.clone_report "Klonovat zprávu">
+<!ENTITY reports.oils_rpt_folder_window.schedule_report "Plánování zprávy">
+<!ENTITY reports.oils_rpt_folder_window.view_report "View">
+<!ENTITY reports.oils_rpt_folder_window.edit_report "Edit">
+<!ENTITY reports.oils_rpt_folder_window.delete_reports "Smazat vybranou zprávu /zprávy">
+<!ENTITY reports.oils_rpt_folder_window.view_report_output "Zobrazit výstup zprávy">
+<!ENTITY reports.oils_rpt_folder_window.delete_output "Smazat vybrané výstupy">
+<!ENTITY reports.oils_rpt_folder_window.move_templates "Přesunout vybrané šablony do jiné složky">
+<!ENTITY reports.oils_rpt_folder_window.move_reports "Přesunout vybrané zprávy do jiné složky">
+<!ENTITY reports.oils_rpt_folder_window.move_output "Přesunout vybrané výstupu do jiné složky">
+<!ENTITY reports.oils_rpt_folder_window.submit "Potvrdit">
+<!ENTITY reports.oils_rpt_folder_window.limit_output "Omezit výstup ">
+<!ENTITY reports.oils_rpt_folder_window.all "Všechno">
+<!ENTITY reports.oils_rpt_folder_window.pending_items "Nevyřízené položky">
+<!ENTITY reports.oils_rpt_folder_window.new_template "Vytvořit novou šablonu V této složce">
+<!ENTITY reports.oils_rpt_folder_window.no_items_to_display "Nejsou žádné položky pro zobrazení">
+<!ENTITY reports.oils_rpt_folder_window.completed_items "Dokončené položky">
+<!ENTITY reports.oils_rpt_folder_window.selected_folder "Vybraná složka: ">
+<!ENTITY reports.oils_rpt_folder_window.select_folder "Vybrat složku">
+<!ENTITY reports.oils_rpt_folder_window.cancel "Storno">
+<!ENTITY reports.oils_rpt_folder_window.confirm_delete "Opravdu chcete smazat vybrané položky?">
+<!ENTITY reports.oils_rpt_folder_window.dependant_reports_no_delete "        Jedna nebo více z vybraných šablon nemohou být vymazány, protože 
+existují zprávy, které jsou na nich závislé.">
+<!ENTITY reports.oils_rpt_folder_window.dependant_outputs_no_delete "        Jedna nebo více z vybraných zpráv nemohou být vymazány, protože
+existují výstupy, které jsou na nich závislé.">
+<!ENTITY reports.oils_rpt_folder_window.cannot_delete_another_users_data "Nelze mazat položky jiných uživatelů">
+<!ENTITY reports.oils_rpt_folder_window.cannot_move_another_users_data "Nelze přesouvat položky jiných uživatelů">
+<!ENTITY reports.oils_rpt_folder_window.delete_all_attached_reports "        Tímto budou smazány  také  všechny vaše připojené zprávy a výstupy 
+vytvořené z této  šablony. 
+Pokud mají ostatní uživatelé zprávy nebo  výstupy připojené k této šabloně, 
+zůstanou nedotčeny a šablona nebude smazána. 
+ 
+Chcete pokračovat?">
+<!ENTITY reports.oils_rpt_folder_window.delete_all_attached_outputs "        Tímto smažete také všechny vaše výstupy připojené 
+k této zprávě.  
+Pokud mají ostatní uživatelé  výstupy připojené k této šabloně, 
+zůstanou nedotčeny a zprávy nebude smazána. 
+ 
+Chcete pokračovat?">
+
+
+<!ENTITY reports.oils_rpt_param_editor.column "Sloupec">
+<!ENTITY reports.oils_rpt_param_editor.transform "Transformace">
+<!ENTITY reports.oils_rpt_param_editor.action "Akce, čin">
+<!ENTITY reports.oils_rpt_param_editor.user_params "Uživatelské parametry">
+<!ENTITY reports.oils_rpt_param_editor.or "OR">
+<!ENTITY reports.oils_rpt_param_editor.use_relative_date "Použít namísto toho relativní datum.">
+<!ENTITY reports.oils_rpt_param_editor.days "Den (dny)">
+<!ENTITY reports.oils_rpt_param_editor.weeks "Týden (týdny)">
+<!ENTITY reports.oils_rpt_param_editor.months "Měsíc(e)">
+<!ENTITY reports.oils_rpt_param_editor.ago " před">
+
+
+<!ENTITY reports.xul.template_builder.db_source_browser.label "Procházení zdrojů databáze">
+<!ENTITY reports.xul.template_builder.sources_menulist.label "Zdroje">
+<!ENTITY reports.xul.template_builder.source_name.label "Název zdroje">
+<!ENTITY reports.xul.template_builder.source_nullable.label "Nullable typ">
+<!ENTITY reports.xul.template_builder.nullability_select.label "Umožnit výběr nullability">
+<!ENTITY reports.xul.template_builder.source_specifier.label "Specifikátor zdroje:">
+<!ENTITY reports.xul.template_builder.field_name.label "Název pole">
+<!ENTITY reports.xul.template_builder.data_type.label "Datový typ">
+<!ENTITY reports.xul.template_builder.field_transform.label "Transformace pole">
+<!ENTITY reports.xul.template_builder.params.label "Parametry">
+<!ENTITY reports.xul.template_builder.applicable_datatypes.label "Použitelné datové typy">
+<!ENTITY reports.xul.template_builder.output_type.label "Typ výstupu">
+<!ENTITY reports.xul.template_builder.source_add.label "Přidat vybraná pole">
+<!ENTITY reports.xul.template_builder.template_config_caption.label "Nastavení šablony">
+<!ENTITY reports.xul.template_builder.name.label "Název:">
+<!ENTITY reports.xul.template_builder.description.label "Popis:">
+<!ENTITY reports.xul.template_builder.doc_url.label "Documentation URL:">
+<!ENTITY reports.xul.template_builder.save.label "Uložit">
+<!ENTITY reports.xul.template_builder.displayed_fields.label "Zobrazená pole">
+<!ENTITY reports.xul.template_builder.base_filters.label "Základní filtry">
+<!ENTITY reports.xul.template_builder.aggregate_filters.label "Sdružené filtry">
+<!ENTITY reports.xul.template_builder.display_name.label "Zobrazený název">
+<!ENTITY reports.xul.template_builder.field_transform_type.label "Typ transformace pole">
+<!ENTITY reports.xul.template_builder.alter_display_header.label "Upravit zobrazení záhlaví">
+<!ENTITY reports.xul.template_builder.move_up.label "Posunout nahoru">
+<!ENTITY reports.xul.template_builder.move_down.label "Posunout dolů">
+<!ENTITY reports.xul.template_builder.remove_selected_field.label "Smazat vybrané pole">
+<!ENTITY reports.xul.template_builder.filter_field.label "Pole filtru">
+<!ENTITY reports.xul.template_builder.operator.label "Operátor">
+<!ENTITY reports.xul.template_builder.value.label "Hodnota">
+<!ENTITY reports.xul.template_builder.change_transform.label "Změnit transformaci">
+<!ENTITY reports.xul.template_builder.change_operator.label "Změnit operátor">
+<!ENTITY reports.xul.template_builder.change_value.label "Změnit hodnotu">
+<!ENTITY reports.xul.template_builder.change_field_doc.label "Change Field Hint">
+<!ENTITY reports.xul.template_builder.remove_value.label "Smazat hodnotu">
+<!ENTITY reports.xul.template_builder.remove_selected_fields.label "Smazat vybraná pole">
+<!ENTITY reports.xul.template_builder.table_name.label "Název tabulky">
+<!ENTITY reports.xul.template_builder.sql_alias.label "SQL Alias">
+<!ENTITY reports.xul.template_builder.relationship.label "Vztah">
+<!ENTITY reports.xul.template_builder.field_doc.label "Field Hint">

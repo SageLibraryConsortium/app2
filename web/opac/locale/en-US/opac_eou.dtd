@@ -1,0 +1,46 @@
+<!--    =================================================================
+                Some generic stuff
+                ================================================================= -->
+
+<!ENTITY common.username "EOU ID number">
+<!ENTITY common.password "Library password">
+
+<!--	================================================================= 
+		Page Titles
+		================================================================= -->
+<!ENTITY opac.title.home "EOU Catalog Home">
+<!ENTITY opac.title.mresult "EOU Catalog Title Groups">
+<!ENTITY opac.title.rresult "EOU Catalog Titles">
+<!ENTITY opac.title.myopac "EOU Catalog My Account">
+<!ENTITY opac.title.rdetail "EOU Catalog Title Details">
+<!ENTITY opac.title.advanced "EOU Catalog Advanced Search">
+<!ENTITY opac.title.reqitems "EOU Catalog Request Items">
+<!ENTITY opac.title.cnbrowse "EOU Catalog Call Number Browse">
+
+
+<!-- =================================================================
+                More generic stuff
+                ================================================================= -->
+
+<!ENTITY navigate.home "EOU Catalog home">
+<!ENTITY navigate.titleGroupResults "My Search Results">
+<!ENTITY navigate.titleResults "My Search Results">
+
+<!--    =================================================================
+        Footer
+        ================================================================= -->
+
+<!ENTITY footer.library.url "http://pierce.eou.edu/">
+<!ENTITY footer.library.about "EOU Pierce Library">
+
+
+<!ENTITY login.username "Enter your EOU ID number">
+
+<!--    =================================================================
+        EOU additions
+        ================================================================= -->
+
+<!ENTITY eou.help.idnumber "What's my EOU ID number?">
+<!ENTITY eou.help.idnumber.url "http://pierce.eou.edu/home/help/faq#eouidnumber">
+<!ENTITY eou.help.password "What's my library password?">
+<!ENTITY eou.help.password.url "http://pierce.eou.edu/home/help/faq#newpw">

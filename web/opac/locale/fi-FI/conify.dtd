@@ -1,0 +1,131 @@
+<!-- Common entities -->
+<!ENTITY conify.save_button.label "Tallenna">
+<!ENTITY conify.delete_button.label "Tuhoa">
+<!ENTITY conify.new_kid_button.label "Uusi alatason elementti">
+<!-- Main configuration interface menu -->
+<!ENTITY conify.admin.title "Yleinen :: Ylläpito">
+<!ENTITY conify.admin.top_pane.title "Hallinta">
+<!ENTITY conify.admin.configure "Määritä ILS">
+<!ENTITY conify.admin.left_pane.controls "Hallinta">
+<!ENTITY conify.admin.org_unit_type.link "Organisaatiotyypit">
+<!ENTITY conify.admin.org_unit.link "Organisaatioyksiköt">
+<!ENTITY conify.admin.grp_tree.link "Oikeusryhmät">
+<!ENTITY conify.admin.perm_list.link "Oikeudet">
+<!ENTITY conify.admin.copy_status.link "Niteiden tilat">
+<!ENTITY conify.admin.marc_code_maps.link "Koodatut arvokartat">
+<!ENTITY conify.admin.bottom_pane.title "Hallinta">
+<!-- Organization unit type configuration interface -->
+<!ENTITY conify.org_unit_type.title "Yleinen :: Toimija :: Organisaatioyksikköjen tyypit">
+<!ENTITY conify.org_unit_type.type_tree.label "Organisaatioyksikköjen tyypit">
+<!ENTITY conify.org_unit_type.type_name "Tyyppinimi">
+<!ENTITY conify.org_unit_type.opac_label "Verkkokirjastossa näkyvä nimi">
+<!ENTITY conify.org_unit_type.parent_type "Ylätason elementin tyyppi">
+<!ENTITY conify.org_unit_type.can_have_volumes "Voi sisältää signumeja ja niteitä">
+<!ENTITY conify.org_unit_type.can_have_users "Voi sisältää käyttäjiä">
+<!-- Organization unit configuration interface -->
+<!ENTITY conify.org_unit.title "Yleinen :: Toimija :: Organisaatioyksiköt">
+<!ENTITY conify.org_unit.ou_tree.label "Organisaatioyksiköt">
+<!ENTITY conify.org_unit.editor_pane.title "Pääasetukset">
+<!ENTITY conify.org_unit.editor_pane.org_unit_name "Organisaatioyksikön nimi">
+<!ENTITY conify.org_unit.editor_pane.org_unit_code "Organisaatioyksikön menettelykoodi">
+<!ENTITY conify.org_unit.editor_pane.main_email "Ensisijainen sähköpostiosoite">
+<!ENTITY conify.org_unit.editor_pane.main_phone "Ensisijainen puhelinnumero">
+<!ENTITY conify.org_unit.editor_pane.org_unit_type "Organisaatioyksikön tyyppi">
+<!ENTITY conify.org_unit.editor_pane.parent "Ylätason organisaatioyksikkö">
+<!ENTITY conify.org_unit.editor_pane.opac_visible "OPAC näkyvissä">
+<!-- Hours of operation --> 
+<!ENTITY conify.org_unit.hoo_pane.title "Aukioloajat">
+<!ENTITY conify.org_unit.hoo_pane.open_time "Avausaika">
+<!ENTITY conify.org_unit.hoo_pane.close_time "Sulkemisaika">
+<!ENTITY conify.org_unit.hoo_pane.closed "Suljettu">
+<!ENTITY conify.org_unit.hoo_pane.monday "Maanantai">
+<!ENTITY conify.org_unit.hoo_pane.tuesday "Tiistai">
+<!ENTITY conify.org_unit.hoo_pane.wednesday "Keskiviikko">
+<!ENTITY conify.org_unit.hoo_pane.thursday "Torstai">
+<!ENTITY conify.org_unit.hoo_pane.friday "Perjantai">
+<!ENTITY conify.org_unit.hoo_pane.saturday "Lauantai">
+<!ENTITY conify.org_unit.hoo_pane.sunday "Sunnuntai">
+<!-- Addresses --> 
+<!ENTITY conify.org_unit.addresses_pane.title "Osoitteet">
+<!ENTITY conify.org_unit.addresses_pane.physical.title "Fyysinen osoite">
+<!ENTITY conify.org_unit.addresses_pane.holds.title "Varausten osoite">
+<!ENTITY conify.org_unit.addresses_pane.mailing.title "Postiosoite">
+<!ENTITY conify.org_unit.addresses_pane.ill.title "ILL-osoite">
+<!ENTITY conify.org_unit.addresses_pane.type "Tyyppi">
+<!ENTITY conify.org_unit.addresses_pane.valid "Kelvollinen">
+<!ENTITY conify.org_unit.addresses_pane.street1 "Katuosoite 1">
+<!ENTITY conify.org_unit.addresses_pane.street2 "Katuosoite 2">
+<!ENTITY conify.org_unit.addresses_pane.city "Kaupunki">
+<!ENTITY conify.org_unit.addresses_pane.state "Osavaltio">
+<!ENTITY conify.org_unit.addresses_pane.zip "Postinumero">
+<!ENTITY conify.org_unit.addresses_pane.country "Maa">
+<!ENTITY conify.org_unit.addresses_pane.county "Maakunta">
+<!ENTITY conify.org_unit.addresses_pane.san "SAN">
+<!-- This is a highlighted label that is followed by the name of the organizational unit -->
+<!ENTITY conify.org_unit.status_bar "Nyt muokataan:">
+
+<!ENTITY conify.copy_status.title "Yleinen :: Asetukset :: Niteen tila">
+<!ENTITY conify.copy_status.new_status.label "Uusi tila:">
+<!ENTITY conify.copy_status.new_status.name "Uuden tilan nimi">
+<!ENTITY conify.copy_status.new_status.save "Lisää">
+<!ENTITY conify.copy_status.save_changes "Tallenna muutokset">
+<!ENTITY conify.copy_status.delete_selected "Tuhoa valitut">
+
+<!ENTITY conify.marc_code_maps.title "Yleinen :: Asetukset :: MARC-koodikartat">
+<!ENTITY conify.marc_code_maps.audience_map.title "Yleisökartta">
+<!ENTITY conify.marc_code_maps.audience_map.new.label "Uusi yleisökartta:">
+<!ENTITY conify.marc_code_maps.new_code "Uusi koodi">
+<!ENTITY conify.marc_code_maps.new_value "Uusi arvo">
+<!ENTITY conify.marc_code_maps.audience_map.description "Kuvaus">
+<!ENTITY conify.marc_code_maps.delete_selected "Tuhoa valitut">
+<!ENTITY conify.marc_code_maps.save_changes "Tallenna muutokset">
+
+<!ENTITY conify.marc_code_maps.bib_level.title "Bibliografinen tasokartta">
+<!ENTITY conify.marc_code_maps.bib_level.new.label "Uusi bibliografinen taso:">
+<!ENTITY conify.marc_code_maps.add "Lisää">
+
+<!ENTITY conify.marc_code_maps.item_form.title "Nidemuotokartta">
+<!ENTITY conify.marc_code_maps.item_form.new.label "Uusi nidemuoto:">
+
+<!ENTITY conify.marc_code_maps.item_type.title "Nidetyyppikartta">
+<!ENTITY conify.marc_code_maps.item_type.new.label "Uusi nidetyyppi:">
+
+<!ENTITY conify.marc_code_maps.language.title "Kielikartta">
+<!ENTITY conify.marc_code_maps.language.new.label "Uusi kieli:">
+
+<!ENTITY conify.marc_code_maps.literary_form.title "Kirjallisuusmuotokartta">
+<!ENTITY conify.marc_code_maps.literary_form.new.label "Uusi kirjallisuusmuoto:">
+
+<!ENTITY conify.marc_code_maps.video.title "Videotallennemuotokartta">
+<!ENTITY conify.marc_code_maps.video.new.label "Uusi videotallennemuoto:">
+<!-- perm_list.html Entities -->
+
+<!ENTITY conify.perm_list.permission_list.title "Yleinen :: Oikeudet :: Oikeusluettelo">
+<!ENTITY conify.perm_list.new_code.label "Uusi koodi">
+<!ENTITY conify.perm_list.add_button.label "Lisää">
+<!ENTITY conify.perm_list.save_changes.label "Tallenna muutokset">
+<!ENTITY conify.perm_list.delete_selected.label "Tuhoa valitut">
+<!ENTITY conify.perm_list.new_permission.label "Uusi oikeus:">
+<!-- grp_tree.html Entities --> 
+ 
+<!ENTITY conify.grp_tree.group_tree.title "Yleinen :: Oikeudet :: Ryhmäpuu">
+<!ENTITY conify.grp_tree.permission_groups.label "Oikeusryhmät">
+<!ENTITY conify.grp_tree.group_config.label "Ryhmäasetukset">
+<!ENTITY conify.grp_tree.group_name.label "Ryhmän nimi">
+<!ENTITY conify.grp_tree.description.label "Kuvaus">
+<!ENTITY conify.grp_tree.permission_interval.label "Oikeusväli">
+<!ENTITY conify.grp_tree.hold_priority.label "Varauksen prioriteetti">
+<!ENTITY conify.grp_tree.editing_permission.label "Muokkausoikeus">
+<!ENTITY conify.grp_tree.parent_group.label "Ylätason ryhmä">
+<!ENTITY conify.grp_tree.user_group.label "Käyttäjäryhmä">
+<!ENTITY conify.grp_tree.save_button.label "Tallenna">
+<!ENTITY conify.grp_tree.delete_button.label "Tuhoa">
+<!ENTITY conify.grp_tree.new_child_button.label "Uusi alatason elementti">
+<!ENTITY conify.grp_tree.group_permissions.title "Ryhmäoikeudet">
+<!ENTITY conify.grp_tree.new_mapping.label "Uusi kartoitus">
+<!ENTITY conify.grp_tree.permission.label "Oikeus:">
+<!ENTITY conify.grp_tree.depth.label "Syvyys:">
+<!ENTITY conify.grp_tree.grantable.label "Myönnettävissä:">
+<!ENTITY conify.grp_tree.add_mapping_button.label "Lisää kartoitus">
+<!ENTITY conify.grp_tree.save_changes.label "Tallenna muutokset">
+<!ENTITY conify.grp_tree.remove_selected.label "Tuhoa valitut">

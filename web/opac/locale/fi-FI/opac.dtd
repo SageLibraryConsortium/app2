@@ -1,0 +1,748 @@
+<!--	================================================================= 
+		Some generic stuff 
+		================================================================= -->
+<!ENTITY lang.version "etä v1">
+<!ENTITY lang.description "Englanti">
+<!ENTITY lang.author "PINES">
+<!ENTITY common.all "Kaikki">
+<!ENTITY common.currency "$">
+<!ENTITY common.language "Kieli: ">
+<!ENTITY common.name "Nimi">
+<!ENTITY common.none "Ei yhtään">
+<!ENTITY common.title "Nimeke">
+<!ENTITY common.author "Tekijä">
+<!ENTITY common.authors "Tekijät">
+<!ENTITY common.callnumber "Hyllypaikka">
+<!ENTITY common.edition "Painos">
+<!ENTITY common.subject "Aihe">
+<!ENTITY common.series "Sarja">
+<!ENTITY common.keyword "Avainsana">
+<!ENTITY common.type "Hakutyyppi">
+<!ENTITY common.isbn "ISBN">
+<!ENTITY common.format "Formaatti">
+<!-- Message displayed while search results are loading -->
+<!ENTITY common.loading "Ladataan..."> 
+<!ENTITY common.login "Sisäänkirjautuminen">
+<!ENTITY common.logout "Kirjaudu ulos">
+<!ENTITY common.physical "Fyysinen kuvaus">
+<!ENTITY common.pubdate "Julkaisuaika">
+<!ENTITY common.publisher "Julkaisija">
+<!ENTITY common.results "Tulokset">
+<!ENTITY common.select "Valitse">
+<!ENTITY common.status "Tila">
+<!ENTITY common.at "kohteessa">
+<!ENTITY common.of "/">
+<!ENTITY common.no "Ei">
+<!ENTITY common.yes "Kyllä">
+<!ENTITY common.cancel "Peruuta">
+<!ENTITY common.library "Kirjasto">
+<!ENTITY common.username "Käyttäjätunnus">
+<!ENTITY common.password "Salasana">
+<!ENTITY common.submit "Lähetä">
+<!ENTITY common.close "sulje">
+<!ENTITY common.and "ja">
+<!ENTITY common.user_not_found "Käyttäjää ei löydy">
+<!ENTITY opac.advanced.wizard.title "Tarkennettu haku">
+<!ENTITY common.nowSearching "Etsitään nyt: ">
+<!ENTITY common.ofAtLeast " / noin ">
+<!ENTITY common.relevancy "Osuvuuspisteet: ">
+<!ENTITY common.tips "Vinkit:">
+<!ENTITY common.tips.tip1 "Napsauta sivupalkin kansiokuvaketta, jos haluat päästä käsiksi aiheeseen liittyviin pikahakuihin">
+<!ENTITY common.tips.tip2 "Jos et löydä etsimääsi, yritä laajentaa hakua käyttämällä aluevalintaa hakupalkin oikeassa reunassa.">
+<!ENTITY common.org.openAll "Laajenna kaikki">
+<!ENTITY common.org.closeAll "Sulje kaikki">
+<!ENTITY common.org.cancel "Peruuta">
+<!ENTITY common.org.loading "Ladataan kirjastovalitsinta...">
+<!ENTITY common.org.note "Vinkki:">
+<!ENTITY common.org.notetext "Valitse sijanti napsauttamalla sen nimeä. Laajenna osuus napsauttamalla kansiokuvakkeita.">
+<!ENTITY opac.login.login "Sisäänkirjautuminen">
+<!ENTITY opac.basic "Perusluettelo (vain HTML)">
+<!ENTITY common.password_criteria  "Salasanan on oltava vähintään 7 merkin mittainen, ja 
+siinä on oltava vähintään yksi kirjain (a-z/A-Z) 
+sekä vähintään yksi numero.">
+<!ENTITY common.a2z.title "Nimeke: A-Ö">
+<!ENTITY common.z2a.title "Nimeke: Ö-A">
+<!ENTITY common.a2z.author "Tekijä: A-Ö">
+<!ENTITY common.z2a.author "Tekijä: Ö-A">
+<!ENTITY common.new2old.pubdate "Päiväys: Uusimmasta vanhimpaan">
+<!ENTITY common.old2new.pubdate "Päiväys: Vanhimmasta uusimpaan">
+
+<!ENTITY opac.style.reddish "Punertava">
+
+<!ENTITY holds.where_am_i "Varausjonot eivät toimi yksinkertaisella 
+'ensimmäinen varaaja saa ensimmäiseksi'-periaatteella. Ne käyttävät monimutkaista matriisia,
+joka ottaa huomioon niteen ja asiakkaan kotikirjaston sekä niteen ostopäivän
+määrittäessään varausten prioriteetteja; luettelo on dynaaminen ja vaihtuu
+jokaisen varauksen myötä. Näin ollen mikä tahansa ilmoitus paikasta
+varausluettelossa olisi epätarkka. Varausjärjestelmä on suunniteltu niin,
+että pyydetty nide toimitetaan nopeimmalla ja tehokkaimmalla mahdollisella tavalla. 
+Kirjastosi ottaa sinuun yhteyttä, kun varattu nide on saatavissa.">
+
+<!ENTITY holds.advanced_options  "Jos haluat laajentaa varauksesi koskemaan tämän nimekkeen
+muita versioita, valitse sinulle käyvät aineistolajit. Saat
+ensimmäisen saatavilla oleva niteen.">
+<!--	================================================================= 
+		Events and Permissions 
+		================================================================= -->
+
+<!ENTITY ilsevent.0 "Toiminto onnistui">
+<!ENTITY ilsevent.1000 "Sisäänkirjautuminen epäonnistui. Käyttäjänimi tai salasana oli virheellinen.">
+<!ENTITY ilsevent.1001 "Sisäänkirjautumisistunto on vanhentunut tai sitä ei löydy.">
+<!ENTITY ilsevent.1002 "Käyttäjää ei löytynyt tietokannasta">
+<!ENTITY ilsevent.1200 "Annettu käyttäjätunnus löytyy jo tietokannasta">
+<!ENTITY ilsevent.5000 "Ei oikeuksia">
+<!ENTITY ilsperm.CREATE_HOLD "Käyttäjällä ei ole oikeutta luoda varauksia muille käyttäjille tässä sijainnissa.">
+<!--	================================================================= 
+	common/pages
+	================================================================= -->
+
+
+<!ENTITY common.cn.loading "Ladataan hyllypaikkasivua...">
+<!ENTITY common.cn.browsing "Selaat nyt:">
+<!ENTITY common.cn.previous "&lt;&lt; Edellinen sivu">
+<!ENTITY common.cn.shelf "Hyllyselain">
+<!ENTITY common.cn.next "Seuraava sivu &gt;&gt;">
+
+<!ENTITY common.textsize.title "Tekstin koko: ">
+<!ENTITY common.textsize.regular "Tavallinen">
+<!-- Regular / Large -->
+<!ENTITY common.textsize.separator "/"> 
+<!ENTITY common.textsize.large "Suuri">
+<!ENTITY common.googlechromeframe.why "Evergreenin käyttämisesi nopeutuu ja saat käyttöösi lisätoimintoja, jos asennat Google Chrome Frame -liitännäisen Internet Exploreriin!">
+<!ENTITY common.googlechromeframe.install "Asenna nyt!">
+<!ENTITY common.googlechromeframe.dontask "Älä kysy uudelleen">
+
+<!ENTITY home.js.disabled "JavaScriptin on oltava käytössä, jotta voit käyttää tavallista Evergreen-tietokantaa. 
+Näyttää kuitenkin siltä, että selaimesi ei joko tue JavaScriptiä tai se on pois käytöstä. Ota JavaScript käyttöön muokkaamalla selaimesi asetuksia ja 
+<a style='color: blue; text-decoration: underline;' href='/'>yritä uudelleen</a>. 
+<br/><br/>Vaihtoehtoisesti voit käyttää perus-HTML-tietokantaa 
+<a style='color: blue; text-decoration: underline;' href='/opac/extras/slimpac/start.html'>täällä</a>. ">
+<!--	================================================================= 
+	 MyOPAC bookbag page
+	================================================================= -->
+
+<!ENTITY myopac.delete.bookbag "Tämä poistaa valitun kirjahyllyn ja kaikki sen sisältämät niteet. 
+Haluatko varmasti jatkaa?">
+<!ENTITY myopac.no.bookbags "Et ole luonut yhtään kirjahyllyä">
+<!ENTITY myopac.bookbags.title "Omat kirjahyllyt">
+<!ENTITY myopac.bookbag.items "# niteitä">
+<!ENTITY myopac.bookbag.shared "Jaettu">
+<!ENTITY myopac.bookbag.toggle "Jaa / piilota">
+<!ENTITY myopac.bookbag.delete "Poistetaanko kirjahylly?">
+<!ENTITY myopac.items "Niteet">
+<!ENTITY myopac.view "(Näytä)">
+<!ENTITY myopac.atom.feed "ATOM-syöte">
+<!ENTITY myopac.bookbag.hide "Piilota">
+<!ENTITY myopac.delete "Poista">
+<!ENTITY myopac.bookbag.create "Luo uusi kirjahylly">
+<!ENTITY myopac.bookbag.naming "Syötä uuden kirjahyllyn nimi: ">
+<!ENTITY myopac.bookbag.share "Jaa tämä kirjahylly">
+<!ENTITY myopac.bookbag.refworks "Vie RefWorksiin">
+<!ENTITY myopac.bookbag.no.items "Valitussa kirjahyllyssä ei ole niteitä...">
+<!ENTITY myopac.bookbag.remove "Poistetaanko tämä nide?">
+<!ENTITY myopac.remove.link "poista">
+<!ENTITY myopac.publish.text "Jaettu kirjahylly tarkoittaa, että kirjahyllyn sisältö näkyy muille. 
+Näet jaetun kirjahyllyn julkisen näkymän napsauttamalla &quot;Näytä&quot;-linkkiä
+kirjahyllyluettelon &quot;Jaetut&quot;-sarakkeessa tämän sivun yläreunassa.">
+<!ENTITY myopac.item.confirm "Haluatko varmasti poistaa tämän kirjahyllyniteen?">
+<!ENTITY myopac.publish.confirm "Tämän kirjahyllyn jakaminen tarkoittaa, että 
+muut voivat nähdä kirjahyllyn sisällön. Haluatko varmasti jakaa kirjahyllyn?">
+<!ENTITY myopac.unpublish.confirm "Haluatko varmasti piilottaa tämän kirjahyllyn?">
+<!ENTITY myopac.update.success "Kirjahylly päivitettiin onnistuneesti.">
+<!ENTITY myopac.updated.success "Kirjahylly päivitetty onnistuneesti">
+<!ENTITY myopac.create.warning "Varoitus: Kun lisäät niteitä kirjahyllyyn, niiden ja tietokannassa olevien
+niteiden välille muodostuu linkki. Kirjahyllyn niteet EIVÄT ole julkisesti 
+näkyvillä, ellei kirjahyllyä jaeta. Jos et kuitenkaan halua luoda minkäänlaista 
+linkkiä asiakastietueesi ja tietyn niteen tai niteiden välillä, 
+suosittelemme, ettet lisää tällaisia niteitä kirjahyllyyn tai että 
+yleisesti ottaen vältät kirjahyllyjen käyttöä. Kiitos.">
+<!ENTITY myopac.describe.bookbags "Kirjahyllyt ovat...">
+<!--	================================================================= 
+	MyOPAC Checked Page 
+	================================================================= -->
+
+<!ENTITY myopac.checked.out "Niteitä lainassa yhteensä:">
+<!ENTITY myopac.checked.overdue "Erääntyneitä niteitä yhteensä:">
+<!ENTITY myopac.checked.renew "Uusi valitut lainat">
+<!ENTITY myopac.checked.renewing "Uusitaan...">
+<!ENTITY myopac.checked.renew.remaining "Uusintoja jäljellä">
+<!ENTITY myopac.checked.noitems "Sinulla ei tällä hetkellä ole lainoja">
+<!ENTITY myopac.checked.other.circ "Muut lainat">
+<!ENTITY myopac.checked.circ.lib "Lainaava kirjasto">
+<!ENTITY myopac.checked.item.type "Lainaustyyppi">
+<!ENTITY myopac.checked.circ.time "Palauta viimeistään...">
+<!ENTITY myopac.checked.renew.success "Nide/niteet uusittu onnistuneesti">
+<!ENTITY myopac.checked.renew.confirm "Haluatko varmasti uusia valitut lainat?">
+<!ENTITY myopac.checked.renew.fail "Järjestelmä ei pysty uusimaan valittua nidettä tällä hetkellä. Yleensä tämä tarkoittaa, että nidettä tarvitaan varauksen täyttämiseen. Kysy lisätietoja kirjastovirkailijalta.">
+<!ENTITY myopac.checked.renew.fail2 "Kirjastosäännöt estävät tämän niteen uusimisen tällä hetkellä.  Kysy lisätietoja kirjastovirkailijalta.">
+<!--	================================================================= 
+	MyOPAC Fines Page 
+	================================================================= -->
+
+<!ENTITY myopac.fines.title "Yhteenveto">
+<!ENTITY myopac.fines.owed "Velkaa yhteensä">
+<!ENTITY myopac.fines.paid "Maskettu yhteensä">
+<!ENTITY myopac.fines.balance "Maksuja maksamatta">
+<!ENTITY myopac.fines.status "Ladataan...">
+<!ENTITY myopac.fines.overdue "Erääntyneet aineistot">
+<!ENTITY myopac.fines.checkout "Lainauspäivä">
+<!ENTITY myopac.fines.due "Eräpäivä">
+<!ENTITY myopac.fines.returned "Palautuspäivä">
+<!ENTITY myopac.fines.accruing "(kerääntyviä maksuja)">
+<!ENTITY myopac.fines.other "Muut maksut">
+<!ENTITY myopac.fines.time.start "Maksutapahtuman aloitusaika">
+<!ENTITY myopac.fines.time.paid "Viimeisin maksuaika">
+<!ENTITY myopac.fines.owed.initial "Velkaa aluksi">
+<!ENTITY myopac.fines.paid.amount "Maksettu yhteensä">
+<!ENTITY myopac.fines.type "Maksutyyppi">
+<!--	================================================================= 
+	MyOPAC Holds Page 
+	================================================================= -->
+
+
+<!ENTITY myopac.holds.formats "Muodot">
+<!ENTITY myopac.holds.location "Noutopaikka">
+<!ENTITY myopac.holds.edit "Muokkaa">
+<!ENTITY myopac.holds.status.none "Sinulla ei tällä hetkellä ole varauksia">
+<!ENTITY myopac.holds.status.waiting "Odotetaan nidettä">
+<!ENTITY myopac.holds.status.intransit "Kuljetettavana">
+<!ENTITY myopac.holds.status.available "Valmis noudettavaksi">
+<!ENTITY myopac.holds.status.suspended "Ennakkovaraus">
+<!ENTITY myopac.holds.cancel "Peruuta">
+<!ENTITY myopac.holds.verify "Jos haluat perua valitun varauksen, napsauta OK, muussa tapauksessa napsauta Peruuta.">
+<!ENTITY myopac.holds.freeze_selected "Aseta ennakkovaraukseksi">
+<!ENTITY myopac.holds.thaw_selected "Aktivoi">
+<!ENTITY myopac.holds.thaw_date_selected "Aseta aktivointipäivä">
+<!ENTITY myopac.holds.cancel_selected "Peruuta">
+<!ENTITY myopac.holds.processing "Käsitellään varauksia... Tämä saattaa kestää hetken.">
+<!ENTITY myopac.holds.actions "Toiminnot valituille varauksille">
+<!ENTITY myopac.holds.cancel.confirm "Haluatko varmasti perua valitut varaukset?">
+<!ENTITY myopac.holds.freeze.confirm "Haluatko varmasti tehdä valituista varauksista ennakkovarauksia? 
+Jos nide on jo valittu täyttämään varaus, siitä ei tehdä ennakkovarausta.">
+<!ENTITY myopac.holds.thaw.confirm "Haluatko varmasti aktivoida valitut varaukset?">
+<!ENTITY myopac.holds.thaw_date.confirm "Haluatko varmasti vaihtaa valittujen varausten aktivointipäivän?">
+<!ENTITY myopac.holds.freeze.select_thaw "Valitse automaattinen aktivointipäivä. Jos päiväystä ei valita, varaukset jäävät ennakkovarauksiksi, kunnes ne aktivoidaan manuaalisesti.">
+
+<!ENTITY opac.holds.freeze "Muuta varaus ennakkovaraukseksi">
+<!ENTITY opac.holds.freeze.help "Ennakkovaraus säilyttää paikkansa jonossa, mutta sitä ei täytetä, ennen kuin se on aktivoitu.">
+<!ENTITY opac.holds.freeze.thaw_date "Aktivoi varaus automaattisesti:">
+<!ENTITY opac.holds.expire_time "Vanhentumispäivä">
+<!ENTITY myopac.holds.estimated_wait "Oletettu odotusaika (päiviä)">
+<!--	================================================================= 
+	MyOPAC Preferences Page 
+	================================================================= -->
+
+<!ENTITY myopac.prefs.title "Asetukset">
+<!ENTITY myopac.prefs.hits "Hakutuloksia sivulla">
+<!ENTITY myopac.prefs.font "Oletusfonttikoko">
+<!ENTITY myopac.prefs.font.regular "Tavallinen fontti">
+<!ENTITY myopac.prefs.font.large "Suurikokoinen fontti">
+<!ENTITY myopac.prefs.holds.notify "Oletettu varauksen ilmoitustapa">
+<!ENTITY myopac.prefs.holds.both "Käytä puhelinta ja sähköpostia">
+<!ENTITY myopac.prefs.holds.phone "Käytä vain puhelinta">
+<!ENTITY myopac.prefs.holds.email "Käytä vain sähköpostia">
+<!ENTITY myopac.prefs.search.location "Haun oletuskirjasto">
+<!ENTITY myopac.prefs.search.home "Hae aina oletuksena kotikirjastosta.">
+<!ENTITY myopac.prefs.search.range "Haun oletusalue">
+<!ENTITY myopac.prefs.save "Tallenna asetusmuutokset">
+<!ENTITY myopac.prefs.save.success "Asetukset päivitetty onnistuneesti">
+<!ENTITY myopac.prefs.save.failed "Asetusten päivitys epäonnistui!">
+<!ENTITY myopac.prefs.help "Tämä asetus määrittelee, kuinka sinulle ilmoitetaan varauksista, jotka ovat valmiita noudettaviksi kirjastosta. 
+Oletuksena varaukset käyttävät ilmoitustyyliä, jonka valitset tässä. 
+Tästä huolimatta sinulla on edelleen mahdollisuus muuttaa yksittäisiä varauksia oletusasetuksesta riippumatta.">
+<!ENTITY myopac.holds.unfrozen "Aktiivinen">
+<!ENTITY myopac.holds.frozen.until "Aktivoi...">
+<!--	================================================================= 
+	 MyOPAC Summary page
+	================================================================= -->
+
+<!ENTITY myopac.summary.expired "Tilisi vanhentui <span id='myopac.expired.date'/>! 
+Uusi tilisi ottamalla yhteyttä kirjastovirkailijaan.">
+<!ENTITY myopac.summary.notes "* Henkilökunnan ilmoitukset *">
+<!ENTITY myopac.summary.phone.day "Puhelin päivällä">
+<!ENTITY myopac.summary.phone.evening "Puhelin iltaisin">
+<!ENTITY myopac.summary.phone.other "Muu puhelin">
+<!ENTITY myopac.summary.change "Muuta">
+<!ENTITY myopac.summary.username.enter "Syötä uusi käyttäjänimi:">
+<!ENTITY myopac.summary.password.text "(ei näytetä)">
+<!ENTITY myopac.summary.password.current "Syötä nykyinen salasana:">
+<!ENTITY myopac.summary.password.new "Syötä uusi salasana:">
+<!ENTITY myopac.summary.password.reenter "Syötä uusi salasana uudelleen:">
+<!ENTITY myopac.summary.email "Sähköpostiosoite">
+<!ENTITY myopac.summary.email.new "Syötä uusi sähköpostiosoite:">
+<!ENTITY myopac.summary.id.primary "Ensisijainen tunnistus">
+<!ENTITY myopac.summary.barcode "Aktivoi tunnus">
+<!ENTITY myopac.summary.home "Kotikirjasto">
+<!ENTITY myopac.summary.genesis "Tilin luomispäivä">
+<!ENTITY myopac.summary.addresses "Osoitteet">
+<!ENTITY myopac.summary.addresses.pending "Vireillä olevat osoitteet">
+<!ENTITY myopac.summary.address.type "Osoitteen tyyppi">
+<!ENTITY myopac.summary.address.street "Katuosoite">
+<!ENTITY myopac.summary.address.city "Kaupunki">
+<!ENTITY myopac.summary.address.county "Maakunta">
+<!ENTITY myopac.summary.address.state "Osavaltio">
+<!ENTITY myopac.summary.address.country "Maa">
+<!ENTITY myopac.summary.address.zip "Postinumero">
+<!ENTITY myopac.summary.address.edit "Muokkaa osoitetta">
+<!ENTITY myopac.summary.address.invalid "Virheellinen osoite">
+
+<!ENTITY myopac.summary.username.error "Syötä käyttäjänimi">
+<!ENTITY myopac.summary.username.dup "Pyydetty käyttäjänimi ei ole saatavilla. Valitse toinen käyttäjänimi.">
+<!ENTITY myopac.summary.username.success "Käyttäjänimi päivitetty onnistuneesti">
+<!ENTITY myopac.summary.username.failure "Käyttäjänimen päivitys epäonnistui">
+<!ENTITY myopac.summary.username.invalid "Käyttäjänimi ei voi sisältää välilyöntejä tai olla samaa muotoa kuin nidetunnus, ja siihen saattaa päteä muita rajoituksia">
+<!ENTITY myopac.summary.email.error "Syötä kelvollinen sähköpostiosoite">
+<!ENTITY myopac.summary.email.success "Sähköpostiosoite päivitetty onnistuneesti">
+<!ENTITY myopac.summary.email.failed "Sähköpostiosoitteen päivitys epäonnistui">
+<!ENTITY myopac.summary.password.error "Salasanat ovat tyhjät tai eivät vastaa toisiaan">
+<!ENTITY myopac.summary.password.success "Salasana päivitetty onnistuneesti">
+<!ENTITY myopac.summary.password.failure "Salasanan päivitys epäonnistui">
+<!--	================================================================= 
+	Advanced Search Page 
+	================================================================= -->
+
+<!ENTITY opac.advanced.wizard.contains "Valittu kenttä sisältää seuraavat sanat">
+<!ENTITY opac.advanced.wizard.nocontains "Valitse kenttä <u>ei</u> sisällä seuraavia sanoja">
+<!ENTITY opac.advanced.wizard.exact "Valittu kenttä sisältää <u>täsmällisen</u> lausekkeen">
+<!ENTITY opac.advanced.refined.title "Monipuolinen tarkennettu haku">
+<!ENTITY opac.advanced.refined.title_contains "Nimeke sisältää seuraavat sanat">
+<!ENTITY opac.advanced.refined.author_contains "Tekijä sisältää seuraavat sanat">
+<!ENTITY opac.advanced.refined.subject_contains "Aihe sisältää seuraavat sanat">
+<!ENTITY opac.advanced.refined.series_contains "Sarja sisältää seuraavat sanat">
+<!ENTITY opac.advanced.refined.contains "Sisältää">
+<!ENTITY opac.advanced.refined.nocontains "Ei sisällä">
+<!ENTITY opac.advanced.refined.exact "Vastaa täsmälleen">
+<!ENTITY opac.advanced.marc.warning "Kirjastovirkailijoille">
+<!ENTITY opac.advanced.marc.title "MARC-ammattilaishaku">
+<!ENTITY opac.advanced.marc.tag "MARC-avainsana">
+<!ENTITY opac.advanced.marc.ind1 "Ilmaisin 1">
+<!ENTITY opac.advanced.marc.ind2 "Ilmaisin 2">
+<!ENTITY opac.advanced.marc.subfield "Alakenttä">
+<!ENTITY opac.advanced.marc.value "Arvo">
+<!ENTITY opac.advanced.marc.addrow "Lisää uusi rivi">
+<!ENTITY opac.advanced.quick.title "Pikahaku">
+<!ENTITY opac.advanced.quick.isbn "ISBN">
+<!ENTITY opac.advanced.quick.issn "ISSN">
+<!ENTITY opac.advanced.quick.lccn "LCCN"> 
+<!-- title control number -->
+<!ENTITY opac.advanced.quick.tcn "Tietuenumero"> 
+<!ENTITY opac.advanced.quick.barcode "Nidetunnus"> 
+<!ENTITY opac.advanced.quick.cn "Hyllypaikka"> 
+<!ENTITY opac.advanced.copy_loc_filter "Hyllysijainti">
+<!-- ==========================================================
+     MARC expert search
+     ========================================================== -->
+
+<!ENTITY search.marc "MARC-ammattilaishaku">
+<!ENTITY search.marc.tag "Avainsana:">
+<!ENTITY search.marc.subfield "Alakenttä:">
+<!ENTITY search.marc.value "Arvo:">
+<!ENTITY search.marc.add.row "Lisää rivi loppuun">
+<!-- ==========================================================
+     Status bar
+     ========================================================== -->
+
+
+<!ENTITY status.results "Sisältää tulokset kohteelle">
+<!-- ==========================================================
+     Tips
+     ========================================================== -->
+
+
+<!ENTITY tips.label "Vinkki:">
+<!-- ================================================================= 
+		More generic stuff 
+		================================================================= -->
+
+<!ENTITY opac.session_expiring "Sisäänkirjautumisistuntosi vanhentuu minuutin kuluttua, jos et tee mitään.">
+<!ENTITY opac.session_expired "Sisäänkirjautumisistuntosi on vanhentunut">
+<!ENTITY navigate.home "Etusivu">
+<!ENTITY navigate.home.title "Siirry kotisivulle">
+<!ENTITY opac.navigate.advanced "Tarkennettu haku">
+<!ENTITY opac.navigate.advanced.title "Siirry tarkennetulle hakusivulle">
+<!ENTITY navigate.myopac "Oma tili">
+<!ENTITY opac.navigate.myopac "Oma tili">
+<!ENTITY navigate.myopac.title "Siirry Omaan verkkokirjastoon">
+<!ENTITY navigate.login "Kirjaudu sisään">
+<!ENTITY navigate.login.title "Ota käyttöön muokatut ominaisuudet kirjautumalla sisään">
+<!ENTITY navigate.logout "Kirjaudu ulos">
+<!ENTITY navigate.logout.title "Kirjaudu ulos">
+<!ENTITY opac.navigate.selectNewOrg "Valitse eri kirjasto">
+<!ENTITY opac.navigate.selectOrg "Valitse kirjasto hakua varten">
+<!ENTITY navigate.loggedinas "Olet kirjautunut sisään nimellä ">
+<!ENTITY navigate.loggedinas.title "Kirjauduttu sisään nimellä...">
+<!ENTITY navigate.titleGroupResults "Omat hakutulokset">
+<!ENTITY navigate.titleResults "Omat nimeketulokset">
+<!ENTITY navigate.facetRefine "Muokkaa hakua">
+<!ENTITY navigate.title.details "Omat nimeketiedot">
+<!ENTITY navigate.record.details "Tietueen tiedot">
+<!--	================================================================= 
+	Footer
+	================================================================= -->
+
+<!ENTITY footer.basic "Perustietokanta (vain HTML)">
+<!ENTITY footer.find.library "Etsi lähikirjasto">
+<!ENTITY footer.find.url "http://www.georgialibraries.org/lib/directories/pineslibdir.html">
+<!ENTITY footer.help.url "http://open-ils.org/dokuwiki/doku.php?id=evergreen-user:opac_help">
+<!ENTITY footer.help "Ohje">
+<!ENTITY footer.library.url "http://www.georgialibraries.org/public/pines.html">
+<!ENTITY footer.library.about "Tietoja PINESistä">
+<!ENTITY footer.union.url "http://www.galileo.usg.edu/">
+<!ENTITY footer.union "GALILEO">
+<!ENTITY footer.copyright "Copyright &#xA9; 2006-2012 Georgia Public Library Service ja muut">
+<!-- Introduces the logo for the project -->
+<!ENTITY footer.logo "Järjestelmää pyörittää"> 
+<!--	================================================================= 
+	My OPAC
+	================================================================= -->
+
+<!ENTITY myopac.account "Tilin yhteenveto">
+<!ENTITY myopac.checkouts "Lainat">
+<!ENTITY myopac.holds "Varaukset">
+<!ENTITY myopac.fines "Maksut">
+<!ENTITY myopac.preferences "Tilin asetukset">
+<!ENTITY myopac.bookbags "Omat kirjahyllyt">
+<!--	================================================================= 
+	Sidebar 
+	================================================================= -->
+
+<!ENTITY sidebar.relevantSubjects.headerLabel "Asiaankuuluvat aiheet">
+<!ENTITY sidebar.relevantAuthors.headerLabel "Asiaankuuluvat tekijät">
+<!ENTITY sidebar.relevantSeries.headerLabel "Asiaankuuluvat sarjat">
+<!ENTITY sidebar.relevantReviews.headerLabel "Arvostelut">
+<!ENTITY sidebar.quick.search "Pikahaku">
+<!ENTITY sidebar.authority.browse "Auktoriteettiselaus">
+<!ENTITY sidebar.copy.not.found "Pyydetyllä tunnuksella ei löytynyt nidettä">
+<!ENTITY sidebar.copy.not.cataloged "Pyydettyyn tunnukseen liitettyä nidettä ei ole luetteloitu">
+<!--	================================================================= 
+		Search formats
+		================================================================= -->
+
+<!ENTITY opac.search.books "Kirjat">
+<!ENTITY opac.search.allFormats "Kaikki formaatit">
+<!ENTITY opac.search.largePrint "Isotekstiset kirjat">
+<!ENTITY opac.search.ebook "E-kirjat">
+<!ENTITY opac.search.audioBooks "Äänikirjat">
+<!ENTITY opac.search.videoRecordings "Videotallenteet">
+<!ENTITY opac.search.music "Musiikki">
+<!ENTITY opac.search.electronic "Elektroniset aineistot">
+<!ENTITY opac.search.nowSearching "Etsitään nyt">
+<!--	================================================================= 
+		Page Titles
+		================================================================= -->
+
+
+<!ENTITY opac.title.home "Evergreen - Etusivu">
+<!ENTITY opac.title.mresult "Evergreen - Nimekeryhmät">
+<!ENTITY opac.title.rresult "Evergreen - Nimekkeet">
+<!ENTITY opac.title.myopac "Evergreen - Oma tili">
+<!ENTITY opac.title.rdetail "Evergreen - Nimekkeen tiedot">
+<!ENTITY opac.title.advanced "Evergreen - Tarkennettu haku">
+<!ENTITY opac.title.reqitems "Evergreen - Hankintapyynnöt">
+<!ENTITY opac.title.cnbrowse "Evergreen - Hyllypaikkojen selaus">
+<!ENTITY opac.title.authbrowse "Evergreen - Auktoriteettitietueiden selaus">
+
+
+<!ENTITY opac.holds.forMe "Tee varaus itsellesi">
+<!ENTITY opac.holds.xulRecipient "Syötä vastaanottajan tunnus">
+<!ENTITY opac.holds.recipient "Vastaanottaja">
+<!ENTITY opac.holds.placeHold "Varaa">
+<!ENTITY opac.holds.exportRefWorks "Vie RefWorksiin">
+<!ENTITY opac.holds.contactPhone "Puhelinnumero yhteydenottoon">
+<!ENTITY opac.holds.contactEmail "Sähköpostiosoite yhteydenottoon">
+<!ENTITY opac.holds.pickupLocation "Noutopaikka">
+<!ENTITY opac.holds.success "Varaus tehtiin onnistuneesti">
+<!ENTITY opac.holds.failure "Varausta ei tehty onnistuneesti">
+<!ENTITY opac.hold.has_parts "Järjestelmä ei pystynyt tekemään pyydettyä varausta. Valitussa niteessä on useita valittavia osia. Koita varata jokin tietty osa.">
+<!--	================================================================= 
+	Advanced
+	================================================================= -->
+<!ENTITY advanced.search.title "Hakusyöttö">
+<!ENTITY advanced.add.row "Lisää hakurivi">
+<!ENTITY advanced.search.submit "Suorita haku">
+<!ENTITY advanced.search.reset "Tyhjennä lomake">
+<!ENTITY advanced.search.filters "Hakusuodattimet">
+<!ENTITY advanced.item.form "Teoksen muoto">
+<!ENTITY advanced.item.type "Aineistolaji">
+<!ENTITY advanced.link "Edistynyt">
+<!ENTITY advanced.basic.link "Perus">
+<!ENTITY advanced.literary.form "Kirjallisuudenlaji">
+<!ENTITY advanced.non.fiction "Tietokirjallisuus">
+<!ENTITY advanced.fiction "Kertomakirjallisuus">
+<!ENTITY advanced.language "Kieli">
+<!ENTITY advanced.audience "Yleisö">
+<!ENTITY advanced.adult "Aikuiset">
+<!ENTITY advanced.juvenile "Nuoriso">
+<!ENTITY advanced.general "Yleinen">
+<!ENTITY advanced.sort.criteria "Lajitteluperuste">
+<!ENTITY advanced.search.library "Hakukirjasto">
+<!ENTITY advanced.relevance "Relevanssi">
+<!ENTITY advanced.pubdate "Julkaisuaika">
+<!ENTITY advanced.sort.asc "Nouseva / A-Ö">
+<!ENTITY advanced.sort.desc "Laskeva / Ö-A">
+<!ENTITY advanced.frbrize "Aineistolajiryhmät ja eri painokset">
+<!ENTITY advanced.go "Siirry">
+<!ENTITY advanced.biblevel "Bibliografisen tietueen taso">
+<!ENTITY advanced.filter.pubyear "Julkaisuvuosi">
+<!ENTITY advanced.filter.pubyear.equals "On">
+<!ENTITY advanced.filter.pubyear.before "Ennen">
+<!ENTITY advanced.filter.pubyear.after "Jälkeen">
+<!ENTITY advanced.filter.pubyear.between "Välissä">
+<!--	================================================================= 
+	Rdetail
+	================================================================= -->
+
+<!ENTITY rdetail.print "tulosta nämä tiedot">
+<!ENTITY rdetail.cn.part "Osa">
+<!ENTITY rdetail.cn.barcode "Tunnus">
+<!ENTITY rdetail.cn.location "Sijainti">
+<!ENTITY rdetail.cn.hold.age "Varaussuoja-aika">
+<!ENTITY rdetail.cn.genesis "Luomispäivä">
+<!ENTITY rdetail.cn.active "Aktivointipäivä">
+<!ENTITY rdetail.cn.holdable "Varattavissa">
+<!ENTITY rdetail.cn.due "Eräpäivä">
+<!ENTITY rdetail.cn.more "lisätietoja...">
+<!ENTITY rdetail.cn.less "vähemmän tietoja">
+<!ENTITY rdetail.cn.hold "varaa">
+<!ENTITY rdetail.cn.reserve "varaa nyt">
+<!ENTITY rdetail.cn.multi_home "linkitetyt otsikot">
+<!ENTITY rdetail.cn.disabled "- Ei käytössä -">
+<!ENTITY rdetail.cn.note "Nideilmoitus">
+<!ENTITY rdetail.cn.category "Nidekategoria">
+<!ENTITY rdetail.cn.print "Tulosta sivu">
+<!ENTITY rdetail.page.results "Ensimmäinen tulossivu">
+<!-- Result # &common.of; # -->
+<!ENTITY rdetail.result "Tulos"> 
+<!ENTITY rdetail.start "Aloitus">
+<!ENTITY rdetail.page.previous "Edellinen sivu">
+<!ENTITY rdetail.page.previous.short "&#171;">
+<!ENTITY rdetail.page.next "Seuraava sivu">
+<!ENTITY rdetail.page.next.short "&#187;">
+<!ENTITY rdetail.page.last "Viimeinen tulossivu">
+<!ENTITY rdetail.end "Loppu">
+<!ENTITY rdetail.more "Lisää toimintoja...">
+<!ENTITY rdetail.bookbag.add "Lisää kirjahyllyyn">
+<!ENTITY rdetail.bookbag.create "Luo uusi kirjahylly">
+<!ENTITY rdetail.record.deleted "Tietue on tuhottu tietokannasta. 
+Suosittelemme, että poistat tämän nimekkeen kaikista kirjahyllyistä, joihin olet sen mahdollisesti lisännyt.">
+<!ENTITY rdetail.none "(ei mitään)">
+<!ENTITY rdetail.bookbag.add.success "Nide lisätty onnistuneesti kirjahyllyyn">
+<!ENTITY rdetail.bookbag.name "Syötä uuden kirjahyllyn nimi">
+<!ENTITY rdetail.bookbag.create.success "Kirjahylly luotu onnistuneesti">
+<!ENTITY rdetail.detailMain.headerLabel "Tietueen yhteenveto">
+<!ENTITY rdetail.detailMain.subjects "Aiheet">
+<!ENTITY rdetail.detailMain.abstract "Abstrakti">
+<!ENTITY rdetail.detailMain.viewMarc "Näytä MARC">
+<!ENTITY rdetail.detailMain.hideMarc "Palaa nimeketietoihin">
+<!ENTITY rdetail.author.search "Suorita tekijähaku">
+<!ENTITY rdetail.copyInfo.headerLabel "Niteen tiedot">
+<!ENTITY rdetail.copyInfo.library "Kirjasto">
+<!ENTITY rdetail.copyInfo.callnumber "Hyllypaikka">
+<!ENTITY rdetail.copyInfo.copylocation "Niteen sijanti">
+<!ENTITY rdetail.copyInfo.local "Näytä vain tämän toimipisteen nidetiedot">
+<!ENTITY rdetail.copyInfo.all "Näytä kaikkien kirjastojen nidetiedot">
+<!ENTITY rdetail.copyInfo.actions "Toiminnot">
+<!ENTITY rdetail.copyInfo.print "Tulosta tämän kirjaston hyllypaikat">
+<!ENTITY rdetail.copyInfo.details "Niteen tiedot">
+<!ENTITY rdetail.copyInfo.browse "Selaa hyllypaikkoja">
+<!ENTITY rdetail.copyInfo.hold "Varaa">
+<!ENTITY rdetail.extras.summary "Nideyhteenveto">
+<!ENTITY rdetail.extras.browser "Hyllyselaus">
+<!ENTITY rdetail.extras.bib_summary "Yhteenveto">
+<!ENTITY rdetail.extras.reviews "Arvostelut">
+<!ENTITY rdetail.extras.toc "Sisällysluettelo">
+<!ENTITY rdetail.extras.excerpt "Poiminto">
+<!ENTITY rdetail.extras.preview "Esikatselu">
+<!ENTITY rdetail.extras.author.notes "Tekijäilmoitukset">
+<!ENTITY rdetail.extras.annotation "Kommentti">
+<!ENTITY rdetail.extras.marc "MARC-tietue">
+<!ENTITY rdetail.extras.foreign_items "Linkitetyt nimekkeet">
+<!ENTITY rdetail.extras.call.null "Tässä sijainnissa ei ole hyllypaikkoja tälle niteelle.">
+<!ENTITY rdetail.extras.call.local "Paikalliset hyllypaikat:">
+<!ENTITY rdetail.extras.preview.fulltext "Koko teksti">
+<!ENTITY rdetail.extras.preview.title "Katso tämän kirjan koko teksti.">
+<!ENTITY rdetail.extras.preview.badge "Näytä tämän kirjan esikatselu Google Book -haussa">
+<!ENTITY rdetail.extras.novelist "NoveListin suositukset">
+<!ENTITY rdetail.loading "Ladataan nidetietoja...">
+<!ENTITY rdetail.noneAvailable " * Tässä sijainnissa ei ole niteitä">
+<!ENTITY rdetail.summary.online "Online-aineistot">
+<!ENTITY rdetail.summary.subjects "Aiheet">
+<!ENTITY rdetail.summary.issues_held "Numeroita saatavilla">
+
+<!ENTITY result.sort_by "Lajittele tulokset relevanssin mukaan">
+<!ENTITY result.sort_by.title "Lajittele tulokset nimekkeen mukaan">
+<!ENTITY result.sort_by.author "Lajittele tulokset tekijän mukaan">
+<!ENTITY result.sort_by.pubdate "Lajittele tulokset julkaisupäivän mukaan">
+
+<!ENTITY result.limit2avail "Rajoita saatavilla oleviin">
+<!ENTITY result.info.copies "Saatavilla olevat niteet / Niteitä yhteensä">
+<!ENTITY result.info.no.items "Halutun aineistolajin niteitä ei löytynyt valitusta toimipisteestä.">
+<!ENTITY result.info.format.items "Alla on listattu kaikki tietokannassa olevat halutun aineistolajin niteet.">
+<!ENTITY result.info.show "Näytä tietueet kohteelle">
+
+<!ENTITY result.lowhits.few "Hakusi tuotti vain vähän osumia.">
+<!ENTITY result.lowhits.zero "Hakuasi vastaavia tuloksia ei löytynyt.">
+<!ENTITY result.lowhits.did.you.mean "Ehkä tarkoitit:">
+<!ENTITY result.lowhits.formats "Saat enemmän osumia, kun haet kaikilla aineistolajeilla:">
+<!ENTITY result.lowhits.formats.search "Etsitäänkö uudelleen kaikista aineistolajeista?">
+<!ENTITY result.lowhits.related "Voit myös yrittää näitä aiheeseen liittyviä hakuja:">
+<!ENTITY result.lowhits.expand "Voit haluta laajentaa hakualuettasi kohteeseen:">
+<!ENTITY result.lowhits.class "Voit yrittää etsiä samoja termejä kohteesta:">
+<!ENTITY result.lowhits.title "nimike">
+<!ENTITY result.lowhits.author "tekijä">
+<!ENTITY result.lowhits.subject "aihe">
+<!ENTITY result.lowhits.series "sarja">
+<!ENTITY result.lowhits.keyword "avainsana">
+
+<!ENTITY result.table.keyword "Näytä tämän tietueen nimekkeet">
+<!ENTITY result.table.author "Suorita tekijähaku">
+<!ENTITY result.googleBooks.browse "Selaa Google Books -haussa">
+<!ENTITY result.localCallNumbers "Paikalliset hyllypaikat:">
+
+<!ENTITY common.call.number.label "Hyllypaikka:">
+<!ENTITY common.isbn.label "ISBN:">
+<!ENTITY common.issn.label "ISSN:">
+<!ENTITY common.mono_parts.label "Monografian osat:">
+<!ENTITY common.copy.barcode.label "Nidetunnus:">
+<!ENTITY common.issuance_label.label "Numeroinnin nimike:">
+<!ENTITY common.hold.place "Tee varaus omalle tilille">
+<!ENTITY common.hold.check "Tarkistetaan varauksen täyttämismahdollisuutta...">
+<!ENTITY common.hold.create "Luo / muokkaa varausta">
+<!ENTITY common.hold.update "Päivitä varaus">
+<!ENTITY common.hold.type.label "Varauksen tyyppi:">
+<!ENTITY common.hold.volume "Signumvaraus">
+<!ENTITY common.hold.copy "Niteen varaus">
+<!ENTITY common.hold.issuance "Numerointivaraus">
+<!ENTITY common.hold.advanced "Tarkennetut varaustoiminnot">
+<!ENTITY common.hold.delivery "Valitse kirjasto, johon varauksesi voidaan kuljettaa.">
+<!ENTITY common.hold.checked_out "Nide on jo lainattu.">
+<!ENTITY common.hold.checked_out.override "Nide on jo lainattu. Haluatko tehdä varauksen tästä huolimatta?">
+<!ENTITY common.hold.exists "Pyydetystä niteestä on jo varaus.">
+<!ENTITY common.hold.exists.override "Pyydetystä niteestä on jo varaus. Haluatko varata tästä huolimatta?">
+<!ENTITY common.hold.age_protect.override "Tämän varauksen täyttämiseen saattaa kulua aikaa kirjastosäännöistä johtuen. Haluatko tehdä varauksen tästä huolimatta?">
+<!ENTITY common.hold.place_unfillable.override "Pyydettyä varausta ei voida täyttää tällä hetkellä. Sinulla on tästä huolimatta oikeus tehdä varaus, mutta sinun kannattaa toimia näin ainoastaan, jos uskot, että varaus täytetään ennen pitkää. Haluatko kaikesta huolimatta tehdä varauksen?">
+<!ENTITY common.hold.barred "ASIAKAS LAINAUSKIELLOSSA. Katso ilmoitukset &quot;Oma tili&quot;-sivun osiosta 
+&quot;Henkilökunnan ilmoitukset&quot; tai ota yhteyttä kirjastoosi.">
+<!ENTITY common.hold.item.invalid "Varaus ei enää ole voimassa. On todennäköistä, että 
+varauksen kohde on poistettu järjestelmästä. Peru tämä varaus ja
+tee uusi.">
+<!ENTITY common.hold.patron.invalid "Varauksen vastaanottajaksi määritetty asiakastunnus on virheellinen.">
+<!-- Was (??), perhaps change to a button or icon? -->
+<!ENTITY common.help "(Ohje)"> 
+<!ENTITY common.phone.format.help "Puhelinnumero ei ole oikeassa muodossa. Oletettu muoto on XXX-YYY-ZZZZ.">
+<!ENTITY common.hold.failed "Varauksiin sopivia niteitä ei löytynyt. 
+On mahdollista, että varaus onnistuu valitsemalla eri aineistolaji. 
+On myös mahdollista, että olet ylittänyt sallittujen varausten enimmäismäärän. 
+Lisätietoja saat kirjastovirkailijalta.">
+<!ENTITY common.control.click "(valitse useita muotoja: control-napsautus)">
+<!ENTITY common.format.alternatives "Hyväksyttävät vaihtoehtoiset aineistolajit:">
+<!ENTITY common.phone.format "(XXX-YYY-ZZZZ)">
+<!ENTITY common.phone.enable "Otetaanko puhelinilmoitukset käyttöön tälle varaukselle?">
+<!ENTITY common.email.enable "Otetaanko sähköposti-ilmoitukset käyttöön tälle varaukselle?">
+<!ENTITY common.email.none "(Asiakkaalle ei ole määritetty sähköpostiosoitetta)">
+<!ENTITY common.email.set "(Katso <a class='classic_link' id='holds.no_email.my_account'>Oma tili</a>, jossa voit määrittää sähköpostiosoitteesi)">
+<!ENTITY common.keywords.label "Avainsanat:">
+<!ENTITY common.physical.label "Fyysinen kuvaus:">
+<!ENTITY common.series.label "Sarja:">
+<!ENTITY common.subject.label "Aihe:">
+<!ENTITY common.title.label "Nimeke:">
+<!ENTITY common.author.label "Tekijä:">
+<!ENTITY common.format.label "Aineistolaji:">
+<!ENTITY library.select "Hae tulokset kohteessa">
+<!ENTITY library.select.label "Valitse eri kirjasto...">
+<!ENTITY library.select.help "Valitse etsittävä kirjasto">
+<!ENTITY login.username "Syötä käyttäjänimesi tai asiakastunnus">
+<!ENTITY login.password.change "Vaihda salasana">
+<!ENTITY login.first.time "Tämä näyttää olevan ensimmäinen kerta, kun kirjaudut sisään. 
+Sinun on vaihdettava salasanasi.">
+<!ENTITY login.password.current.enter "Syötä nykyinen salasanasi">
+<!ENTITY login.password.new.enter "Syötä uusi salasana">
+<!ENTITY login.password.new.reenter "Syötä uusi salasana uudelleen varmennusta varten">
+<!ENTITY login.password.update "Päivitä salasana">
+<!ENTITY login.password.nomatch "Salasanat eivät vastaa toisiaan">
+<!ENTITY login.password.success "Salasana päivitetty onnistuneesti">
+<!ENTITY login.password.strength "Salasana ei ole tarpeeksi vahva.">
+<!ENTITY login.barcode.inactive "Sisäänkirjautumiseen käytetty asiakastunnus on merkitty ei-aktiiviseksi. Ota yhteyttä kirjastoosi.">
+<!ENTITY login.account.inactive "Tili ei ole aktiivinen. Ota yhteyttä kirjastoosi.">
+<!ENTITY login.failed "Kirjautuminen epäonnistui. Käyttäjätunnus tai salasana oli väärin.
+Varmista ettei CAPS LOCK ole päällä ja yritä uudelleen, tai ota yhteyttä kirjastoosi.">
+<!ENTITY button.go "Siirry!">
+<!--	================================================================= 
+	Slimpac Simple Search
+	================================================================= -->
+
+<!ENTITY slimpac.language.select "Valitse kieli">
+
+<!ENTITY slimpac.start.title "Yksinkertainen haku">
+<!ENTITY slimpac.start.nowSearching "Etsitään nyt: ">
+<!ENTITY slimpac.start.dynamic "Dynaaminen tietokanta">
+<!--	================================================================= 
+	Slimpac Advanced Search
+	================================================================= -->
+
+<!ENTITY slimpac.advanced.language "Aineiston kieli">
+<!ENTITY slimpac.advanced.create_date "Tietueen luomispäivä">
+<!ENTITY slimpac.advanced.edit_date "Tietueen muokkauspäivä">
+
+<!ENTITY opac.image_provided "Kuvan toimittaja:">
+<!ENTITY vendor.name "Amazon">
+<!ENTITY vendor.base_link "http://amazon.com/dp/">
+<!--	================================================================= 
+	Selfcheck
+	================================================================= -->
+
+<!ENTITY selfck.staff_login_label "Henkilökunnan sisäänkirjautuminen">
+<!ENTITY selfck.staff_login "Asiakastunnus tai käyttäjänimi">
+<!ENTITY selfck.staff_pw "Salasana">
+<!ENTITY selfck.submit "Lähetä">
+<!ENTITY selfck.clear "Tyhjennä">
+<!ENTITY selfck.patron_barcode_label "Lue asiakastunnuksesi">
+<!ENTITY selfck.item_barcode_label "Lue nide lainausta tai uusintaa varten:">
+<!ENTITY selfck.barcode "Asiakastunnus">
+<!ENTITY selfck.title "Nimeke">
+<!ENTITY selfck.author "Tekijä">
+<!ENTITY selfck.due_date "Eräpäivä">
+<!ENTITY selfck.remaining "Uusintoja jäljellä">
+<!ENTITY selfck.cotype "Tyyppi">
+<!ENTITY selfck.cotype_co "Lainaa">
+<!ENTITY selfck.cotype_rn "Uusinta">
+<!ENTITY selfck.done "Valmis">
+<!ENTITY selfck.welcome "Tervetuloa">
+<!ENTITY selfck.printing "Tulostetaan kuittia...">
+<!-- event messages -->
+
+<!ENTITY selfck.event.co_success "Lainaus onnistui">
+<!ENTITY selfck.event.co_unknown "Järjestelmässä ilmeni tuntematon tapahtuma">
+<!ENTITY selfck.event.dupe_barcode "Nide on jo lainattu tämän istunnon aikana">
+<!ENTITY selfck.event.patron_not_found "Asiakastunnusta ei löytynyt.">
+<!ENTITY selfck.event.item_noncat "Nidettä ei löydy tietokannasta">
+<!ENTITY selfck.event.item_nocirc "Nidettä ei lainata">
+<!ENTITY selfck.event.already_out "Nide on jo lainattu toiselle asiakkaalle">
+<!ENTITY selfck.items_out "Olet lainannut seuraavat niteet">
+<!ENTITY selfck.org_hours "Aukioloajat">
+<!ENTITY selfck.org_phone "Kirjaston puhelinnumero">
+<!ENTITY selfck.day0 "Maanantai">
+<!ENTITY selfck.day1 "Tiistai">
+<!ENTITY selfck.day2 "Keskiviikko">
+<!ENTITY selfck.day3 "Torstai">
+<!ENTITY selfck.day4 "Perjantai">
+<!ENTITY selfck.day5 "Lauantai">
+<!ENTITY selfck.day6 "Sunnuntai">
+
+<!ENTITY circ.fail_part.actor.usr.barred "Asiakas on lainauskiellossa">
+<!ENTITY circ.fail_part.asset.copy.circulate "Nidettä ei lainata">
+<!ENTITY circ.fail_part.asset.copy_location.circulate "Tämän hyllytyssijainnin niteitä ei lainata">
+<!ENTITY circ.fail_part.asset.copy.status "Nidettä ei voida tällä hetkellä lainata">
+<!ENTITY circ.fail_part.circ.holds.target_skip_me "Niteen kotiosaston aineistoa ei voi varata">
+<!ENTITY circ.fail_part.config.circ_matrix_circ_mod_test "Asiakkaalla on liikaa tämän aineistolajin lainoja.">
+<!ENTITY circ.fail_part.config.circ_matrix_test.available_copy_hold_ratio "Saatavilla olevat niteet / varaukset -suhde on liian alhainen">
+<!ENTITY circ.fail_part.config.circ_matrix_test.circulate "Lainaussäännöissä tämä nide on määritetty ei-lainattavaksi">
+<!ENTITY circ.fail_part.config.circ_matrix_test.total_copy_hold_ratio "Niteet/varaukset-kokonaissuhde on liian alhainen">
+<!ENTITY circ.fail_part.config.hold_matrix_test.holdable "Varaussäännöissä tämä nide on määritetty ei-varattavaksi">
+<!ENTITY circ.fail_part.config.hold_matrix_test.max_holds "Asiakkaalla on enimmäismäärä varauksia.">
+<!ENTITY circ.fail_part.config.rule_age_hold_protect.prox "Nide on liian uusi kuljetettavaksi näin kauas">
+<!ENTITY circ.fail_part.no_item "Järjestelmä ei löytänyt nidettä">
+<!ENTITY circ.fail_part.no_ultimate_items "Järjestelmä ei löytänyt niteitä, jotka sopisivat tähän varauspyyntöön">
+<!ENTITY circ.fail_part.no_matchpoint "Järjestelmäsäännöissä ei määritellä, kuinka tätä nidettä tulisi käsitellä">
+<!ENTITY circ.fail_part.no_user "Järjestelmä ei löytänyt asiakasta">
+<!ENTITY circ.fail_part.transit_range "Nidettä ei voida kuljettaa näin kauas">
