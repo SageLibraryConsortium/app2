@@ -1,6 +1,6 @@
 <div class="main_header_wrapper">
     <div class="logo_wrapper">
-		<a href="http://catalog.sage.eou.edu"> <span class="logo_middle">
+		<a href="[% mkurl(ctx.opac_root _ '/home') %]" <span class="logo_middle">
     <img src="[% ctx.media_prefix %]/opac/images/opac_logo.jpg" width="170" alt="[% l('Logo') %]" /></span></a>
     </div>
     <div class="header_menu">
