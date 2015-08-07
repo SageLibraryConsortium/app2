@@ -1,0 +1,31 @@
+<<<<<<<
+=======
+	<script language='javascript' type='text/javascript' src='<!--#echo var="OILS_OPAC_JS_HOST"-->/common/js/Date.W3CDTF.js'></script>
+	<tbody>
+		<tr style='border: 3px solid #E0E0E0;' id='rdetail_volume_details_row' templateRow='1'>
+			<td colspan='11'>
+				<div style='text-align: center; margin-top: 6px; margin-bottom: 6px'>
+				
+					<a name='print' href='javascript:void(0);' class='classic_link'>&rdetail.print;</a>
+					<table class='data_grid data_grid_center' style='width: 100%'>
+						<tbody name='copies_tbody' class='copy_details_table' width='100%'>
+
+							<tr name='copies_row'>
+                                                               <td name='library'></td>
+                                                                <td name='call_number'></td>
+                                                                <td name='location'></td>
+                                                                <td name='status'></td>
+                                                                <td name='copy_due_date'></td>
+                                                                <td class=''>
+                                                                        <span name='library'> </span>
+
+                                                                        <a class='hide_me classic_link copy_more_info' name='details_link'>&rdetail.cn.more;</a>
+                                                                        <a class='hide_me classic_link copy_more_info' name='less_details_link'>&rdetail.cn.less;</a>
+                                                                        <a class='hide_me classic_link copy_more_info' name='copy_hold_link'
+                                                                                href='javascript:void(0);'>volume_hold</a>
+                                                                        <a class='hide_me classic_link copy_more_info' name='item_details_link'>copy_info</a>
+                                                                </td>
+							</tr>
+
+							<tr name='copy_extras_row' class='hide_me'>
+>>>>>>>

@@ -1,0 +1,84 @@
+--- opac/skin/default/js/rdetail.js	(revision 2405)
++++ opac/skin/default/js/rdetail.js	(revision 2406)
+@@ -42,8 +42,6 @@
+ var rdetailStart = null;
+ var rdetailEnd = null;
+ 
+-var orgHiding = false;
+-
+ /* serials are currently the only use of Dojo strings in the OPAC */
+ if (rdetailDisplaySerialHoldings) {
+ 	dojo.require("dijit.Menu");
+@@ -700,8 +698,8 @@
+ function rdetailBuildInfoRows() {
+ 	var req;
+ 	var method = FETCH_COPY_COUNTS_SUMMARY;
+-	if (rdetailShowCopyLocation)
+-		method = FETCH_COPY_LOCATION_COUNTS_SUMMARY;
++//	if (rdetailShowCopyLocation)
++//		method = FETCH_COPY_LOCATION_COUNTS_SUMMARY;
+ 
+ 	if( rdetailShowLocal ) 
+ 		req = new Request(method, record.doc_id(), getLocation(), getDepth())
+@@ -854,7 +842,7 @@
+ 		unHideMe(rowNode);
+ 
+ 		rdetailSetPath( thisOrg, isLocal );
+-		rdetailBuildBrowseInfo( rowNode, arr[1], isLocal, thisOrg, cl );
++		rdetailBuildBrowseInfo( rowNode, arr[1], isLocal, thisOrg );
+ 
+ 		if( i == summary.length - 1 && !defaultCN) defaultCN = arr[1];
+ 	}
+@@ -873,25 +861,39 @@
+ 	var depth = getDepth();
+ 	if( !local ) depth = findOrgDepth(globalOrgTree);
+ 
+-	$n(row, 'rdetail_callnumber_cell').appendChild(text(cn));
++	$n(row, 'callnumber').appendChild(text(cn));
+ 
+-	if (rdetailShowCopyLocation) {
+-		var cl_cell = $n(row, 'rdetail_copylocation_cell');
+-		cl_cell.appendChild(text(cl));
+-		unHideMe(cl_cell);
+-	}
++        var myreq = new Request(FETCH_COPIES_FROM_VOLUME, record.doc_id(), cn, orgNode.id());
++        if (record.doc_id()){
++                myreq.callback(oneLineDrawCopies);
++                myreq.request.args = {
++                        row             : row,
++                        contextTbody    : row.parentNode,
++                        orgid           : orgNode.id(),
++                        callnumber      : cn,
++                        record          : record,
++                        depth           : depth
++                };
++                myreq.send();
++        }
+ 
++//	if (rdetailShowCopyLocation) {
++//		var cl_cell = $n(row, 'rdetail_copylocation_cell');
++//		cl_cell.appendChild(text(cl));
++//		unHideMe(cl_cell);
++//	}
++
+ 	_debug('setting action clicks for cn ' + cn);
+ 
+-	var dHref = 'javascript:rdetailVolumeDetails('+
+-			'{copy_location : "'+cl.replace(/\"/g, '\\"')+'", rowid : "'+row.id+'", cn :"'+cn.replace(/\"/g, '\\"')+'", depth:"'+depth+'", org:"'+orgNode.id()+'", local: '+local+'});';
++//	var dHref = 'javascript:rdetailVolumeDetails('+
++//			'{copy_location : "'+cl.replace(/\"/g, '\\"')+'", rowid : "'+row.id+'", cn :"'+cn.replace(/\"/g, '\\"')+'", depth:"'+depth+'", org:"'+orgNode.id()+'", local: '+local+'});';
+ 
+-	var bHref = 'javascript:rdetailShowCNBrowse("' + cn.replace(/\"/g, '\\"') + '", '+orgNode.id()+', "'+depth+'");'; 
++//	var bHref = 'javascript:rdetailShowCNBrowse("' + cn.replace(/\"/g, '\\"') + '", '+orgNode.id()+', "'+depth+'");'; 
+ 
+-	unHideMe( $n(row, 'details') )
+-		$n(row, 'details').setAttribute('href', dHref);
+-	unHideMe( $n(row, 'browse') )
+-		$n(row, 'browse').setAttribute('href', bHref);
++//	unHideMe( $n(row, 'details') )
++//		$n(row, 'details').setAttribute('href', dHref);
++//	unHideMe( $n(row, 'browse') )
++//		$n(row, 'browse').setAttribute('href', bHref);
+ 
+ 	if(isXUL()) {
+ 		unHideMe($n(row, 'hold_div'));

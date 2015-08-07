@@ -1,0 +1,48 @@
+--- opac/skin/default/js/copy_details.js	(revision 2405)
++++ opac/skin/default/js/copy_details.js	(revision 2406)
+@@ -2,15 +2,8 @@
+ var cpdCounter = 0;
+ var cpdNodes = {};
+ 
+-/* showDueDate will show the due date in the OPAC */
+-var showDueDate = false;
+-/* showDueTime will show the due time (hours and minutes) in the OPAC;
+-   if showDueDate is false, then showDueTime has no effect
+-*/
+-var showDueTime = false;
+-
+ function cpdBuild( contextTbody, contextRow, record, callnumber, orgid, depth, copy_location ) {
+-	var i = cpdCheckExisting(contextRow);
++var i = cpdCheckExisting(contextRow);
+ 	if(i) return i;
+ 
+ 	var counter = cpdCounter++;
+@@ -29,23 +22,20 @@
+ 
+ 	if(isXUL()) {
+ 		/* unhide before we unhide/clone the parent */
+-		unHideMe($n(templateRow, 'age_protect_label'));
++//		unHideMe($n(templateRow, 'age_protect_label'));
+ 		unHideMe($n(templateRow, 'create_date_label'));
+ 		unHideMe($n(templateRow, 'holdable_label'));
+-	}
+-
+-	if (isXUL() || showDueDate) {
+ 		unHideMe($n(templateRow, 'due_date_label'));
+ 	}
+ 
+ 	unHideMe(templateRow);
+ 
+-	var print = $n(templateRow,'print');
+-	print.onclick = function() { cpdBuildPrintPane(
+-		contextRow, record, callnumber, orgid, depth) };
++//	var print = $n(templateRow,'print');
++//	print.onclick = function() { cpdBuildPrintPane(
++//		contextRow, record, callnumber, orgid, depth) };
+ 
+ 	var mainTbody = $n(templateRow, 'copies_tbody');
+-	var extrasRow = mainTbody.removeChild($n(mainTbody, 'copy_extras_row'));
++//	var extrasRow = mainTbody.removeChild($n(mainTbody, 'copy_extras_row'));
+ 
+ 	var req = new Request(FETCH_COPIES_FROM_VOLUME, record.doc_id(), callnumber, orgid);
+ 	req.callback(cpdDrawCopies);
