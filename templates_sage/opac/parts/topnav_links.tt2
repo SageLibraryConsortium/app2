@@ -8,7 +8,7 @@
 <span class="opac-button-goldlinks"><a href="http://library2go.lib.overdrive.com" target="_blank">[% l('Library2Go') %]</a></span>
 <span class="opac-button-goldlinks"><a href="http://sagelib.org/AboutUs" target="_blank">[% l('About Sage') %]</a></span>
 <span class="opac-button-goldlinks"><a href="http://batchgeo.com/map/d325cffa95d06f3d90a408592a00e3c7" target="_blank">[% l('Sage Member Map') %]</a></span>
-<span class="opac-button-goldlinks"><a href="http://sagelib.org/content/help-form" target="_blank">[% l('Need Help?') 
+<span class="opac-button-goldlinks"><a href="http://sagelib.org/help" target="_blank">[% l('Need Help?') 
 %]</a></span>
         </div>
     </div>
