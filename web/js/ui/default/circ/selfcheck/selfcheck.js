@@ -1053,13 +1053,11 @@ SelfCheckManager.prototype.handleXactResult = function(action, item, result) {
             auto_renew set to true, do the renewal.  Otherwise, let the patron know
             the item is already checked out to them.  */
 
-            /* -- No Renewals in Self Check -- bmills
             if( !this.orgSettings[SET_AUTO_RENEW_INTERVAL] ||
                 (this.orgSettings[SET_AUTO_RENEW_INTERVAL] && payload.auto_renew) ) {
                 this.prevCirc = payload.old_circ.id();
                 return { renew : true };
             }
-            */
 
             popup = true;
             sound = 'checkout-failure';
