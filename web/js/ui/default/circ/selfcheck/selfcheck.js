@@ -339,7 +339,7 @@ SelfCheckManager.prototype.loginPatron = function(barcode_or_usrname, passwd) {
     var barcode = null;
     var usrname = null;
     console.log('testing ' + barcode_or_usrname);
-    if (barcode_or_usrname.match(/^(2{1})[0-9]{12,15}$/)) {
+    if (barcode_or_usrname.match(this.patronBarcodeRegex)) {
         console.log('barcode');
         barcode = barcode_or_usrname;
     } else {
@@ -452,9 +452,6 @@ SelfCheckManager.prototype.handleAlert = function(message, shouldPopup, sound) {
  * @param handler Optional "on-enter" handler.  
  */
 SelfCheckManager.prototype.updateScanBox = function(args) {
-    // reset timeout
-    selfckResetTimer();
-
     args = args || {};
 
     if(args.select) {

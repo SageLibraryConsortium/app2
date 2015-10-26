@@ -136,7 +136,7 @@ function print_do_sums() {
             // strip off a single non-digit character
             // Don't want to assume dollar sign
             // But don't strip a -
-            newVal = newVal.replace(/^[^-0-9\.]/,'');
+            newVal = newVal.replace(/^[^-0-9]/,'');
             newVal = parseFloat(newVal);
             if(!isNaN(newVal)) {
                 sums[sumset] += newVal;
