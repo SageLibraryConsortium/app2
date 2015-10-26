@@ -27,9 +27,9 @@
 <option value='HC-HCL'>&#160;&#160;&#160;&#160;&#160;&#160;Harney County Library</option>
 <option value='HRNYSCH'>&#160;&#160;&#160;Harney County Schools</option>
 <option value='HC-CRANE'>&#160;&#160;&#160;&#160;&#160;&#160;Crane Union High School Library</option>
-<option value='HC-ESD'>&#160;&#160;&#160;Harney ESD Resource Center</option>
-<option value='HC-HMS'>&#160;&#160;&#160;Hines Middle School</option>
-<option value='HC-SE'>&#160;&#160;&#160;Slater Elementary</option>
+<option value='HC-ESD'>&#160;&#160;&#160;&#160;&#160;&#160;Harney ESD Resource Center</option>
+<option value='HC-HMS'>&#160;&#160;&#160;&#160;&#160;&#160;Hines Middle School</option>
+<option value='HC-SE'>&#160;&#160;&#160;&#160;&#160;&#160;Slater Elementary</option>
 <option value='HRDIST'>&#160;&#160;&#160;Hood River County Library District</option>
 <option value='HR-CLL'>&#160;&#160;&#160;&#160;&#160;&#160;Cascade Locks Library</option>
 <option value='HR-HRCL'>&#160;&#160;&#160;&#160;&#160;&#160;Hood River County Library</option>

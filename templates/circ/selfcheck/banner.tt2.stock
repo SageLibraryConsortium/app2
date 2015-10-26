@@ -1,0 +1,18 @@
+<div id='oils-selfck-user-banner'></div>
+<div id='oils-selfck-logo-div'>
+    <img class='oils-selfck-logo' name='logo' src='[% ctx.media_prefix 
+%]/images/new_logos/Sage_Library_Leaves_TextRight_White_Cutout.png'/>
+<br/>
+Self-Check Station
+</div>
+<br/>
+<br/>
+<div id='oils-selfck-scan-div'>
+    <div id='oils-selfck-scan-text'></div>
+    <br/>
+    <input jsId='selfckScanBox' dojoType='dijit.form.TextBox'/>
+    <br/>
+    <br/>
+</div>
+<div id='oils-selfck-status-div'></div>
+

@@ -2,6 +2,9 @@
 <center>
       <div style="font-family:helvetica neue;font-size:50px;">SageCat</div></br>
       <div style="font-family:helvetica neue;font-size:20px;">A library catalog serving the members of the Sage Library System</div>
+      <h2 style="border:2px solid green;margin-left: 8em;margin-right: 8em;">
+      <b>There will be some service interruptions while we perform system upgrades</br>on 10/26 between 10am-2pm.</b>
+      </h2>
 </center>
 <br/>
 <hr style="border:2px solid;color:grey;">
