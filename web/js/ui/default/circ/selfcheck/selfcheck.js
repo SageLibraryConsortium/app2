@@ -338,8 +338,8 @@ SelfCheckManager.prototype.loginPatron = function(barcode_or_usrname, passwd) {
 
     var barcode = null;
     var usrname = null;
-    console.log('testing ' + barcode_or_usrname);
-    if (barcode_or_usrname.match(this.patronBarcodeRegex)) {
+    console.log('testing ' + barcode_or_usrname); //custom regex for Sage
+    if (barcode_or_usrname.match(/^(2{1})[0-9]{12,15}$/)) {
         console.log('barcode');
         barcode = barcode_or_usrname;
     } else {
