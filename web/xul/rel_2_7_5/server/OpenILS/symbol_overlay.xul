@@ -362,23 +362,15 @@
                         <button class ="sym" id="sym5F" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="Ñ" />                
                     </hbox>
                     <hbox>
-                        <button class="sym" id="sym6A" context="symbol-menu" onclick="ret(label,event);"  oils_persist="label" label="è"/>
-                        <button class ="sym" id="sym6B" context="symbol-menu" onclick="ret(label,event);"  oils_persist="label" label="é"/>
+                        <button class ="sym" id="sym6A" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="è"/>
+                        <button class ="sym" id="sym6B" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="é"/>
                         <button class ="sym" id="sym6C" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="ë"/>
                         <button class ="sym" id="sym6D" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="ê"/>
                         <button class ="sym" id="sym6E" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="ç" />
                         <button class ="sym" id="sym6F" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="ñ" />                
                     </hbox>
                     <hbox>
-                        <button class="sym" id="sym7A" context="symbol-menu" onclick="ret(label,event);"  oils_persist="label" label="©"/>
-                        <button class ="sym" id="sym7B" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="®"/>
-                        <button class ="sym" id="sym7C" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="™"/>
-                        <button class ="sym" id="sym7D" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="ⓟ"/>
-                        <button class ="sym" id="sym7E" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="¿" />
-                        <button class ="sym" id="sym7F" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="¡" />
-                    </hbox>
-                    <hbox>
-                        <button class="sym" id="sym7A" context="symbol-menu" onclick="ret(label,event);"  oils_persist="label" label="©"/>
+                        <button class ="sym" id="sym7A" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="©"/>
                         <button class ="sym" id="sym7B" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="®"/>
                         <button class ="sym" id="sym7C" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="™"/>
                         <button class ="sym" id="sym7D" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="ⓟ"/>
