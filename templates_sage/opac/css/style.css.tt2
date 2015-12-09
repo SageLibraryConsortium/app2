@@ -319,14 +319,12 @@ for now until a better color is picked - if needed.
 #adv_search_rows {
     border-bottom: none;
 }
-/* Change to ID for Sage Advanced Block #, not. */
-#adv_filter_block {
+.adv_filter_block {
     padding: 15px;
     float: left;
     clear: both;
 }
-/* Change to ID for Sage Advanced Block #, not. */
-#adv_filter_block_item {
+.adv_filter_block_item {
     float: left;
     padding: 5px;
 }

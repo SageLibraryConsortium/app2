@@ -7,7 +7,7 @@
         FOR node IN xml.findnodes('//*[@tag="' _ target_field _ '"]');
             raw_vals = [];
             core_val = '';
-            FOR subnode IN node.findnodes('./*[not(contains("w 0 4 5 6 8 9", @code))]');
+            FOR subnode IN node.findnodes('./*[not(contains("e w 0 4 5 6 7 8 9", @code))]');
                 raw_vals.push(subnode.textContent());
             END;
             core_val = raw_vals.join(" ");
@@ -139,7 +139,7 @@
 
         # UPCs can be identified either by ind1="1" or subfield 2 of "upc"
         args.upcs = [];
-        FOR upc IN xml.findnodes('//*[@tag="024"]/*[@code="a"]');
+        FOR upc IN xml.findnodes('//*[@tag="024" and @ind="1"]/*[@code="a"]');
             args.upcs.push(upc.textContent);
         END;
         FOR upcfield IN xml.findnodes('//*[@tag="024"]/*[@code="2" and text()="upc"]');
