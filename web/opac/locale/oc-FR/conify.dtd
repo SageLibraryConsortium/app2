@@ -127,5 +127,5 @@
 <!ENTITY conify.grp_tree.depth.label "Prigondor :">
 <!ENTITY conify.grp_tree.grantable.label "Grantable:">
 <!ENTITY conify.grp_tree.add_mapping_button.label "Add Mapping">
-<!ENTITY conify.grp_tree.save_changes.label "Enregistrar las modificacions">
-<!ENTITY conify.grp_tree.remove_selected.label "Escafar la seleccion">
+<!ENTITY conify.grp_tree.save_changes.label "Save Changes">
+<!ENTITY conify.grp_tree.remove_selected.label "Delete Selected">

@@ -30,6 +30,7 @@
     BLOCK render_subject;
         xpath = xpath || '//*[starts-with(@tag,"6")]';
         FOR node IN ctx.marc_xml.findnodes(xpath);
+            '<span property="about">';
             all_terms = [];
             graphics = [];
             FOR subfield IN node.childNodes;
@@ -47,7 +48,7 @@
                 all_terms.push(subfield.textContent.replace('\-', ' ').replace('[#"^$\+,\.:;&|\[\]()]', ''));
                 total_term = all_terms.join(" ").replace('\s+$', '');
             %]
-<a href="[% mkurl(ctx.opac_root _ '/results', {qtype=>'subject', query=>total_term}, stop_parms.merge(expert_search_parms, general_search_parms, browse_search_parms, facet_search_parms)) %]">[% single_term %]</a>
+<a href="[% mkurl(ctx.opac_root _ '/results', {qtype=>'subject', query=>total_term}, stop_parms.merge(expert_search_parms, general_search_parms, browse_search_parms, facet_search_parms)) %]" rel="nofollow" vocab="">[% single_term %]</a>
             [%- END;
             IF all_terms.size; "<br/>"; END;
             FOREACH link880 IN graphics;
@@ -55,6 +56,7 @@
                 link880.value | html;
                 '</div>';
             END;
+            '</span>';
         END;
     END 
 %]
@@ -68,7 +70,7 @@
             <tbody>
                 <tr>
                     <td class='rdetail_subject_type'>[% subj.label %]</td>
-                    <td class='rdetail_subject_value' property='keywords'>[% content %]</td>
+                    <td class='rdetail_subject_value'>[% content %]</td>
                 </tr>
             </tbody>
         </table>

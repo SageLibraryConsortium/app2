@@ -819,7 +819,7 @@
 <!ENTITY staff.main.menu.admin.server_admin.conify.circulation_limit_group.label "Circulation Limit Groups">
 <!ENTITY staff.main.menu.admin.server_admin.conify.floating_groups.label "Floating Groups">
 
-<!ENTITY staff.main.menu.admin.server_admin.acq.label "Acquisitions">
+<!ENTITY staff.main.menu.admin.server_admin.acq.label "Acquisitions Administration">
 <!ENTITY staff.main.menu.admin.server_admin.acq.accesskey "A">
 <!ENTITY staff.main.menu.admin.server_admin.acq.lineitem_alert.label "Line Item Alerts">
 <!ENTITY staff.main.menu.admin.server_admin.acq.lineitem_alert.accesskey "L">
@@ -1673,7 +1673,7 @@
 <!ENTITY staff.patron_navbar.other.accesskey 'o'>
 <!ENTITY staff.patron_navbar.items 'Items Out'>
 <!ENTITY staff.patron_navbar.items.accesskey 'I'>
-<!ENTITY staff.patron_navbar.items.problem_items.caption 'Lost, Claimed Returned, Long Overdue, Has Unpaid Billings'>
+<!ENTITY staff.patron_navbar.items.problem_items.caption 'Other/Special Circulations'>
 <!ENTITY staff.patron_navbar.refresh 'Refresh'>
 <!ENTITY staff.patron_navbar.refresh.accesskey ''>
 <!ENTITY staff.patron_navbar.retrieve 'Retrieve Patron'>
@@ -3323,6 +3323,8 @@
 <!ENTITY staff.patron.bill_interface.void_all_billings.accesskey "V">
 <!ENTITY staff.patron.bill_interface.refund.label "Refund">
 <!ENTITY staff.patron.bill_interface.refund.accesskey "R">
+<!ENTITY staff.patron.bill_interface.adjust_to_zero.label "Adjust to Zero">
+<!ENTITY staff.patron.bill_interface.adjust_to_zero.accesskey "Z">
 <!ENTITY staff.patron.bill_interface.full_details.label "Full Details">
 <!ENTITY staff.patron.bill_interface.full_details.accesskey "D">
 <!ENTITY staff.patron.bill_interface.show_in_catalog.label "Show in Catalog">
@@ -3507,6 +3509,8 @@
 <!ENTITY staff.patron.info.notes.accesskey "N">
 <!ENTITY staff.patron.info.triggered_events.label "Triggered Events">
 <!ENTITY staff.patron.info.triggered_events.accesskey "v">
+<!ENTITY staff.patron.message_center.label "Message Center">
+<!ENTITY staff.patron.message_center.accesskey "r">
 <!ENTITY staff.patron.info.stat_cats.label "Statistical Categories">
 <!ENTITY staff.patron.info.stat_cats.accesskey "S">
 <!ENTITY staff.patron.info.surveys.label "Surveys">
@@ -3845,7 +3849,7 @@
 <!ENTITY staff.client.portal.recordbuckets.description "Record Buckets">
 <!ENTITY staff.client.portal.recordbuckets.tab_name "Record Buckets">
 <!ENTITY staff.client.portal.admin "Administration">
-<!ENTITY staff.client.portal.helpdesk "Get Help with Evergreen">
+<!ENTITY staff.client.portal.helpdesk "Sage Helpdesk">
 <!ENTITY staff.client.portal.helpdesk.description "Submit A Helpdesk Ticket">
 <!ENTITY staff.client.portal.reports "Reports">
 <!ENTITY staff.client.portal.reports.description "Reports">

@@ -95,6 +95,7 @@ function AcqLiTable() {
         }
     );
     this.vlAgent = new VLAgent();
+    this.batchProgress = {};
 
     if (dojo.byId('acq-lit-apply-idents')) {
         dojo.byId('acq-lit-apply-idents').onclick = function() {
@@ -122,6 +123,9 @@ function AcqLiTable() {
         this.selectedIndex = 0;
     };
 
+    acqLitCreatePoCancel.onClick = function() {
+        acqLitPoCreateDialog.hide();
+    }
     acqLitCreatePoSubmit.onClick = function() {
         if (!self.createPoProviderSelector.attr("value") ||
                 !self.createPoAgencySelector.attr("value")) {
@@ -179,7 +183,7 @@ function AcqLiTable() {
                 "labelFormat": (field == 'fund') ? fundLabelFormat : null,
                 "searchFormat": (field == 'fund') ? fundSearchFormat : null,
                 "searchFilter": (field == 'fund') ? fundSearchFilter : null,
-                "orgLimitPerms": [perms],
+                "orgLimitPerms": (field == 'location') ? ['CREATE_PICKLIST', 'CREATE_PURCHASE_ORDER'] : [perms],
                 "dijitArgs": {
                     "required": false,
                     "labelType": (field == "fund") ? "html" : null
@@ -709,6 +713,27 @@ function AcqLiTable() {
         }
 
         nodeByName("liid", row).innerHTML += li.id();
+
+        var exist = nodeByName('li_existing_count', row);
+        fieldmapper.standardRequest(
+            ['open-ils.acq', 'open-ils.acq.lineitem.existing_copies.count'],
+            {
+                params: [this.authtoken, li.id()],
+                oncomplete : function(r) {
+                    var count = openils.Util.readResponse(r);
+                    exist.innerHTML = count;
+                    if (Number(count) > 0) {
+                        openils.Util.addCSSClass(
+                            exist, 'acq-existing-count-warn');
+                    }
+                    new dijit.Tooltip({
+                        connectId : [exist],
+                        label : dojo.string.substitute(
+                            localeStrings.LI_EXISTING_COPIES, [count])
+                    });
+                }
+            }
+        );
 
         if(li.eg_bib_id()) {
             openils.Util.show(nodeByName('catalog', row), 'inline');
@@ -2919,13 +2944,16 @@ function AcqLiTable() {
         this.show('acq-lit-progress-numbers');
         var self = this;
         var vlArgs = (noVl) ? {} : {vandelay : this.vlAgent.values()};
+        this.batchProgress = {};
+        progressDialog.show(false);
+        progressDialog.attr("title", localeStrings.LI_CREATING_ASSETS);
         fieldmapper.standardRequest(
             ['open-ils.acq', 'open-ils.acq.purchase_order.assets.create'],
             {   async: true,
                 params: [this.authtoken, this.isPO, vlArgs],
                 onresponse: function(r) {
                     var resp = openils.Util.readResponse(r);
-                    self._updateProgressNumbers(resp, !Boolean(onAssetsCreated), onAssetsCreated);
+                    self._updateProgressNumbers(resp, !Boolean(onAssetsCreated), onAssetsCreated, true);
                 }
             }
         );
@@ -3225,9 +3253,16 @@ function AcqLiTable() {
         );
     };
 
-    this._updateProgressNumbers = function(resp, reloadOnComplete, onComplete) {
+    this._updateProgressNumbers = function(resp, reloadOnComplete, onComplete, clearProgressDialog) {
+        this._updateProgressDialog(resp);
         this.vlAgent.handleResponse(resp,
             function(resp, res) {
+                if (clearProgressDialog) {
+                    progressDialog.update({ "progress": 100});
+                    progressDialog.update_message();
+                    progressDialog.hide();
+                    progressDialog.attr("title", "");
+                }
                 if(reloadOnComplete)
                      location.href = location.href;
                 if (onComplete)
@@ -3236,6 +3271,21 @@ function AcqLiTable() {
         );
     }
 
+    this._updateProgressDialog = function(resp) {
+        progressDialog.update({ "progress": (resp.progress / resp.total) * 100 });
+        var keys = ['li', 'vqbr', 'bibs', 'lid', 'debits_accrued', 'copies'];
+        for (var i = 0; i < keys.length; i++) {
+            if (resp[keys[i]] > (this.batchProgress[keys[i]] || 0)) {
+                progressDialog.update_message(
+                    dojo.string.substitute(
+                        localeStrings["ACTIVATE_" + keys[i].toUpperCase() + "_PROCESSED"],
+                        [ resp[keys[i]] ]
+                    )
+                );
+            }
+        }
+        this.batchProgress = resp;
+    }
 
     this._createPO = function(fields) {
         var wantall = (fields.create_from == "all");
@@ -3272,6 +3322,8 @@ function AcqLiTable() {
         po.provider(this.createPoProviderSelector.attr("value"));
         po.ordering_agency(this.createPoAgencySelector.attr("value"));
         po.prepayment_required(fields.prepayment_required[0] ? true : false);
+        var name = this.createPoNameInput.attr('value'); 
+        if (name) po.name(name); // avoid name=""
 
         // if we're creating assets, delay the asset creation 
         // until after the PO is created.  This will allow us to 
@@ -3524,6 +3576,67 @@ function AcqLiTable() {
             widget.build(function(w) { self.createPoProviderSelector = w; });
         }
 
+        this.createPoCheckDupes = function() {
+            var org = self.createPoAgencySelector.attr('value');
+            var name = self.createPoNameInput.attr('value');
+            openils.Util.hide('acq-dupe-po-name');
+
+            if (!name) {
+                acqLitCreatePoSubmit.attr('disabled', false);
+                return;
+            }
+
+            acqLitCreatePoSubmit.attr('disabled', true);
+            var orgs = fieldmapper.aou.descendantNodeList(org, true);
+            new openils.PermaCrud().search('acqpo', 
+                {name : name, ordering_agency : orgs},
+                {async : true, oncomplete : function(r) {
+                    var po = openils.Util.readResponse(r);
+
+                    if (po && (po = po[0])) {
+
+                        var link = dojo.byId('acq-dupe-po-link');
+                        openils.Util.show('acq-dupe-po-name', 'table-row');
+                        var dupe_path = '/acq/po/view/' + po.id();
+
+                        if (window.xulG) {
+
+                            if (window.IAMBROWSER) {
+                                // TODO: integration
+
+                            } else {
+                                // XUL client
+                                link.onclick = function() {
+
+                                    var loc = xulG.url_prefix('XUL_BROWSER?url=') + 
+                                        window.encodeURIComponent( 
+                                        xulG.url_prefix('EG_WEB_BASE' + dupe_path)
+                                    );
+
+                                    xulG.new_tab(loc, 
+                                        {tab_name: '', browser:false},
+                                        {
+                                            no_xulG : false, 
+                                            show_nav_buttons : true, 
+                                            show_print_button : true, 
+                                        }
+                                    );
+                                }
+                            }
+
+                        } else {
+                            link.onclick = function() {
+                                window.open(oilsBasePath + dupe_path, '_blank').focus();
+                            }
+                        }
+
+                    } else {
+                        acqLitCreatePoSubmit.attr('disabled', false);
+                    }
+                }}
+            );
+        }
+
         if (!this.createPoAgencySelector) {
             var widget = new openils.widget.AutoFieldWidget({
                 "fmField": "ordering_agency",
@@ -3531,7 +3644,23 @@ function AcqLiTable() {
                 "parentNode": dojo.byId("acq-lit-po-agency"),
                 "orgLimitPerms": ["CREATE_PURCHASE_ORDER"],
             });
-            widget.build(function(w) { self.createPoAgencySelector = w; });
+            widget.build(function(w) { 
+                self.createPoAgencySelector = w; 
+                dojo.connect(w, 'onChange', self.createPoCheckDupes);
+            });
+        }
+
+        if (!this.createPoNameInput) {
+            var widget = new openils.widget.AutoFieldWidget({
+                "fmField": "name",
+                "fmClass": "acqpo",
+                "parentNode": dojo.byId("acq-lit-po-name"),
+                "orgLimitPerms": ["CREATE_PURCHASE_ORDER"],
+            });
+            widget.build(function(w) { 
+                self.createPoNameInput = w; 
+                dojo.connect(w, 'onChange', self.createPoCheckDupes);
+            });
         }
     };
 

@@ -101,7 +101,7 @@
 <!ENTITY common.cn.loading "Loading Callnumber Page...">
 <!ENTITY common.cn.browsing "You are now browsing">
 <!ENTITY common.cn.previous "&lt;&lt; Previous Page">
-<!ENTITY common.cn.shelf "Autonavigacion">
+<!ENTITY common.cn.shelf "Shelf Browser">
 <!ENTITY common.cn.next "Next Page &gt;&gt;">
 
 <!ENTITY common.textsize.title "Text Size: ">
@@ -208,7 +208,7 @@ avoid using bookbags all together.  Thank you.">
 <!ENTITY myopac.holds.status.waiting "Waiting for copy">
 <!ENTITY myopac.holds.status.intransit "In Transit">
 <!ENTITY myopac.holds.status.available "Ready for Pickup">
-<!ENTITY myopac.holds.status.suspended "Suspendre">
+<!ENTITY myopac.holds.status.suspended "Suspended">
 <!ENTITY myopac.holds.cancel "Anullar">
 <!ENTITY myopac.holds.verify "If you wish to cancel the selected hold, click OK, otherwise click Cancel.">
 <!ENTITY myopac.holds.freeze_selected "Suspendre">
@@ -284,7 +284,7 @@ Please see a librarian to renew your account.">
 <!ENTITY myopac.summary.address.state "Estat">
 <!ENTITY myopac.summary.address.country "País">
 <!ENTITY myopac.summary.address.zip "Còde postal">
-<!ENTITY myopac.summary.address.edit "Adreça electronica">
+<!ENTITY myopac.summary.address.edit "Edit Address">
 <!ENTITY myopac.summary.address.invalid "Invalid Address">
 
 <!ENTITY myopac.summary.username.error "Please enter a username">
@@ -328,7 +328,7 @@ Please see a librarian to renew your account.">
 <!-- title control number -->
 <!ENTITY opac.advanced.quick.tcn "TCN"> 
 <!ENTITY opac.advanced.quick.barcode "Item Barcode"> 
-<!ENTITY opac.advanced.quick.cn "Numèro de còta"> 
+<!ENTITY opac.advanced.quick.cn "Call Number"> 
 <!ENTITY opac.advanced.copy_loc_filter "Shelving Location">
 <!-- ==========================================================
      MARC expert search
@@ -381,7 +381,7 @@ Please see a librarian to renew your account.">
 	Footer
 	================================================================= -->
 
-<!ENTITY footer.basic "Catalòg de basa (HTML solament)">
+<!ENTITY footer.basic "Basic Catalog (HTML only)">
 <!ENTITY footer.find.library "Find a Library Near Me">
 <!ENTITY footer.find.url "http://www.georgialibraries.org/lib/directories/pineslibdir.html">
 <!ENTITY footer.help.url "http://open-ils.org/dokuwiki/doku.php?id=evergreen-user:opac_help">
@@ -427,7 +427,7 @@ Please see a librarian to renew your account.">
 <!ENTITY opac.search.videoRecordings "Enregistraments vidèo">
 <!ENTITY opac.search.music "Musica">
 <!ENTITY opac.search.electronic "Electronic Resources">
-<!ENTITY opac.search.nowSearching "Recèrca en cors ">
+<!ENTITY opac.search.nowSearching "Now Searching">
 <!--	================================================================= 
 		Page Titles
 		================================================================= -->
@@ -538,7 +538,7 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY rdetail.author.search "Perform an author search">
 <!ENTITY rdetail.copyInfo.headerLabel "Copy Information">
 <!ENTITY rdetail.copyInfo.library "Bibliotèca">
-<!ENTITY rdetail.copyInfo.callnumber "Numèro de còta">
+<!ENTITY rdetail.copyInfo.callnumber "Callnumber">
 <!ENTITY rdetail.copyInfo.copylocation "Copy Location">
 <!ENTITY rdetail.copyInfo.local "View Copy Information for this location only">
 <!ENTITY rdetail.copyInfo.all "View copy information for all libraries">
@@ -600,7 +600,7 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY result.googleBooks.browse "Browse in Google Books Search">
 <!ENTITY result.localCallNumbers "Local Call Numbers:">
 
-<!ENTITY common.call.number.label "Numèro de còta">
+<!ENTITY common.call.number.label "Call Number:">
 <!ENTITY common.isbn.label "ISBN :">
 <!ENTITY common.issn.label "ISSN :">
 <!ENTITY common.mono_parts.label "Monograph Parts:">
@@ -643,7 +643,7 @@ For further information, please consult your local librarian.">
 <!ENTITY common.email.none "(Le client n'a pas d'adresse électronique configurée)">
 <!ENTITY common.email.set "(See <a class='classic_link' id='holds.no_email.my_account'>My Account</a> for setting your email address)">
 <!ENTITY common.keywords.label "Mots claus :">
-<!ENTITY common.physical.label "Descripcion fisica">
+<!ENTITY common.physical.label "Physical Description:">
 <!ENTITY common.series.label "Colleccion :">
 <!ENTITY common.subject.label "Subjècte :">
 <!ENTITY common.title.label "Títol :">
@@ -675,7 +675,7 @@ Passwords are case-sensitive.  Check your Caps-Lock key and try again or contact
 <!ENTITY slimpac.language.select "Select language">
 
 <!ENTITY slimpac.start.title "Simple Search">
-<!ENTITY slimpac.start.nowSearching "Recèrca en cors ">
+<!ENTITY slimpac.start.nowSearching "Now searching: ">
 <!ENTITY slimpac.start.dynamic "Dynamic Catalog">
 <!--	================================================================= 
 	Slimpac Advanced Search

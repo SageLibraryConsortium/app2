@@ -6,8 +6,8 @@ angular.module('egCoreMod')
 
 .factory('egHolds',
 
-       ['$modal','$q','egCore','egAlertDialog','egConfirmDialog','egAlertDialog',
-function($modal , $q , egCore , egAlertDialog , egConfirmDialog , egAlertDialog) {
+       ['$modal','$q','egCore','egConfirmDialog','egAlertDialog',
+function($modal , $q , egCore , egConfirmDialog , egAlertDialog) {
 
     var service = {};
 
@@ -64,6 +64,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog , egAlertDialog)
                 ['$scope', '$modalInstance', 'cancel_reasons',
                 function($scope, $modalInstance, cancel_reasons) {
                     $scope.args = {
+                        cancel_reason : 5,
                         cancel_reasons : cancel_reasons,
                         num_holds : hold_ids.length
                     };
@@ -84,7 +85,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog , egAlertDialog)
                             egCore.net.request(
                                 'open-ils.circ', 'open-ils.circ.hold.cancel',
                                 egCore.auth.token(), hold_id,
-                                $scope.args.cancel_reason.id(), 
+                                $scope.args.cancel_reason,
                                 $scope.args.note
                             ).then(function(resp) {
                                 if (evt = egCore.evt.parse(resp)) {
@@ -104,6 +105,49 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog , egAlertDialog)
                     return service.get_cancel_reasons();
                 }
             }
+        }).result;
+    }
+
+    service.uncancel_holds = function(hold_ids) {
+       
+        return $modal.open({
+            templateUrl : './circ/share/t_uncancel_hold_dialog',
+            controller : 
+                ['$scope', '$modalInstance',
+                function($scope, $modalInstance) {
+                    $scope.args = {
+                        num_holds : hold_ids.length
+                    };
+                    
+                    $scope.cancel = function($event) {
+                        $modalInstance.dismiss();
+                        $event.preventDefault();
+                    }
+
+                    $scope.ok = function() {
+
+                        function uncancel_one() {
+                            var hold_id = hold_ids.pop();
+                            if (!hold_id) {
+                                $modalInstance.close();
+                                return;
+                            }
+                            egCore.net.request(
+                                'open-ils.circ', 'open-ils.circ.hold.uncancel',
+                                egCore.auth.token(), hold_id
+                            ).then(function(resp) {
+                                if (evt = egCore.evt.parse(resp)) {
+                                    console.error('unable to uncancel hold: ' 
+                                        + evt.toString());
+                                }
+                                uncancel_one();
+                            });
+                        }
+
+                        uncancel_one();
+                    }
+                }
+            ]
         }).result;
     }
 
@@ -154,7 +198,8 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog , egAlertDialog)
             controller : 
                 ['$scope', '$modalInstance',
                 function($scope, $modalInstance) {
-                    $scope.args = {}
+                    $scope.cant_be_pickup = function (id) { return !egCore.org.CanHaveUsers(id); };
+                    $scope.args = {};
                     $scope.ok = function() { 
                         var vals = hold_ids.map(function(hold_id) {
                             return {
@@ -323,6 +368,31 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog , egAlertDialog)
         });
     }
 
+    service.transfer_all_bib_holds_to_marked_title = function(bib_ids) {
+        if (!bib_ids.length) return $q.when();
+
+        var target_bib_id = egCore.hatch.getLocalItem(
+            'eg.circ.hold.title_transfer_target');
+
+        if (!target_bib_id) {
+            // no target marked
+            return egAlertDialog.open(
+                egCore.strings.NO_HOLD_TRANSFER_TITLE_MARKED).result;
+        }
+
+        return egConfirmDialog.open(
+            egCore.strings.TRANSFER_ALL_BIB_HOLDS_TO_TITLE, '', {
+                num_bibs : bib_ids.length,
+                bib_id : target_bib_id
+            }
+        ).result.then(function() {
+            return egCore.net.request(
+                'open-ils.circ',
+                'open-ils.circ.hold.change_title',
+                egCore.auth.token(), target_bib_id, bib_ids);
+        });
+    }
+
     // serially retargets each hold
     service.retarget = function(hold_ids) {
         if (!hold_ids.length) return $q.when();
@@ -366,6 +436,15 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog , egAlertDialog)
         hold.current_shelf_lib(egCore.org.get(hold.current_shelf_lib()));
         hold_data.id = hold.id();
 
+        if (hold.requestor() && typeof hold.requestor() != 'object')
+            egCore.pcrud.retrieve('au',hold.requestor()).then(function(u) { hold.requestor(u) });
+
+        if (hold.cancel_cause() && typeof hold.cancel_cause() != 'object')
+            egCore.pcrud.retrieve('ahrcc',hold.cancel_cause()).then(function(c) { hold.cancel_cause(c) });
+
+        if (hold.usr() && typeof hold.usr() != 'object')
+            egCore.pcrud.retrieve('au',hold.usr()).then(function(u) { hold.usr(u) });
+
         // current_copy is not always fleshed in the API
         if (hold.current_copy() && typeof hold.current_copy() != 'object')
             hold.current_copy(hold_data.copy);
@@ -383,8 +462,8 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog , egAlertDialog)
  * most actionis are performed.
  */
 .factory('egHoldGridActions', 
-       ['$window','$location','egCore','egHolds','egCirc',
-function($window , $location , egCore , egHolds , egCirc) {
+       ['$window','$location','$timeout','egCore','egHolds','egCirc',
+function($window , $location , $timeout , egCore , egHolds , egCirc) {
     
     var service = {};
 
@@ -400,15 +479,51 @@ function($window , $location , egCore , egHolds , egCirc) {
         return egHolds.cancel_holds(hold_ids).then(service.refresh);
     }
 
+    service.uncancel_hold = function(items) {
+        var hold_ids = items.filter(function(item) {
+            return item.hold.cancel_time();
+        }).map(function(item) {return item.hold.id()});
+
+        return egHolds.uncancel_holds(hold_ids).then(service.refresh);
+    }
+
     // jump to circ list for either 1) the targeted copy or
     // 2) the hold target copy for copy-level holds
     service.show_recent_circs = function(items) {
-        if (items.length && (copy = items[0].copy)) {
-            var url = $location.path(
-                '/cat/item/' + copy.id() + '/circ_list').absUrl();
-            $window.open(url, '_blank').focus();
-        }
+        var focus = items.length == 1;
+        angular.forEach(items, function(item) {
+            if (item.copy) {
+                var url = egCore.env.basePath +
+                          '/cat/item/' +
+                          item.copy.id() +
+                          '/circ_list';
+                $timeout(function() { var x = $window.open(url, '_blank'); if (focus) x.focus() });
+            }
+        });
     }
+
+    service.show_patrons = function(items) {
+        var focus = items.length == 1;
+        angular.forEach(items, function(item) {
+            var url = egCore.env.basePath +
+                      'circ/patron/' +
+                      item.hold.usr().id() +
+                      '/holds';
+            $timeout(function() { var x = $window.open(url, '_blank'); if (focus) x.focus() });
+        });
+    }
+
+    service.show_holds_for_title = function(items) {
+        var focus = items.length == 1;
+        angular.forEach(items, function(item) {
+            var url = egCore.env.basePath +
+                      'cat/catalog/record/' +
+                      item.mvr.doc_id() +
+                      '/holds';
+            $timeout(function() { var x = $window.open(url, '_blank'); if (focus) x.focus() });
+        });
+    }
+
 
     function generic_update(items, action) {
         if (!items.length) return $q.when();

@@ -112,12 +112,11 @@ Le premier exemplaire qui devient disponible vous sera envoyé.">
 <!ENTITY common.googlechromeframe.install "Installer maintenant!">
 <!ENTITY common.googlechromeframe.dontask "Ne me demandez pas de nouveau">
 
-<!ENTITY home.js.disabled "JavaScript doit être activé afin de pouvoir utiliser le catalogue Evergreen ordinaire. 
-Cependant, il semble que JavaScript soit désactivé ou qu'il soit incompatible avec votre navigateur. 
-Pour utiliser le catalogue Evergreen ordinaire, activez JavaScript en changeant les options de votre navigateur, puis 
-<a style='color: blue; text-decoration: underline;' href='/'>essayez de nouveau</a>. 
-<br/><br/>Sinon, vous pouvez utiliser le catalogue de base en version HTML-seulement 
-<a style='color: blue; text-decoration: underline;' href='/opac/extras/slimpac/start.html'>ici</a>.">
+<!ENTITY home.js.disabled "JavaScript must be enabled in order for you to use the regular Evergreen Catalog.
+However, it seems JavaScript is either disabled or not supported by your browser.
+To use the regular Evergreen Catalog, enable JavaScript by changing your browser options, then
+<a style='color: blue; text-decoration: underline;' href='/'>try again</a>.
+<br/><br/>Alternatively, you can use the basic HTML-only catalog: ">
 <!--	================================================================= 
 	 MyOPAC bookbag page
 	================================================================= -->
@@ -390,7 +389,7 @@ Veuillez vous adresser à un bibliothécaire pour renouveler votre compte.">
 <!ENTITY footer.library.about "Au sujet de PINES">
 <!ENTITY footer.union.url "http://www.galileo.usg.edu/">
 <!ENTITY footer.union "GALILEO">
-<!ENTITY footer.copyright "Droit d'auteur &#xA9; 2006-2010 Georgia Public Library Service, et autres.">
+<!ENTITY footer.copyright "Copyright &#xA9; 2006-2012 Georgia Public Library Service, and others">
 <!-- Introduces the logo for the project -->
 <!ENTITY footer.logo "Produit par"> 
 <!--	================================================================= 

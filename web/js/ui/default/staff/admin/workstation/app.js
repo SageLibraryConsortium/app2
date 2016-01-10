@@ -85,6 +85,9 @@ function($scope , $window , $location , egCore , egConfirmDialog) {
         .then(function() { $scope.defaultWS = $scope.selectedWS });
     }
 
+    $scope.cant_have_users = function (id) { return !egCore.org.CanHaveUsers(id); };
+    $scope.cant_have_volumes = function (id) { return !egCore.org.CanHaveVolumes(id); };
+
     // redirect the user to the login page using the current
     // workstation as the workstation URL param
     $scope.useWS = function() {

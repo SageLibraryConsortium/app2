@@ -24,7 +24,7 @@ function($q , egCore , patronSvc) {
         .then(function(summary) {return service.summary = summary})
     }
 
-    service.applyPayment = function(type, payments, note) {
+    service.applyPayment = function(type, payments, note, check) {
         return egCore.net.request(
             'open-ils.circ',
             'open-ils.circ.money.payment',
@@ -32,6 +32,7 @@ function($q , egCore , patronSvc) {
                 userid : service.userId,
                 note : note || '', 
                 payment_type : type,
+                check_number : check,
                 payments : payments,
                 patron_credit : 0
             },
@@ -121,7 +122,8 @@ function($scope , $q , $routeParams , egCore , egConfirmDialog , $location,
     billSvc.userId = $routeParams.id;
 
     // set up some defaults
-    $scope.payment_amount = 0;
+    $scope.check_number = 0;
+    $scope.payment_amount = null;
     $scope.session_voided = 0;
     $scope.payment_type = 'cash_payment';
     $scope.focus_payment = true;
@@ -265,7 +267,7 @@ function($scope , $q , $routeParams , egCore , egConfirmDialog , $location,
     function refreshDisplay() {
         patronSvc.fetchUserStats();
         billSvc.fetchSummary().then(function(s) {$scope.summary = s});
-        $scope.payment_amount = 0;
+        $scope.payment_amount = null;
         $scope.gridControls.refresh();
     }
 
@@ -274,7 +276,7 @@ function($scope , $q , $routeParams , egCore , egConfirmDialog , $location,
     function sendPayment(note) {
         var make_payments = generatePayments();
         billSvc.applyPayment(
-            $scope.payment_type, make_payments, note)
+            $scope.payment_type, make_payments, note, $scope.check_number)
         .then(function(payment_ids) {
 
             if ($scope.receipt_on_pay) {
@@ -582,9 +584,20 @@ function($scope,  $q , $routeParams , egCore , egGridDataProvider , patronSvc , 
     }
 
     // -- retrieve our data
+    $scope.total_circs = 0; // start with 0 instead of undefined
     egBilling.fetchXact(xact_id).then(function(xact) {
         $scope.xact = xact;
 
+        var copyId = xact.circulation().target_copy().id();
+        var circ_count = 0;
+        egCore.pcrud.search('circbyyr',
+            {copy : copyId}, null, {atomic : true})
+        .then(function(counts) {
+            angular.forEach(counts, function(count) {
+                circ_count += Number(count.count());
+            });
+            $scope.total_circs = circ_count;
+        });
         // set the title.  only needs to be done on initial page load
         if (xact.circulation()) {
             if (xact.circulation().target_copy().call_number().id() == -1) {
@@ -610,6 +623,9 @@ function($scope,  $q , $routeParams , egCore , patronSvc , billSvc , egPromptDia
     $scope.bill_tab = $routeParams.history_tab;
     $scope.totals = {};
 
+    // link page controller actions defined by sub-controllers here
+    $scope.actions = {};
+
     var start = new Date(); // now - 1 year
     start.setFullYear(start.getFullYear() - 1),
     $scope.dates = {
@@ -631,24 +647,31 @@ function($scope,  $q , $routeParams , egCore , patronSvc , billSvc , egPromptDia
        ['$scope','$q','egCore','patronSvc','billSvc','egPromptDialog','$location','egBilling',
 function($scope,  $q , egCore , patronSvc , billSvc , egPromptDialog , $location , egBilling) {
 
+    // generate a grid query with the current date widget values.
+    function current_grid_query() {
+        return {
+            '-or' : [
+                {'summary.balance_owed' : {'<>' : 0}},
+                {'summary.last_payment_ts' : {'<>' : null}}
+            ],
+            xact_start : {between : $scope.date_range()},
+            usr : billSvc.userId
+        }
+    }
+
     $scope.gridControls = {
         selectedItems : function(){return []},
         activateItem : function(item) {
             $scope.showFullDetails([item]);
         },
-        setQuery : function() {
-            // open-ils.actor.user.transactions.history.have_bill_or_payment
-            return {
-                '-or' : [
-                    {'summary.balance_owed' : {'<>' : 0}},
-                    {'summary.last_payment_ts' : {'<>' : null}}
-                ],
-                xact_start : {between : $scope.date_range()},
-                usr : billSvc.userId
-            }
-        }
+        // this sets the query on page load
+        setQuery : current_grid_query
     }
 
+    $scope.actions.apply_date_range = function() {
+        // tells the grid to re-draw itself with the new query
+        $scope.gridControls.setQuery(current_grid_query());
+    }
 
     // TODO; move me to service
     function selected_payment_info() {
@@ -696,6 +719,14 @@ function($scope,  $q , egCore , patronSvc , billSvc , egPromptDialog , $location
        ['$scope','$q','egCore','patronSvc','billSvc','$location',
 function($scope,  $q , egCore , patronSvc , billSvc , $location) {
 
+    // generate a grid query with the current date widget values.
+    function current_grid_query() {
+        return {
+            'payment_ts' : {between : $scope.date_range()},
+            'xact.usr' : billSvc.userId
+        }
+    }
+
     $scope.gridControls = {
         selectedItems : function(){return []},
         activateItem : function(item) {
@@ -704,12 +735,12 @@ function($scope,  $q , egCore , patronSvc , billSvc , $location) {
         setSort : function() {
             return [{'payment_ts' : 'DESC'}, 'id'];
         },
-        setQuery : function() {
-            return {
-                'payment_ts' : {between : $scope.date_range()},
-                'xact.usr' : billSvc.userId
-            }
-        }
+        setQuery : current_grid_query
+    }
+
+    $scope.actions.apply_date_range = function() {
+        // tells the grid to re-draw itself with the new query
+        $scope.gridControls.setQuery(current_grid_query());
     }
 
     $scope.showFullDetails = function(all) {

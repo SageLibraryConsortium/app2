@@ -1,3 +1,4 @@
+<!ENTITY class.stgu.label "Käyttäjän vaihe">
 <!ENTITY field.bre.source.label "Tietueen lähde">
 <!ENTITY class.rxpt.label "Maksutapahtumien maksujen yhteissummat">
 <!ENTITY field.sunit.sort_key.label "Lajitteluavain">
@@ -102,6 +103,8 @@
 <!ENTITY field.viiad.owner.label "Omistaja">
 <!ENTITY field.vbq.owner.label "Omistaja">
 <!ENTITY field.vaq.owner.label "Omistaja">
+<!ENTITY field.cmrcfld.owner.label "Omistaja">
+<!ENTITY field.cmrcsubfld.owner.label "Omistaja">
 <!ENTITY field.cracct.owner.label "Omistaja">
 <!ENTITY field.are.owner.label "Omistaja">
 <!ENTITY field.bre.owner.label "Omistaja">
@@ -127,7 +130,7 @@
 <!ENTITY field.vibtf.grp.label "Ryhmä">
 <!ENTITY field.pgpt.grp.label "Ryhmä">
 <!ENTITY field.acplgm.lgroup.label "Ryhmä">
-<!ENTITY field.acqftr.transfer_time.label "Siirtoaika">
+<!ENTITY field.au.ident_type2.label "Toissijainen tunnistautumistyyppi">
 <!ENTITY field.actscsf.name.label "Kentän nimi">
 <!ENTITY field.ascsf.name.label "Kentän nimi">
 <!ENTITY field.auoi.staff.label "Henkilökunnan jäsen">
@@ -150,6 +153,8 @@
 <!ENTITY class.actsced.label "Käyttäjän tilastollisen kategorian oletuskirjaus">
 <!ENTITY field.mb.billing_ts.label "Laskun aikaleima">
 <!ENTITY field.acqscl.item.label "Kausijulkaisunide">
+<!ENTITY field.afs.id.label "Kenttäjoukon tunnus">
+<!ENTITY field.afscv.fieldset.label "Kenttäjoukon tunnus">
 <!ENTITY class.acqpa.label "Toimittajan osoite">
 <!ENTITY field.acqlia.id.label "Määritysarvon tunnus">
 <!ENTITY class.ahcm.label "Varauksen nidekartta">
@@ -170,6 +175,9 @@
 <!ENTITY field.jub.lineitem_notes.label "Nimikeilmoitukset">
 <!ENTITY field.ahtc.hold.label "Kuljetusta vaativa varaus">
 <!ENTITY field.aout.name.label "Tyyppinimi">
+<!ENTITY field.bre.metarecord.label "Metatietue">
+<!ENTITY class.mmr.label "Metatietue">
+<!ENTITY field.rsr.metarecord.label "Metatietue">
 <!ENTITY field.ahr.cancel_time.label "Varauksen perumisen päiväys/aika">
 <!ENTITY field.ahopl.cancel_time.label "Varauksen perumisen päiväys/aika">
 <!ENTITY field.alhr.cancel_time.label "Varauksen perumisen päiväys/aika">
@@ -199,6 +207,7 @@
 <!ENTITY field.rmocbbcol.circ_lib.label "Lainaava kirjasto">
 <!ENTITY field.rmobbcol.circ_lib.label "Lainaava kirjasto">
 <!ENTITY field.afs.scheduled_time.label "Aikataulutettu aika">
+<!ENTITY field.vmsp.heading.label "Authority Heading">
 <!ENTITY field.auri.call_number_maps.label "Hyllypaikkakartat">
 <!ENTITY class.acnn.label "Hyllypaikkailmoitus">
 <!ENTITY field.qdt.is_numeric.label "Numeerinen">
@@ -233,6 +242,7 @@
 <!ENTITY field.acplg.top.label "Näytä organisaatioiden yläpuolella">
 <!ENTITY field.rccbs.usr_home_ou_name.label "Käyttäjän kotikirjaston nimi">
 <!ENTITY field.au.credit_forward_balance.label "Käyttäjän varojen saldo">
+<!ENTITY field.acqclet.id.label "Reklamaatiotapahtuman tyyppitunnus">
 <!ENTITY field.scap.enum_5.label "Enum 5">
 <!ENTITY class.mcrp.label "Maksu kirjastossa olevilla varoilla">
 <!ENTITY field.czifm.id.label "Map ID">
@@ -276,6 +286,7 @@
 <!ENTITY class.acplg.label "Niteen/hyllytyssijainnin ryhmä">
 <!ENTITY field.cracct.username.label "Käyttäjätunnus">
 <!ENTITY field.acqedi.username.label "Käyttäjätunnus">
+<!ENTITY field.rccc.stat_cat_1.label "Vanha CAT1-linkki">
 <!ENTITY class.ccnbn.label "Hyllypaikan siiloilmoitus">
 <!ENTITY field.acqfsum.allocated_total.label "Varattu yhteensä">
 <!ENTITY field.cmcts.index_lang.label "Indeksin kieli">
@@ -370,6 +381,7 @@
 <!ENTITY field.ccm.sip2_media_type.label "SIP2-mediatyyppi">
 <!ENTITY field.vqbrad.code.label "Koodi">
 <!ENTITY field.vqarad.code.label "Koodi">
+<!ENTITY field.cmrcfmt.code.label "Koodi">
 <!ENTITY field.ccvm.code.label "Koodi">
 <!ENTITY field.cza.code.label "Koodi">
 <!ENTITY field.ccm.code.label "Koodi">
@@ -410,6 +422,7 @@
 <!ENTITY field.acqmapinv.purchase_order.label "Tilauksen tunnus">
 <!ENTITY field.sunit.age_protect.label "Aineiston varaussuoja-aika">
 <!ENTITY field.acp.age_protect.label "Aineiston varaussuoja-aika">
+<!ENTITY field.cmrcfld.repeatable.label "Repeatabl?">
 <!ENTITY field.brt.name.label "Aineistotyypin nimi">
 <!ENTITY class.sunit.label "Yksikkö">
 <!ENTITY field.sitem.unit.label "Yksikkö">
@@ -438,10 +451,6 @@
 <!ENTITY field.acirc.usr_post_code.label "Asiakkaan postinumero">
 <!ENTITY field.combahr.usr_post_code.label "Asiakkaan postinumero">
 <!ENTITY field.aahr.usr_post_code.label "Asiakkaan postinumero">
-<!ENTITY field.circ.xact_start.label "Lainauspäivä/-aika">
-<!ENTITY field.combcirc.xact_start.label "Lainauspäivä/-aika">
-<!ENTITY field.acirc.xact_start.label "Lainauspäivä/-aika">
-<!ENTITY field.rodcirc.xact_start.label "Lainauspäivä/-aika">
 <!ENTITY field.rxbt.unvoided.label "Mitätöimätön laskusumma">
 <!ENTITY field.circ.billable_transaction.label "Perusmaksutapahtuma">
 <!ENTITY field.combcirc.billable_transaction.label "Perusmaksutapahtuma">
@@ -505,6 +514,7 @@
 <!ENTITY field.acqafet.amount.label "Kuormitettu yhteensä">
 <!ENTITY field.aouctn.tree.label "Puu">
 <!ENTITY field.vbm.match_score.label "Osuvuuspisteet">
+<!ENTITY field.vam.match_score.label "Osuvuuspisteet">
 <!ENTITY field.vqbr.queue.label "Jono">
 <!ENTITY field.vqar.queue.label "Jono">
 <!ENTITY field.vbm.queued_record.label "Tietue jonossa">
@@ -523,7 +533,8 @@
 <!ENTITY field.acqpca.contact.label "Yhteydenotto">
 <!ENTITY class.puwoum.label "Käyttäjän työorganisaatioyksikön kartta">
 <!ENTITY field.accs.last_checkin_workstation.label "Viimeisin palautustyöasema">
-<!ENTITY class.stgu.label "Käyttäjän vaihe">
+<!ENTITY field.vii.stat_cat_data.label "Stat Cat Data">
+<!ENTITY field.viiad.stat_cat_data.label "Stat Cat Data">
 <!ENTITY field.ccmw.org_unit.label "Organisaatioyksikkö">
 <!ENTITY field.cwa.org_unit.label "Organisaatioyksikkö">
 <!ENTITY field.ccmm.org_unit.label "Organisaatioyksikkö">
@@ -571,11 +582,6 @@
 <!ENTITY field.mbp.accepting_usr.label "Käyttäjä hyväksytään">
 <!ENTITY field.mdp.accepting_usr.label "Käyttäjä hyväksytään">
 <!ENTITY class.qrc.label "Tietuesarake">
-<!ENTITY field.ahr.thaw_date.label "Sulamispäivä (jos jäädytetty)">
-<!ENTITY field.ahopl.thaw_date.label "Sulamispäivä (jos jäädytetty)">
-<!ENTITY field.alhr.thaw_date.label "Sulamispäivä (jos jäädytetty)">
-<!ENTITY field.combahr.thaw_date.label "Sulamispäivä (jos jäädytetty)">
-<!ENTITY field.aahr.thaw_date.label "Sulamispäivä (jos jäädytetty)">
 <!ENTITY field.acqinv.inv_type.label "Laskutyyppi">
 <!ENTITY field.acqpro.fax_phone.label "Faksinumero">
 <!ENTITY field.acqpa.fax_phone.label "Faksinumero">
@@ -621,6 +627,7 @@
 <!ENTITY field.circ.usr.label "Asiakas">
 <!ENTITY field.ancc.patron.label "Asiakas">
 <!ENTITY field.rodcirc.usr.label "Asiakas">
+<!ENTITY field.mb.adjustments.label "Adjustments">
 <!ENTITY field.cmfpm.length.label "Pituus">
 <!ENTITY field.cmpcsm.length.label "Pituus">
 <!ENTITY field.cbc.length.label "Pituus">
@@ -648,7 +655,7 @@
 <!ENTITY field.acqii.inv_item_type.label "Laskun maksutyyppi">
 <!ENTITY field.acqpoi.inv_item_type.label "Laskun maksutyyppi">
 <!ENTITY field.stgsc.value.label "Tilastollisen kategorian arvo">
-<!ENTITY field.au.ident_type2.label "Toissijainen tunnistautumistyyppi">
+<!ENTITY field.acqftr.transfer_time.label "Siirtoaika">
 <!ENTITY class.mfr.label "Tasoitetut MARC-kentät">
 <!ENTITY class.acpn.label "Nideilmoitus">
 <!ENTITY field.cmc.a_weight.label "A-painotus">
@@ -677,6 +684,7 @@
 <!ENTITY field.aua.replaces.label "Korvaa">
 <!ENTITY field.uvs.selectors.label "URL-valitsimet">
 <!ENTITY field.ahopl.is_staff_hold.label "Onko henkilökunnan varaus?">
+<!ENTITY class.auml.label "User Message (Limited Access)">
 <!ENTITY field.acqlisum.delay_count.label "Delay Count">
 <!ENTITY field.acqlisumi.delay_count.label "Delay Count">
 <!ENTITY class.ancc.label "Ei-luetteloitu laina">
@@ -735,6 +743,8 @@
 <!ENTITY field.sunit.dummy_isbn.label "Vale-ISBN">
 <!ENTITY field.acp.dummy_isbn.label "Vale-ISBN">
 <!ENTITY field.ath.key.label "Koukkuavain">
+<!ENTITY field.cmrcfld.marc_format.label "MARC-muoto">
+<!ENTITY field.cmrcsubfld.marc_format.label "MARC-muoto">
 <!ENTITY field.acn.label.label "Hyllypaikkanimeke">
 <!ENTITY field.ahopl.call_number_label.label "Hyllypaikkanimeke">
 <!ENTITY field.acqlid.cn_label.label "Hyllypaikkanimeke">
@@ -772,6 +782,8 @@
 <!ENTITY field.vqbrad.description.label "Kuvaus">
 <!ENTITY field.vqarad.description.label "Kuvaus">
 <!ENTITY field.cin.description.label "Kuvaus">
+<!ENTITY field.cmrcfld.description.label "Kuvaus">
+<!ENTITY field.cmrcsubfld.description.label "Kuvaus">
 <!ENTITY field.crad.description.label "Kuvaus">
 <!ENTITY field.ccvm.description.label "Kuvaus">
 <!ENTITY field.ath.description.label "Kuvaus">
@@ -832,7 +844,7 @@
 <!ENTITY field.vmsp.bool_op.label "Boolean-operaattori">
 <!ENTITY field.qsi.stored_query.label "Tallennettu kyselytunnus">
 <!ENTITY field.qobi.stored_query.label "Tallennettu kyselytunnus">
-<!ENTITY class.rhcrpbap.label "Varausta/nide-suhde tietuetta ja noutokirjastoa kohden">
+<!ENTITY field.atevdef.message_library_path.label "Message Library Path">
 <!ENTITY class.cclsgm.label "Lainausrajoituksen asetuksen ryhmäkartta">
 <!ENTITY field.sre.active.label "Aktiivinen">
 <!ENTITY field.czs.attrs.label "Määritteet">
@@ -854,6 +866,8 @@
 <!ENTITY field.jub.edit_time.label "Muokkausaika">
 <!ENTITY field.acqlih.edit_time.label "Muokkausaika">
 <!ENTITY field.acqlin.edit_time.label "Muokkausaika">
+<!ENTITY field.aum.title.label "Nimeke">
+<!ENTITY field.auml.title.label "Nimeke">
 <!ENTITY field.ssubn.title.label "Nimeke">
 <!ENTITY field.sdistn.title.label "Nimeke">
 <!ENTITY field.sin.title.label "Nimeke">
@@ -873,6 +887,7 @@
 <!ENTITY class.acqfsrcb.label "Rahoituslähteen saldo">
 <!ENTITY class.pugm.label "Käyttäjäryhmäkartta">
 <!ENTITY field.cbho.approx.label "Painotettu kiinniottopaikan ja noutokirjaston etäisyys">
+<!ENTITY field.cmrcsubfld.repeatable.label "Repeatable?">
 <!ENTITY field.aua.street2.label "Katuosoite (2)">
 <!ENTITY field.aal.street2.label "Katuosoite (2)">
 <!ENTITY field.acqpca.street2.label "Katuosoite (2)">
@@ -909,8 +924,7 @@
 <!ENTITY field.uvus.xpath.label "XPolku">
 <!ENTITY class.vmsp.label "Tietueen osuvuusmääritelmä">
 <!ENTITY field.mrd.date2.label "Päiväys2">
-<!ENTITY field.artc.source.label "Lähetyskirjasto">
-<!ENTITY field.ahtc.source.label "Lähetyskirjasto">
+<!ENTITY class.aum.label "Huomautusviesti">
 <!ENTITY field.vibtg.label.label "Nimi">
 <!ENTITY field.cgf.label.label "Nimi">
 <!ENTITY field.crad.label.label "Nimi">
@@ -994,7 +1008,9 @@
 <!ENTITY field.actscecm.stat_cat.label "Tilastollinen kategoria">
 <!ENTITY field.aaactsc.stat_cat.label "Tilastollinen kategoria">
 <!ENTITY field.aaasc.stat_cat.label "Tilastollinen kategoria">
-<!ENTITY field.acqfc.id.label "Tilivuosikalenterin tunnus">
+<!ENTITY field.ahr.usr.label "Varannut käyttäjä">
+<!ENTITY field.ahopl.usr.label "Varannut käyttäjä">
+<!ENTITY field.alhr.usr.label "Varannut käyttäjä">
 <!ENTITY field.vii.circulate.label "Lainaa">
 <!ENTITY field.viiad.circulate.label "Lainaa">
 <!ENTITY class.abl.label "Bibliografisen auktoriteettitietueen linkki">
@@ -1004,7 +1020,7 @@
 <!ENTITY field.acp.edit_date.label "Viimeisin muokkauspäivä/-aika">
 <!ENTITY field.vbq.id.label "Jonotunnus">
 <!ENTITY field.vaq.id.label "Jonotunnus">
-<!ENTITY field.brt.tgt_rsrc_types.label "Kohdeaineistojen tyypit">
+<!ENTITY class.cmrcfmt.label "MARC-muoto">
 <!ENTITY field.aoupa.absolute_adjustment.label "Absoluuttinen painotus?">
 <!ENTITY field.cuat.ehow.label "Tapahtumamekanismi">
 <!ENTITY field.actsce.stat_cat.label "Tilastollinen kategoria">
@@ -1230,6 +1246,8 @@
 <!ENTITY field.acqfsrcct.amount.label "Varoja yhteensä rahoituslähteeseen">
 <!ENTITY class.mct.label "Kokoelmajäljitin">
 <!ENTITY field.qsi.grouped_by.label "Ryhmittelyperuste">
+<!ENTITY field.cmrcfld.tag.label "MARC-avainsana">
+<!ENTITY field.cmrcsubfld.tag.label "MARC-avainsana">
 <!ENTITY field.crad.tag.label "MARC-avainsana">
 <!ENTITY field.czs.db.label "Tietokanta">
 <!ENTITY field.vibtf.field.label "Kenttä">
@@ -1269,6 +1287,8 @@
 <!ENTITY field.vms.name.label "Nimi">
 <!ENTITY field.cgf.name.label "Nimi">
 <!ENTITY field.cin.name.label "Nimi">
+<!ENTITY field.cmrcfmt.name.label "Nimi">
+<!ENTITY field.cmrcfld.name.label "Nimi">
 <!ENTITY field.crad.name.label "Nimi">
 <!ENTITY field.csc.name.label "Nimi">
 <!ENTITY field.cza.name.label "Nimi">
@@ -1353,6 +1373,8 @@
 <!ENTITY field.combcirc.copy_call_number.label "Hyllypaikka">
 <!ENTITY field.acirc.copy_call_number.label "Hyllypaikka">
 <!ENTITY field.atev.template_output.label "Kuittipohjatulostus">
+<!ENTITY field.aum.deleted.label "Tuhottu">
+<!ENTITY field.auml.deleted.label "Tuhottu">
 <!ENTITY field.acqdf.id.label "Kaavatunnus">
 <!ENTITY field.acqdfe.formula.label "Kaavatunnus">
 <!ENTITY field.act.mint_condition.label "Hyväkuntoinen?">
@@ -1551,6 +1573,7 @@
 <!ENTITY field.bresv.request_lib.label "Pyyntökirjasto">
 <!ENTITY field.asvr.usr.label "Vastaava käyttäjä">
 <!ENTITY class.atval.label "Laukaisuehdon vahvistaja">
+<!ENTITY class.cmrcfld.label "MARC Fields">
 <!ENTITY class.acqexr.label "Vaihtokurssi">
 <!ENTITY field.qxp.table_alias.label "Taulukon alias">
 <!ENTITY field.qfr.table_alias.label "Taulukon alias">
@@ -1576,7 +1599,7 @@
 <!ENTITY field.ssub.start_date.label "Aloituspäivä">
 <!ENTITY field.acn.label_class.label "Luokitteluskeema">
 <!ENTITY class.mb.label "Laskutusnimeke">
-<!ENTITY field.brav.attr_val_maps.label "Aineistomääritteiden arvokartat">
+<!ENTITY field.chmm.age_hold_protect_rule.label "Niteen varaussuoja-aikasääntö">
 <!ENTITY field.cxt.prefix.label "Nimitilan etuliite">
 <!ENTITY class.mucs.label "Käyttäjän lainayhteenveto">
 <!ENTITY class.ocirccount.label "Avointen lainojen lukumäärä">
@@ -1654,6 +1677,7 @@
 <!ENTITY field.acqfap.funding_source.label "Rahoituslähde">
 <!ENTITY field.acqft.owner.label "Tilin avainsanan omistaja">
 <!ENTITY class.acqfa.label "Tilivaraus">
+<!ENTITY field.crad.vocabulary.label "Vocabulary URI">
 <!ENTITY field.auoi.id.label "Valinnaisuustunnus">
 <!ENTITY field.asvq.answers.label "Vastaukset">
 <!ENTITY field.rocit.stat_cat_1.label "Vanha tilastollinen kategoria 1">
@@ -1677,6 +1701,8 @@
 <!ENTITY field.uvs.container.label "Tietueen Säiliö">
 <!ENTITY field.acqdf.skip_count.label "Ohitusten lukumäärä">
 <!ENTITY field.bpbcm.peer_record.label "Vertaistietue">
+<!ENTITY field.aum.message.label "Message">
+<!ENTITY field.auml.message.label "Message">
 <!ENTITY field.circ.grace_period.label "Armoaika">
 <!ENTITY field.combcirc.grace_period.label "Armoaika">
 <!ENTITY field.acirc.grace_period.label "Armoaika">
@@ -1687,8 +1713,8 @@
 <!ENTITY field.au.checkouts.label "Kaikki lainat">
 <!ENTITY field.aouctn.sibling_order.label "Sisarusten lajittelujärjestys">
 <!ENTITY field.aws.name.label "Työaseman nimi">
-<!ENTITY field.circ.parent_circ.label "Ylätason laina">
-<!ENTITY field.acirc.parent_circ.label "Ylätason laina">
+<!ENTITY class.cmc.label "Metabib-luokka">
+<!ENTITY field.cmcts.field_class.label "Metabib-luokka">
 <!ENTITY class.ccnb.label "Hyllypaikkasiilo">
 <!ENTITY field.ssub.scaps.label "Ilmestymistiedot">
 <!ENTITY field.ahr.fulfillment_staff.label "Täyttävä henkilökunta">
@@ -1727,7 +1753,8 @@
 <!ENTITY field.acqpoi.estimated_cost.label "Arvioitu kustannus">
 <!ENTITY field.crahp.prox.label "Sallittu läheisyys">
 <!ENTITY field.atb.layout.label "Asettelu">
-<!ENTITY field.qdt.datatype_name.label "Tietotyypin nimi">
+<!ENTITY field.cmrcfld.hidden.label "Hidden?">
+<!ENTITY field.cmrcsubfld.hidden.label "Hidden?">
 <!ENTITY field.mbt.grocery.label "Muiden maksujen linkki">
 <!ENTITY field.vbq.match_set.label "Osuvuussarja">
 <!ENTITY field.vaq.match_set.label "Osuvuussarja">
@@ -1794,9 +1821,11 @@
 <!ENTITY field.jub.estimated_unit_price.label "Arvioitu yksikköhinta">
 <!ENTITY field.acqlih.estimated_unit_price.label "Arvioitu yksikköhinta">
 <!ENTITY field.acsaf.linking_subfield.label "Linkittävä alikenttä">
+<!ENTITY class.cmrcsubfld.label "MARC-alakentät">
 <!ENTITY field.crad.sf_list.label "MARC-alakentät">
 <!ENTITY field.acs.authority_fields.label "Hallitsevat auktoriteettikentät">
 <!ENTITY class.mbtslv.label "Laskutettavien tapahtumien yhteenveto ja maksupaikat">
+<!ENTITY field.atevdef.message_usr_path.label "Message User Path">
 <!ENTITY field.au.demographic.label "Demografiset tiedot">
 <!ENTITY class.atb.label "Mukautettu työkalupalkki">
 <!ENTITY field.mbts.last_payment_note.label "Viimeisin maksuilmoitus">
@@ -1835,7 +1864,8 @@
 <!ENTITY field.bre.series_field_entries.label "Indeksoidut sarjakenttäkirjaukset">
 <!ENTITY class.bren.label "Bibliografisen tietueen ilmoitus">
 <!ENTITY field.jub.distribution_formulas.label "Jakelukaavat">
-<!ENTITY field.acqclet.id.label "Reklamaatiotapahtuman tyyppitunnus">
+<!ENTITY field.aum.sending_lib.label "Lainaava kirjasto">
+<!ENTITY field.auml.sending_lib.label "Lainaava kirjasto">
 <!ENTITY field.acnc.id.label "Hyllypaikan luokkatunnus">
 <!ENTITY field.acn.suffix.label "Takaliite">
 <!ENTITY field.au.suffix.label "Takaliite">
@@ -1843,7 +1873,8 @@
 <!ENTITY field.mrd.type_mat.label "TMat">
 <!ENTITY class.mckp.label "Sekkimaksu">
 <!ENTITY field.mdp.check_payment.label "Sekkimaksu">
-<!ENTITY field.rccc.stat_cat_1.label "Vanha CAT1-linkki">
+<!ENTITY field.aum.read_date.label "Lähetä päiväys/aika">
+<!ENTITY field.auml.read_date.label "Lähetä päiväys/aika">
 <!ENTITY field.ccmm.available_copy_hold_ratio.label "Saatavilla olevien niteiden/varausten suhteen vähimmäisraja">
 <!ENTITY field.atev.update_time.label "Päivitysaika">
 <!ENTITY field.ergbhu.holding_update.label "Päivitysaika">
@@ -1876,9 +1907,7 @@
 <!ENTITY field.asv.opac.label "OPAC-kysely?">
 <!ENTITY field.aupr.id.label "Pyyntötunnus">
 <!ENTITY field.atul.state.label "Tapahtuman tila">
-<!ENTITY field.bre.metarecord.label "Metatietue">
-<!ENTITY class.mmr.label "Metatietue">
-<!ENTITY field.rsr.metarecord.label "Metatietue">
+<!ENTITY field.aouctn.parent_node.label "Emoelementti">
 <!ENTITY field.acqdf.use_count.label "Käyttöjen lukumäärä">
 <!ENTITY field.rocit.use_count.label "Käyttöjen lukumäärä">
 <!ENTITY field.acqda.funding_source_credit.label "Rahoituslähteen varat">
@@ -1960,6 +1989,7 @@
 <!ENTITY field.acqmapinv.lineitem.label "Nimeketunnus">
 <!ENTITY field.aba.maps.label "Auktoriteettikenttäkartat">
 <!ENTITY class.cnal.label "Verkkoyhteystaso">
+<!ENTITY field.cmrcfld.fixed_field.label "Kiinteä kenttä">
 <!ENTITY field.vii.opac_visible.label "Näkyy verkkokirjastossa">
 <!ENTITY field.viiad.opac_visible.label "Näkyy verkkokirjastossa">
 <!ENTITY field.ccvm.opac_visible.label "Näkyy verkkokirjastossa">
@@ -2070,6 +2100,8 @@
 <!ENTITY field.mndp.voided.label "Mitätöity?">
 <!ENTITY field.mdp.voided.label "Mitätöity?">
 <!ENTITY field.mb.voided.label "Mitätöity?">
+<!ENTITY field.cmrcfld.marc_record_type.label "MARC Record Type">
+<!ENTITY field.cmrcsubfld.marc_record_type.label "MARC Record Type">
 <!ENTITY class.viiad.label "Tuo nidemääritysten määritelmä">
 <!ENTITY field.rccc.circ_lib.label "Kirjaston lainaussijainnin lyhyt (sääntömääräinen) nimi">
 <!ENTITY field.aun.id.label "Ilmoitustunnus">
@@ -2083,6 +2115,11 @@
 <!ENTITY field.ancihu.item_type.label "Nidetyyppi">
 <!ENTITY field.citm.value.label "Nidetyyppi">
 <!ENTITY class.mafe.label "Auktoriteettikenttäkirjaus">
+<!ENTITY field.ahr.thaw_date.label "Activation Date">
+<!ENTITY field.ahopl.thaw_date.label "Activation Date">
+<!ENTITY field.alhr.thaw_date.label "Activation Date">
+<!ENTITY field.combahr.thaw_date.label "Activation Date">
+<!ENTITY field.aahr.thaw_date.label "Activation Date">
 <!ENTITY field.rxpt.voided.label "Mitätöity (palautettu) maksettu summa">
 <!ENTITY field.acqlisum.recv_count.label "Vastaanotettujen lukumäärä">
 <!ENTITY field.acqlisumi.recv_count.label "Vastaanotettujen lukumäärä">
@@ -2112,6 +2149,9 @@
 <!ENTITY field.vqarad.id.label "ID">
 <!ENTITY field.cin.id.label "ID">
 <!ENTITY field.cmfinm.id.label "ID">
+<!ENTITY field.cmrcfmt.id.label "ID">
+<!ENTITY field.cmrcfld.id.label "ID">
+<!ENTITY field.cmrcsubfld.id.label "ID">
 <!ENTITY field.csc.id.label "ID">
 <!ENTITY field.murav.id.label "ID">
 <!ENTITY field.mrs.id.label "ID">
@@ -2193,12 +2233,15 @@
 <!ENTITY class.cmfts.label "Metabib Field TS Map">
 <!ENTITY field.ath.core_type.label "Ydintyyppi">
 <!ENTITY field.mb.billing_type.label "Vanha maksutyyppi">
+<!ENTITY field.ccvm.concept_uri.label "Concept URI">
 <!ENTITY field.acqpa.street1.label "Katuosoite 1">
 <!ENTITY field.clm.value.label "Kieli">
 <!ENTITY field.acqpa.street2.label "Katuosoite 2">
 <!ENTITY field.cust.datatype.label "Tietotyyppi">
 <!ENTITY class.qdt.label "Tietotyyppi">
 <!ENTITY field.qfpd.datatype.label "Tietotyyppi">
+<!ENTITY field.artc.source.label "Lähetyskirjasto">
+<!ENTITY field.ahtc.source.label "Lähetyskirjasto">
 <!ENTITY class.cclsacpl.label "Lainausrajoitusasetuksen nidesijaintikartta">
 <!ENTITY field.vqbra.id.label "Määritetunnus">
 <!ENTITY field.vqara.id.label "Määritetunnus">
@@ -2237,7 +2280,7 @@
 <!ENTITY field.acqdfe.id.label "Kirjaustunnus">
 <!ENTITY field.rsce1.id.label "Kirjaustunnus">
 <!ENTITY field.rsce2.id.label "Kirjaustunnus">
-<!ENTITY field.chmm.age_hold_protect_rule.label "Niteen varaussuoja-aikasääntö">
+<!ENTITY field.brav.attr_val_maps.label "Aineistomääritteiden arvokartat">
 <!ENTITY field.qfr.id.label "Suhdetunnuksesta">
 <!ENTITY field.qrc.from_relation.label "Suhdetunnuksesta">
 <!ENTITY field.chmm.include_frozen_holds.label "Enimmäismäärään lasketaan jäädytetyt">
@@ -2577,9 +2620,7 @@
 <!ENTITY field.bram.id.label "Aineiston määritekarttatunnus">
 <!ENTITY field.acqftr.funding_source_credit.label "Rahoituslähteen varatunnus">
 <!ENTITY field.acqfy.year_begin.label "Aloitusvuosi">
-<!ENTITY field.ahr.usr.label "Varannut käyttäjä">
-<!ENTITY field.ahopl.usr.label "Varannut käyttäjä">
-<!ENTITY field.alhr.usr.label "Varannut käyttäjä">
+<!ENTITY field.acqfc.id.label "Tilivuosikalenterin tunnus">
 <!ENTITY field.ssub.record_entry.label "Bibliografinen tietuekirjaus">
 <!ENTITY field.rhcrpbap.holds_everywhere.label "Aktiiviset varaukset kaikkialla">
 <!ENTITY field.au.usrgroup.label "Perheyhteys tai muu ryhmä">
@@ -2652,6 +2693,8 @@
 <!ENTITY class.artc.label "Erikoisvarauskuljetus">
 <!ENTITY field.actsced.owner.label "Oletus omistajalle">
 <!ENTITY field.auoi.usr.label "Käyttäjä">
+<!ENTITY field.aum.usr.label "Käyttäjä">
+<!ENTITY field.auml.usr.label "Käyttäjä">
 <!ENTITY field.aun.usr.label "Käyttäjä">
 <!ENTITY field.aupr.usr.label "Käyttäjä">
 <!ENTITY field.aus.usr.label "Käyttäjä">
@@ -2678,6 +2721,7 @@
 <!ENTITY field.sra.field.label "Indeksikenttä">
 <!ENTITY class.xnum.label "Numerolauseke">
 <!ENTITY field.aur.pubdate.label "Julkaisupäivä">
+<!ENTITY field.brt.tgt_rsrc_types.label "Kohdeaineistojen tyypit">
 <!ENTITY field.au.mailing_address.label "Postiosoite">
 <!ENTITY field.aal.mailing_address.label "Postiosoite">
 <!ENTITY field.aou.mailing_address.label "Postiosoite">
@@ -2759,6 +2803,9 @@
 <!ENTITY field.rmocbbol.billed.label "Laskutettu yhteensä">
 <!ENTITY field.rmocbbcol.billed.label "Laskutettu yhteensä">
 <!ENTITY field.rmocbbhol.billed.label "Laskutettu yhteensä">
+<!ENTITY field.mp.account_adjustment.label "Account Adjustment Detail">
+<!ENTITY field.mbp.account_adjustment.label "Account Adjustment Detail">
+<!ENTITY field.mndp.account_adjustment.label "Account Adjustment Detail">
 <!ENTITY field.mbts.xact_start.label "Maksutapahtuman aloitusaika">
 <!ENTITY field.mbtslv.xact_start.label "Maksutapahtuman aloitusaika">
 <!ENTITY field.asc.sip_format.label "SIP-muoto">
@@ -2775,7 +2822,10 @@
 <!ENTITY field.atevparam.event_def.label "Tapahtumamääritelmä">
 <!ENTITY field.qxp.right_operand.label "Oikea operandi">
 <!ENTITY field.xop.right_operand.label "Oikea operandi">
-<!ENTITY field.aouctn.parent_node.label "Emoelementti">
+<!ENTITY field.circ.xact_start.label "Lainauspäivä/-aika">
+<!ENTITY field.combcirc.xact_start.label "Lainauspäivä/-aika">
+<!ENTITY field.acirc.xact_start.label "Lainauspäivä/-aika">
+<!ENTITY field.rodcirc.xact_start.label "Lainauspäivä/-aika">
 <!ENTITY class.rssr.label "Yksinkertaiset tietuepoiminnot">
 <!ENTITY class.acqdfa.label "Jakelukaavan sovellus">
 <!ENTITY field.acsbf.authority_field.label "Kontrolloiva auktoriteettikenttä">
@@ -2784,10 +2834,12 @@
 <!ENTITY field.csc.region.label "Alue">
 <!ENTITY field.atul.complete_time.label "Tapahtuman päättymisaika">
 <!ENTITY field.cfdfs.interface.label "Käyttöliittymä">
+<!ENTITY field.atevdef.message_template.label "Message Template">
 <!ENTITY class.mbp.label "Maksut: Kauppa">
 <!ENTITY field.uvu.id.label "URL ID">
 <!ENTITY field.rccc.dewey.label "Hyllypaikan Dewey/etuliite">
 <!ENTITY field.acqfsrcat.amount.label "Varattu rahoituslähteestä yhteensä">
+<!ENTITY class.rhcrpbap.label "Varausta/nide-suhde tietuetta ja noutokirjastoa kohden">
 <!ENTITY field.aout.org_units.label "Organisaatioyksiköt">
 <!ENTITY field.uvu.ord.label "Järjestysnro">
 <!ENTITY field.qfpd.function_id.label "Funktiotunnus">
@@ -2902,6 +2954,7 @@
 <!ENTITY class.cmf.label "Metabib-kenttä">
 <!ENTITY field.cmfts.metabib_field.label "Metabib-kenttä">
 <!ENTITY field.uvs.search.label "Haun rajaukset">
+<!ENTITY field.cmrcsubfld.code.label "MARC-alakentät">
 <!ENTITY class.mbts.label "Laskutettavien tapahtumien yhteenveto">
 <!ENTITY field.acqfscred.id.label "Varatunnus">
 <!ENTITY field.mrd.item_lang.label "Kieli">
@@ -2988,6 +3041,7 @@
 <!ENTITY field.amtr.fail_part.label "Epäonnistumisosa">
 <!ENTITY class.mbedm.label "Yhdistetty selauskirjauksen määritelmäkartta">
 <!ENTITY class.xin.label "Lausekkeessa">
+<!ENTITY field.atevdef.message_title.label "Viestityyppi">
 <!ENTITY field.cbc.asset.label "Pätee niteisiin">
 <!ENTITY field.acqie.billed_per_item.label "Laskutettu summa per nide">
 <!ENTITY field.jub.claim_policy.label "Reklamaatiosääntö">
@@ -3019,6 +3073,8 @@
 <!ENTITY class.ausp.label "Käyttäjän voimassaoleva rajoitus">
 <!ENTITY field.acqexr.id.label "Vaihtokurssitunnus">
 <!ENTITY class.vqbra.label "Jonoon asetettu bibliografisen tietueen määrite">
+<!ENTITY field.aum.create_date.label "Luomispäivä/-aika">
+<!ENTITY field.auml.create_date.label "Luomispäivä/-aika">
 <!ENTITY field.aun.create_date.label "Luomispäivä/-aika">
 <!ENTITY field.sunit.create_date.label "Luomispäivä/-aika">
 <!ENTITY field.acp.create_date.label "Luomispäivä/-aika">
@@ -3052,8 +3108,8 @@
 <!ENTITY class.mg.label "Muu maksutapahtuma">
 <!ENTITY field.cmsa.alias.label "Alias (säännöllinen lauseke)">
 <!ENTITY field.aur.phone_notify.label "Puhelinilmoitus">
-<!ENTITY class.cmc.label "Metabib-luokka">
-<!ENTITY field.cmcts.field_class.label "Metabib-luokka">
+<!ENTITY field.circ.parent_circ.label "Ylätason laina">
+<!ENTITY field.acirc.parent_circ.label "Ylätason laina">
 <!ENTITY field.qseq.child_query.label "Alatason kysely">
 <!ENTITY field.acqinv.shipper.label "Rahdin lähettäjä">
 <!ENTITY field.acqedi.vendcode.label "Myyjälle määritelty koodi">
@@ -3065,8 +3121,7 @@
 <!ENTITY field.ahr.notify_time.label "Ilmoitusaika">
 <!ENTITY field.ahopl.notify_time.label "Ilmoitusaika">
 <!ENTITY field.alhr.notify_time.label "Ilmoitusaika">
-<!ENTITY field.afs.id.label "Kenttäjoukon tunnus">
-<!ENTITY field.afscv.fieldset.label "Kenttäjoukon tunnus">
+<!ENTITY class.maa.label "Account Adjustment">
 <!ENTITY class.ahr.label "Varauspyyntö">
 <!ENTITY field.bre.notes.label "Ei-MARC-tietueen ilmoitukset">
 <!ENTITY field.acqpro.currency_type.label "Valuutta">
@@ -3076,6 +3131,7 @@
 <!ENTITY class.atevparam.label "Laukaisutoiminnon parametri">
 <!ENTITY field.acp.last_captured_hold.label "Viimeksi kiinnitetty varaus">
 <!ENTITY field.bre.deleted.label "Tuhottu?">
+<!ENTITY field.acpl.deleted.label "Tuhottu?">
 <!ENTITY class.accs.label "Lainausketjun yhteenveto">
 <!ENTITY field.sunit.circulate.label "Lainattavissa">
 <!ENTITY field.acp.circulate.label "Lainattavissa">
@@ -3373,9 +3429,13 @@
 <!ENTITY field.rsr.publisher.label "Julkaisija (normalisoitu)">
 <!ENTITY field.ccmm.grace_period.label "Armoajan ohitus">
 <!ENTITY field.rocit.due_date.label "Eräpäivä">
+<!ENTITY field.aum.id.label "Message ID">
+<!ENTITY field.auml.id.label "Message ID">
 <!ENTITY field.acqpro.edi_default.label "EDI-oletus">
 <!ENTITY field.mb.id.label "Laskutustunnus">
 <!ENTITY field.aalink.source.label "Lähdetietue">
+<!ENTITY field.cmrcfld.mandatory.label "Mandatory?">
+<!ENTITY field.cmrcsubfld.mandatory.label "Mandatory?">
 <!ENTITY field.vmsp.id.label "Osuvuusmääritelmän tunnus">
 <!ENTITY field.acqpoh.audit_id.label "Auditointitunnus">
 <!ENTITY field.acqlih.audit_id.label "Auditointitunnus">
@@ -3632,6 +3692,8 @@
 <!ENTITY field.acqliuad.ident.label "Tunniste?">
 <!ENTITY field.acqlipad.ident.label "Tunniste?">
 <!ENTITY field.acqlilad.ident.label "Tunniste?">
+<!ENTITY field.qdt.datatype_name.label "Tietotyypin nimi">
+<!ENTITY field.aiit.blanket.label "Blanket?">
 <!ENTITY field.circ.renewal_remaining.label "Uusintoja jäljellä">
 <!ENTITY field.combcirc.renewal_remaining.label "Uusintoja jäljellä">
 <!ENTITY field.acirc.renewal_remaining.label "Uusintoja jäljellä">

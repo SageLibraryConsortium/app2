@@ -99,7 +99,7 @@
 <!ENTITY reports.oils_rpt_editor.apply_changes "Apply Changes">
 <!ENTITY reports.oils_rpt_editor.save_report_new "Save As New">
 <!ENTITY reports.oils_rpt_editor.confirm_sched "Changes will be applied to pending reports that have not yet run. Do you want to continue with modifying those pending reports?">
-<!ENTITY reports.oils_rpt_editor.cancel "Annuler">
+<!ENTITY reports.oils_rpt_editor.cancel "Cancel">
 <!ENTITY reports.oils_rpt_editor.exit_report "Return">
 <!ENTITY reports.oils_rpt_editor.empty_parameter "Une ou plusieurs paramètres défini par l'utilisateur sont vide. Veuillez remplir tous les champs.">
 <!ENTITY reports.oils_rpt_editor.same_name "Un rapport avec ce nom existe déjà dans ce répertoire.">
@@ -149,10 +149,14 @@
 <!ENTITY reports.oils_rpt_folder_window.completed_items "Articles complétés">
 <!ENTITY reports.oils_rpt_folder_window.selected_folder "Répertoire sélectionné : ">
 <!ENTITY reports.oils_rpt_folder_window.select_folder "Sélectionner un répertoire">
-<!ENTITY reports.oils_rpt_folder_window.cancel "Annuler">
+<!ENTITY reports.oils_rpt_folder_window.cancel "Cancel">
 <!ENTITY reports.oils_rpt_folder_window.confirm_delete "Désirez-vous vraiment supprimer les articles sélectionnés?">
-<!ENTITY reports.oils_rpt_folder_window.dependant_reports_no_delete "Un ou plusieurs des modèles sélectionnés ne pouvaient pas être supprimés parce que des rapports en dépendent.">
-<!ENTITY reports.oils_rpt_folder_window.dependant_outputs_no_delete "Un ou plusieurs des rapports sélectionnés ne pouvaient pas être supprimés parce que des résultats en dépendent">
+<!ENTITY reports.oils_rpt_folder_window.dependant_reports_no_delete "
+        One or more of the selected templates could not be deleted because
+        there are reports or outputs that depend on them.">
+<!ENTITY reports.oils_rpt_folder_window.dependant_outputs_no_delete "
+        One or more of the selected reports could not be deleted because
+        there are outputs that depend on them.">
 <!ENTITY reports.oils_rpt_folder_window.cannot_delete_another_users_data "Vous ne pouvez pas supprimer les articles d'un autre utilisateur">
 <!ENTITY reports.oils_rpt_folder_window.cannot_move_another_users_data "Vous ne pouvez pas déplacer les articles d'un autre utilisateur">
 <!ENTITY reports.oils_rpt_folder_window.delete_all_attached_reports "        Cela supprimera tous vos rapports et vos résultats joints à ce modèle.

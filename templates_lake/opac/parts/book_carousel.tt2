@@ -21,7 +21,7 @@
 <script language='javascript'> 
 jQuery.noConflict(); 
 
-bbags = [1384171,1384995,1384996];
+bbags = [1384171,1384175];
 </script> 
 
 

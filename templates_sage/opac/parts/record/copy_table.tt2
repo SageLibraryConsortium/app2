@@ -185,7 +185,7 @@ END; # FOREACH bib
                         IF serial_holdings;
                             hold_link = hold_link _ param_sep;
                         END;
-                    END;
+                    END; 
                     IF NOT ctx.is_staff;
                        hold_link = '<a href="' _
                           mkurl(ctx.opac_root _ '/place_hold', {
@@ -193,7 +193,7 @@ END; # FOREACH bib
                             hold_type => 'V',
                             hold_source_page => mkurl()
                            }) _ '">' _ l('Request') _ '</a>';
-                    END; 
+                    END;
                     IF serial_holdings; 
                         hold_link = hold_link _
                             '<a class="rdetail-issue-place-hold" href="' _

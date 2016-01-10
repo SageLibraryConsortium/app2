@@ -44,7 +44,6 @@
                             IF CGI.param('detail_record_view')
                                 OR (show_more_details.default == 'true'
                                 OR show_more_details.default == 'hide');
-                                attrs.title = attrs.title_extended;
                             END;
                             # note: rec.id refers to the record identifier, regardless
                             # of the type of record. i.e. rec.id = mmr_id ? mmr_id : bre_id

@@ -42,7 +42,7 @@ END;
             <th scope='col'>[% l("Shelving Location") %]</th>
             [%- IF ctx.is_staff %]
             <th scope='col'>[% l("Age Hold Protection") %]</th>
-            <th scope='col'>[% l("Create Date") %]</th>
+            <th scope='col'>[% l("Active/Create Date") %]</th>
             [%- END %]
             [%- IF ctx.is_staff OR serial_holdings %]
             <th scope='col'>[% l("Holdable?") %]</th>
@@ -98,7 +98,9 @@ END; # FOREACH bib
                 <link property="businessFunction" href="http://purl.org/goodrelations/v1#LeaseOut">
                 <meta property="price" content="0.00">
             </td>[% END %]
-            <td><span property="sku">[% callnum | html %]</span> [% IF ctx.get_org_setting(CGI.param('loc') OR ctx.aou_tree.id, 'sms.enable') == 1 %](<a href="[% mkurl(ctx.opac_root _ '/sms_cn', {copy_id => copy_info.id}) %]">Text</a>)[% END %]</td>
+            <td><span property="sku">[% callnum | html %]</span> [% IF ctx.get_org_setting(CGI.param('loc') 
+                OR ctx.aou_tree.id, 'sms.enable') == 1 %](<a href="[% mkurl(ctx.opac_root _ '/sms_cn', 
+               {copy_id => copy_info.id}) %];rec=[%- ctx.bre_id -%]" rel="nofollow" vocab="">Text</a>)[% END %]</td>
             [%- IF has_parts == 'true' %]
             <td>[% copy_info.part_label | html %]</td>
             [%- END %]
@@ -106,7 +108,7 @@ END; # FOREACH bib
                 [% copy_info.barcode | html -%]
                 [% IF ctx.is_staff %]
                   [%- IF ctx.is_browser_staff %]
-                    <a target="_top" href="[% ctx.base_path %]/staff/cat/item/[% copy_info.id %]">[% l('view') %]</a>
+                    <a target="_blank" href="[% ctx.base_path %]/staff/cat/item/[% copy_info.id %]">[% l('view') %]</a>
                     [% IF ctx.has_perm('UPDATE_COPY', copy_info.circ_lib) 
                         OR ctx.has_perm('UPDATE_COPY', copy_info.call_number_owning_lib) %]
                         <span> | </span>
@@ -142,9 +144,15 @@ END; # FOREACH bib
                     ctx.get_crahp(copy_info.age_protect).name : l('None') | html %]
             </td>
             <td>[% 
-                IF copy_info.create_date;
+                IF ctx.get_org_setting(copy_info.circ_lib, 'circ.holds.age_protect.active_date') == 1;
+                    disp_date = copy_info.active_date ? copy_info.active_date : copy_info.create_date;
+                ELSE;
+                    disp_date = copy_info.create_date;
+                END;
+	    
+                IF disp_date;
                     date.format(
-                        ctx.parse_datetime(copy_info.create_date),
+                        ctx.parse_datetime(disp_date),
                         DATE_FORMAT
                     );
                 ELSE;
@@ -193,7 +201,7 @@ END; # FOREACH bib
                                 hold_target => copy_info.issuance,
                                 hold_type => 'I',
                                 hold_source_page => mkurl()
-                            }) _ '">' _ l('Issue hold') _ '</a>';
+                            }) _ '" rel="nofollow" vocab="">' _ l('Issue hold') _ '</a>';
                     END; 
 
                     hold_link;

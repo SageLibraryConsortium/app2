@@ -51,7 +51,7 @@
 <!ENTITY common.tips.tip2 "If you don't find what you want try expanding your search using the range selector at the right of the search bar">
 <!ENTITY common.org.openAll "Expand All">
 <!ENTITY common.org.closeAll "Close All">
-<!ENTITY common.org.cancel "לבטל">
+<!ENTITY common.org.cancel "Cancel">
 <!ENTITY common.org.loading "Loading library selector...">
 <!ENTITY common.org.note "Tip:">
 <!ENTITY common.org.notetext "Click on a location's name to select it.  Click on the folder icons to expand a section.">
@@ -162,7 +162,7 @@ avoid using bookbags all together.  Thank you.">
 	MyOPAC Checked Page 
 	================================================================= -->
 
-<!ENTITY myopac.checked.out "פריטים סה&quot;כ איחור:">
+<!ENTITY myopac.checked.out "Total items out:">
 <!ENTITY myopac.checked.overdue "פריטים סה&quot;כ איחור:">
 <!ENTITY myopac.checked.renew "חידוש פריטים נבחרים">
 <!ENTITY myopac.checked.renewing "חידוש ...">
@@ -208,7 +208,7 @@ avoid using bookbags all together.  Thank you.">
 <!ENTITY myopac.holds.status.waiting "ממתין לעותק">
 <!ENTITY myopac.holds.status.intransit "במעבר">
 <!ENTITY myopac.holds.status.available "מוכן לאיסוף">
-<!ENTITY myopac.holds.status.suspended "השעיה">
+<!ENTITY myopac.holds.status.suspended "Suspended">
 <!ENTITY myopac.holds.cancel "ביטול">
 <!ENTITY myopac.holds.verify "אם ברצונך לבטל את ההחזקות שנבחרו, לחץ על אישור, אחרת לחץ על ביטול.">
 <!ENTITY myopac.holds.freeze_selected "השעיה">
@@ -284,12 +284,12 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY myopac.summary.address.state "State">
 <!ENTITY myopac.summary.address.country "Country">
 <!ENTITY myopac.summary.address.zip "Zip">
-<!ENTITY myopac.summary.address.edit "כתובת דוא&quot;ל">
+<!ENTITY myopac.summary.address.edit "Edit Address">
 <!ENTITY myopac.summary.address.invalid "Invalid Address">
 
 <!ENTITY myopac.summary.username.error "Please enter a username">
 <!ENTITY myopac.summary.username.dup "The requested username is not available.  Please choose a different username.">
-<!ENTITY myopac.summary.username.success "התיק עודכן בהצלחה.">
+<!ENTITY myopac.summary.username.success "Username successfully updated">
 <!ENTITY myopac.summary.username.failure "Username update failed">
 <!ENTITY myopac.summary.username.invalid "Username cannot contain spaces or have the same format as a barcode, and may be restricted by policy">
 <!ENTITY myopac.summary.email.error "Please enter a valid email address">
@@ -328,7 +328,7 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!-- title control number -->
 <!ENTITY opac.advanced.quick.tcn "TCN"> 
 <!ENTITY opac.advanced.quick.barcode "Item Barcode"> 
-<!ENTITY opac.advanced.quick.cn "הסב מספר"> 
+<!ENTITY opac.advanced.quick.cn "Call Number"> 
 <!ENTITY opac.advanced.copy_loc_filter "Shelving Location">
 <!-- ==========================================================
      MARC expert search
@@ -364,10 +364,10 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY navigate.myopac "My Account">
 <!ENTITY opac.navigate.myopac "My Account">
 <!ENTITY navigate.myopac.title "Go to My OPAC">
-<!ENTITY navigate.login "כניסה">
+<!ENTITY navigate.login "Log in">
 <!ENTITY navigate.login.title "Log in for personalized features">
-<!ENTITY navigate.logout "התנתק">
-<!ENTITY navigate.logout.title "התנתק">
+<!ENTITY navigate.logout "Log out">
+<!ENTITY navigate.logout.title "Log out">
 <!ENTITY opac.navigate.selectNewOrg "Choose a different library">
 <!ENTITY opac.navigate.selectOrg "Choose a library to search">
 <!ENTITY navigate.loggedinas "You are logged in as ">
@@ -381,7 +381,7 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 	Footer
 	================================================================= -->
 
-<!ENTITY footer.basic "קטלוג בסיסי (HTML בלבד)">
+<!ENTITY footer.basic "Basic Catalog (HTML only)">
 <!ENTITY footer.find.library "Find a Library Near Me">
 <!ENTITY footer.find.url "http://www.georgialibraries.org/lib/directories/pineslibdir.html">
 <!ENTITY footer.help.url "http://open-ils.org/dokuwiki/doku.php?id=evergreen-user:opac_help">
@@ -402,7 +402,7 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY myopac.holds "Items on Hold">
 <!ENTITY myopac.fines "Fines">
 <!ENTITY myopac.preferences "Account Preferences">
-<!ENTITY myopac.bookbags "שקיות הספר שלי">
+<!ENTITY myopac.bookbags "My Bookbags">
 <!--	================================================================= 
 	Sidebar 
 	================================================================= -->
@@ -427,7 +427,7 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY opac.search.videoRecordings "Video Recordings">
 <!ENTITY opac.search.music "Music">
 <!ENTITY opac.search.electronic "Electronic Resources">
-<!ENTITY opac.search.nowSearching "כעת מחפשים ">
+<!ENTITY opac.search.nowSearching "Now Searching">
 <!--	================================================================= 
 		Page Titles
 		================================================================= -->
@@ -451,7 +451,7 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY opac.holds.exportRefWorks "Export to RefWorks">
 <!ENTITY opac.holds.contactPhone "Contact telephone number">
 <!ENTITY opac.holds.contactEmail "Contact email address">
-<!ENTITY opac.holds.pickupLocation "מיקום האיסוף">
+<!ENTITY opac.holds.pickupLocation "Pickup location">
 <!ENTITY opac.holds.success "Hold was successfully placed">
 <!ENTITY opac.holds.failure "Hold was not successfully placed">
 <!ENTITY opac.hold.has_parts "The system was not able to place the requested hold.  The item requested has multiple parts to choose from.  Try selecting a specific part for the hold.">
@@ -470,7 +470,7 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY advanced.literary.form "Literary Form">
 <!ENTITY advanced.non.fiction "Non Fiction">
 <!ENTITY advanced.fiction "Fiction">
-<!ENTITY advanced.language "שפה: ">
+<!ENTITY advanced.language "Language">
 <!ENTITY advanced.audience "Audience">
 <!ENTITY advanced.adult "Adult">
 <!ENTITY advanced.juvenile "Juvenile">
@@ -478,13 +478,13 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY advanced.sort.criteria "Sort Criteria">
 <!ENTITY advanced.search.library "Search Library">
 <!ENTITY advanced.relevance "Relevance">
-<!ENTITY advanced.pubdate "תאריך פרסום">
+<!ENTITY advanced.pubdate "Publication date">
 <!ENTITY advanced.sort.asc "Ascending / A to Z">
 <!ENTITY advanced.sort.desc "Descending / Z to A">
 <!ENTITY advanced.frbrize "Group Formats and Editions">
 <!ENTITY advanced.go "Go">
 <!ENTITY advanced.biblevel "Bib Level">
-<!ENTITY advanced.filter.pubyear "תאריך פרסום">
+<!ENTITY advanced.filter.pubyear "Publication Year">
 <!ENTITY advanced.filter.pubyear.equals "Is">
 <!ENTITY advanced.filter.pubyear.before "Before">
 <!ENTITY advanced.filter.pubyear.after "After">
@@ -501,7 +501,7 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY rdetail.cn.genesis "Create Date">
 <!ENTITY rdetail.cn.active "Active Date">
 <!ENTITY rdetail.cn.holdable "Holdable">
-<!ENTITY rdetail.cn.due "תאריך יעד">
+<!ENTITY rdetail.cn.due "Due Date">
 <!ENTITY rdetail.cn.more "more info...">
 <!ENTITY rdetail.cn.less "less info">
 <!ENTITY rdetail.cn.hold "place hold">
@@ -513,7 +513,7 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY rdetail.cn.print "Print Page">
 <!ENTITY rdetail.page.results "First results page">
 <!-- Result # &common.of; # -->
-<!ENTITY rdetail.result "תוצאות"> 
+<!ENTITY rdetail.result "Result"> 
 <!ENTITY rdetail.start "Start">
 <!ENTITY rdetail.page.previous "Previous page">
 <!ENTITY rdetail.page.previous.short "&#171;">
@@ -523,22 +523,22 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY rdetail.end "End">
 <!ENTITY rdetail.more "More Actions...">
 <!ENTITY rdetail.bookbag.add "Add to bookbag">
-<!ENTITY rdetail.bookbag.create "צור התיק חדש">
+<!ENTITY rdetail.bookbag.create "Create a new bookbag">
 <!ENTITY rdetail.record.deleted "This record has been deleted from the database.
 We recommend that you remove this title from any bookbags it may have been added to.">
 <!ENTITY rdetail.none "(none)">
 <!ENTITY rdetail.bookbag.add.success "Item successfully added to bookbag">
-<!ENTITY rdetail.bookbag.name "הזן את שם התיק החדש: ">
-<!ENTITY rdetail.bookbag.create.success "התיק עודכן בהצלחה.">
+<!ENTITY rdetail.bookbag.name "Enter the name of the new bookbag">
+<!ENTITY rdetail.bookbag.create.success "Bookbag successfully created">
 <!ENTITY rdetail.detailMain.headerLabel "Record Summary">
-<!ENTITY rdetail.detailMain.subjects "נושא">
+<!ENTITY rdetail.detailMain.subjects "Subjects">
 <!ENTITY rdetail.detailMain.abstract "Abstract">
 <!ENTITY rdetail.detailMain.viewMarc "View MARC">
 <!ENTITY rdetail.detailMain.hideMarc "Return to title details">
 <!ENTITY rdetail.author.search "Perform an author search">
 <!ENTITY rdetail.copyInfo.headerLabel "Copy Information">
-<!ENTITY rdetail.copyInfo.library "ספרייה">
-<!ENTITY rdetail.copyInfo.callnumber "הסב מספר">
+<!ENTITY rdetail.copyInfo.library "Library">
+<!ENTITY rdetail.copyInfo.callnumber "Callnumber">
 <!ENTITY rdetail.copyInfo.copylocation "Copy Location">
 <!ENTITY rdetail.copyInfo.local "View Copy Information for this location only">
 <!ENTITY rdetail.copyInfo.all "View copy information for all libraries">
@@ -548,7 +548,7 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY rdetail.copyInfo.browse "Browse Call Numbers">
 <!ENTITY rdetail.copyInfo.hold "Place Hold">
 <!ENTITY rdetail.extras.summary "Copy Summary">
-<!ENTITY rdetail.extras.browser "הדפדפן מדף">
+<!ENTITY rdetail.extras.browser "Shelf Browser">
 <!ENTITY rdetail.extras.bib_summary "Summary">
 <!ENTITY rdetail.extras.reviews "Reviews">
 <!ENTITY rdetail.extras.toc "Table of Contents">
@@ -567,7 +567,7 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY rdetail.loading "Loading copy information...">
 <!ENTITY rdetail.noneAvailable " * There are no copies in this location">
 <!ENTITY rdetail.summary.online "Online Resources">
-<!ENTITY rdetail.summary.subjects "נושא">
+<!ENTITY rdetail.summary.subjects "Subjects">
 <!ENTITY rdetail.summary.issues_held "Issues Held">
 
 <!ENTITY result.sort_by "Sort Results by Relevance">
@@ -589,18 +589,18 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY result.lowhits.related "You may also like to try these related searches:">
 <!ENTITY result.lowhits.expand "You may also wish to expand your search range to:">
 <!ENTITY result.lowhits.class "You can try searching the same terms by:">
-<!ENTITY result.lowhits.title "כותר">
-<!ENTITY result.lowhits.author "מחבר">
-<!ENTITY result.lowhits.subject "נושא">
-<!ENTITY result.lowhits.series "סדרה">
-<!ENTITY result.lowhits.keyword "מילת מפתח">
+<!ENTITY result.lowhits.title "title">
+<!ENTITY result.lowhits.author "author">
+<!ENTITY result.lowhits.subject "subject">
+<!ENTITY result.lowhits.series "series">
+<!ENTITY result.lowhits.keyword "keyword">
 
 <!ENTITY result.table.keyword "View titles for this record">
 <!ENTITY result.table.author "Perform an Author Search">
 <!ENTITY result.googleBooks.browse "Browse in Google Books Search">
 <!ENTITY result.localCallNumbers "Local Call Numbers:">
 
-<!ENTITY common.call.number.label "הסב מספר">
+<!ENTITY common.call.number.label "Call Number:">
 <!ENTITY common.isbn.label "ISBN:">
 <!ENTITY common.issn.label "ISSN:">
 <!ENTITY common.mono_parts.label "Monograph Parts:">
@@ -642,13 +642,13 @@ For further information, please consult your local librarian.">
 <!ENTITY common.email.enable "Enable email notifications for this hold?">
 <!ENTITY common.email.none "(Patron has no configured email address)">
 <!ENTITY common.email.set "(See <a class='classic_link' id='holds.no_email.my_account'>My Account</a> for setting your email address)">
-<!ENTITY common.keywords.label "מילת מפתח">
+<!ENTITY common.keywords.label "Keywords:">
 <!ENTITY common.physical.label "Physical Description:">
-<!ENTITY common.series.label "סדרה">
-<!ENTITY common.subject.label "נושא">
-<!ENTITY common.title.label "כותר">
-<!ENTITY common.author.label "מחבר">
-<!ENTITY common.format.label "מבנה">
+<!ENTITY common.series.label "Series:">
+<!ENTITY common.subject.label "Subject:">
+<!ENTITY common.title.label "Title:">
+<!ENTITY common.author.label "Author:">
+<!ENTITY common.format.label "Format:">
 <!ENTITY library.select "Find results in">
 <!ENTITY library.select.label "Choose a different library...">
 <!ENTITY library.select.help "Choose a library to search">
@@ -656,8 +656,8 @@ For further information, please consult your local librarian.">
 <!ENTITY login.password.change "Change Password">
 <!ENTITY login.first.time "This appears to be the first time you have logged in.
 You will need to change your password.">
-<!ENTITY login.password.current.enter "הזן את הסיסמה הנוכחית:">
-<!ENTITY login.password.new.enter "הזן סיסמה חדשה:">
+<!ENTITY login.password.current.enter "Enter your current password">
+<!ENTITY login.password.new.enter "Enter the new password">
 <!ENTITY login.password.new.reenter "Re-type the new password for verification">
 <!ENTITY login.password.update "Update Password">
 <!ENTITY login.password.nomatch "Passwords do not match">
@@ -675,14 +675,14 @@ Passwords are case-sensitive.  Check your Caps-Lock key and try again or contact
 <!ENTITY slimpac.language.select "Select language">
 
 <!ENTITY slimpac.start.title "Simple Search">
-<!ENTITY slimpac.start.nowSearching "כעת מחפשים ">
+<!ENTITY slimpac.start.nowSearching "Now searching: ">
 <!ENTITY slimpac.start.dynamic "Dynamic Catalog">
 <!--	================================================================= 
 	Slimpac Advanced Search
 	================================================================= -->
 
 <!ENTITY slimpac.advanced.language "Item Language">
-<!ENTITY slimpac.advanced.create_date "תאריך יצירת חשבון">
+<!ENTITY slimpac.advanced.create_date "Record Creation Date">
 <!ENTITY slimpac.advanced.edit_date "Record Edit Date">
 
 <!ENTITY opac.image_provided "Image provided by">
@@ -694,20 +694,20 @@ Passwords are case-sensitive.  Check your Caps-Lock key and try again or contact
 
 <!ENTITY selfck.staff_login_label "Staff login">
 <!ENTITY selfck.staff_login "Library barcode or username">
-<!ENTITY selfck.staff_pw "סיסמה">
-<!ENTITY selfck.submit "להגיש">
+<!ENTITY selfck.staff_pw "Password">
+<!ENTITY selfck.submit "Submit">
 <!ENTITY selfck.clear "Clear">
 <!ENTITY selfck.patron_barcode_label "Please scan your library barcode">
 <!ENTITY selfck.item_barcode_label "Please scan an item to checkout or renew:">
 <!ENTITY selfck.barcode "Barcode">
-<!ENTITY selfck.title "כותר">
-<!ENTITY selfck.author "מחבר">
-<!ENTITY selfck.due_date "תאריך יעד">
-<!ENTITY selfck.remaining "חידושים נותרים">
+<!ENTITY selfck.title "Title">
+<!ENTITY selfck.author "Author">
+<!ENTITY selfck.due_date "Due Date">
+<!ENTITY selfck.remaining "Renewals Remaining">
 <!ENTITY selfck.cotype "Type">
 <!ENTITY selfck.cotype_co "Checkout">
 <!ENTITY selfck.cotype_rn "Renewal">
-<!ENTITY selfck.done "ללא">
+<!ENTITY selfck.done "Done">
 <!ENTITY selfck.welcome "Welcome">
 <!ENTITY selfck.printing "Printing Receipt...">
 <!-- event messages -->

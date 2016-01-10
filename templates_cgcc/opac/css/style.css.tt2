@@ -43,7 +43,7 @@ a {
     border:1px solid [% css_colors.border_standard %];
     margin:0;
     padding:0;
-    width: 12em;
+    width: 13em;
 }
 
 .searchbar {
@@ -130,8 +130,31 @@ div.select-box-wrapper {
 #dash_checked { color: [% css_colors.text_attention %]; }
 #dash_holds { color: [% css_colors.text_attention %]; }
 #dash_pickup { color: [% css_colors.text_goodnews %]; }
-  
+
+/*  
 #dash_fines { color: [% css_colors.text_badnews %]; }
+the color contrast between "text_badnews" and "primary"
+is too low for WCAG compliance.  Use "text_attention" 
+for now until a better color is picked - if needed.
+*/
+#dash_fines { color: [% css_colors.text_attention %]; }
+
+#dash_wrapper #dash_user_message_button_container {
+    display: inline;
+    padding: 0;
+}
+#dash_wrapper #unread_message_count_floater {
+    position: absolute;
+    background-color: [% css_colors.text_alert %];
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    display: inline-block;
+    font-size: 95%;
+    border-radius: 0;
+    z-index: 2;
+    margin-top: 0.2em;
+    margin-left: -1.5em;
+}
 
 #header-wrap {
     background: linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
@@ -313,12 +336,12 @@ div.select-box-wrapper {
 #adv_search_rows {
     border-bottom: none;
 }
-#adv_filter_block {
+.adv_filter_block {
     padding: 15px;
     float: left;
     clear: both;
 }
-#adv_filter_block_item {
+.adv_filter_block_item {
     float: left;
     padding: 5px;
 }
@@ -378,7 +401,7 @@ div.select-box-wrapper {
 }
 
 #mobile_acct_search_links {
-     background:[% css_colors.primary_fade %];
+      background: [% css_colors.primary_fade %];
 }
 
 .rdetail_header {
@@ -391,7 +414,7 @@ div.select-box-wrapper {
     color:[% css_colors.primary_fade %];
     font-weight:bold;
     font-size: [% css_fonts.size_bigger %];
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .rdetail_result_count {
@@ -477,6 +500,11 @@ div.place_hold {
 }
 
 div.toggle_list { padding-top: 6px; }
+
+div.share_record {
+    padding-top: 6px;
+    border-top: 1px dotted [% css_colors.accent_light %];
+}
 
 div.format_icon {
     float: right;
@@ -726,24 +754,23 @@ collapse correctly when the window width decreases */
     font-weight:bold;
     color:[% css_colors.primary_fade %];
 }
+
 .table_no_border_space {
-border-spacing: 0px;
-}		
-
+  border-spacing: 0px;
+}
 .table_no_cell_pad td {
-padding: 0px;		
-}		
-
+  padding: 0px;
+}
 .table_no_border {
-border-collapse: collapse;
-}		
+  border-collapse: collapse;
+}
 
 #result_table_table {
-margin-top:10px;
+  margin-top:10px;
 }
 
 #result_table_div {
-margin-top: 1em;
+    margin-top: 1em;
 }
 
 tr.result_table_row > td.results_row_count,
@@ -922,24 +949,23 @@ table.acct_notes th {
     /*padding-left:10px;*/
 }
 
-#acct_checked_main_header, #acct_holds_main_header, #acct_checked_hist_header, #acct_list_header, #acct_list_header_anon, #temp_list_holds {
-		border-collapse: collapse;
+#acct_checked_main_header, #acct_holds_main_header, #acct_checked_hist_header, #acct_list_header, #acct_list_header_anon, #temp_list_holds, #acct_messages_main_header {
+    border-collapse: collapse;
 }
 
 .hold_notes {
-text-transform: none;
-font-weight: normal;		
+    text-transform: none;
+    font-weight: normal;
 }
 
-.hold_note_title { font-weight: bold;
-}
+.hold_note_title { font-weight: bold; }
 
-#acct_checked_main_header td, #acct_holds_main_header td, #acct_checked_hist_header td, #acct_list_header td, #acct_list_header_anon td, #temp_list_holds td {
+#acct_checked_main_header td, #acct_holds_main_header td, #acct_checked_hist_header td, #acct_list_header td, #acct_list_header_anon td, #temp_list_holds td, #acct_messages_main_header td {
     background: [% css_colors.accent_lighter2 %];
     padding: 10px;
 }
 
-#acct_checked_main_header th, #acct_holds_main_header th, #acct_checked_hist_header th, #acct_list_header th, #acct_list_header_anon th, #temp_list_holds th {
+#acct_checked_main_header th, #acct_holds_main_header th, #acct_checked_hist_header th, #acct_list_header th, #acct_list_header_anon th, #temp_list_holds th, #acct_messages_main_header th {
     text-align: left;
     padding: 0px 10px 0px 10px;
 }
@@ -1171,7 +1197,7 @@ div#facet_sidebar {
     padding-left: 1em;
 }
 #opac.result.sort { width: 160px; }
-.renew-summary { font-size: [% css_fonts.size_bigger %]; font-style: italic; margin: 0.5ex 0; }
+.renew-summary, .message-update-summary { font-size: [% css_fonts.size_bigger %]; font-style: italic; margin: 0.5ex 0; }
 .failure-text { margin-left: 4em; font-style: italic; color: [% css_colors.text_alert %]; }
 .refine-controls { font-size: [% css_fonts.size_bigger %]; padding: 0.5ex 0; }
 #adv_search_refine input[type=text] { border: 1px inset [% css_colors.accent_light %] !important; }
@@ -1216,10 +1242,9 @@ a.dash-link:hover { text-decoration: underline !important; }
 
 .text-right { text-align: right; }
 .text-right-top { text-align: right; vertical-align: top; }
-
 .rdetail-author-div {
-padding-bottom: 10px;
-display: inline-block;
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
 .invisible { visibility: hidden; }
@@ -1239,10 +1264,13 @@ display: inline-block;
 .results-paginator-list { padding-left: 1em; }
 .results-paginator-selected { color: [% css_colors.text_alert %]; }
 .inactive-hold { background: [% css_colors.accent_lightest %]; }
+.unread-patron-message { font-weight: bold; }
 
 #hold-items-list td { padding: 5px; margin-bottom: 20px; }
 .hold-items-list-title { font-size: [% css_fonts.size_bigger %]; }
 .hold-items-list-problem { color: [% css_colors.text_alert %]; }
+
+.hold_success_links > span { margin: 0 2em; }
 
 .mr_holds_no_formats { 
   padding: 5px;
@@ -1310,7 +1338,6 @@ button.opac-button::-moz-focus-inner, input.opac-button::-moz-focus-inner {
 		border-radius: 10px;
 		font-size: 13px;
 }
-
 a.opac-button-header:hover, #dash_wrapper a.opac-button:hover {
     border-color: [% css_colors.control %];
 }
@@ -1508,6 +1535,7 @@ table.result_holdings_table thead tr {
 }
 table.result_holdings_table thead tr th {
     font-weight: bold;
+		text-transform: capitalize;
 }
 span.preflib {
     margin: 0 2em 0 2em;
@@ -1741,8 +1769,30 @@ a.preflib_change {
     font-size: [% css_fonts.size_bigger %];
 }
 
+/* styling for sms text call number */
+.sms_text pre {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: [% css_fonts.size_medium %];
+    background: [% css_colors.accent_lightest %];
+    padding: .5%;
+    /* Allow text to wrap */
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
 .mobile_view {
- display:none;
+   display:none;
+}
+
+/* patron message center */
+#myopac_message_tbody {
+    vertical-align: top;
+}
+.myopac_message_message {
+    white-space: pre-wrap;
 }
 
 @media only screen and (max-width: 800px) {
@@ -1755,9 +1805,9 @@ a.preflib_change {
     #acct_select, #acct_prefs_select {
         display: inline-block;
     }
-    #acct_tabs, #acct_prefs_tabs {
+#acct_tabs, #acct_prefs_tabs {
          display:none;
-    }
+     }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1916,7 +1966,7 @@ a.preflib_change {
     }
     #main-content-home {
         /* padding: 0px;*/ /*For Mobile Centering*/
-        /* margin: 0px;*/
+        /* margin: 0px; */
     }
     /* Make use of full width in mobile mode */
     .facet_box_wrapper .box_wrapper .box,
@@ -2081,22 +2131,22 @@ a.preflib_change {
         table#acct_holds_main_header td:nth-of-type(8):before { content: "[% l('Active') %]"; }
         table#acct_holds_main_header td:nth-of-type(9):before { content: "[% l('Status') %]"; }
         table#acct_holds_main_header td.hold_notes:before { content: "[% l('Notes') %]"; }
-        
-/*Want to see these in mobile ONLY */
-        .mobile_view{
-        display:block;
-        }
-        .mobile_search_lbl_clr{
-        color:#fff;
-        }
+
+       /*Want to see these in mobile ONLY */
+       .mobile_view{
+          display:block;
+       }
+       .mobile_search_lbl_clr{
+          color:[% css_colors.mobile_header_text %];
+       }
 }
+
 
 /* 
 For text which is visible only to screen readers.
 Borrowed from http://getbootstrap.com/css/#helper-classes-screen-readers 
 See also http://webaim.org/techniques/css/invisiblecontent/
 */
-
 .sr-only {                                                                     
     position: absolute;                                                          
     width: 1px;                                                                  
@@ -2106,4 +2156,16 @@ See also http://webaim.org/techniques/css/invisiblecontent/
     overflow: hidden;                                                            
     clip: rect(0, 0, 0, 0);                                                      
     border: 0;                                                                   
+}
+
+/* Make added rows in Expert Search have bold labels like the initial row */
+label[for*=expert_]
+{
+    font-weight: bold;
+}  
+} 
+
+.sort_deemphasize {
+    font-weight: lighter;
+    font-size: 70%;
 }

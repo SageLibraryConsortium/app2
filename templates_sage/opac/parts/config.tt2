@@ -81,6 +81,7 @@ allow_phone_notifications = 'true';
 # Options are "small", "medium", and "large"
 record.summary.jacket_size = 'medium';
 
+
 ##############################################################################
 # Option for full details as a default, esp. impt. for e-content
 # that uses resolver plumbing. Valid values are 'true', 'false' and 'hide'.
@@ -126,7 +127,7 @@ search.adv_config = [
     {adv_label => l("Item Type"), adv_filter => ["mat_format"], id => 'adv_selector_item_type'},
     {adv_label => l("Language"),  adv_attr => "item_lang", id => 'adv_selector_item_lang'},
     {adv_label => l("Literary Form"), adv_attr => "lit_form", id => 'adv_selector_lit_form', adv_break => 1},
-    {adv_label => l("Audience"), adv_attr => ["audience_group", "audience"], id => 'adv_selector_audience'},
+		{adv_label => l("Audience"), adv_attr => ["audience_group", "audience"], id => 'adv_selector_audience'},
     {adv_label => l("Shelving Location"), adv_special => "copy_location", id => 'adv_copy_location_selector', js_only => 1},
     {adv_label => l("Search Library"), adv_special => "lib_selector", id => 'adv_org_selector', adv_break => 1},
     {adv_label => l("Publication Year"), adv_special => "pub_year", id => 'adv_selector_pub_year'},
@@ -168,7 +169,7 @@ ctx.google_books_preview = 1;
 
 # Set a maintenance message to display in the catalogue
 #
- ctx.maintenance_message = "The system will not be available tomorrow -- Sunday, January 10, 2016 -- due to software upgrades.";
+# ctx.maintenance_message = "The system will not be available February 29, 2104.";
 
 
 ##############################################################################

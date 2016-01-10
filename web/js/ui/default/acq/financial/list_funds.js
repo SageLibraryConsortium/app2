@@ -19,6 +19,10 @@ dojo.require('fieldmapper.OrgUtils');
 dojo.requireLocalization('openils.acq', 'acq');
 var localeStrings = dojo.i18n.getLocalization('openils.acq', 'acq');
 
+dojo.require('openils.XUL');
+var xulStorage = openils.XUL.localStorage();
+var storekey = 'eg.acq.fund.list.context_ou_selector';
+
 var contextOrg;
 var rolloverResponses;
 var rolloverMode = false;
@@ -35,7 +39,7 @@ var adminPermOrgs = [];
 var cachedFunds = [];
 
 function initPage() {
-    contextOrg = openils.User.user.ws_ou();
+    contextOrg = xulStorage.getItem(storekey) || openils.User.user.ws_ou();
 
     // Propagate the context org from the URL data into our org selector.
     if (lfGrid.urlUserData && lfGrid.urlUserData.contextOrg)
@@ -60,6 +64,7 @@ function initPage() {
         dojo.connect(contextOrgSelector, 'onChange',
             function() {
                 contextOrg = this.attr('value');
+                xulStorage.setItem(storekey, contextOrg);
                 dojo.byId('oils-acq-rollover-ctxt-org').innerHTML = 
                     fieldmapper.aou.findOrgUnit(contextOrg).shortname();
                 rolloverMode = false;

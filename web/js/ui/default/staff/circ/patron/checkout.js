@@ -10,8 +10,9 @@ angular.module('egPatronApp').controller('PatronCheckoutCtrl',
 function($scope , $q , $modal , $routeParams , egCore , egUser , patronSvc , 
          egGridDataProvider , $location , $timeout , egCirc) {
 
-    $scope.initTab('checkout', $routeParams.id);
-    $scope.focusMe = true;
+    $scope.initTab('checkout', $routeParams.id).finally(function(){
+        $scope.focusMe = true;
+    });
     $scope.checkouts = patronSvc.checkouts;
     $scope.checkoutArgs = {
         noncat_type : 'barcode',
@@ -34,6 +35,9 @@ function($scope , $q , $modal , $routeParams , egCore , egUser , patronSvc ,
     }
 
     $scope.using_hatch = egCore.hatch.usingHatch();
+
+    egCore.hatch.getItem('circ.checkout.strict_barcode')
+        .then(function(sb){ $scope.strict_barcode = sb });
 
     // avoid multiple, in-flight attempts on the same barcode
     var pending_barcodes = {};
@@ -90,7 +94,7 @@ function($scope , $q , $modal , $routeParams , egCore , egUser , patronSvc ,
             });
         }
 
-        $scope.focusMe; // return focus to barcode input
+        $scope.focusMe = true; // return focus to barcode input
     }
 
     function send_checkout(params) {
@@ -109,6 +113,7 @@ function($scope , $q , $modal , $routeParams , egCore , egUser , patronSvc ,
         $scope.checkouts.unshift(row_item);
         $scope.gridDataProvider.refresh();
 
+        egCore.hatch.setItem('circ.checkout.strict_barcode', $scope.strict_barcode);
         var options = {check_barcode : $scope.strict_barcode};
 
         egCirc.checkout(params, options).then(
@@ -139,12 +144,14 @@ function($scope , $q , $modal , $routeParams , egCore , egUser , patronSvc ,
                 $scope.gridDataProvider.refresh();
             }
 
-        )['finally'](function() {
+        ).finally(function() {
 
             // regardless of the outcome of the circ, remove the 
             // barcode from the pending list.
             if (params.copy_barcode)
                 delete pending_barcodes[params.copy_barcode];
+
+            $scope.focusMe = true; // return focus to barcode input
         });
     }
 

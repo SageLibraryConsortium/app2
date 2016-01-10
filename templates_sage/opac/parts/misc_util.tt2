@@ -303,7 +303,7 @@
         FOR sub IN xml.findnodes('//*[@tag="800" and @ind1="1"]/*[@code="v"]');
            args.seriesnumber.push(sub.textContent);
         END;
-        FOR sub IN xml.findnodes('//*[@tag="830" and @ind1="1"]/*[@node="v"]');
+        FOR sub IN xml.findnodes('//*[@tag="830" and @ind1="1"]/*[@code="v"]');
            args.seriesnumber.push(sub.textContent);
         END;
         args.seriesnumber = (args.seriesnumber.size) ? args.seriesnumber.0 : '';

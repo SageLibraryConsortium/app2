@@ -201,7 +201,7 @@ avoid using bookbags all together.  Thank you.">
 	================================================================= -->
 
 
-<!ENTITY myopac.holds.formats "Biçim">
+<!ENTITY myopac.holds.formats "Formats">
 <!ENTITY myopac.holds.location "Pickup Location">
 <!ENTITY myopac.holds.edit "Düzenle">
 <!ENTITY myopac.holds.status.none "You have no items on hold at this time">
@@ -209,12 +209,12 @@ avoid using bookbags all together.  Thank you.">
 <!ENTITY myopac.holds.status.intransit "In Transit">
 <!ENTITY myopac.holds.status.available "Ready for Pickup">
 <!ENTITY myopac.holds.status.suspended "Suspended">
-<!ENTITY myopac.holds.cancel "İptal">
+<!ENTITY myopac.holds.cancel "Cancel">
 <!ENTITY myopac.holds.verify "If you wish to cancel the selected hold, click OK, otherwise click Cancel.">
 <!ENTITY myopac.holds.freeze_selected "Suspend">
 <!ENTITY myopac.holds.thaw_selected "Activate">
 <!ENTITY myopac.holds.thaw_date_selected "Set Active Date">
-<!ENTITY myopac.holds.cancel_selected "İptal">
+<!ENTITY myopac.holds.cancel_selected "Cancel">
 <!ENTITY myopac.holds.processing "Processing holds... This may take a moment.">
 <!ENTITY myopac.holds.actions 'Actions for selected holds'>
 <!ENTITY myopac.holds.cancel.confirm 'Are you sure you wish to cancel the selected holds?'>
@@ -323,12 +323,12 @@ Please see a librarian to renew your account.">
 <!ENTITY opac.advanced.marc.addrow "Add a new row">
 <!ENTITY opac.advanced.quick.title "Quick Search">
 <!ENTITY opac.advanced.quick.isbn "ISBN">
-<!ENTITY opac.advanced.quick.issn "ISBN">
+<!ENTITY opac.advanced.quick.issn "ISSN">
 <!ENTITY opac.advanced.quick.lccn "LCCN"> 
 <!-- title control number -->
 <!ENTITY opac.advanced.quick.tcn "TCN"> 
 <!ENTITY opac.advanced.quick.barcode "Item Barcode"> 
-<!ENTITY opac.advanced.quick.cn "Arama Numarası"> 
+<!ENTITY opac.advanced.quick.cn "Call Number"> 
 <!ENTITY opac.advanced.copy_loc_filter "Shelving Location">
 <!-- ==========================================================
      MARC expert search
@@ -350,7 +350,7 @@ Please see a librarian to renew your account.">
      ========================================================== -->
 
 
-<!ENTITY tips.label "İpucu:">
+<!ENTITY tips.label "Tip:">
 <!-- ================================================================= 
 		More generic stuff 
 		================================================================= -->
@@ -359,15 +359,15 @@ Please see a librarian to renew your account.">
 <!ENTITY opac.session_expired "Your login session has expired">
 <!ENTITY navigate.home "Home">
 <!ENTITY navigate.home.title "Go to the Home page">
-<!ENTITY opac.navigate.advanced "Gelişmiş Arama">
+<!ENTITY opac.navigate.advanced "Advanced Search">
 <!ENTITY opac.navigate.advanced.title "Go to the Advanced Search Page">
 <!ENTITY navigate.myopac "My Account">
 <!ENTITY opac.navigate.myopac "My Account">
 <!ENTITY navigate.myopac.title "Go to My OPAC">
-<!ENTITY navigate.login "Oturum Aç">
+<!ENTITY navigate.login "Log in">
 <!ENTITY navigate.login.title "Log in for personalized features">
-<!ENTITY navigate.logout "Oturumu Kapat">
-<!ENTITY navigate.logout.title "Oturumu Kapat">
+<!ENTITY navigate.logout "Log out">
+<!ENTITY navigate.logout.title "Log out">
 <!ENTITY opac.navigate.selectNewOrg "Choose a different library">
 <!ENTITY opac.navigate.selectOrg "Choose a library to search">
 <!ENTITY navigate.loggedinas "You are logged in as ">
@@ -381,7 +381,7 @@ Please see a librarian to renew your account.">
 	Footer
 	================================================================= -->
 
-<!ENTITY footer.basic "Temel Katalog (Sadece HTML)">
+<!ENTITY footer.basic "Basic Catalog (HTML only)">
 <!ENTITY footer.find.library "Find a Library Near Me">
 <!ENTITY footer.find.url "http://www.georgialibraries.org/lib/directories/pineslibdir.html">
 <!ENTITY footer.help.url "http://open-ils.org/dokuwiki/doku.php?id=evergreen-user:opac_help">
@@ -427,7 +427,7 @@ Please see a librarian to renew your account.">
 <!ENTITY opac.search.videoRecordings "Video Recordings">
 <!ENTITY opac.search.music "Music">
 <!ENTITY opac.search.electronic "Electronic Resources">
-<!ENTITY opac.search.nowSearching "Şimdi aranıyor ">
+<!ENTITY opac.search.nowSearching "Now Searching">
 <!--	================================================================= 
 		Page Titles
 		================================================================= -->
@@ -470,7 +470,7 @@ Please see a librarian to renew your account.">
 <!ENTITY advanced.literary.form "Literary Form">
 <!ENTITY advanced.non.fiction "Non Fiction">
 <!ENTITY advanced.fiction "Fiction">
-<!ENTITY advanced.language "Dil: ">
+<!ENTITY advanced.language "Language">
 <!ENTITY advanced.audience "Audience">
 <!ENTITY advanced.adult "Adult">
 <!ENTITY advanced.juvenile "Juvenile">
@@ -478,13 +478,13 @@ Please see a librarian to renew your account.">
 <!ENTITY advanced.sort.criteria "Sort Criteria">
 <!ENTITY advanced.search.library "Search Library">
 <!ENTITY advanced.relevance "Relevance">
-<!ENTITY advanced.pubdate "Yayınlanma Tarihi">
+<!ENTITY advanced.pubdate "Publication date">
 <!ENTITY advanced.sort.asc "Ascending / A to Z">
 <!ENTITY advanced.sort.desc "Descending / Z to A">
 <!ENTITY advanced.frbrize "Group Formats and Editions">
 <!ENTITY advanced.go "Go">
 <!ENTITY advanced.biblevel "Bib Level">
-<!ENTITY advanced.filter.pubyear "Yayınlanma Tarihi">
+<!ENTITY advanced.filter.pubyear "Publication Year">
 <!ENTITY advanced.filter.pubyear.equals "Is">
 <!ENTITY advanced.filter.pubyear.before "Before">
 <!ENTITY advanced.filter.pubyear.after "After">
@@ -513,7 +513,7 @@ Please see a librarian to renew your account.">
 <!ENTITY rdetail.cn.print "Print Page">
 <!ENTITY rdetail.page.results "First results page">
 <!-- Result # &common.of; # -->
-<!ENTITY rdetail.result "Sonuçlar"> 
+<!ENTITY rdetail.result "Result"> 
 <!ENTITY rdetail.start "Start">
 <!ENTITY rdetail.page.previous "Previous page">
 <!ENTITY rdetail.page.previous.short "&#171;">
@@ -531,14 +531,14 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY rdetail.bookbag.name "Enter the name of the new bookbag">
 <!ENTITY rdetail.bookbag.create.success "Bookbag successfully created">
 <!ENTITY rdetail.detailMain.headerLabel "Record Summary">
-<!ENTITY rdetail.detailMain.subjects "Konu">
+<!ENTITY rdetail.detailMain.subjects "Subjects">
 <!ENTITY rdetail.detailMain.abstract "Abstract">
 <!ENTITY rdetail.detailMain.viewMarc "View MARC">
 <!ENTITY rdetail.detailMain.hideMarc "Return to title details">
 <!ENTITY rdetail.author.search "Perform an author search">
 <!ENTITY rdetail.copyInfo.headerLabel "Copy Information">
-<!ENTITY rdetail.copyInfo.library "Kütüphane">
-<!ENTITY rdetail.copyInfo.callnumber "Arama Numarası">
+<!ENTITY rdetail.copyInfo.library "Library">
+<!ENTITY rdetail.copyInfo.callnumber "Callnumber">
 <!ENTITY rdetail.copyInfo.copylocation "Copy Location">
 <!ENTITY rdetail.copyInfo.local "View Copy Information for this location only">
 <!ENTITY rdetail.copyInfo.all "View copy information for all libraries">
@@ -567,7 +567,7 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY rdetail.loading "Loading copy information...">
 <!ENTITY rdetail.noneAvailable " * There are no copies in this location">
 <!ENTITY rdetail.summary.online "Online Resources">
-<!ENTITY rdetail.summary.subjects "Konu">
+<!ENTITY rdetail.summary.subjects "Subjects">
 <!ENTITY rdetail.summary.issues_held "Issues Held">
 
 <!ENTITY result.sort_by "Sort Results by Relevance">
@@ -589,19 +589,19 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY result.lowhits.related "You may also like to try these related searches:">
 <!ENTITY result.lowhits.expand "You may also wish to expand your search range to:">
 <!ENTITY result.lowhits.class "You can try searching the same terms by:">
-<!ENTITY result.lowhits.title "Başlık">
-<!ENTITY result.lowhits.author "Yazar">
-<!ENTITY result.lowhits.subject "Konu">
-<!ENTITY result.lowhits.series "Seriler">
-<!ENTITY result.lowhits.keyword "Anahtar Sözcük">
+<!ENTITY result.lowhits.title "title">
+<!ENTITY result.lowhits.author "author">
+<!ENTITY result.lowhits.subject "subject">
+<!ENTITY result.lowhits.series "series">
+<!ENTITY result.lowhits.keyword "keyword">
 
 <!ENTITY result.table.keyword "View titles for this record">
 <!ENTITY result.table.author "Perform an Author Search">
 <!ENTITY result.googleBooks.browse "Browse in Google Books Search">
 <!ENTITY result.localCallNumbers "Local Call Numbers:">
 
-<!ENTITY common.call.number.label "Arama Numarası">
-<!ENTITY common.isbn.label "ISBN">
+<!ENTITY common.call.number.label "Call Number:">
+<!ENTITY common.isbn.label "ISBN:">
 <!ENTITY common.issn.label "ISSN:">
 <!ENTITY common.mono_parts.label "Monograph Parts:">
 <!ENTITY common.copy.barcode.label "Copy Barcode:">
@@ -642,13 +642,13 @@ For further information, please consult your local librarian.">
 <!ENTITY common.email.enable "Enable email notifications for this hold?">
 <!ENTITY common.email.none "(Patron has no configured email address)">
 <!ENTITY common.email.set "(See <a class='classic_link' id='holds.no_email.my_account'>My Account</a> for setting your email address)">
-<!ENTITY common.keywords.label "Anahtar Sözcük">
-<!ENTITY common.physical.label "Fiziksel Açıklama">
-<!ENTITY common.series.label "Seriler">
-<!ENTITY common.subject.label "Konu">
-<!ENTITY common.title.label "Başlık">
-<!ENTITY common.author.label "Yazar">
-<!ENTITY common.format.label "Biçim">
+<!ENTITY common.keywords.label "Keywords:">
+<!ENTITY common.physical.label "Physical Description:">
+<!ENTITY common.series.label "Series:">
+<!ENTITY common.subject.label "Subject:">
+<!ENTITY common.title.label "Title:">
+<!ENTITY common.author.label "Author:">
+<!ENTITY common.format.label "Format:">
 <!ENTITY library.select "Find results in">
 <!ENTITY library.select.label "Choose a different library...">
 <!ENTITY library.select.help "Choose a library to search">
@@ -675,7 +675,7 @@ Passwords are case-sensitive.  Check your Caps-Lock key and try again or contact
 <!ENTITY slimpac.language.select "Select language">
 
 <!ENTITY slimpac.start.title "Simple Search">
-<!ENTITY slimpac.start.nowSearching "Şimdi aranıyor ">
+<!ENTITY slimpac.start.nowSearching "Now searching: ">
 <!ENTITY slimpac.start.dynamic "Dynamic Catalog">
 <!--	================================================================= 
 	Slimpac Advanced Search
@@ -694,20 +694,20 @@ Passwords are case-sensitive.  Check your Caps-Lock key and try again or contact
 
 <!ENTITY selfck.staff_login_label "Staff login">
 <!ENTITY selfck.staff_login "Library barcode or username">
-<!ENTITY selfck.staff_pw "Parola">
-<!ENTITY selfck.submit "Gönder">
+<!ENTITY selfck.staff_pw "Password">
+<!ENTITY selfck.submit "Submit">
 <!ENTITY selfck.clear "Clear">
 <!ENTITY selfck.patron_barcode_label "Please scan your library barcode">
 <!ENTITY selfck.item_barcode_label "Please scan an item to checkout or renew:">
 <!ENTITY selfck.barcode "Barcode">
-<!ENTITY selfck.title "Başlık">
-<!ENTITY selfck.author "Yazar">
+<!ENTITY selfck.title "Title">
+<!ENTITY selfck.author "Author">
 <!ENTITY selfck.due_date "Due Date">
 <!ENTITY selfck.remaining "Renewals Remaining">
 <!ENTITY selfck.cotype "Type">
 <!ENTITY selfck.cotype_co "Checkout">
 <!ENTITY selfck.cotype_rn "Renewal">
-<!ENTITY selfck.done "Hiçbiri">
+<!ENTITY selfck.done "Done">
 <!ENTITY selfck.welcome "Welcome">
 <!ENTITY selfck.printing "Printing Receipt...">
 <!-- event messages -->

@@ -12,6 +12,7 @@
 			<field name='work_payment' oils_persist:virtual='true' />
 			<field name='credit_payment' oils_persist:virtual='true' />
 			<field name='goods_payment' oils_persist:virtual='true' />
+			<field name='account_adjustment' oils_persist:virtual='true' />
 		</fields>
 		<links>
 			<link field='usr' reltype='has_a' class='au' key='id' map='' />
@@ -219,6 +220,7 @@
 			<field reporter:label='&field.vii.priv_note.label;' name='priv_note' reporter:datatype='text' />
 			<field reporter:label='&field.vii.opac_visible.label;' name='opac_visible' reporter:datatype='bool' />
 			<field reporter:label='&field.vii.internal_id.label;' name='internal_id' reporter:datatype='int' />
+			<field reporter:label='&field.vii.stat_cat_data.label;' name='stat_cat_data' reporter:datatype='text' />
 		</fields>
 		<links>
 			<link field='import_error' reltype='has_a' class='vie' key='code' map='' />
@@ -271,6 +273,7 @@
 			<field reporter:label='&field.viiad.opac_visible.label;' name='opac_visible' reporter:datatype='text' />
 			<field reporter:label='&field.viiad.copy_number.label;' name='copy_number' reporter:datatype='text' />
 			<field reporter:label='&field.viiad.internal_id.label;' name='internal_id' reporter:datatype='text' />
+			<field reporter:label='&field.viiad.stat_cat_data.label;' name='stat_cat_data' reporter:datatype='text' />
 		</fields>
 		<links>
 			<link field='owner' reltype='has_a' class='aou' key='id' map='' />
@@ -528,6 +531,7 @@
 			<field reporter:label='&field.vam.queued_record.label;' name='queued_record' reporter:datatype='link' />
 			<field reporter:label='&field.vam.eg_record.label;' name='eg_record' reporter:datatype='link' />
 			<field reporter:label='&field.vam.quality.label;' name='quality' reporter:datatype='int' />
+			<field reporter:label='&field.vam.match_score.label;' name='match_score' reporter:datatype='text' />
 		</fields>
 		<links>
 			<link field='queued_record' reltype='has_a' class='vqar' key='id' map='' />
@@ -575,6 +579,7 @@
             <field reporter:label='&field.vmsp.negate.label;' name='negate' reporter:datatype='bool' />
 			<field reporter:label='&field.vmsp.quality.label;' name='quality' reporter:datatype='int' />
 			<field reporter:label='&field.vmsp.children.label;' name='children' reporter:datatype='link' oils_persist:virtual='true' />
+			<field reporter:label='&field.vmsp.heading.label;' name='heading' reporter:datatype='bool' />
 		</fields>
 		<links>
 			<link field='parent' reltype='has_a' class='vmsp' key='id' map='' />
@@ -705,6 +710,77 @@
         </permacrud>
 	</class>
 
+	<class reporter:label='&class.cmrcfmt.label;' oils_persist:tablename='config.marc_format' oils_obj:fieldmapper='config::marc_format' controller='open-ils.cstore open-ils.pcrud' oils_persist:field_safe='true' id='cmrcfmt'>
+		<fields oils_persist:primary='id'>
+			<field reporter:label='&field.cmrcfmt.id.label;' name='id' reporter:datatype='id' />
+			<field reporter:label='&field.cmrcfmt.code.label;' name='code' reporter:datatype='text' />
+			<field reporter:label='&field.cmrcfmt.name.label;' name='name' reporter:datatype='text' oils_persist:i18n='true' />
+        </fields>
+        <permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+            <actions>
+                <create global_required='true' permission='ADMIN_TAG_TABLE'></create>
+                <retrieve></retrieve>
+                <update global_required='true' permission='ADMIN_TAG_TABLE'></update>
+                <delete global_required='true' permission='ADMIN_TAG_TABLE'></delete>
+            </actions>
+        </permacrud>
+	</class>
+
+	<class reporter:label='&class.cmrcfld.label;' oils_persist:tablename='config.marc_field' oils_obj:fieldmapper='config::marc_field' controller='open-ils.cstore open-ils.pcrud' oils_persist:field_safe='true' id='cmrcfld'>
+		<fields oils_persist:primary='id'>
+			<field reporter:label='&field.cmrcfld.id.label;' name='id' reporter:datatype='id' />
+			<field reporter:label='&field.cmrcfld.marc_format.label;' name='marc_format' reporter:datatype='link' />
+			<field reporter:label='&field.cmrcfld.marc_record_type.label;' name='marc_record_type' reporter:datatype='text' />
+			<field reporter:label='&field.cmrcfld.tag.label;' name='tag' reporter:datatype='text' />
+			<field reporter:label='&field.cmrcfld.name.label;' name='name' reporter:datatype='text' oils_persist:i18n='true' />
+			<field reporter:label='&field.cmrcfld.description.label;' name='description' reporter:datatype='text' oils_persist:i18n='true' />
+			<field reporter:label='&field.cmrcfld.fixed_field.label;' name='fixed_field' reporter:datatype='bool' />
+			<field reporter:label='&field.cmrcfld.repeatable.label;' name='repeatable' reporter:datatype='bool' />
+			<field reporter:label='&field.cmrcfld.mandatory.label;' name='mandatory' reporter:datatype='bool' />
+			<field reporter:label='&field.cmrcfld.hidden.label;' name='hidden' reporter:datatype='bool' />
+			<field reporter:label='&field.cmrcfld.owner.label;' name='owner' reporter:datatype='link' />
+        </fields>
+		<links>
+			<link field='marc_format' reltype='has_a' class='cmrcfmt' key='id' map='' />
+			<link field='owner' reltype='has_a' class='aou' key='id' map='' />
+        </links>
+        <permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+            <actions>
+                <create context_field='owner' permission='ADMIN_TAG_TABLE'></create>
+                <retrieve></retrieve>
+                <update context_field='owner' permission='ADMIN_TAG_TABLE'></update>
+                <delete context_field='owner' permission='ADMIN_TAG_TABLE'></delete>
+            </actions>
+        </permacrud>
+	</class>
+
+	<class reporter:label='&class.cmrcsubfld.label;' oils_persist:tablename='config.marc_subfield' oils_obj:fieldmapper='config::marc_subfield' controller='open-ils.cstore open-ils.pcrud' oils_persist:subfield_safe='true' id='cmrcsubfld'>
+		<fields oils_persist:primary='id'>
+			<field reporter:label='&field.cmrcsubfld.id.label;' name='id' reporter:datatype='id' />
+			<field reporter:label='&field.cmrcsubfld.marc_format.label;' name='marc_format' reporter:datatype='link' />
+			<field reporter:label='&field.cmrcsubfld.marc_record_type.label;' name='marc_record_type' reporter:datatype='text' />
+			<field reporter:label='&field.cmrcsubfld.tag.label;' name='tag' reporter:datatype='text' />
+			<field reporter:label='&field.cmrcsubfld.code.label;' name='code' reporter:datatype='text' />
+			<field reporter:label='&field.cmrcsubfld.description.label;' name='description' reporter:datatype='text' oils_persist:i18n='true' />
+			<field reporter:label='&field.cmrcsubfld.repeatable.label;' name='repeatable' reporter:datatype='bool' />
+			<field reporter:label='&field.cmrcsubfld.mandatory.label;' name='mandatory' reporter:datatype='bool' />
+			<field reporter:label='&field.cmrcsubfld.hidden.label;' name='hidden' reporter:datatype='bool' />
+			<field reporter:label='&field.cmrcsubfld.owner.label;' name='owner' reporter:datatype='link' />
+        </fields>
+		<links>
+			<link field='marc_format' reltype='has_a' class='cmrcfmt' key='id' map='' />
+			<link field='owner' reltype='has_a' class='aou' key='id' map='' />
+        </links>
+        <permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+            <actions>
+                <create context_field='owner' permission='ADMIN_TAG_TABLE'></create>
+                <retrieve></retrieve>
+                <update context_field='owner' permission='ADMIN_TAG_TABLE'></update>
+                <delete context_field='owner' permission='ADMIN_TAG_TABLE'></delete>
+            </actions>
+        </permacrud>
+	</class>
+
 	<class reporter:label='&class.crad.label;' oils_persist:tablename='config.record_attr_definition' oils_obj:fieldmapper='config::record_attr_definition' controller='open-ils.cstore open-ils.pcrud' oils_persist:field_safe='true' id='crad'>
 		<fields oils_persist:primary='name'>
 			<field reporter:label='&field.crad.name.label;' oils_obj:required='true' name='name' reporter:datatype='id' reporter:selector='label' />
@@ -723,6 +799,7 @@
 			<field reporter:label='&field.crad.string_len.label;' name='string_len' reporter:datatype='int' />
 			<field reporter:label='&field.crad.fixed_field.label;' name='fixed_field' reporter:datatype='text' />
 			<field reporter:label='&field.crad.phys_char_sf.label;' name='phys_char_sf' reporter:datatype='text' />
+			<field reporter:label='&field.crad.vocabulary.label;' name='vocabulary' reporter:datatype='text' />
 			<field reporter:label='&field.crad.normalizers.label;' name='normalizers' reporter:datatype='link' oils_persist:virtual='true' />
 		</fields>
 		<links>
@@ -890,6 +967,7 @@
 			<field reporter:label='&field.ccvm.opac_visible.label;' name='opac_visible' reporter:datatype='bool' />
 			<field reporter:label='&field.ccvm.search_label.label;' name='search_label' reporter:datatype='text' oils_persist:i18n='true' />
             <field reporter:label='&field.ccvm.is_simple.label;' name='is_simple' reporter:datatype='bool' />
+            <field reporter:label='&field.ccvm.concept_uri.label;' name='concept_uri' reporter:datatype='text' />
             <field reporter:label='&field.ccvm.composite_def.label;' name='composite_def' reporter:datatype='link' oils_persist:virtual='true' />
 		</fields>
 		<links>
@@ -1151,6 +1229,10 @@
 			<field reporter:label='&field.atevdef.usr_field.label;' name='usr_field' reporter:datatype='text' />
 			<field reporter:label='&field.atevdef.opt_in_setting.label;' name='opt_in_setting' reporter:datatype='link' />
 			<field reporter:label='&field.atevdef.repeat_delay.label;' name='repeat_delay' reporter:datatype='interval' />
+			<field reporter:label='&field.atevdef.message_template.label;' name='message_template' reporter:datatype='text' />
+			<field reporter:label='&field.atevdef.message_title.label;' name='message_title' reporter:datatype='text' />
+			<field reporter:label='&field.atevdef.message_usr_path.label;' name='message_usr_path' reporter:datatype='text' />
+			<field reporter:label='&field.atevdef.message_library_path.label;' name='message_library_path' reporter:datatype='text' />
 			<field reporter:label='&field.atevdef.env.label;' name='env' reporter:datatype='link' oils_persist:virtual='true' />
 			<field reporter:label='&field.atevdef.params.label;' name='params' reporter:datatype='link' oils_persist:virtual='true' />
 		</fields>
@@ -1351,6 +1433,7 @@
 			<field reporter:label='&field.aiit.code.label;' name='code' reporter:datatype='id' reporter:selector='name' />
 			<field reporter:label='&field.aiit.name.label;' name='name' reporter:datatype='text' oils_persist:i18n='true' />
 			<field reporter:label='&field.aiit.prorate.label;' name='prorate' reporter:datatype='bool' />
+			<field reporter:label='&field.aiit.blanket.label;' name='blanket' reporter:datatype='bool' />
 		</fields>
 		<links></links>
         <permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
@@ -1941,6 +2024,51 @@
 			<link field='usr' reltype='has_a' class='au' key='id' map='' />
 			<link field='billing_location' reltype='has_a' class='aou' key='id' map='' />
 		</links>
+	</class>
+	<class oils_obj:fieldmapper='actor::usr_message' reporter:label='&class.aum.label;' controller='open-ils.cstore open-ils.pcrud' oils_persist:tablename='actor.usr_message' id='aum'>
+		<fields oils_persist:sequence='actor.usr_message_id_seq' oils_persist:primary='id'>
+			<field reporter:label='&field.aum.create_date.label;' name='create_date' reporter:datatype='timestamp' />
+			<field reporter:label='&field.aum.read_date.label;' name='read_date' reporter:datatype='timestamp' />
+			<field reporter:label='&field.aum.sending_lib.label;' name='sending_lib' reporter:datatype='link' />
+			<field reporter:label='&field.aum.id.label;' name='id' reporter:datatype='id' />
+			<field reporter:label='&field.aum.deleted.label;' name='deleted' reporter:datatype='bool' />
+			<field reporter:label='&field.aum.title.label;' name='title' reporter:datatype='text' />
+			<field reporter:label='&field.aum.usr.label;' name='usr' reporter:datatype='link' />
+			<field reporter:label='&field.aum.message.label;' name='message' reporter:datatype='text' />
+		</fields>
+		<links>
+			<link field='usr' reltype='has_a' class='au' key='id' map='' />
+			<link field='sending_lib' reltype='has_a' class='aou' key='id' map='' />
+		</links>
+		<permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+			<actions> 
+				<retrieve context_field='sending_lib' permission='VIEW_USER'></retrieve>
+				<update context_field='sending_lib' permission='UPDATE_USER'></update>
+				<delete context_field='sending_lib' permission='UPDATE_USER'></delete>
+			</actions>
+		</permacrud>
+	</class>
+	<class oils_obj:fieldmapper='actor::usr_message_limited' reporter:label='&class.auml.label;' controller='open-ils.cstore open-ils.pcrud' oils_persist:tablename='actor.usr_message_limited' id='auml'>
+		<fields oils_persist:sequence='actor.usr_message_id_seq' oils_persist:primary='id'>
+			<field reporter:label='&field.auml.create_date.label;' name='create_date' reporter:datatype='timestamp' />
+			<field reporter:label='&field.auml.read_date.label;' name='read_date' reporter:datatype='timestamp' />
+			<field reporter:label='&field.auml.sending_lib.label;' name='sending_lib' reporter:datatype='link' />
+			<field reporter:label='&field.auml.id.label;' name='id' reporter:datatype='id' />
+			<field reporter:label='&field.auml.deleted.label;' name='deleted' reporter:datatype='bool' />
+			<field reporter:label='&field.auml.title.label;' name='title' reporter:datatype='text' />
+			<field reporter:label='&field.auml.usr.label;' name='usr' reporter:datatype='link' />
+			<field reporter:label='&field.auml.message.label;' name='message' reporter:datatype='text' />
+		</fields>
+		<links>
+			<link field='usr' reltype='has_a' class='au' key='id' map='' />
+			<link field='sending_lib' reltype='has_a' class='aou' key='id' map='' />
+		</links>
+		<permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+			<actions> 
+				<retrieve owning_user='usr' context_field='sending_lib' permission='UPDATE_USER'></retrieve>
+				<update owning_user='usr' context_field='sending_lib' permission='UPDATE_USER'></update>
+			</actions>
+		</permacrud>
 	</class>
 	<class oils_obj:fieldmapper='actor::usr_note' reporter:label='&class.aun.label;' controller='open-ils.cstore open-ils.pcrud' oils_persist:tablename='actor.usr_note' id='aun'>
 		<fields oils_persist:sequence='actor.usr_note_id_seq' oils_persist:primary='id'>
@@ -2851,6 +2979,7 @@
 			<field name='record' reporter:datatype='link' />
 			<field name='label' reporter:datatype='text' />
 			<field name='label_sortkey' reporter:datatype='text' />
+			<field name='deleted' reporter:datatype='bool' />
 		</fields>
 		<links>
 			<link field='record' reltype='has_a' class='bre' key='id' map='' />
@@ -3493,6 +3622,26 @@
 			</actions>
 		</permacrud>
 	</class>
+	<class oils_obj:fieldmapper='money::account_adjustment' reporter:label='&class.maa.label;' controller='open-ils.cstore' oils_persist:tablename='money.account_adjustment' id='maa'>
+		<fields oils_persist:sequence='money.payment_id_seq' oils_persist:primary='id'>
+			<field name='accepting_usr' reporter:datatype='link' />
+			<field name='amount' reporter:datatype='money' />
+			<field name='amount_collected' reporter:datatype='money' />
+			<field name='id' reporter:datatype='id' />
+			<field name='note' reporter:datatype='text' />
+			<field name='payment_ts' reporter:datatype='timestamp' />
+			<field name='xact' reporter:datatype='link' />
+			<field name='billing' reporter:datatype='link' />
+			<field name='payment_type' reporter:datatype='text' oils_persist:virtual='true' />
+			<field name='payment' reporter:datatype='link' oils_persist:virtual='true' />
+		</fields>
+		<links>
+			<link field='payment' reltype='might_have' class='mp' key='id' map='' />
+			<link field='accepting_usr' reltype='has_a' class='au' key='id' map='' />
+			<link field='xact' reltype='has_a' class='mbt' key='id' map='' />
+			<link field='billing' reltype='might_have' class='mb' key='id' />
+		</links>
+	</class>
 	<class oils_obj:fieldmapper='metabib::record_descriptor' reporter:label='&class.mrd.label;' controller='open-ils.cstore' oils_persist:tablename='metabib.rec_descriptor' id='mrd'>
 		<fields oils_persist:sequence='metabib.rec_descriptor_id_seq' oils_persist:primary='id'>
 			<field reporter:label='&field.mrd.audience.label;' name='audience' reporter:datatype='text' oils_persist:primitive='string' />
@@ -3755,7 +3904,7 @@ SELECT  usr,
 
         SUM( CASE WHEN (xact_finish IS NULL AND stop_fines = 'LOST') THEN 1 ELSE 0 END) AS lost,
         SUM( CASE WHEN stop_fines = 'CLAIMSRETURNED' THEN 1 ELSE 0 END) AS claims_returned,
-        SUM( CASE WHEN stop_fines = 'LONGOVERDUE' THEN 1 ELSE 0 END) AS long_overdue
+        SUM( CASE WHEN (xact_finish IS NULL AND stop_fines = 'LONGOVERDUE') THEN 1 ELSE 0 END) AS long_overdue
   FROM  action.circulation
   WHERE checkin_time IS NULL
   GROUP BY 1
@@ -3797,7 +3946,7 @@ SELECT  usr,
 
         STRING_AGG( CASE WHEN (xact_finish IS NULL AND stop_fines = 'LOST') THEN id::TEXT ELSE '0' END,',') AS lost,
         STRING_AGG( CASE WHEN stop_fines = 'CLAIMSRETURNED' THEN id::TEXT ELSE '0' END,',') AS claims_returned,
-        STRING_AGG( CASE WHEN stop_fines = 'LONGOVERDUE' THEN id::TEXT ELSE '0' END,',') AS long_overdue
+        STRING_AGG( CASE WHEN (xact_finish IS NULL AND stop_fines = 'LONGOVERDUE') THEN id::TEXT ELSE '0' END,',') AS long_overdue
   FROM  action.circulation
   WHERE checkin_time IS NULL
   GROUP BY 1
@@ -4366,6 +4515,7 @@ SELECT  usr,
 			<field reporter:label='&field.acpl.label_prefix.label;' name='label_prefix' reporter:datatype='text' oils_persist:i18n='true' />
 			<field reporter:label='&field.acpl.label_suffix.label;' name='label_suffix' reporter:datatype='text' oils_persist:i18n='true' />
 			<field reporter:label='&field.acpl.checkin_alert.label;' name='checkin_alert' reporter:datatype='bool' />
+			<field reporter:label='&field.acpl.deleted.label;' name='deleted' reporter:datatype='bool' />
 		</fields>
 		<links>
 			<link field='owning_lib' reltype='has_a' class='aou' key='id' map='' />
@@ -5846,7 +5996,7 @@ SELECT  usr,
 			<link field='bucket' reltype='has_a' class='ccnb' key='id' map='' />
 		</links>
 	</class>
-	<class oils_obj:fieldmapper='asset::stat_cat' reporter:label='&class.asc.label;' controller='open-ils.cstore' oils_persist:tablename='asset.stat_cat' id='asc'>
+	<class oils_obj:fieldmapper='asset::stat_cat' reporter:label='&class.asc.label;' controller='open-ils.cstore open-ils.pcrud' oils_persist:tablename='asset.stat_cat' id='asc'>
 		<fields oils_persist:sequence='asset.stat_cat_id_seq' oils_persist:primary='id'>
 			<field reporter:label='&field.asc.entries.label;' name='entries' reporter:datatype='link' oils_persist:virtual='true' />
 			<field reporter:label='&field.asc.id.label;' name='id' reporter:datatype='id' reporter:selector='name' />
@@ -5863,6 +6013,11 @@ SELECT  usr,
 			<link field='sip_field' reltype='has_a' class='ascsf' key='field' map='' />
 			<link field='entries' reltype='has_many' class='asce' key='stat_cat' map='' />
 		</links>
+		<permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+			<actions>
+				<retrieve global_required='true' permission='STAFF_LOGIN'></retrieve>
+			</actions>
+		</permacrud>
 	</class>
 	<class oils_obj:fieldmapper='actor::card' reporter:label='&class.ac.label;' controller='open-ils.cstore open-ils.pcrud' oils_persist:tablename='actor.card' id='ac'>
 		<fields oils_persist:sequence='actor.card_id_seq' oils_persist:primary='id'>
@@ -6615,7 +6770,7 @@ SELECT  usr,
             </actions>
         </permacrud>
 	</class>
-	<class reporter:label='&class.ancc.label;' oils_persist:tablename='action.non_cataloged_circulation' reporter:core='true' oils_obj:fieldmapper='action::non_cataloged_circulation' controller='open-ils.cstore' id='ancc'>
+	<class reporter:label='&class.ancc.label;' oils_persist:tablename='action.non_cataloged_circulation' reporter:core='true' oils_obj:fieldmapper='action::non_cataloged_circulation' controller='open-ils.cstore open-ils.pcrud' id='ancc'>
 		<fields oils_persist:sequence='action.non_cataloged_circulation_id_seq' oils_persist:primary='id'>
 			<field reporter:label='&field.ancc.circ_lib.label;' name='circ_lib' reporter:datatype='org_unit' />
 			<field reporter:label='&field.ancc.circ_time.label;' name='circ_time' reporter:datatype='timestamp' />
@@ -6631,6 +6786,11 @@ SELECT  usr,
 			<link field='patron' reltype='has_a' class='au' key='id' map='' />
 			<link field='circ_lib' reltype='has_a' class='aou' key='id' map='' />
 		</links>
+		<permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+			<actions>
+				<retrieve context_field='circ_lib' permission='VIEW_CIRCULATIONS'></retrieve>
+			</actions>
+		</permacrud>
 	</class>
 	<class oils_obj:fieldmapper='money::open_user_circulation_summary' reporter:label='&class.moucs.label;' controller='open-ils.cstore' oils_persist:tablename='money.open_usr_circulation_summary' id='moucs'>
 		<fields oils_persist:sequence='' oils_persist:primary='usr'>
@@ -6794,6 +6954,7 @@ SELECT  usr,
 			<field reporter:label='&field.mp.work_payment.label;' name='work_payment' reporter:datatype='link' oils_persist:virtual='true' />
 			<field reporter:label='&field.mp.forgive_payment.label;' name='forgive_payment' reporter:datatype='link' oils_persist:virtual='true' />
 			<field reporter:label='&field.mp.goods_payment.label;' name='goods_payment' reporter:datatype='link' oils_persist:virtual='true' />
+			<field reporter:label='&field.mp.account_adjustment.label;' name='account_adjustment' reporter:datatype='link' oils_persist:virtual='true' />
 		</fields>
 		<links>
 			<link field='cash_payment' reltype='might_have' class='mcp' key='id' map='' />
@@ -6803,6 +6964,7 @@ SELECT  usr,
 			<link field='work_payment' reltype='might_have' class='mwp' key='id' map='' />
 			<link field='forgive_payment' reltype='might_have' class='mfp' key='id' map='' />
 			<link field='goods_payment' reltype='might_have' class='mgp' key='id' map='' />
+			<link field='account_adjustment' reltype='might_have' class='maa' key='id' map='' />
 			<link field='xact' reltype='has_a' class='mbt' key='id' map='' />
 		</links>
         <permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
@@ -6830,6 +6992,7 @@ SELECT  usr,
 			<field reporter:label='&field.mbp.work_payment.label;' name='work_payment' reporter:datatype='link' oils_persist:virtual='true' />
 			<field reporter:label='&field.mbp.forgive_payment.label;' name='forgive_payment' reporter:datatype='link' oils_persist:virtual='true' />
 			<field reporter:label='&field.mbp.goods_payment.label;' name='goods_payment' reporter:datatype='link' oils_persist:virtual='true' />
+			<field reporter:label='&field.mbp.account_adjustment.label;' name='account_adjustment' reporter:datatype='link' oils_persist:virtual='true' />
 		</fields>
 		<links>
 			<link field='cash_payment' reltype='might_have' class='mcp' key='id' map='' />
@@ -6839,6 +7002,7 @@ SELECT  usr,
 			<link field='work_payment' reltype='might_have' class='mwp' key='id' map='' />
 			<link field='forgive_payment' reltype='might_have' class='mfp' key='id' map='' />
 			<link field='goods_payment' reltype='might_have' class='mgp' key='id' map='' />
+			<link field='account_adjustment' reltype='might_have' class='maa' key='id' map='' />
 			<link field='xact' reltype='has_a' class='mbt' key='id' map='' />
 			<link field='accepting_usr' reltype='has_a' class='au' key='id' map='' />
 		</links>
@@ -6856,12 +7020,14 @@ SELECT  usr,
 			<field reporter:label='&field.mndp.forgive_payment.label;' name='forgive_payment' reporter:datatype='link' oils_persist:virtual='true' />
 			<field reporter:label='&field.mndp.goods_payment.label;' name='goods_payment' reporter:datatype='link' oils_persist:virtual='true' />
 			<field reporter:label='&field.mndp.credit_payment.label;' name='credit_payment' reporter:datatype='link' oils_persist:virtual='true' />
+			<field reporter:label='&field.mndp.account_adjustment.label;' name='account_adjustment' reporter:datatype='link' oils_persist:virtual='true' />
 		</fields>
 		<links>
 			<link field='work_payment' reltype='might_have' class='mwp' key='id' map='' />
 			<link field='forgive_payment' reltype='might_have' class='mfp' key='id' map='' />
 			<link field='goods_payment' reltype='might_have' class='mgp' key='id' map='' />
 			<link field='credit_payment' reltype='might_have' class='mcrp' key='id' map='' />
+			<link field='account_adjustment' reltype='might_have' class='maa' key='id' map='' />
 			<link field='xact' reltype='has_a' class='mbt' key='id' map='' />
 		</links>
 	</class>
@@ -6914,7 +7080,7 @@ SELECT  usr,
 			<link field='item' reltype='has_a' class='cbrebi' key='id' map='' />
 		</links>
 	</class>
-	<class oils_obj:fieldmapper='asset::stat_cat_entry' reporter:label='&class.asce.label;' controller='open-ils.cstore' oils_persist:tablename='asset.stat_cat_entry' id='asce'>
+	<class oils_obj:fieldmapper='asset::stat_cat_entry' reporter:label='&class.asce.label;' controller='open-ils.cstore open-ils.pcrud' oils_persist:tablename='asset.stat_cat_entry' id='asce'>
 		<fields oils_persist:sequence='asset.stat_cat_entry_id_seq' oils_persist:primary='id'>
 			<field reporter:label='&field.asce.id.label;' name='id' reporter:datatype='int' />
 			<field reporter:label='&field.asce.owner.label;' name='owner' reporter:datatype='link' />
@@ -6925,6 +7091,11 @@ SELECT  usr,
 			<link field='stat_cat' reltype='has_a' class='asc' key='id' map='' />
 			<link field='owner' reltype='has_a' class='aou' key='id' map='' />
 		</links>
+		<permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
+			<actions>
+				<retrieve global_required='true' permission='STAFF_LOGIN'></retrieve>
+			</actions>
+		</permacrud>
 	</class>
     <class oils_obj:fieldmapper='asset::stat_cat_sip_fields' reporter:label='&class.ascsf.label;' controller='open-ils.cstore open-ils.pcrud' oils_persist:tablename='asset.stat_cat_sip_fields' id='ascsf'>
         <fields oils_persist:primary='field'>
@@ -7041,11 +7212,13 @@ SELECT  usr,
 			<field reporter:label='&field.mb.voider.label;' name='voider' reporter:datatype='link' />
 			<field reporter:label='&field.mb.xact.label;' name='xact' reporter:datatype='link' />
 			<field reporter:label='&field.mb.btype.label;' name='btype' reporter:datatype='link' />
+			<field reporter:label='&field.mb.adjustments.label;' name='adjustments' reporter:datatype='link' oils_persist:virtual='true' />
 		</fields>
 		<links>
 			<link field='xact' reltype='has_a' class='mbt' key='id' map='' />
 			<link field='voider' reltype='has_a' class='au' key='id' map='' />
 			<link field='btype' reltype='has_a' class='cbt' key='id' map='' />
+			<link field='adjustments' reltype='has_many' class='maa' key='billing' map='' />
 		</links>
         <permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
             <actions>
@@ -8912,7 +9085,7 @@ SELECT  usr,
 		<permacrud xmlns='http://open-ils.org/spec/opensrf/IDL/permacrud/v1'>
 			<actions>
 				<create context_field='owner' permission='ADMIN_ACQ_DISTRIB_FORMULA'></create>
-				<retrieve context_field='owner' permission='ADMIN_ACQ_DISTRIB_FORMULA'></retrieve>
+				<retrieve context_field='owner' permission='CREATE_PURCHASE_ORDER ADMIN_ACQ_DISTRIB_FORMULA'></retrieve>
 				<update context_field='owner' permission='ADMIN_ACQ_DISTRIB_FORMULA'></update>
 				<delete context_field='owner' permission='ADMIN_ACQ_DISTRIB_FORMULA'></delete>
 			</actions>

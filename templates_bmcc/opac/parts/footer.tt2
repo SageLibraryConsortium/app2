@@ -1,9 +1,10 @@
-[%- 
-    USE CGI = CGI_utf8;
-    hostname = CGI.url({'-base' => 1});
--%]
 <div id="footer-wrap">
 <div id="footer">
+    [% IF ctx.get_org_setting(
+        ctx.physical_loc || ctx.aou_tree.id, 'opac.allow_pending_user') %]
+    <a href="[% mkurl(ctx.opac_root _ '/register') %]">[%
+        l('Request Library Card') %]</a> &nbsp;|&nbsp;
+	[% ELSE %]
     <a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a> &nbsp;|&nbsp;
     <a href="http://bmcc.sage.eou.edu">[% l('BMCC Catalog Home') %]</a> &nbsp;|&nbsp;
     <a href="http://www.bluecc.edu/ebooks-bmcc-library">BMCC E-Books Collection</a> &nbsp;|&nbsp;

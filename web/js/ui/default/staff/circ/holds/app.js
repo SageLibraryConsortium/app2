@@ -77,7 +77,7 @@ function($scope , $q , $routeParams , $window , $location , egCore , egHolds , e
 
         // see if we have the requested range cached
         if (holds[offset]) {
-            return provider.arrayNotifier(patronSvc.holds, offset, count);
+            return provider.arrayNotifier(holds, offset, count);
         }
 
         // see if we have the holds IDs for this range already loaded
@@ -167,13 +167,14 @@ function($scope , $q , $routeParams , $window , $location , egCore , egHolds , e
 
         // we want to see all processed holds, so (effectively) remove
         // the grid limit.
-        $scope.gridControls.setLimit(1000); 
+        $scope.gridControls.setLimit(1000, true); 
 
         // initiate clear shelf and grab cache key
         egCore.net.request(
             'open-ils.circ',
             'open-ils.circ.hold.clear_shelf.process',
-            egCore.auth.token(), $scope.pickup_ou.id()
+            egCore.auth.token(), $scope.pickup_ou.id(),
+            null, 1
 
         // request responses from the clear shelf cache
         ).then(
@@ -184,7 +185,7 @@ function($scope , $q , $routeParams , $window , $location , egCore , egHolds , e
                 egCore.net.request(
                     'open-ils.circ',
                     'open-ils.circ.hold.clear_shelf.get_cache',
-                    egCore.auth.token(), resp.cache_key
+                    egCore.auth.token(), resp.cache_key, 1
                 ).then(null, null, handle_clear_cache_resp);
             }, 
 
@@ -199,6 +200,48 @@ function($scope , $q , $routeParams , $window , $location , egCore , egHolds , e
             }
 
         );
+    }
+
+    $scope.print_list_progress = null;
+    $scope.print_shelf_list = function() {
+        var print_holds = [];
+        $scope.print_list_loading = true;
+        $scope.print_list_progress = 0;
+
+        // collect the full list of holds
+        egCore.net.request(
+            'open-ils.circ',
+            'open-ils.circ.captured_holds.id_list.on_shelf.retrieve.authoritative.atomic',
+            egCore.auth.token(), $scope.pickup_ou.id()
+        ).then( function(idlist) {
+
+            egHolds.fetch_holds(idlist).then(
+                function () {
+                    console.debug('printing ' + print_holds.length + ' holds');
+                    // holds fetched, send to print
+                    egCore.print.print({
+                        context : 'default', 
+                        template : 'hold_shelf_list', 
+                        scope : {holds : print_holds}
+                    })
+                },
+                null,
+                function(hold_data) {
+                    $scope.print_list_progress++;
+                    egHolds.local_flesh(hold_data);
+                    print_holds.push(hold_data);
+                    hold_data.title = hold_data.mvr.title();
+                    hold_data.author = hold_data.mvr.author();
+                    hold_data.hold = egCore.idl.toHash(hold_data.hold);
+                    hold_data.copy = egCore.idl.toHash(hold_data.copy);
+                    hold_data.volume = egCore.idl.toHash(hold_data.volume);
+                    hold_data.part = egCore.idl.toHash(hold_data.part);
+                }
+            )
+        }).finally(function() {
+            $scope.print_list_loading = false;
+            $scope.print_list_progress = null;
+        });
     }
 
     refresh_page();

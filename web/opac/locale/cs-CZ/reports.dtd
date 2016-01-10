@@ -69,7 +69,7 @@
 
 <!ENTITY reports.oils_rpt_editor.template_name "Název šablony:">
 <!ENTITY reports.oils_rpt_editor.template_creator "Šablonu vytvořil(a):">
-<!ENTITY reports.oils_rpt_editor.doc_url "Template Documentation URL:">
+<!ENTITY reports.oils_rpt_editor.doc_url "URL dokumentace šablony">
 <!ENTITY reports.oils_rpt_editor.template_description "Popis šablony:">
 <!ENTITY reports.oils_rpt_editor.report_name "Název zprávy:">
 <!ENTITY reports.oils_rpt_editor.report_description "Popis zprávy">
@@ -96,11 +96,11 @@
 <!ENTITY reports.oils_rpt_editor.noon "Poledne">
 <!ENTITY reports.oils_rpt_editor.storage_folder_for_output "Vyberte složku pro uložení výstupu této zprávy:">
 <!ENTITY reports.oils_rpt_editor.save_report "Uložit zprávu:">
-<!ENTITY reports.oils_rpt_editor.apply_changes "Apply Changes">
-<!ENTITY reports.oils_rpt_editor.save_report_new "Save As New">
-<!ENTITY reports.oils_rpt_editor.confirm_sched "Changes will be applied to pending reports that have not yet run. Do you want to continue with modifying those pending reports?">
-<!ENTITY reports.oils_rpt_editor.cancel "Storno">
-<!ENTITY reports.oils_rpt_editor.exit_report "Return">
+<!ENTITY reports.oils_rpt_editor.apply_changes "Potvrdit změny">
+<!ENTITY reports.oils_rpt_editor.save_report_new "Uložit jako novou">
+<!ENTITY reports.oils_rpt_editor.confirm_sched "Změny budou použity na nevyřízenou zprávu, která dosud nebyla zpracována. Chcete pokračovat ve změnách těchto nevyřízených zpráv?">
+<!ENTITY reports.oils_rpt_editor.cancel "Zrušit">
+<!ENTITY reports.oils_rpt_editor.exit_report "Zpět">
 <!ENTITY reports.oils_rpt_editor.empty_parameter "Jeden nebo více  uživatelem definovaných parametrů nebylo vyplněno. Vyplňte prosím všechna pole.">
 <!ENTITY reports.oils_rpt_editor.same_name "Zpráva s tímto názvem již ve složce existuje.">
 
@@ -132,8 +132,8 @@
 <!ENTITY reports.oils_rpt_folder_window.delete_template "Smazat vybranou (označenou) šablonu/ šablony">
 <!ENTITY reports.oils_rpt_folder_window.clone_report "Klonovat zprávu">
 <!ENTITY reports.oils_rpt_folder_window.schedule_report "Plánování zprávy">
-<!ENTITY reports.oils_rpt_folder_window.view_report "View">
-<!ENTITY reports.oils_rpt_folder_window.edit_report "Edit">
+<!ENTITY reports.oils_rpt_folder_window.view_report "Zobrazit">
+<!ENTITY reports.oils_rpt_folder_window.edit_report "Upravit">
 <!ENTITY reports.oils_rpt_folder_window.delete_reports "Smazat vybranou zprávu /zprávy">
 <!ENTITY reports.oils_rpt_folder_window.view_report_output "Zobrazit výstup zprávy">
 <!ENTITY reports.oils_rpt_folder_window.delete_output "Smazat vybrané výstupy">
@@ -149,7 +149,7 @@
 <!ENTITY reports.oils_rpt_folder_window.completed_items "Dokončené položky">
 <!ENTITY reports.oils_rpt_folder_window.selected_folder "Vybraná složka: ">
 <!ENTITY reports.oils_rpt_folder_window.select_folder "Vybrat složku">
-<!ENTITY reports.oils_rpt_folder_window.cancel "Storno">
+<!ENTITY reports.oils_rpt_folder_window.cancel "Zrušit">
 <!ENTITY reports.oils_rpt_folder_window.confirm_delete "Opravdu chcete smazat vybrané položky?">
 <!ENTITY reports.oils_rpt_folder_window.dependant_reports_no_delete "        Jedna nebo více z vybraných šablon nemohou být vymazány, protože 
 existují zprávy, které jsou na nich závislé.">
@@ -199,7 +199,7 @@ Chcete pokračovat?">
 <!ENTITY reports.xul.template_builder.template_config_caption.label "Nastavení šablony">
 <!ENTITY reports.xul.template_builder.name.label "Název:">
 <!ENTITY reports.xul.template_builder.description.label "Popis:">
-<!ENTITY reports.xul.template_builder.doc_url.label "Documentation URL:">
+<!ENTITY reports.xul.template_builder.doc_url.label "URL dokumentace:">
 <!ENTITY reports.xul.template_builder.save.label "Uložit">
 <!ENTITY reports.xul.template_builder.displayed_fields.label "Zobrazená pole">
 <!ENTITY reports.xul.template_builder.base_filters.label "Základní filtry">
@@ -216,10 +216,10 @@ Chcete pokračovat?">
 <!ENTITY reports.xul.template_builder.change_transform.label "Změnit transformaci">
 <!ENTITY reports.xul.template_builder.change_operator.label "Změnit operátor">
 <!ENTITY reports.xul.template_builder.change_value.label "Změnit hodnotu">
-<!ENTITY reports.xul.template_builder.change_field_doc.label "Change Field Hint">
+<!ENTITY reports.xul.template_builder.change_field_doc.label "Změnit nápovědu k poli">
 <!ENTITY reports.xul.template_builder.remove_value.label "Smazat hodnotu">
 <!ENTITY reports.xul.template_builder.remove_selected_fields.label "Smazat vybraná pole">
 <!ENTITY reports.xul.template_builder.table_name.label "Název tabulky">
 <!ENTITY reports.xul.template_builder.sql_alias.label "SQL Alias">
 <!ENTITY reports.xul.template_builder.relationship.label "Vztah">
-<!ENTITY reports.xul.template_builder.field_doc.label "Field Hint">
+<!ENTITY reports.xul.template_builder.field_doc.label "Nápověd k poli">

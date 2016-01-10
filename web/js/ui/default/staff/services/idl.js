@@ -20,6 +20,69 @@ angular.module('egCoreMod')
 
     var service = {};
 
+    // Clones data structures containing fieldmapper objects
+    service.Clone = function(old) {
+        var obj;
+        if (typeof old == 'undefined') {
+            return old;
+        } else if (old._isfieldmapper) {
+            obj = new service[old.classname]()
+
+            for( var i in old.a ) {
+                var thing = old.a[i];
+                if(thing === null) continue;
+
+                if (typeof thing == 'undefined') {
+                    obj.a[i] = thing;
+                } else if (thing._isfieldmapper) {
+                    obj.a[i] = service.Clone(thing);
+                } else {
+
+                    if(angular.isArray(thing)) {
+                        obj.a[i] = [];
+
+                        for( var j in thing ) {
+
+                            if (typeof thing[j] == 'undefined')
+                                obj.a[i][j] = thing[j];
+                            else if( thing[j]._isfieldmapper )
+                                obj.a[i][j] = service.Clone(thing[j]);
+                            else
+                                obj.a[i][j] = angular.copy(thing[j]);
+                        }
+                    } else {
+                        obj.a[i] = angular.copy(thing);
+                    }
+                }
+            }
+        } else {
+            if(angular.isArray(old)) {
+                obj = [];
+                for( var j in old ) {
+                    if (typeof old[j] == 'undefined')
+                        obj[j] = old[j];
+                    else if( old[j]._isfieldmapper )
+                        obj[j] = service.Clone(old[j]);
+                    else
+                        obj[j] = angular.copy(old[j]);
+                }
+            } else if(angular.isObject(old)) {
+                obj = {};
+                for( var j in old ) {
+                    if (typeof old[j] == 'undefined')
+                        obj[j] = old[j];
+                    else if( old[j]._isfieldmapper )
+                        obj[j] = service.Clone(old[j]);
+                    else
+                        obj[j] = angular.copy(old[j]);
+                }
+            } else {
+                obj = angular.copy(old);
+            }
+        }
+        return obj;
+    };
+
     service.parseIDL = function() {
         //console.debug('egIDL.parseIDL()');
 

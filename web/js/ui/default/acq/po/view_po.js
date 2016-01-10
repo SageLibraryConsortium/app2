@@ -396,6 +396,7 @@ function renderPo() {
     } else {
         if (PO.order_date()) {
             dojo.byId("acq-po-activate-checking").innerHTML = localeStrings.PO_ALREADY_ACTIVATED;
+            checkCouldBlanketFinalize();
         } else {
             dojo.byId("acq-po-activate-checking").innerHTML = localeStrings.NO;
         }
@@ -519,6 +520,30 @@ function init2() {
     );
 }
 
+function checkCouldBlanketFinalize() {
+
+    if (PO.state() == 'received') return;
+
+    var inv_types = [];
+
+    // get the unique set of invoice item type IDs
+    PO.po_items().forEach(function(item) { 
+        if (inv_types.indexOf(item.inv_item_type()) == -1)
+            inv_types.push(item.inv_item_type());
+    });
+
+    if (inv_types.length == 0) return;
+
+    pcrud.search('aiit', 
+        {code : inv_types, blanket : 't'}, {
+        oncomplete : function(r) {
+            r = openils.Util.readResponse(r);
+            if (r.length == 0) return;
+            openils.Util.show(dojo.byId('acq-po-finalize-links'), 'inline');
+        }
+    });
+}
+
 function checkCouldActivatePo() {
     var d = dojo.byId("acq-po-activate-checking");
     var a = dojo.byId("acq-po-activate-links");  /* <span> not <a> now, but no diff */
@@ -607,6 +632,24 @@ function checkCouldActivatePo() {
     );
 }
 
+function finalizePo() {
+
+    if (!confirm(localeStrings.FINALIZE_PO)) return;
+
+    finalizePoButton.attr('disabled', true);
+
+    fieldmapper.standardRequest(
+        ['open-ils.acq', 'open-ils.acq.purchase_order.blanket.finalize'],
+        {   async : true,
+            params : [openils.User.authtoken, PO.id()],
+            oncomplete : function(r) {
+                if (openils.Util.readResponse(r) == 1) 
+                    location.href = location.href;
+            }
+        }
+    );
+}
+
 function activatePo(noAssets) {
     activatePoButton.attr("disabled", true);
     activatePoNoAssetsButton.attr("disabled", true);
@@ -637,6 +680,7 @@ function activatePoStage2(noAssets) {
 
     var want_refresh = false;
     progressDialog.show(true);
+    progressDialog.attr("title", localeStrings.PO_ACTIVATING);
     fieldmapper.standardRequest(
         ["open-ils.acq", "open-ils.acq.purchase_order.activate"], {
             "async": true,
@@ -650,11 +694,12 @@ function activatePoStage2(noAssets) {
                 }
             ],
             "onresponse": function(r) {
-                progressDialog.hide();
                 activatePoButton.attr("disabled", false);
                 want_refresh = Boolean(openils.Util.readResponse(r));
             },
             "oncomplete": function() {
+                progressDialog.hide();
+                progressDialog.attr("title", "");
                 if (want_refresh)
                     location.href = location.href;
             }
@@ -691,6 +736,63 @@ function splitPo() {
 function updatePoName() {
     var value = prompt('Enter new purchase order name:', PO.name()); // TODO i18n
     if(!value || value == PO.name()) return;
+
+    var orgs = fieldmapper.aou.descendantNodeList(PO.ordering_agency(), true);
+    new openils.PermaCrud().search('acqpo', 
+        {
+            id : {'<>' : PO.id()},
+            name : value, 
+            ordering_agency : orgs
+        },
+        {async : true, oncomplete : function(r) {
+            var po = openils.Util.readResponse(r);
+            openils.Util.hide('acq-dupe-po-name');
+
+            if (po && (po = po[0])) {
+                var link = dojo.byId('acq-dupe-po-link');
+                openils.Util.show('acq-dupe-po-name');
+                var dupe_path = '/acq/po/view/' + po.id();
+
+                if (window.xulG) {
+
+                    if (window.IAMBROWSER) {
+                        // TODO: integration
+
+                    } else {
+                        // XUL client
+                        link.onclick = function() {
+
+                            var loc = xulG.url_prefix('XUL_BROWSER?url=') + 
+                                window.encodeURIComponent( 
+                                xulG.url_prefix('EG_WEB_BASE' + dupe_path)
+                            );
+
+                            xulG.new_tab(loc, 
+                                {tab_name: '', browser:false},
+                                {
+                                    no_xulG : false, 
+                                    show_nav_buttons : true, 
+                                    show_print_button : true, 
+                                }
+                            );
+                        }
+                    }
+
+                } else {
+                    link.onclick = function() {
+                        window.open(oilsBasePath + dupe_path, '_blank').focus();
+                    }
+                }
+
+            } else {
+                updatePoName2(value);
+            }
+       }} 
+    );
+ 
+}
+
+function updatePoName2(value) {
     PO.name(value);
     pcrud.update(PO, {
         oncomplete : function(r, cudResults) {

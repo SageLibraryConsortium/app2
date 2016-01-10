@@ -12,7 +12,16 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     var service = {
         // auto-override these events after the first override
         auto_override_checkout_events : {},
+        require_initials : false
     };
+
+    egCore.startup.go().finally(function() {
+        egCore.org.settings([
+            'ui.staff.require_initials.patron_standing_penalty'
+        ]).then(function(set) {
+            service.require_initials = Boolean(set['ui.staff.require_initials.patron_standing_penalty']);
+        });
+    });
 
     service.reset = function() {
         service.auto_override_checkout_events = {};
@@ -115,7 +124,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
             ).then(function(evt) {
 
-                if (angular.isArray(evt)) evt = evt[0];
+                if (!angular.isArray(evt)) evt = [evt];
 
                 return service.flesh_response_data('checkout', evt, params, options)
                 .then(function() {
@@ -154,7 +163,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
             ).then(function(evt) {
 
-                if (angular.isArray(evt)) evt = evt[0];
+                if (!angular.isArray(evt)) evt = [evt];
 
                 return service.flesh_response_data(
                     'renew', evt, params, options)
@@ -194,7 +203,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
             ).then(function(evt) {
 
-                if (angular.isArray(evt)) evt = evt[0];
+                if (!angular.isArray(evt)) evt = [evt];
                 return service.flesh_response_data(
                     'checkin', evt, params, options)
                 .then(function() {
@@ -211,9 +220,9 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     service.munge_resp_data = function(final_resp) {
         var data = final_resp.data = {};
 
-        if (!final_resp.evt) return;
+        if (!final_resp.evt[0]) return;
 
-        var payload = final_resp.evt.payload;
+        var payload = final_resp.evt[0].payload;
         if (!payload) return;
 
         data.circ = payload.circ;
@@ -221,15 +230,15 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         data.hold = payload.hold;
         data.record = payload.record;
         data.acp = payload.copy;
-        data.acn = payload.volume ?  payload.volume : payload.copy.call_number();
+        data.acn = payload.volume ?  payload.volume : payload.copy ? payload.copy.call_number() : null;
         data.au = payload.patron;
         data.transit = payload.transit;
         data.status = payload.status;
         data.message = payload.message;
-        data.title = final_resp.evt.title;
-        data.author = final_resp.evt.author;
-        data.isbn = final_resp.evt.isbn;
-        data.route_to = final_resp.evt.route_to;
+        data.title = final_resp.evt[0].title;
+        data.author = final_resp.evt[0].author;
+        data.isbn = final_resp.evt[0].isbn;
+        data.route_to = final_resp.evt[0].route_to;
 
         // for checkin, the mbts lives on the main circ
         if (payload.circ && payload.circ.billable_transaction())
@@ -256,14 +265,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             // override attempt already made and failed.
             // NOTE: I don't think we'll ever get here, since the
             // override attempt should produce a perm failure...
-            console.debug('override failed: ' + evt.textcode);
+            angular.forEach(evt, function(e){ console.debug('override failed: ' + e.textcode); });
             return $q.reject();
 
         } 
 
-        if (service.auto_override_checkout_events[evt.textcode]) {
-            // user has already opted to override this type
-            // of event.  Re-run the checkout w/ override.
+        if (evt.filter(function(e){return !service.auto_override_checkout_events[e.textcode];}).length == 0) {
+            // user has already opted to override these type
+            // of events.  Re-run the checkout w/ override.
             options.override = true;
             return service.checkout(params, options);
         } 
@@ -272,11 +281,11 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         // Some events offer a stock override dialog, while others
         // require additional context.
 
-        switch(evt.textcode) {
+        switch(evt[0].textcode) {
             case 'COPY_NOT_AVAILABLE':
-                return service.copy_not_avail_dialog(evt, params, options);
+                return service.copy_not_avail_dialog(evt[0], params, options);
             case 'COPY_ALERT_MESSAGE':
-                return service.copy_alert_dialog(evt, params, options, 'checkout');
+                return service.copy_alert_dialog(evt[0], params, options, 'checkout');
             default: 
                 return service.override_dialog(evt, params, options, 'checkout');
         }
@@ -288,15 +297,15 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             // override attempt already made and failed.
             // NOTE: I don't think we'll ever get here, since the
             // override attempt should produce a perm failure...
-            console.debug('override failed: ' + evt.textcode);
+            angular.forEach(evt, function(e){ console.debug('override failed: ' + e.textcode); });
             return $q.reject();
 
         } 
 
         // renewal auto-overrides are the same as checkout
-        if (service.auto_override_checkout_events[evt.textcode]) {
-            // user has already opted to override this type
-            // of event.  Re-run the renew w/ override.
+        if (evt.filter(function(e){return !service.auto_override_checkout_events[e.textcode];}).length == 0) {
+            // user has already opted to override these type
+            // of events.  Re-run the renew w/ override.
             options.override = true;
             return service.renew(params, options);
         } 
@@ -305,9 +314,9 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         // Some events offer a stock override dialog, while others
         // require additional context.
 
-        switch(evt.textcode) {
+        switch(evt[0].textcode) {
             case 'COPY_ALERT_MESSAGE':
-                return service.copy_alert_dialog(evt, params, options, 'renew');
+                return service.copy_alert_dialog(evt[0], params, options, 'renew');
             default: 
                 return service.override_dialog(evt, params, options, 'renew');
         }
@@ -320,14 +329,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             // override attempt already made and failed.
             // NOTE: I don't think we'll ever get here, since the
             // override attempt should produce a perm failure...
-            console.debug('override failed: ' + evt.textcode);
+            angular.forEach(evt, function(e){ console.debug('override failed: ' + e.textcode); });
             return $q.reject();
 
         } 
 
         if (options.suppress_checkin_popups
-            && service.checkin_suppress_overrides.indexOf(evt.textcode) > -1) {
-            // Event is suppressed.  Re-run the checkin w/ override.
+            && evt.filter(function(e){return service.checkin_suppress_overrides.indexOf(e.textcode) == -1;}).length == 0) {
+            // Events are suppressed.  Re-run the checkin w/ override.
             options.override = true;
             return service.checkin(params, options);
         } 
@@ -336,9 +345,9 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         // Some events offer a stock override dialog, while others
         // require additional context.
 
-        switch(evt.textcode) {
+        switch(evt[0].textcode) {
             case 'COPY_ALERT_MESSAGE':
-                return service.copy_alert_dialog(evt, params, options, 'checkin');
+                return service.copy_alert_dialog(evt[0], params, options, 'checkin');
             default: 
                 return service.override_dialog(evt, params, options, 'checkin');
         }
@@ -350,14 +359,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         var final_resp = {evt : evt, params : params, options : options};
 
         // track the barcode regardless of whether it refers to a copy
-        evt.copy_barcode = params.copy_barcode;
+        angular.forEach(evt, function(e){ e.copy_barcode = params.copy_barcode; });
 
         // Overridable Events
-        if (service.renew_overridable_events.indexOf(evt.textcode) > -1) 
+        if (evt.filter(function(e){return service.renew_overridable_events.indexOf(e.textcode) > -1;}).length > 0)
             return service.handle_overridable_renew_event(evt, params, options);
 
         // Other events
-        switch (evt.textcode) {
+        switch (evt[0].textcode) {
             case 'SUCCESS':
                 return $q.when(final_resp);
 
@@ -367,22 +376,22 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             case 'PATRON_ACCOUNT_EXPIRED':
             case 'CIRC_CLAIMS_RETURNED':
                 return service.exit_alert(
-                    egCore.strings[evt.textcode],
+                    egCore.strings[evt[0].textcode],
                     {barcode : params.copy_barcode}
                 );
 
             case 'PERM_FAILURE':
                 return service.exit_alert(
-                    egCore.strings[evt.textcode],
-                    {permission : evt.ilsperm}
+                    egCore.strings[evt[0].textcode],
+                    {permission : evt[0].ilsperm}
                 );
 
             default:
                 return service.exit_alert(
                     egCore.strings.CHECKOUT_FAILED_GENERIC, {
                         barcode : params.copy_barcode,
-                        textcode : evt.textcode,
-                        desc : evt.desc
+                        textcode : evt[0].textcode,
+                        desc : evt[0].desc
                     }
                 );
         }
@@ -394,14 +403,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         var final_resp = {evt : evt, params : params, options : options};
 
         // track the barcode regardless of whether it refers to a copy
-        evt.copy_barcode = params.copy_barcode;
+        angular.forEach(evt, function(e){ e.copy_barcode = params.copy_barcode; });
 
         // Overridable Events
-        if (service.checkout_overridable_events.indexOf(evt.textcode) > -1) 
+        if (evt.filter(function(e){return service.checkout_overridable_events.indexOf(e.textcode) > -1;}).length > 0)
             return service.handle_overridable_checkout_event(evt, params, options);
 
         // Other events
-        switch (evt.textcode) {
+        switch (evt[0].textcode) {
             case 'SUCCESS':
                 return $q.when(final_resp);
 
@@ -419,22 +428,22 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             case 'PATRON_ACCOUNT_EXPIRED':
             case 'CIRC_CLAIMS_RETURNED':
                 return service.exit_alert(
-                    egCore.strings[evt.textcode],
+                    egCore.strings[evt[0].textcode],
                     {barcode : params.copy_barcode}
                 );
 
             case 'PERM_FAILURE':
                 return service.exit_alert(
-                    egCore.strings[evt.textcode],
-                    {permission : evt.ilsperm}
+                    egCore.strings[evt[0].textcode],
+                    {permission : evt[0].ilsperm}
                 );
 
             default:
                 return service.exit_alert(
                     egCore.strings.CHECKOUT_FAILED_GENERIC, {
                         barcode : params.copy_barcode,
-                        textcode : evt.textcode,
-                        desc : evt.desc
+                        textcode : evt[0].textcode,
+                        desc : evt[0].desc
                     }
                 );
         }
@@ -483,7 +492,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     service.flesh_response_data = function(action, evt, params, options) {
         var promises = [];
         var payload;
-        if (!evt || !(payload = evt.payload)) return $q.when();
+        if (!evt[0] || !(payload = evt[0].payload)) return $q.when();
 
         promises.push(service.flesh_copy_location(payload.copy));
         if (payload.copy) {
@@ -523,14 +532,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         }
 
         // extract precat values
-        evt.title = payload.record ? payload.record.title() : 
-            (payload.copy ? payload.copy.dummy_title() : null);
+        angular.forEach(evt, function(e){ e.title = payload.record ? payload.record.title() : 
+            (payload.copy ? payload.copy.dummy_title() : null);});
 
-        evt.author = payload.record ? payload.record.author() : 
-            (payload.copy ? payload.copy.dummy_author() : null);
+        angular.forEach(evt, function(e){ e.author = payload.record ? payload.record.author() : 
+            (payload.copy ? payload.copy.dummy_author() : null);});
 
-        evt.isbn = payload.record ? payload.record.isbn() : 
-            (payload.copy ? payload.copy.dummy_isbn() : null);
+        angular.forEach(evt, function(e){ e.isbn = payload.record ? payload.record.isbn() : 
+            (payload.copy ? payload.copy.dummy_isbn() : null);});
 
         return $q.all(promises);
     }
@@ -590,14 +599,17 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     // opens a dialog asking the user if they would like to override
     // the returned event.
     service.override_dialog = function(evt, params, options, action) {
+        if (!angular.isArray(evt)) evt = [evt];
         return $modal.open({
             templateUrl: './circ/share/t_event_override_dialog',
             controller: 
                 ['$scope', '$modalInstance', 
                 function($scope, $modalInstance) {
-                $scope.evt = evt;
-                $scope.auto_override = 
-                    service.checkout_auto_override_after_first.indexOf(evt.textcode) > -1;
+                $scope.events = evt;
+                $scope.auto_override =
+                    evt.filter(function(e){
+                        return service.checkout_auto_override_after_first.indexOf(evt.textcode) > -1;
+                    }).length > 0;
                 $scope.copy_barcode = params.copy_barcode; // may be null
                 $scope.ok = function() { $modalInstance.close() }
                 $scope.cancel = function ($event) { 
@@ -614,8 +626,10 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                 }
 
                 // checkout/renew support override-after-first
-                if (service.checkout_auto_override_after_first.indexOf(evt.textcode) > -1)
-                    service.auto_override_checkout_events[evt.textcode] = true;
+                angular.forEach(evt, function(e){
+                    if (service.checkout_auto_override_after_first.indexOf(e.textcode) > -1)
+                        service.auto_override_checkout_events[e.textcode] = true;
+                });
 
                 return service[action](params, options);
             }
@@ -623,6 +637,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     }
 
     service.copy_not_avail_dialog = function(evt, params, options) {
+        if (angular.isArray(evt)) evt = evt[0];
         return $modal.open({
             templateUrl: './circ/share/t_copy_not_avail_dialog',
             controller: 
@@ -727,6 +742,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     // find the open transit for the given copy barcode; flesh the org
     // units locally.
     service.find_copy_transit = function(evt, params, options) {
+        if (angular.isArray(evt)) evt = evt[0];
 
         if (evt && evt.payload && evt.payload.transit)
             return $q.when(evt.payload.transit);
@@ -754,6 +770,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     }
 
     service.copy_in_transit_dialog = function(evt, params, options) {
+        if (angular.isArray(evt)) evt = evt[0];
         return $modal.open({
             templateUrl: './circ/share/t_copy_in_transit_dialog',
             controller: 
@@ -802,6 +819,28 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     }
 
     service.circ_exists_dialog = function(evt, params, options) {
+        if (angular.isArray(evt)) evt = evt[0];
+
+        if (!evt.payload.old_circ) {
+            return egCore.net.request(
+                'open-ils.search',
+                'open-ils.search.asset.copy.fleshed2.find_by_barcode',
+                params.copy_barcode
+            ).then(function(resp){
+                console.log(resp);
+                if (egCore.evt.parse(resp)) {
+                    console.error(egCore.evt.parse(resp));
+                } else {
+                   evt.payload.old_circ = resp.circulations()[0];
+                   return service.circ_exists_dialog_impl( evt, params, options );
+                }
+            });
+        } else {
+            return service.circ_exists_dialog_impl( evt, params, options );
+        }
+    },
+
+    service.circ_exists_dialog_impl = function (evt, params, options) {
 
         var openCirc = evt.payload.old_circ;
         var sameUser = openCirc.usr() == params.patron_id;
@@ -811,24 +850,33 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             controller: 
                        ['$scope','$modalInstance',
                 function($scope , $modalInstance) {
+                $scope.args = {forgive_fines : false};
                 $scope.circDate = openCirc.xact_start();
                 $scope.sameUser = sameUser;
-                $scope.ok = function() { $modalInstance.close() }
+                $scope.ok = function() { $modalInstance.close($scope.args) }
                 $scope.cancel = function($event) { 
                     $modalInstance.dismiss();
                     $event.preventDefault(); // form, avoid calling ok();
                 }
             }]
         }).result.then(
-            function() {
-                
-                return service.checkin(
-                    {barcode : params.copy_barcode, noop : true}
-                ).then(function(checkin_resp) {
-                    if (checkin_resp.evt.textcode == 'SUCCESS') {
+            function(args) {
+                if (sameUser) {
+                    params.void_overdues = args.forgive_fines;
+                    options.override = true;
+                    return service.renew(params, options);
+                }
+
+                return service.checkin({
+                    barcode : params.copy_barcode,
+                    noop : true,
+                    override : true,
+                    void_overdues : args.forgive_fines
+                }).then(function(checkin_resp) {
+                    if (checkin_resp.evt[0].textcode == 'SUCCESS') {
                         return service.checkout(params, options);
                     } else {
-                        alert(egCore.evt.parse(evt));
+                        alert(egCore.evt.parse(checkin_resp.evt[0]));
                         return $q.reject();
                     }
                 });
@@ -1131,6 +1179,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     // alert when copy location alert_message is set.
     // This does not affect processing, it only produces a click-through
     service.handle_checkin_loc_alert = function(evt, params, options) {
+        if (angular.isArray(evt)) evt = evt[0];
 
         var copy = evt && evt.payload ? evt.payload.copy : null;
 
@@ -1145,25 +1194,26 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     }
 
     service.handle_checkin_resp = function(evt, params, options) {
+        if (!angular.isArray(evt)) evt = [evt];
 
         var final_resp = {evt : evt, params : params, options : options};
 
         var copy, hold, transit;
-        if (evt.payload) {
-            copy = evt.payload.copy;
-            hold = evt.payload.hold;
-            transit = evt.payload.transit;
+        if (evt[0].payload) {
+            copy = evt[0].payload.copy;
+            hold = evt[0].payload.hold;
+            transit = evt[0].payload.transit;
         }
 
         // track the barcode regardless of whether it's valid
-        evt.copy_barcode = params.copy_barcode;
+        angular.forEach(evt, function(e){ e.copy_barcode = params.copy_barcode; });
 
-        console.debug('checkin event ' + evt.textcode);
+        angular.forEach(evt, function(e){ console.debug('checkin event ' + e.textcode); });
 
-        if (service.checkin_overridable_events.indexOf(evt.textcode) > -1) 
+        if (evt.filter(function(e){return service.checkin_overridable_events.indexOf(e.textcode) > -1;}).length > 0)
             return service.handle_overridable_checkin_event(evt, params, options);
 
-        switch (evt.textcode) {
+        switch (evt[0].textcode) {
 
             case 'SUCCESS':
             case 'NO_CHANGE':
@@ -1186,10 +1236,10 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                             if (hold.pickup_lib() == egCore.auth.user().ws_ou()) {
                                 // inform user if the item is on the local holds shelf
                             
-                                evt.route_to = egCore.strings.ROUTE_TO_HOLDS_SHELF;
+                                evt[0].route_to = egCore.strings.ROUTE_TO_HOLDS_SHELF;
                                 return service.route_dialog(
                                     './circ/share/t_hold_shelf_dialog', 
-                                    evt, params, options
+                                    evt[0], params, options
                                 ).then(function() { return final_resp });
 
                             } else {
@@ -1206,7 +1256,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                         }
 
                     case 11: /* CATALOGING */
-                        evt.route_to = egCore.strings.ROUTE_TO_CATALOGING;
+                        evt[0].route_to = egCore.strings.ROUTE_TO_CATALOGING;
                         return $q.when(final_resp);
 
                     case 15: /* ON_RESERVATION_SHELF */
@@ -1222,7 +1272,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             case 'ROUTE_ITEM':
                 return service.route_dialog(
                     './circ/share/t_transit_dialog', 
-                    evt, params, options
+                    evt[0], params, options
                 ).then(function() { return final_resp });
 
             case 'ASSET_COPY_NOT_FOUND':
@@ -1231,7 +1281,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     .result.then(function() {return final_resp});
 
             case 'ITEM_NOT_CATALOGED':
-                evt.route_to = egCore.strings.ROUTE_TO_CATALOGING;
+                evt[0].route_to = egCore.strings.ROUTE_TO_CATALOGING;
                 if (options.no_precat_alert) 
                     return $q.when(final_resp);
                 return egAlertDialog.open(
@@ -1239,7 +1289,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     .result.then(function() {return final_resp});
 
             default:
-                console.warn('unhandled checkin response : ' + evt.textcode);
+                console.warn('unhandled checkin response : ' + evt[0].textcode);
                 return $q.when(final_resp);
         }
     }
@@ -1247,6 +1297,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     // collect transit, address, and hold info that's not already
     // included in responses.
     service.collect_route_data = function(tmpl, evt, params, options) {
+        if (angular.isArray(evt)) evt = evt[0];
         var promises = [];
         var data = {};
 
@@ -1279,6 +1330,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     }
 
     service.route_dialog = function(tmpl, evt, params, options) {
+        if (angular.isArray(evt)) evt = evt[0];
 
         return service.collect_route_data(tmpl, evt, params, options)
         .then(function(data) {
@@ -1349,6 +1401,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
     // action == what action to take if the user confirms the alert
     service.copy_alert_dialog = function(evt, params, options, action) {
+        if (angular.isArray(evt)) evt = evt[0];
         return egConfirmDialog.open(
             egCore.strings.COPY_ALERT_MSG_DIALOG_TITLE, 
             evt.payload,  // payload == alert message text
@@ -1423,6 +1476,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             function($scope , $modalInstance , staffPenalties) {
                 $scope.focusNote = true;
                 $scope.penalties = staffPenalties;
+                $scope.require_initials = service.require_initials;
                 $scope.args = {penalty : 21}; // default to Note
                 $scope.setPenalty = function(id) {
                     args.penalty = id;
@@ -1440,7 +1494,12 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                 pen.usr(user_id);
                 pen.org_unit(egCore.auth.user().ws_ou());
                 pen.note(args.note);
-                pen.standing_penalty(args.penalty);
+                if (args.initials) pen.note(args.note + ' [' + args.initials + ']');
+                if (args.custom_penalty) {
+                    pen.standing_penalty(args.custom_penalty);
+                } else {
+                    pen.standing_penalty(args.penalty);
+                }
                 pen.staff(egCore.auth.user().id());
                 pen.set_date('now');
                 return egCore.pcrud.create(pen);
@@ -1457,6 +1516,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             function($scope , $modalInstance , staffPenalties) {
                 $scope.focusNote = true;
                 $scope.penalties = staffPenalties;
+                $scope.require_initials = service.require_initials;
                 $scope.args = {
                     penalty : usr_penalty.standing_penalty().id(),
                     note : usr_penalty.note()
@@ -1472,6 +1532,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         }).result.then(
             function(args) {
                 usr_penalty.note(args.note);
+                if (args.initials) usr_penalty.note(args.note + ' [' + args.initials + ']');
                 usr_penalty.standing_penalty(args.penalty);
                 return egCore.pcrud.update(usr_penalty);
             }

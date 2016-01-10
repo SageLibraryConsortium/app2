@@ -67,10 +67,10 @@
 <!ENTITY reports.oils_rpt_common.generic_calendar_button "Date selector">
 
 
-<!ENTITY reports.oils_rpt_editor.template_name "Vorlagenname: ">
+<!ENTITY reports.oils_rpt_editor.template_name "Template Name:">
 <!ENTITY reports.oils_rpt_editor.template_creator "Template Creator:">
 <!ENTITY reports.oils_rpt_editor.doc_url "Template Documentation URL:">
-<!ENTITY reports.oils_rpt_editor.template_description "Vorlagenbeschreibung: ">
+<!ENTITY reports.oils_rpt_editor.template_description "Template Description:">
 <!ENTITY reports.oils_rpt_editor.report_name "Report Name:">
 <!ENTITY reports.oils_rpt_editor.report_description "Report Description:">
 <!ENTITY reports.oils_rpt_editor.report_columns "Report Columns:">
@@ -99,7 +99,7 @@
 <!ENTITY reports.oils_rpt_editor.apply_changes "Apply Changes">
 <!ENTITY reports.oils_rpt_editor.save_report_new "Save As New">
 <!ENTITY reports.oils_rpt_editor.confirm_sched "Changes will be applied to pending reports that have not yet run. Do you want to continue with modifying those pending reports?">
-<!ENTITY reports.oils_rpt_editor.cancel "Abbrechen">
+<!ENTITY reports.oils_rpt_editor.cancel "Cancel">
 <!ENTITY reports.oils_rpt_editor.exit_report "Return">
 <!ENTITY reports.oils_rpt_editor.empty_parameter "One or more of the user-defined parameters has been left empty. Please fill in all fields.">
 <!ENTITY reports.oils_rpt_editor.same_name "There is already a report in this folder with the given name.">
@@ -108,16 +108,16 @@
 <!ENTITY reports.oils_rpt_folder_manager.change_folder_name "Ordnernamen ändern">
 <!ENTITY reports.oils_rpt_folder_manager.delete_folder "Diesen Ordner löschen">
 <!ENTITY reports.oils_rpt_folder_manager.create_new_sub_folder "Einen neuen Unterordner erstellen">
-<!ENTITY reports.oils_rpt_folder_manager.share_this_folder "Diesen Ordner freigeben:">
+<!ENTITY reports.oils_rpt_folder_manager.share_this_folder "Share this folder">
 <!ENTITY reports.oils_rpt_folder_manager.hide_folder "Hide (un-share) this folder">
 <!ENTITY reports.oils_rpt_folder_manager.disable_recurrence "Disable recurrence">
 <!ENTITY reports.oils_rpt_folder_manager.fldr_mngr_actions_submit "Go">
 <!ENTITY reports.oils_rpt_folder_manager.change_name "Neuen Namen eingeben:">
 <!ENTITY reports.oils_rpt_folder_manager.submit "Abschicken">
 <!ENTITY reports.oils_rpt_folder_manager.folder_name "Ordnername:">
-<!ENTITY reports.oils_rpt_folder_manager.do_not_share "Nicht freigeben">
-<!ENTITY reports.oils_rpt_folder_manager.share "Freigabe">
-<!ENTITY reports.oils_rpt_folder_manager.share_with "Teilen mit:">
+<!ENTITY reports.oils_rpt_folder_manager.do_not_share "Do not share">
+<!ENTITY reports.oils_rpt_folder_manager.share "Share">
+<!ENTITY reports.oils_rpt_folder_manager.share_with "Share with:">
 <!ENTITY reports.oils_rpt_folder_manager.create_sub_folder "Unterordner erstellen">
 <!ENTITY reports.oils_rpt_folder_manager.change_name_confirm "Möchten Sie den Ordnernamen wirklich ändern?">
 <!ENTITY reports.oils_rpt_folder_manager.delete_name_confirm "Möchten Sie diesen Ordner wirklich löschen?">
@@ -149,7 +149,7 @@
 <!ENTITY reports.oils_rpt_folder_window.completed_items "Completed Items">
 <!ENTITY reports.oils_rpt_folder_window.selected_folder "Ausgewählter Ordner: ">
 <!ENTITY reports.oils_rpt_folder_window.select_folder "Ordner auswählen">
-<!ENTITY reports.oils_rpt_folder_window.cancel "Abbrechen">
+<!ENTITY reports.oils_rpt_folder_window.cancel "Cancel">
 <!ENTITY reports.oils_rpt_folder_window.confirm_delete "Are you sure you wish to delete the selected item(s)?">
 <!ENTITY reports.oils_rpt_folder_window.dependant_reports_no_delete "
         One or more of the selected templates could not be deleted because
@@ -213,8 +213,8 @@
 <!ENTITY reports.xul.template_builder.display_name.label "Display Name">
 <!ENTITY reports.xul.template_builder.field_transform_type.label "Field Transform Type">
 <!ENTITY reports.xul.template_builder.alter_display_header.label "Alter Display Header">
-<!ENTITY reports.xul.template_builder.move_up.label "Nach oben">
-<!ENTITY reports.xul.template_builder.move_down.label "Nach unten verschieben">
+<!ENTITY reports.xul.template_builder.move_up.label "Move Up">
+<!ENTITY reports.xul.template_builder.move_down.label "Move Down">
 <!ENTITY reports.xul.template_builder.remove_selected_field.label "Remove Selected Field">
 <!ENTITY reports.xul.template_builder.filter_field.label "Filter Field">
 <!ENTITY reports.xul.template_builder.operator.label "Operator">

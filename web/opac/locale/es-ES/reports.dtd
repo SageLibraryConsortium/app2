@@ -99,7 +99,7 @@
 <!ENTITY reports.oils_rpt_editor.apply_changes "Apply Changes">
 <!ENTITY reports.oils_rpt_editor.save_report_new "Save As New">
 <!ENTITY reports.oils_rpt_editor.confirm_sched "Changes will be applied to pending reports that have not yet run. Do you want to continue with modifying those pending reports?">
-<!ENTITY reports.oils_rpt_editor.cancel "Cancelar">
+<!ENTITY reports.oils_rpt_editor.cancel "Cancel">
 <!ENTITY reports.oils_rpt_editor.exit_report "Return">
 <!ENTITY reports.oils_rpt_editor.empty_parameter "Uno o más parámetros definidos por el usuario están vacíos. Por favor rellene todos los campos.">
 <!ENTITY reports.oils_rpt_editor.same_name "Ya existe un informe en esta carpeta con el nombre seleccionado.">
@@ -149,10 +149,14 @@
 <!ENTITY reports.oils_rpt_folder_window.completed_items "Elementos completos">
 <!ENTITY reports.oils_rpt_folder_window.selected_folder "Carpeta seleccionada: ">
 <!ENTITY reports.oils_rpt_folder_window.select_folder "Seleccionar carpeta">
-<!ENTITY reports.oils_rpt_folder_window.cancel "Cancelar">
+<!ENTITY reports.oils_rpt_folder_window.cancel "Cancel">
 <!ENTITY reports.oils_rpt_folder_window.confirm_delete "¿Está seguro que desea eliminar los elementos seleccionados?">
-<!ENTITY reports.oils_rpt_folder_window.dependant_reports_no_delete "Una o más plantillas seleccionadas no pueden ser eliminadas porque hay informes de errores que dependen de ellas.">
-<!ENTITY reports.oils_rpt_folder_window.dependant_outputs_no_delete "Uno o más informes seleccionados no se pueden eliminar porque hay productos que dependen de ellos.">
+<!ENTITY reports.oils_rpt_folder_window.dependant_reports_no_delete "
+        One or more of the selected templates could not be deleted because
+        there are reports or outputs that depend on them.">
+<!ENTITY reports.oils_rpt_folder_window.dependant_outputs_no_delete "
+        One or more of the selected reports could not be deleted because
+        there are outputs that depend on them.">
 <!ENTITY reports.oils_rpt_folder_window.cannot_delete_another_users_data "No puede eliminar los elementos de otros usuarios">
 <!ENTITY reports.oils_rpt_folder_window.cannot_move_another_users_data "No puede mover los elementos de otros usuarios">
 <!ENTITY reports.oils_rpt_folder_window.delete_all_attached_reports "        Esto también eliminará todos los informes correspondientes y los resultados de 
@@ -162,13 +166,14 @@ Si otros usuarios tiene informes o productos adjuntos a esta plantilla,
 todo quedará intacto y la plantilla no será eliminada. 
  
 ¿Desea continuar?">
-<!ENTITY reports.oils_rpt_folder_window.delete_all_attached_outputs "        Esto también eliminará todos los informes correspondientes y los resultados de 
-esta plantilla. 
- 
-Si otros usuarios tiene informes o productos adjuntos a esta plantilla, 
-todo quedará intacto y la plantilla no será eliminada. 
- 
-¿Desea continuar?">
+<!ENTITY reports.oils_rpt_folder_window.delete_all_attached_outputs "
+        This will also delete all of your attached outputs for
+        this report.  
+        
+        If other users have outputs attached to this report,
+        those will be left untouched and the report will not be deleted.
+        
+        Do you wish to continue?">
 
 
 <!ENTITY reports.oils_rpt_param_editor.column "Columna">

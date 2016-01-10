@@ -137,6 +137,23 @@ for now until a better color is picked - if needed.
 */
 #dash_fines { color: [% css_colors.text_attention %]; }
 
+#dash_wrapper #dash_user_message_button_container {
+    display: inline;
+    padding: 0;
+}
+#dash_wrapper #unread_message_count_floater {
+    position: absolute;
+    background-color: [% css_colors.text_alert %];
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    display: inline-block;
+    font-size: 95%;
+    border-radius: 0;
+    z-index: 2;
+    margin-top: 0.2em;
+    margin-left: -1.5em;
+}
+
 #header-wrap {
     background: linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
     background: -moz-linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
@@ -452,6 +469,11 @@ div.place_hold {
 }
 
 div.toggle_list { padding-top: 6px; }
+
+div.share_record {
+    padding-top: 6px;
+    border-top: 1px dotted [% css_colors.accent_light %];
+}
 
 div.format_icon {
     float: right;
@@ -862,20 +884,6 @@ div.result_table_utils_cont {
     font-weight: normal;
 }
 
-table.acct_notes {
-    border-collapse: collapse;
-    margin: -1em 0 0.5em 0;
-}
-
-table.acct_notes * {
-    border: solid thin;
-    padding: 0.5em; 
-}
-
-table.acct_notes th {
-    font-weight: bold;
-}
-
 #myopac_sum_fines {
     float:right;
     padding: 15px 0px 0px 23px;
@@ -895,7 +903,7 @@ table.acct_notes th {
     /*padding-left:10px;*/
 }
 
-#acct_checked_main_header, #acct_holds_main_header, #acct_checked_hist_header, #acct_list_header, #acct_list_header_anon, #temp_list_holds {
+#acct_checked_main_header, #acct_holds_main_header, #acct_checked_hist_header, #acct_list_header, #acct_list_header_anon, #temp_list_holds, #acct_messages_main_header {
     border-collapse: collapse;
 }
 
@@ -906,12 +914,12 @@ table.acct_notes th {
 
 .hold_note_title { font-weight: bold; }
 
-#acct_checked_main_header td, #acct_holds_main_header td, #acct_checked_hist_header td, #acct_list_header td, #acct_list_header_anon td, #temp_list_holds td {
+#acct_checked_main_header td, #acct_holds_main_header td, #acct_checked_hist_header td, #acct_list_header td, #acct_list_header_anon td, #temp_list_holds td, #acct_messages_main_header td {
     background: [% css_colors.accent_lighter2 %];
     padding: 10px;
 }
 
-#acct_checked_main_header th, #acct_holds_main_header th, #acct_checked_hist_header th, #acct_list_header th, #acct_list_header_anon th, #temp_list_holds th {
+#acct_checked_main_header th, #acct_holds_main_header th, #acct_checked_hist_header th, #acct_list_header th, #acct_list_header_anon th, #temp_list_holds th, #acct_messages_main_header th {
     text-align: left;
     padding: 0px 10px 0px 10px;
 }
@@ -1143,7 +1151,7 @@ div#facet_sidebar {
     padding-left: 1em;
 }
 #opac.result.sort { width: 160px; }
-.renew-summary { font-size: [% css_fonts.size_bigger %]; font-style: italic; margin: 0.5ex 0; }
+.renew-summary, .message-update-summary { font-size: [% css_fonts.size_bigger %]; font-style: italic; margin: 0.5ex 0; }
 .failure-text { margin-left: 4em; font-style: italic; color: [% css_colors.text_alert %]; }
 .refine-controls { font-size: [% css_fonts.size_bigger %]; padding: 0.5ex 0; }
 #adv_search_refine input[type=text] { border: 1px inset [% css_colors.accent_light %] !important; }
@@ -1210,10 +1218,13 @@ a.dash-link:hover { text-decoration: underline !important; }
 .results-paginator-list { padding-left: 1em; }
 .results-paginator-selected { color: [% css_colors.text_alert %]; }
 .inactive-hold { background: [% css_colors.accent_lightest %]; }
+.unread-patron-message { font-weight: bold; }
 
 #hold-items-list td { padding: 5px; margin-bottom: 20px; }
 .hold-items-list-title { font-size: [% css_fonts.size_bigger %]; }
 .hold-items-list-problem { color: [% css_colors.text_alert %]; }
+
+.hold_success_links > span { margin: 0 2em; }
 
 .mr_holds_no_formats { 
   padding: 5px;
@@ -1706,8 +1717,30 @@ a.preflib_change {
     font-size: [% css_fonts.size_bigger %];
 }
 
+/* styling for sms text call number */
+.sms_text pre {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: [% css_fonts.size_medium %];
+    background: [% css_colors.accent_lightest %];
+    padding: .5%;
+    /* Allow text to wrap */
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
 .mobile_view {
    display:none;
+}
+
+/* patron message center */
+#myopac_message_tbody {
+    vertical-align: top;
+}
+.myopac_message_message {
+    white-space: pre-wrap;
 }
 
 @media only screen and (max-width: 800px) {
@@ -2068,4 +2101,16 @@ See also http://webaim.org/techniques/css/invisiblecontent/
     overflow: hidden;                                                            
     clip: rect(0, 0, 0, 0);                                                      
     border: 0;                                                                   
+}
+
+/* Make added rows in Expert Search have bold labels like the initial row */
+label[for*=expert_]
+{
+    font-weight: bold;
+}  
 } 
+
+.sort_deemphasize {
+    font-weight: lighter;
+    font-size: 70%;
+}

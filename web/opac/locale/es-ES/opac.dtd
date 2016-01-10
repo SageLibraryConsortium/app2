@@ -113,12 +113,11 @@ La primera copia disponible le será enviada.">
 <!ENTITY common.googlechromeframe.install "Instalar ahora!">
 <!ENTITY common.googlechromeframe.dontask "No me preguntes otra vez">
 
-<!ENTITY home.js.disabled "El javascript debe ser permitido en la orden para usted utilizar el Catálogo De hoja perenne regular. 
-Sin embargo, parece Javascript o es incapacitado o no es apoyado por su navegador. 
-Para utilizar el Catálogo De hoja perenne regular, permita Javascript cambiando sus opciones de navegador, entonces 
-<a style='color: blue; text-decoration: underline;' href='/'>trate otra vez</a>. 
-<br/><br/>Alternativamente, puede utilizar el protocolo de transferencia de hipertexto-UNICO catálogo básico 
-<a style='color: blue; text-decoration: underline;' href='/opac/extras/slimpac/start.html'>aquí</a>.">
+<!ENTITY home.js.disabled "JavaScript must be enabled in order for you to use the regular Evergreen Catalog.
+However, it seems JavaScript is either disabled or not supported by your browser.
+To use the regular Evergreen Catalog, enable JavaScript by changing your browser options, then
+<a style='color: blue; text-decoration: underline;' href='/'>try again</a>.
+<br/><br/>Alternatively, you can use the basic HTML-only catalog: ">
 <!--	================================================================= 
 	 MyOPAC bookbag page
 	================================================================= -->

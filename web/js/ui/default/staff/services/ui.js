@@ -181,6 +181,72 @@ function($modal, $interpolate) {
     return service;
 }])
 
+.directive('aDisabled', function() {
+    return {
+        restrict : 'A',
+        compile: function(tElement, tAttrs, transclude) {
+            //Disable ngClick
+            tAttrs["ngClick"] = ("ng-click", "!("+tAttrs["aDisabled"]+") && ("+tAttrs["ngClick"]+")");
+
+            //Toggle "disabled" to class when aDisabled becomes true
+            return function (scope, iElement, iAttrs) {
+                scope.$watch(iAttrs["aDisabled"], function(newValue) {
+                    if (newValue !== undefined) {
+                        iElement.toggleClass("disabled", newValue);
+                    }
+                });
+
+                //Disable href on click
+                iElement.on("click", function(e) {
+                    if (scope.$eval(iAttrs["aDisabled"])) {
+                        e.preventDefault();
+                    }
+                });
+            };
+        }
+    };
+})
+
+.directive('egBasicComboBox', function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            list: "=", // list of strings
+            selected: "="
+        },
+        template:
+            '<div class="input-group">'+
+                '<input type="text" class="form-control" ng-model="selected" ng-change="makeOpen()">'+
+                '<div class="input-group-btn" dropdown ng-class="{open:isopen}">'+
+                    '<button type="button" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>'+
+                    '<ul class="dropdown-menu dropdown-menu-right">'+
+                        '<li ng-repeat="item in list|filter:selected"><a href ng-click="changeValue(item)">{{item}}</a></li>'+
+                    '</ul>'+
+                '</div>'+
+            '</div>',
+        controller: ['$scope','$filter',
+            function( $scope , $filter) {
+
+                $scope.always = true;
+                $scope.isopen = false;
+
+                $scope.makeOpen = function () {
+                    return $scope.isopen = $filter('filter')(
+                        $scope.list,
+                        $scope.selected
+                    ).length > 0 && $scope.selected.length > 0;
+                }
+
+                $scope.changeValue = function (newVal) {
+                    $scope.selected = newVal;
+                    $scope.isopen = false;
+                }
+
+            }
+        ]
+    };
+})
 
 /**
  * Nested org unit selector modeled as a Bootstrap dropdown button.
@@ -191,12 +257,21 @@ function($modal, $interpolate) {
         transclude : true,
         replace : true, // makes styling easier
         scope : {
-            selected : '=', // defaults to workstation or root org
-            
+            selected : '=', // defaults to workstation or root org,
+                            // unless the nodefault attibute exists
+
             // Each org unit is passed into this function and, for
             // any org units where the response value is true, the
             // org unit will not be added to the selector.
             hiddenTest : '=',
+
+            // Each org unit is passed into this function and, for
+            // any org units where the response value is true, the
+            // org unit will not be available for selection.
+            disableTest : '=',
+
+            // if set to true, disable the UI element altogether
+            alldisabled : '@',
 
             // Caller can either $watch(selected, ..) or register an
             // onchange handler.
@@ -209,13 +284,13 @@ function($modal, $interpolate) {
         // any reason to move this into a TT2 template?
         template : 
             '<div class="btn-group eg-org-selector" dropdown>'
-            + '<button type="button" class="btn btn-default dropdown-toggle">'
+            + '<button type="button" class="btn btn-default dropdown-toggle" ng-disabled="disable_button">'
              + '<span style="padding-right: 5px;">{{getSelectedName()}}</span>'
              + '<span class="caret"></span>'
            + '</button>'
            + '<ul class="dropdown-menu">'
              + '<li ng-repeat="org in orgList" ng-hide="hiddenTest(org.id)">'
-               + '<a href dropdown-toggle ng-click="orgChanged(org)"'
+               + '<a href ng-click="orgChanged(org)" a-disabled="disableTest(org.id)" '
                  + 'style="padding-left: {{org.depth * 10 + 5}}px">'
                  + '{{org.shortname}}'
                + '</a>'
@@ -225,6 +300,15 @@ function($modal, $interpolate) {
 
         controller : ['$scope','$timeout','egOrg','egAuth',
               function($scope , $timeout , egOrg , egAuth) {
+
+            if ($scope.alldisabled) {
+                $scope.disable_button = $scope.alldisabled == 'true' ? true : false;
+            } else {
+                $scope.disable_button = false;
+            }
+
+            $scope.egOrg = egOrg; // for use in the link function
+            $scope.egAuth = egAuth; // for use in the link function
 
             // avoid linking the full fleshed tree to the scope by 
             // tossing in a flattened list.
@@ -247,12 +331,41 @@ function($modal, $interpolate) {
                 if ($scope.onchange) $scope.onchange($scope.selected);
             }
 
-            if (!$scope.selected)
-                $scope.selected = egOrg.get(egAuth.user().ws_ou());
-        }]
+        }],
+        link : function(scope, element, attrs, egGridCtrl) {
+
+            // boolean fields are presented as value-less attributes
+            angular.forEach(
+                ['nodefault'],
+                function(field) {
+                    if (angular.isDefined(attrs[field]))
+                        scope[field] = true;
+                    else
+                        scope[field] = false;
+                }
+            );
+
+            if (!scope.selected && !scope.nodefault)
+                scope.selected = scope.egOrg.get(scope.egAuth.user().ws_ou());
+        }
+
     }
 })
 
+/* http://eric.sau.pe/angularjs-detect-enter-key-ngenter/ */
+.directive('egEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.egEnter);
+                });
+ 
+                event.preventDefault();
+            }
+        });
+    };
+})
 
 /*
 http://stackoverflow.com/questions/18061757/angular-js-and-html5-date-input-value-how-to-get-firefox-to-show-a-readable-d

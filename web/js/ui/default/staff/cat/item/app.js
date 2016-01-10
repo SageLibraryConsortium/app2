@@ -5,6 +5,12 @@
 angular.module('egItemStatus', 
     ['ngRoute', 'ui.bootstrap', 'egCoreMod', 'egUiMod', 'egGridMod'])
 
+.filter('boolText', function(){
+    return function (v) {
+        return v == 't';
+    }
+})
+
 .config(function($routeProvider, $locationProvider, $compileProvider) {
     $locationProvider.html5Mode(true);
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|blob):/); // grid export
@@ -13,6 +19,13 @@ angular.module('egItemStatus',
 
     // search page shows the list view by default
     $routeProvider.when('/cat/item/search', {
+        templateUrl: './cat/item/t_list',
+        controller: 'ListCtrl',
+        resolve : resolver
+    });
+
+    // search page shows the list view by default
+    $routeProvider.when('/cat/item/search/:idList', {
         templateUrl: './cat/item/t_list',
         controller: 'ListCtrl',
         resolve : resolver
@@ -126,8 +139,14 @@ function($scope , $location , egCore , egGridDataProvider , itemSvc) {
  * List view - grid stuff
  */
 .controller('ListCtrl', 
-       ['$scope','$q','$location','$timeout','egCore','egGridDataProvider','itemSvc',
-function($scope , $q , $location , $timeout , egCore , egGridDataProvider , itemSvc) {
+       ['$scope','$q','$routeParams','$location','$timeout','egCore','egGridDataProvider','itemSvc',
+function($scope , $q , $routeParams , $location , $timeout , egCore , egGridDataProvider , itemSvc) {
+    var copyId = [];
+    var cp_list = $routeParams.idList;
+    if (cp_list) {
+        copyId = cp_list.split(',');
+    }
+
     $scope.context.page = 'list';
 
     /*
@@ -204,14 +223,22 @@ function($scope , $q , $location , $timeout , egCore , egGridDataProvider , item
             $location.path('/cat/item/' + item.id + '/triggered_events');
     }
 
+    if (copyId.length > 0) {
+        itemSvc.fetch(null,copyId).then(
+            function() {
+                copyGrid.refresh();
+            }
+        );
+    }
+
 }])
 
 /**
  * Detail view -- shows one copy
  */
 .controller('ViewCtrl', 
-       ['$scope','$q','$location','$routeParams','egCore','itemSvc','egBilling',
-function($scope , $q , $location , $routeParams , egCore , itemSvc , egBilling) {
+       ['$scope','$q','$location','$routeParams','$timeout','$window','egCore','itemSvc','egBilling',
+function($scope , $q , $location , $routeParams , $timeout , $window , egCore , itemSvc , egBilling) {
     var copyId = $routeParams.id;
     $scope.tab = $routeParams.tab || 'summary';
     $scope.context.page = 'detail';
@@ -363,6 +390,21 @@ function($scope , $q , $location , $routeParams , egCore , itemSvc , egBilling) 
         egBilling.showBillDialog({
             xact_id : circ.id(),
             patron : circ.usr()
+        });
+    }
+
+    $scope.retrieveAllPatrons = function() {
+        var users = new Set();
+        angular.forEach($scope.circ_list.map(function(circ) { return circ.usr(); }),function(usr) {
+            users.add(usr);
+        });
+        users.forEach(function(usr) {
+            $timeout(function() {
+                var url = $location.absUrl().replace(
+                    /\/cat\/.*/,
+                    '/circ/patron/' + usr.id() + '/checkout');
+                $window.open(url, '_blank')
+            });
         });
     }
 
