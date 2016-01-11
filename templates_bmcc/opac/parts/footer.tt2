@@ -6,6 +6,7 @@
         l('Request Library Card') %]</a> &nbsp;|&nbsp;
 	[% ELSE %]
     <a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a> &nbsp;|&nbsp;
+  [% END %]
     <a href="http://bmcc.sage.eou.edu">[% l('BMCC Catalog Home') %]</a> &nbsp;|&nbsp;
     <a href="http://www.bluecc.edu/ebooks-bmcc-library">BMCC E-Books Collection</a> &nbsp;|&nbsp;
     <a href="http://www.bluecc.edu/library/">[% l('BMCC Library Home Page') %]</a>
