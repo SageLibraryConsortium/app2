@@ -7,6 +7,10 @@
   <datafield tag="020" ind1="" ind2="">
     <subfield code="a"></subfield>
   </datafield>
+  <datafield tag="040" ind1="" ind2="">
+    <subfield code="a"></subfield>
+    <subfield code="c"></subfield>
+  </datafield>
   <datafield tag="082" ind1="0" ind2="4">
     <subfield code="a"></subfield>
   </datafield>
@@ -20,6 +24,9 @@
     <subfield code="a"></subfield>
     <subfield code="b"></subfield>
     <subfield code="c"></subfield>
+  </datafield>
+  <datafield tag="250" ind1="" ind2="">
+    <subfield code="a"></subfield>
   </datafield>
   <datafield tag="260" ind1="" ind2="">
     <subfield code="a"></subfield>
@@ -40,5 +47,8 @@
   </datafield>
   <datafield tag="650" ind1="" ind2="">
     <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="999" ind1="" ind2="">
+    <subfield code="e">Book</subfield>
   </datafield>
 </record>
