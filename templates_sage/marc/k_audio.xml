@@ -3,6 +3,8 @@
   <controlfield tag="007">sd fungnnuuuu</controlfield>
   <controlfield tag="008">070101s                            eng d</controlfield>
   <datafield tag="020" ind1="" ind2="">
+    <subfield code="a"></subfield>
+  </datafield>
   <datafield tag="024" ind1="" ind2="">
     <subfield code="a"></subfield>
   </datafield>
