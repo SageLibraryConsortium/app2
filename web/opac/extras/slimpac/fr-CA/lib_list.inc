@@ -20,7 +20,6 @@
 <option value='GC-ARL'>&#160;&#160;&#160;&#160;&#160;&#160;Arlington Public Library</option>
 <option value='GC-GCL'>&#160;&#160;&#160;&#160;&#160;&#160;Gilliam County Library</option>
 <option value='GILSCH'>&#160;&#160;&#160;Gilliam County Schools</option>
-<option value='GC-CONHS'>&#160;&#160;&#160;&#160;&#160;&#160;Condon High School Library</option>
 <option value='GRCTY'>&#160;&#160;&#160;Grant County Public Libraries</option>
 <option value='GR-GCL'>&#160;&#160;&#160;&#160;&#160;&#160;Grant County Library</option>
 <option value='HRNYCTY'>&#160;&#160;&#160;Harney County Public  Libraries</option>
@@ -78,7 +77,6 @@
 <option value='UM-UPL'>&#160;&#160;&#160;&#160;&#160;&#160;Umatilla Public Library</option>
 <option value='UM-WPL'>&#160;&#160;&#160;&#160;&#160;&#160;Weston Public Library</option>
 <option value='UMSCH'>&#160;&#160;&#160;Umatilla County Schools</option>
-<option value='UM-ECHS'>&#160;&#160;&#160;&#160;&#160;&#160;Echo High School Library</option>
 <option value='UM-HHS'>&#160;&#160;&#160;&#160;&#160;&#160;Hermiston High School Library</option>
 <option value='UM-MCHS'>&#160;&#160;&#160;&#160;&#160;&#160;McLoughlin High School Library</option>
 <option value='UM-PHS'>&#160;&#160;&#160;&#160;&#160;&#160;Pendleton High School Library</option>
@@ -94,10 +92,6 @@
 <option value='UNSCH'>&#160;&#160;&#160;Union County Schools</option>
 <option value='UN-CS'>&#160;&#160;&#160;&#160;&#160;&#160;Cove School Library</option>
 <option value='UN-ELHS'>&#160;&#160;&#160;&#160;&#160;&#160;Elgin High School Library</option>
-<option value='UN-IMB'>&#160;&#160;&#160;&#160;&#160;&#160;Imbler School Library</option>
-<option value='UN-LHS'>&#160;&#160;&#160;&#160;&#160;&#160;La Grande High School Library</option>
-<option value='UN-LMS'>&#160;&#160;&#160;&#160;&#160;&#160;La Grande Middle School Library</option>
-<option value='UN-UHS'>&#160;&#160;&#160;&#160;&#160;&#160;Union High School Library</option>
 <option value='WALCTY'>&#160;&#160;&#160;Wallowa County Public Libraries</option>
 <option value='WC-ENT'>&#160;&#160;&#160;&#160;&#160;&#160;Enterprise Public Library</option>
 <option value='WC-JPL'>&#160;&#160;&#160;&#160;&#160;&#160;Joseph Public Library</option>
@@ -118,4 +112,3 @@
 <option value='WC-VAN'>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Wasco County Library Van</option>
 <option value='WHCTY'>&#160;&#160;&#160;Wheeler County Libraries</option>
 <option value='FOS'>&#160;&#160;&#160;&#160;&#160;&#160;Fossil City Library</option>
-<option value='SPRAY'>&#160;&#160;&#160;&#160;&#160;&#160;Spray Public/School Library</option>
