@@ -24,7 +24,9 @@
   _paq.push(["setCookieDomain", "*.sage.eou.edu"]);
   _paq.push(["trackPageView"]);
   _paq.push(["enableLinkTracking"]);
-
+  _paq.push(['enableHeartBeatTimer']);
+<!-- Borrowed from Sitka -->
+  _paq.push(["setCustomVariable", 1, "url", document.URL, "page"]);
   (function() {
     var u=(("https:" == document.location.protocol) ? "https" : "http") + "://sagelib.org/statistics/";
     _paq.push(["setTrackerUrl", u+"piwik.php"]);
