@@ -247,6 +247,11 @@ for now until a better color is picked - if needed.
     font-size: 12px;
 }
 
+/* custom */
+.opac-button-goldlinks:hover {
+    background-color:#5B743D;
+}
+
 #gold-links-home {
     margin:auto;
     padding-left:0px;
