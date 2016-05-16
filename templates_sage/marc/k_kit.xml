@@ -1,7 +1,7 @@
 <record>
-  <leader>00620com a2200205Ka 4500</leader>
+  <leader>00620nom a2200205Ka 4500</leader>
   <controlfield tag="007">sd fungnnuuuu</controlfield>
-  <controlfield tag="008">070101s                            eng d</controlfield>
+  <controlfield tag="008">yymmdds                            eng d</controlfield>
   <datafield tag="020" ind1="" ind2="">
     <subfield code="a"></subfield>
   </datafield>
@@ -20,7 +20,7 @@
   </datafield>
   <datafield tag="245" ind1="1" ind2="0">
     <subfield code="a"></subfield>
-    <subfield code="h">[Kit]</subfield>
+    <subfield code="h">[kit]</subfield>
     <subfield code="b"></subfield>
     <subfield code="c"></subfield>
   </datafield>
@@ -38,11 +38,23 @@
   <datafield tag="500" ind1="" ind2="">
     <subfield code="a"></subfield>
   </datafield>
+  <datafield tag="505" ind1="0" ind2="">
+    <subfield tag="a"></subfield>
+  </datafield>
+  <datafield tag="520" ind1="" ind2="">
+    <subfield code="a"></subfield>
+  </datafield>
   <datafield tag="650" ind1="" ind2="0">
     <subfield code="a"></subfield>
     <subfield code="v"></subfield>
   </datafield>
   <datafield tag="650" ind1="" ind2="0">
+    <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2="">
+    <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="700" ind1="1" ind2="">
     <subfield code="a"></subfield>
   </datafield>
   <datafield tag="999" ind1="" ind2="">

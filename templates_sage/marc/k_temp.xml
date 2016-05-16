@@ -1,6 +1,6 @@
 <record>
-  <leader>00620cam a2200205Ka 4500</leader>
-  <controlfield tag="008">070101s                            eng d</controlfield>
+  <leader>00620nam a2200205Ka 4500</leader>
+  <controlfield tag="008">yymmdds                      00    eng d</controlfield>
   <datafield tag="010" ind1="" ind2="">
     <subfield code="a"></subfield>
   </datafield>
@@ -17,7 +17,7 @@
   <datafield tag="092" ind1="" ind2="">
     <subfield code="a"></subfield>
   </datafield>
-  <datafield tag="100" ind1="1" ind2=" ">
+  <datafield tag="100" ind1="1" ind2="">
     <subfield code="a"></subfield>
   </datafield>
   <datafield tag="245" ind1="1" ind2="0">
@@ -25,25 +25,46 @@
     <subfield code="b"></subfield>
     <subfield code="c"></subfield>
   </datafield>
-  <datafield tag="260" ind1=" " ind2=" ">
+  <datafield tag="250" ind1="" ind2="">
+    <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="260" ind1="" ind2="">
     <subfield code="a"></subfield>
     <subfield code="b"></subfield>
     <subfield code="c"></subfield>
   </datafield>
-  <datafield tag="300" ind1=" " ind2=" ">
+  <datafield tag="300" ind1="" ind2="">
     <subfield code="a"></subfield>
     <subfield code="b"></subfield>
     <subfield code="c"></subfield>
+  </datafield>
+  <datafield tag="490" ind1="1" ind2="">
+    <subfield code="a"></subfield>
+    <subfield code="v"></subfield>
+  </datafield>
+  <datafield tag="500" ind1="" ind2="">
+    <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="520" ind1="" ind2="">
+    <subfield code="a"></subfield>
   </datafield>
   <datafield tag="599" ind1=" " ind2=" ">
     <subfield code="a">TEMPORARY RECORD-OK TO USE, WILL BE UPGRADED</subfield>
   </datafield>
-  <datafield tag="650" ind1=" " ind2="0">
+  <datafield tag="650" ind1="" ind2="0">
     <subfield code="a"></subfield>
     <subfield code="v"></subfield>
   </datafield>
-  <datafield tag="650" ind1=" " ind2="0">
+  <datafield tag="650" ind1="" ind2="0">
     <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="655" ind1="" ind2="0">
+    <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="800" ind1="1" ind2="">
+    <subfield code="a"></subfield>
+    <subfield code="t"></subfield>
+    <subfield code="v"></subfield>
   </datafield>
   <datafield tag="999" ind1="" ind2="">
     <subfield code="e">Book</subfield>

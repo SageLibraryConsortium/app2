@@ -1,7 +1,6 @@
 <record>
-  <leader>01149cas a2200265Ka 4500</leader>
-  <controlfield tag="005"></controlfield>
-  <controlfield tag="008">070101s                            eng d</controlfield>
+  <leader>01149nas a2200265Ka 4500</leader>
+  <controlfield tag="008">yymmdds                            eng d</controlfield>
   <datafield tag="022" ind1=" " ind2=" ">
     <subfield tag="a"></subfield>
   </datafield>
@@ -49,6 +48,9 @@
     <subfield code="a"></subfield>
   </datafield>
   <datafield tag="650" ind1=" " ind2="0">
+    <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="655" ind1="" ind2="0">
     <subfield code="a"></subfield>
   </datafield>
   <datafield tag="700" ind1=" " ind2=" ">

@@ -1,7 +1,7 @@
 <record>
-  <leader>01149cjm a2200265Ka 4500</leader>
+  <leader>01149njm a2200265Ka 4500</leader>
   <controlfield tag="007">sd fungnn  eduuuu</controlfield>
-  <controlfield tag="008">070101s                            eng d</controlfield>
+  <controlfield tag="008">yymmdds                            eng d</controlfield>
   <datafield tag="020" ind1="" ind2="">
     <subfield code="a"></subfield>
   </datafield>
@@ -51,6 +51,9 @@
     <subfield code="a"></subfield>
   </datafield>
   <datafield tag="650" ind1="" ind2="0">
+    <subfield code="a"></subfield>
+  </datafield>
+  <datafield tag="655" ind1="" ind2="0">
     <subfield code="a"></subfield>
   </datafield>
   <datafield tag="999" ind1="" ind2="">
