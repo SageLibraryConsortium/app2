@@ -223,13 +223,13 @@ for now until a better color is picked - if needed.
 
 /* changed to hide My Account button */
 #your-acct-login {
-    padding-top:2em;
+  padding-top:2em;
 	visibility:inherit;
 }
 
 #gold-links {
-    margin-left: 1em;
-    padding-left:0px;
+    margin-left: .5em;
+    padding-left: 0px;
 }
 
 /* custom */
