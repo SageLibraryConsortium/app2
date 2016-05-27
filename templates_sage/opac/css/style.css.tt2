@@ -744,6 +744,10 @@ collapse correctly when the window width decreases */
     vertical-align: middle;
 }
 
+#metabib_search_modifier {
+    vertical-align: middle;
+}
+
 .results_header_sel {
     /* width: 88px; */
     float:left;
