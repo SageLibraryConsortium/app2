@@ -34,6 +34,8 @@ body {
 	padding:0;
 	border:0;
 	color:#424242;
+  -webkit-font-smoothing: antialiased; /*Chrome - Sage */
+  -moz-osx-font-smoothing: grayscale;  /*Firefox - Sage */
 }
 
 a img { border:0; }
