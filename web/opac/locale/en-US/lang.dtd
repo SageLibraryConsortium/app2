@@ -3849,8 +3849,10 @@
 <!ENTITY staff.client.portal.recordbuckets.description "Record Buckets">
 <!ENTITY staff.client.portal.recordbuckets.tab_name "Record Buckets">
 <!ENTITY staff.client.portal.admin "Administration">
-<!ENTITY staff.client.portal.helpdesk "Sage Helpdesk">
+<!ENTITY staff.client.portal.helpdesk "Sage Help Desk">
 <!ENTITY staff.client.portal.helpdesk.description "Submit A Helpdesk Ticket">
+<!ENTITY staff.client.portal.quickreports "Sage Quick Reports">
+<!ENTITY staff.client.portal.quickreports.description "Launch Quick Reports">
 <!ENTITY staff.client.portal.reports "Reports">
 <!ENTITY staff.client.portal.reports.description "Reports">
 <!ENTITY staff.client.portal.reports.tab_name "Reports">
