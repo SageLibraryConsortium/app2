@@ -176,7 +176,7 @@ ctx.google_books_preview = 1;
 
 # Set a maintenance message to display in the catalogue
 #
-#ctx.maintenance_message = "The catalog and Library2Go will be down for parts of Sunday (May 1st) while we perform database upgrades. Thank you";
+ctx.maintenance_message = "The catalog and Library2Go will be down Saturday night (June 11) from 9pm-11pm while we perform some system upgrades. Thank you";
 
 
 ##############################################################################
