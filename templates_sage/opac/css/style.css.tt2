@@ -244,7 +244,7 @@ for now until a better color is picked - if needed.
     margin: 0.5em;
     padding: 0.3em;
     display: inline-block;
-    background: #A7C089;
+    background: #75954E;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     font-size: 12px;
 }
