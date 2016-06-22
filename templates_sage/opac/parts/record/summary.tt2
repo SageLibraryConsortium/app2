@@ -6,7 +6,7 @@
 <!-- ****************** rdetail_summary.xml ***************************** -->
 <abbr class="unapi-id" title='tag:[% ctx.hostname %],[% date.format(date.now, '%Y') %]:biblio-record_entry/[% ctx.bre_id %]'></abbr>
 
-<hr />
+<hr style="display: table;"/>
 
 [%-# This holds the record summary information %]
 <div id="rdetail_summary_header">
