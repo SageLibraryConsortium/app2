@@ -364,7 +364,7 @@ END;
                                                 [%- IF attrs.format_label; %]
                                                    [% FOR format IN attrs.all_formats %]
                                                      <img title="[% format.label | html %]"
-                                                       alt="[% format.label | html %]"
+                                                       alt="[% format.label | html %]" class="format_icon"
                                                        src="[% format.icon %]" />
                                                     
                                                    [% END %]
@@ -376,7 +376,7 @@ END;
             && (ctx.holds_block.enabled != 'true' || attrs.org_copy_counts.$search_ou.available == 0)
         )
 %]
-                                                        <div class="results_aux_utils place_hold"><a
+                                                        <div class="results_aux_utils place_hold center_box"><a
                                                                 href="[% mkurl(ctx.opac_root _ '/place_hold',
                                                                     {hold_target => rec.id, hold_type => hold_type, 
                                                                       hold_source_page => mkurl()}, ['query','tag','subfield','term','_special','sort','page']) %]"
@@ -386,7 +386,7 @@ END;
                                                                 alt=""/><span class="result_place_hold">[% l('Place Hold') %]</span></a>
                                                         </div>
 [%- END -%]
-                                                        <div class="results_aux_utils result_util">
+                                                        <div class="results_aux_utils result_util center_box">
                                                             [%  IF ctx.user;
                                                                 INCLUDE "opac/parts/bookbag_actions.tt2";
                                                             %]
