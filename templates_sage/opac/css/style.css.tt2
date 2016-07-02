@@ -502,7 +502,7 @@ span#rdetail_hold_counts p {
 }
 
 div.place_hold {
-    border-bottom: 1px dotted [% css_colors.accent_light %];
+    /*border-bottom: 1px dotted [% css_colors.accent_light %];*/
     padding-top: 10px;
 }
 
@@ -519,7 +519,7 @@ div.format_icon {
 }
 
 .result_util {
-    border-bottom: 1px dotted [% css_colors.accent_light %];
+    /*border-bottom: 1px dotted [% css_colors.accent_light %];*/
     padding-top: 6px;
 }
 
