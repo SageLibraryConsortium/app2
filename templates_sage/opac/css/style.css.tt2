@@ -1944,9 +1944,38 @@ a.preflib_change {
         padding: 0px;
         margin: 0px;
     }
-    tr[name=results_isbn_tr], tr[name=results_phys_desc_tr], tr[name=results_pub_tr] strong, .result_count {
+    /* Mobile Results */
+    /* Show ISBN, and Series only for Mobile (tr[name=results_isbn_tr] and tr[name=results_series_tr] */
+    tr[name=results_phys_desc_tr], tr[name=results_pub_tr], tr[name=results_edition_tr], .result_count {
          display: none;
     }
+    /* Hide Library Info for Mobile*/
+    table.result_holdings_table {
+    	display: none;
+    }
+    .result_util {
+    	padding-left: 0;
+    	border-bottom:none;
+    }
+    div.place_hold {
+    	border:none;
+    }
+    .results_header_nav1 {
+    	text-align:center;
+    }
+    .center_box {
+    	display:inline-block;
+    	padding: 5px;
+    	font-weight: bold;
+    }
+    .center_box a {
+    	text-decoration: none;
+    }
+    .format_icon {
+        float:right;
+        padding-left:15px;
+    }
+    /* Revisit */
     tr.result_table_title_cell[name=bib_cn_list] .result_holdings_table th:nth-child(4),
     tr.result_table_title_cell[name=bib_cn_list] .result_holdings_table td:nth-child(4) {
         display:none;
