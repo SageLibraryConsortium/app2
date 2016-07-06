@@ -2054,6 +2054,7 @@ a.preflib_change {
     }
     #search-wrapper #search-box {
         /* width: 85%; */
+        margin-left:initial;
         padding-top: 5px;
         text-align:center;
     }
