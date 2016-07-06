@@ -1831,6 +1831,46 @@ a.preflib_change {
          display:none;
     }
     .radio-parts-selection { width: 90%; }
+
+/* Center Box Biz */
+    /* Hide Library Info for Mobile*/
+    table.result_holdings_table {
+      display: none;
+    }
+    .result_util {
+      padding-left: 0;
+      border-bottom:none;
+    }
+    div.place_hold {
+      border:none;
+    }
+    .results_header_nav1 {
+      text-align:center;
+    }
+    .center_box {
+      display:inline-block;
+      padding: 5px;
+      font-weight: bold;
+    }
+    .center_box a {
+      text-decoration: none;
+    }
+    .format_icon {
+      float:right;
+      margin-left:14em;
+    }
+    #header-links {
+      display:inline-flex;
+      text-align:center;
+      position:inherit;
+    }
+    #header-links a {
+      margin:unset;
+      float:unset;
+    }
+    #gold-links {
+      margin-left:unset;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1973,7 +2013,7 @@ a.preflib_change {
     }
     .format_icon {
         float:right;
-        padding-left:15px;
+        margin-left:12em;
     }
     /* Revisit */
     tr.result_table_title_cell[name=bib_cn_list] .result_holdings_table th:nth-child(4),
@@ -2048,6 +2088,7 @@ a.preflib_change {
     }
     .result_metadata {
         width: inherit;
+        padding-left: 5px;
     }
     div#rdetail_actions_div {
         float: none;
