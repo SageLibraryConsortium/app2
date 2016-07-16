@@ -11,7 +11,7 @@
     <a href="https://sagelib.org/about-us">[% l('About Sage') %]</a> &nbsp;|&nbsp;
     <a href="https://sagelib.org/new-items/new-items-lists">[% l('New Title Lists') %]</a> &nbsp;|&nbsp;
     <a href="http://www.fantasticfiction.co.uk">[% l('Fantastic Fiction') %]</a> &nbsp;|&nbsp;
-    <a href="https://catalog.sage.eou.edu/eg/opac/password_resetk">[% l('Forgot your Password?') %]</a> &nbsp;|&nbsp;
+    <a href="https://catalog.sage.eou.edu/eg/opac/password_reset">[% l('Forgot your Password?') %]</a> &nbsp;|&nbsp;
     <a href="https://library2go.lib.overdrive.com">[% l('Library2Go') %]</a>
     [% IF ctx.timing %]
     <div id="timing">
