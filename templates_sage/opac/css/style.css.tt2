@@ -1949,6 +1949,11 @@ a.preflib_change {
     #dashboard {
         display: none;
     }
+    #footer {
+    margin-right: 1em;
+    margin-left: 1em;
+    text-align: center;
+    }
     #holds_box form blockquote {
         margin-left: 10px;
         margin-right: 2px;
