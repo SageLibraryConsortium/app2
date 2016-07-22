@@ -1828,9 +1828,6 @@ a.preflib_change {
     	display:inline-block;
     	padding: 5px;
     	}
-    .results_aux_utils {
-    	display: table-row;
-    	}
     .format_icon {
     	float:right;
     	margin-left:16em;
