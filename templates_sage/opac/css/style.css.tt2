@@ -1818,6 +1818,25 @@ a.preflib_change {
     white-space: pre-wrap;
 }
 
+@media only screen and (max-width: 1015px) {
+    .facet_sidebar_visible, .result_block_visible {
+        display: inline ! important;
+    }
+/* Center Box Biz */
+    /* Hide Library Info for Mobile*/
+    .center_box {
+    	display:inline-block;
+    	padding: 5px;
+    	}
+    .results_aux_utils {
+    	display: table-row;
+    	}
+    .format_icon {
+    	float:right;
+    	margin-left:16em;
+	}
+}
+
 @media only screen and (max-width: 800px) {
     .facet_sidebar_hidden, .result_block_hidden {
         display: none;
