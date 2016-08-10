@@ -75,6 +75,10 @@ select {
 	color:#424242;
 }
 
+select#search_lib{
+  width:216px;
+}
+
 input[type=radio] {
 	margin:0;
 	padding:0;
@@ -411,7 +415,7 @@ input[type=text], input[type=password], textarea {
 
 .sub_sidebar_inner {
 	width:216px;
-	overflow:hidden;
+	/*overflow:hidden;*/
 	margin:26px 25px 0px 25px;
 }
 
