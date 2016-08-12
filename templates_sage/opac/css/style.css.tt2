@@ -1163,10 +1163,10 @@ div#facet_sidebar {
 }
 
 #footer-wrap {
-    background: linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
-    background: -moz-linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
-    background: -o-linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
-    background: -webkit-linear-gradient([% css_colors.primary %], [% css_colors.primary_fade %]);
+    background: linear-gradient([% css_colors.primary_fade %], [% css_colors.primary %]);
+    background: -moz-linear-gradient([% css_colors.primary_fade %], [% css_colors.primary %]);
+    background: -o-linear-gradient([% css_colors.primary_fade %], [% css_colors.primary %]);
+    background: -webkit-linear-gradient([% css_colors.primary_fade %], [% css_colors.primary %]);
     background-color: [% css_colors.primary %];
 }
 
