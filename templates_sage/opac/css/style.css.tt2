@@ -795,8 +795,14 @@ tr.result_table_row > td.result_table_title_cell {
     padding-right: 2em;
 }
 
+tr.result_table_row > td {
+    padding-bottom: 5px;
+}
+
 tr.result_table_row:nth-child(n+2) > td {
     border-top: 1px solid [% css_colors.accent_lighter2 %];
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 tr.result_table_row > td.result_table_pic_header {
