@@ -1865,7 +1865,7 @@ a.preflib_change {
       border-bottom:none;
     }
     div.place_hold {
-      border:none;
+      border-bottom:none;
     }
     .results_header_nav1 {
       text-align:center;
@@ -2029,7 +2029,7 @@ a.preflib_change {
     	border-bottom:none;
     }
     div.place_hold {
-    	border:none;
+    	border-bottom:none;
     }
     .results_header_nav1 {
     	text-align:center;
