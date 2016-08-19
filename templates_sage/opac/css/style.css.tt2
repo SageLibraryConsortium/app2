@@ -2031,6 +2031,13 @@ a.preflib_change {
     div.place_hold {
     	border-bottom:none;
     }
+    div.place_hold a {
+    	border-bottom:none;
+    	text-align: center;
+    	font-weight:bold;
+    	padding:5px;
+    	text-decoration:none;
+    }
     .results_header_nav1 {
     	text-align:center;
     }
@@ -2125,6 +2132,12 @@ a.preflib_change {
     }
     div#rdetail_actions_div {
         float: none;
+        border: 1px solid #75954E;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    div#rdetail_actions_div a {
+        text-decoration:none
     }
     h2.rdetail_uris {
         clear: both;
