@@ -44,7 +44,7 @@ END;
             <th scope='col'>[% l("Age Hold Protection") %]</th>
             <th scope='col'>[% l("Create Date") %]</th>
             [%- END %]
-            [%- IF ctx.is_staff OR serial_holdings OR NOT ctx.is_staff %]
+            [%- IF ctx.is_staff OR serial_holdings %]
             <th scope='col'>[% l("Holdable?") %]</th>
             [%- END %]
             <th scope='col'>[% l("Status") %]</th>
@@ -152,7 +152,7 @@ END; # FOREACH bib
                 END;
             %]</td>
             [% END # is_staff %]
-            [% IF ctx.is_staff OR serial_holdings OR NOT ctx.is_staff %]
+            [% IF ctx.is_staff OR serial_holdings %]
             <td>[%  # Show copy/volume hold links to staff (without
                 # checking whether they have permissions to do those).
                 overall_holdable = (
