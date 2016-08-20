@@ -5,3 +5,7 @@ GLPL
 print-notice icon taken from:
 https://www.iconfinder.com/icons/17470/board_notice_publication_icon
 CC
+
+automated reports icon taken from:
+https://www.iconfinder.com/icons/299096/calendar_clock_icon
+CC
