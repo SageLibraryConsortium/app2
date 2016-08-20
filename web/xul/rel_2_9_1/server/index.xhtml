@@ -126,6 +126,16 @@
                 function quickreports(newtab) {
                 	xulG.open_external("https://catalog.sage.eou.edu/quick-reports");
                 }
+               
+                //Place your print notice link here
+                function printnotices(newtab) {
+                	xulG.open_external("https://catalog.sage.eou.edu/notices/index.html");
+                }
+                
+                //Place your automated reports link here
+                function automatedreports(newtab) {
+                	xulG.open_external("https://catalog.sage.eou.edu/weekly/index.html");
+                }
                 
                 //A good place for a Google map.  Evergreen Indiana uses GIS data to create a Google map to verify if a library is within district boundaries
                 //http://208.119.72.68/evergreen/evergreenmap.html
@@ -535,7 +545,26 @@
               title="&staff.client.portal.open_new_tab.description;"
               onclick="try { local_admin_reports(true); } catch(E) { alert(E); }" /> &staff.client.portal.reports;</td>
             </tr>
-	    
+	<!-- Automated Reports -->
+            <tr class="clickable" onclick="try { automatedreports(false); } catch(E) { alert(E); }">
+              <td height="50"><img src="skin/media/images/portal/automated-reports.png" height="48" width="48"
+              alt="&staff.client.portal.automatedreports.description;" /></td>
+              
+              <td><img class="newtabimg" src="skin/media/images/portal/newtab2.PNG" alt="&staff.client.portal.open_new_tab.description;"
+              title="&staff.client.portal.open_new_tab.description;"
+              onclick="try { quickreports(true); } catch(E) { alert(E); }" /> &staff.client.portal.automatedreports;</td>
+            </tr>
+	<!-- /Automated Reports -->
+	<!-- Print Notices -->
+            <tr class="clickable" onclick="try { printnotices(false); } catch(E) { alert(E); }">
+              <td height="50"><img src="skin/media/images/portal/print-notices.png" height="48" width="48"
+              alt="&staff.client.portal.printnotices.description;" /></td>
+              
+              <td><img class="newtabimg" src="skin/media/images/portal/newtab2.PNG" alt="&staff.client.portal.open_new_tab.description;"
+              title="&staff.client.portal.open_new_tab.description;"
+              onclick="try { quickreports(true); } catch(E) { alert(E); }" /> &staff.client.portal.printnotices;</td>
+            </tr>
+	<!-- /Print Notices -->
             <tr class="clickable" onclick="try { receipt_editor(false); } catch(E) { alert(E); }">
               <td height="50"><img src="skin/media/images/portal/receipt_editor.png" height="48" width="48"
 	      alt="&staff.client.portal.receipts.description;" /></td>
