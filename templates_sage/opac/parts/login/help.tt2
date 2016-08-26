@@ -1,7 +1,7 @@
 <div class="login-help-box">
 
     <div class="login-help-button">
-        <a href="http://sagelib.org/help/managing-your-online-library-account" class="opac-button">[% l('Questions?') %]</a>
+        <a href="https://sagelib.org/help/managing-your-online-library-account" class="opac-button">[% l('Questions?') %]</a>
     </div>
 
     <div>
@@ -10,7 +10,7 @@
 
     <div class="login-help-button">
         <div class="opac-multiline-button">
-        <a href="http://sagelib.org/help">[% l('FAQs') %]</a>
+        <a href="https://sagelib.org/help/faq">[% l('FAQs') %]</a>
 	</div>
     </div>
 
