@@ -24,12 +24,13 @@ img {
 /* adjusted to be a little smaller for header */
 #topnav_logo {
     margin: 1.5em 0;
+    background: #fff;
 }
 
 #homesearch_main_logo {
     padding-top: 20px;
     margin: auto;
-		margin-right: 30px;
+    margin-right: 30px;
     width: auto;
 }
 
