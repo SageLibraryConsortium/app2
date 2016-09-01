@@ -7,7 +7,7 @@ body {
     margin:0;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: [% css_fonts.size_base %];
-    background: [% css_colors.primary_fade %];
+    background: [% css_colors.primary %];
     -webkit-font-smoothing: antialiased; /*Chrome - Sage */
     -moz-osx-font-smoothing: grayscale; /*Firefox - Sage*/
 }
