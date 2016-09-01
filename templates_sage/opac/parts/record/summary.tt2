@@ -177,10 +177,13 @@ IF num_uris > 0;
         </p>
     </span>
 <br />
-[% IF attrs.summary %]
-  <h2>[% l('Summary: ') %]</h2> [% attrs.summary | html %]
-[% END %]
-
+[%- IF attrs.summary %]
+    <h2>[% l('Summary: ') %]</h2>
+    [% FOR sum IN attrs.summaries %]
+        [% IF !loop.first; '<br/>'; END %]
+        <span>[% sum | html %] </span>
+    [% END %]
+[%- END %]
 <br />
 [% IF attrs.series %]
    <h2>[% l('Series: ') %]</h2> [% attrs.series | html %] [% attrs.seriesnumber | html %]
