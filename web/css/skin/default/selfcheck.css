@@ -2,6 +2,8 @@
 body {
     font-family: Arial, Verdana;
     font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #oils-selfck-top-div {
@@ -106,7 +108,7 @@ url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodH
 }
 
 #oils-selfck-circ-info-div span {
-    padding-right: 16px;
+    padding-right: 8px;
 }
 #oils-selfck-info-nav span {
     padding-left: 8px;
