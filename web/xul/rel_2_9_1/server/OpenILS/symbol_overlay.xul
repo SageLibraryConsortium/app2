@@ -377,8 +377,13 @@
                         <button class ="sym" id="sym7E" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="¿" />
                         <button class ="sym" id="sym7F" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="¡" />
                     </hbox>
+                    <hbox>
+                        <button class ="sym" id="sym8A" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="í"/>
+                        <button class ="sym" id="sym8B" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="ì"/>
+                        <button class ="sym" id="sym8C" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="Í"/>
+                        <button class ="sym" id="sym8D" context="symbol-menu" onclick="ret(label,event);" oils_persist="label" label="Ì"/>
+                    </hbox>
                   </vbox>
             </panel>
         </popupset>
 </overlay>
-
