@@ -1,0 +1,26 @@
+<!--[if IE]>
+<!DOCTYPE html>
+<![endif]-->
+<!-- BEGIN: Carousel 
+Profile: s6832156.main.eon_eit.ebs8807
+AuthType: ip,cpid
+QueryValue: LO+system.nl-s6832156
+-->
+<style>
+.flipstercarouselheader, .scrollfix {width: 100%;}
+.EBSCOcarouselContainer {width: 1px;min-width: 100%;}
+</style>
+
+<div class="flipstercarouselheader" style="overflow:hidden !important;">
+<div style="width:100%;height:45px;">
+<div style="float:left;width:150px;text-align:left;padding-top:5px;"><a style="cursor:pointer" href="http://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s6832156&db=eon&profile=eon" target="_blank"><img src="https://imageserver.ebscohost.com/branding/FlipsterCarousel/image/logo.png" title="Browse the full collection of magazine titles" alt="Browse the full collection of magazine titles" border="0" height="42px" width="149px"></a></div>
+</div>
+<div style="padding-bottom:10px;width:100%;"><img src="https://imageserver.ebscohost.com/branding/FlipsterCarousel/image/catbrowsehdr.png" border="0" width="100%" height="6px"></div>
+</div>
+<div class="scrollfix" style="height:280px;margin-top:-10px; overflow:hidden !important;">
+<object type="text/html" class="EBSCOcarouselContainer" height="280px" data="https://widgets.ebscohost.com/prod/encryptedkey/eit/eit.php?t=themes%2Fflipster_carousel_slick%2Fxsl_auth_id.php%3Fcss%3D%2F%2Fimageserver.ebscohost.com%2Fbranding%2FFlipsterCarousel%2Fcss%2Fslick-app-theme.css&q=http%3A%2F%2Fwidgets.ebscohost.com%2Fprod%2Fencryptedkey%2Fehis%2Fwidget.php%3Fprof%3Ds6832156.main.eon_eit%26pwd%3Debs8807%26query%3DLO%252Bsystem.nl-s6832156%26db%3Deon%26numrec%3D50%26format%3Dxml%26protect%3Dno%26removeehis%3D1%26pl%3D1%26smode%3D%26forcehttp%3D%26proxy%3Dhttp%253A%252F%252Fwidgets.ebscohost.com%252Fprod%252Fcustomlink%252Fproxify%252Fproxify.php%253Fcount%253D1%2526encode%253D0%2526proxy%253D%2526find_1%253Dsearch.ebscohost.com%2526replace_1%253Dsearch.ebscohost.com%2526target%253D%26rcounturl%3D&h=&custid=s6832156&authtype=ip,cpid&groupid=main" >
+<embed class="EBSCOcarouselContainer" height="280px" src="https://widgets.ebscohost.com/prod/encryptedkey/eit/eit.php?t=themes%2Fflipster_carousel_slick%2Fxsl_auth_id.php%3Fcss%3D%2F%2Fimageserver.ebscohost.com%2Fbranding%2FFlipsterCarousel%2Fcss%2Fslick-app-theme.css&q=http%3A%2F%2Fwidgets.ebscohost.com%2Fprod%2Fencryptedkey%2Fehis%2Fwidget.php%3Fprof%3Ds6832156.main.eon_eit%26pwd%3Debs8807%26query%3DLO%252Bsystem.nl-s6832156%26db%3Deon%26numrec%3D50%26format%3Dxml%26protect%3Dno%26removeehis%3D1%26pl%3D1%26smode%3D%26forcehttp%3D%26proxy%3Dhttp%253A%252F%252Fwidgets.ebscohost.com%252Fprod%252Fcustomlink%252Fproxify%252Fproxify.php%253Fcount%253D1%2526encode%253D0%2526proxy%253D%2526find_1%253Dsearch.ebscohost.com%2526replace_1%253Dsearch.ebscohost.com%2526target%253D%26rcounturl%3D&h=&custid=s6832156&authtype=ip,cpid&groupid=main" />
+</object>
+</div>
+
+<!-- END: Carousel -->

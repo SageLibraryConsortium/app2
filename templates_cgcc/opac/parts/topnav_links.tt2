@@ -1,11 +1,19 @@
 <div id="gold-links-holder">
-    <div id="gold-links">
-        <div id="header-links">
-            <span class="opac-button-goldlinks"><a href="http://cgcc.sage.eou.edu/eg/opac/home?locg=176">[% l('Catalog Home') %]</a></span>
-            <span class="opac-button-goldlinks"><a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a></span>
-            <span class="opac-button-goldlinks"><a href="http://www.cgcc.edu/library">[% l('CGCC Library Home') %]</a></span>
-            <span class="opac-button-goldlinks"><a href="http://www.cgcc.edu/library/contact">[% l('Contact Us @ CGCC Library') %]</a></span>
-            <span class="opac-button-goldlinks"><a href="http://catalog.sage.eou.edu/opac/extras/browse/html-full/item-age/CGCC">[% l('Newly Added Titles') %]</a></span>
-        </div>
-    </div>
+ <ul id="header-links">
+            <li><a href="https://cgcc.sage.eou.edu/eg/opac/home?locg=176">[% l('Catalog Home') %]</a></li>
+            <li><a href="https://www.cgcc.edu/library">[% l('CGCC Library Home') %]</a></li>
+            <li><a href="https://www.cgcc.edu/library/contact">[% l('Contact Us @ CGCC Library') %]</a></li>
+            <li><a href="https://catalog.sage.eou.edu/opac/extras/browse/html-full/item-age/CGCC">[% l('Newly Added Titles') %]</a></li>
+		[% IF ctx.get_org_setting(ctx.physical_loc || ctx.aou_tree.id, 'opac.allow_pending_user') %]
+		<li><a href="[% mkurl(ctx.opac_root _ '/register') %]">[% l('Request Library Card') %]</a></li>
+		[% END %]
+	<li class="sage-dropdown">
+		<a href="#" class="dropbutton">About Sage</a>
+		<div class="sagedropdown-bits">
+		<a href="http://batchgeo.com/map/d325cffa95d06f3d90a408592a00e3c7" target="_blank">[% l('Sage Member Map') %]</a>
+		<a href="https://sagelib.org/about-us" target="_blank">[% l('About Sage') %]</a>
+		<a href="https://sagelib.org/help" target="_blank">[% l('Need Help?') %]</a>
+		</li>
+	</div>
+ </ul>
 </div>

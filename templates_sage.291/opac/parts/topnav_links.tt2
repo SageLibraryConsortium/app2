@@ -1,0 +1,18 @@
+<div id="gold-links-holder">
+    <div id="gold-links">
+        <div id="header-links">
+<span class="opac-button-goldlinks"><a href="[% mkurl(ctx.opac_root _ '/home') %]">[% l('Catalog Home') %]</a></span>
+<span class="opac-button-goldlinks"><a href="https://catalog.sage.eou.edu/eg/kpac/home">[% l('Kids Catalog') %]</a></span>
+<span class="opac-button-goldlinks"><a href="http://sagelib.org/new-items/new-items-lists">[% l('New Title Lists') %]</a></span>
+<span class="opac-button-goldlinks"><a href="http://www.fantasticfiction.co.uk" target="_blank">[% l('Fantastic Fiction') %]</a></span>
+<span class="opac-button-goldlinks"><a href="http://library2go.lib.overdrive.com" target="_blank">[% l('Library2Go') %]</a></span>
+<span class="opac-button-goldlinks"><a href="http://sagelib.org/about-us" target="_blank">[% l('About Sage') %]</a></span>
+<span class="opac-button-goldlinks"><a href="http://batchgeo.com/map/0dd2123bd8901e36f3957b6875f88ae9" target="_blank">[% l('Sage Member Map') %]</a></span>
+<span class="opac-button-goldlinks"><a href="http://sagelib.org/help" target="_blank">[% l('Need Help?') 
+%]</a></span>
+[% IF ctx.get_org_setting(ctx.physical_loc || ctx.aou_tree.id, 'opac.allow_pending_user') %]
+<span class="opac-button-goldlinks"><a href="[% mkurl(ctx.opac_root _ '/register') %]">[% l('Request Library Card') %]</a></span>
+[% END %]
+        </div>
+    </div>
+</div>

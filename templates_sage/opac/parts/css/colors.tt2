@@ -13,12 +13,12 @@
         text_invert = "#fff", # white
         text_match = "#c00", # deep red
         primary = "#5B743D", # dark green
-        primary_fade = "#75954E", # medium green
+        primary_fade = "#88B04B", # medium green
         primary_offset = "#8EAF67", # light_green
         control = "#A7C089", # lighter green
         accent_light = "#ccc", #  grey (light)
         accent_lighter = "#ddd", #  grey (lighter)
-        accent_lighter2 = "#d8d8d8", #  grey (lighter again)
+        accent_lighter2 = "#efefef", #  grey (lighter again)
         accent_lightest = "#eee", #  grey (lightest)
         accent_ultralight = "#f0f0f0", # ivory
         accent_medium = "#999", # gun metal grey (medium)
@@ -32,6 +32,10 @@
         button_text_shadow = "#555555", # medium grey
         table_heading = "#d8d8d8", # grey-blue
         mobile_header_text = "#fff", # white
+	links = "#3f512a", # muted, dark green
+	action_box_results = "rgba(118, 150, 79, 0.2)", # very light green
+	mobile_header = "#fff",
+	mobile_header_text = "black"
     };
     
 %]

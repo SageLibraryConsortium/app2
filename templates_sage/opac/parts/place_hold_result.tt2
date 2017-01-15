@@ -59,13 +59,17 @@
                                 window.addEventListener(
                                     'load',
                                     function() {
-                                        try {
-                                            if (typeof xulG != 'undefined' && xulG.opac_hold_placed) {
-                                                xulG.opac_hold_placed([% hdata.hold_success %]);
-                                            }
-                                        } catch(E) {
-                                            alert('Error updating Work Log with hold placement: ' + E);
-                                        }
+                                        setTimeout( // we want this to run _after_ other onload handlers (such as from eframe.js)
+                                            function() {
+                                                try {
+                                                    if (typeof xulG != 'undefined' && xulG.opac_hold_placed) {
+                                                        xulG.opac_hold_placed([% hdata.hold_success %]);
+                                                    }
+                                                } catch(E) {
+                                                    alert('Error updating Work Log with hold placement: ' + E);
+                                                }
+                                            }, 0
+                                        );
                                     },
                                     false
                                 );
@@ -88,9 +92,9 @@
                                                 # display:
                                                 (hdata.age_protect ?
                                                     l("The library(ies) that own this title do not lend out their newest items to other libraries for a three to six month time period. Therefore, this hold may take longer to receive.") :
-                                                    FAIL_PART_MSG_MAP.$fail_part_key ||
                                                     EVENT_MSG_MAP.$event_key ||
-                                                    l(hdata.hold_failed_event.desc) ||
+                                                    FAIL_PART_MSG_MAP.$fail_part_key ||
+                                                    (hdata.hold_failed_event.desc ? l(hdata.hold_failed_event.desc) : '') ||
                                                     hdata.hold_failed_event.payload.fail_part ||
                                                     hdata.hold_failed_event.textcode ||
                                                     (hdata.hold_local_alert ?

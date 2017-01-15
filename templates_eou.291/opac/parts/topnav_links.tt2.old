@@ -1,0 +1,9 @@
+<div id="gold-links-holder">
+    <div id="gold-links">
+        <div id="header-links">
+            <a class="header-links-left" href="http://catalog.library.eou.edu/">[% l('EOU Catalog Home') %]</a>
+            <a class="header-links-right" href="http://library.eou.edu/ask">[% l('Ask a Librarian') %]</a>
+            <a class="header-links-right" href="[% mkurl(ctx.opac_root _ '/myopac/main') %]">[% l('My Account') %]</a>
+        </div>
+    </div>
+</div>

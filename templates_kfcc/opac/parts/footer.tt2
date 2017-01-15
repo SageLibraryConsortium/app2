@@ -7,9 +7,9 @@
 	[% ELSE %]
     <a href="[% mkurl(ctx.opac_root _ '/home') %]">[% l('Catalog Home') %]</a> &nbsp;|&nbsp;
 	[% END %]
-    <a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a> &nbsp;|&nbsp;
-    <a href="http://kcc.sage.eou.edu">[% l('KCC Catalog Home') %]</a> &nbsp;|&nbsp;
-    <a href="http://www.klamathcc.edu/Campus/Learning-Resources-Center">KCC Learning Resources Homepage</a>
+    <a href="https://sagelib.org/aboutus">[% l('About Sage') %]</a> &nbsp;|&nbsp;
+    <a href="https://kcc.sage.eou.edu">[% l('KCC Catalog Home') %]</a> &nbsp;|&nbsp;
+    <a href="https://www.klamathcc.edu/Campus/Learning-Resources-Center">KCC Learning Resources Homepage</a>
     [% IF ctx.timing %]
     <div id="timing">
         [% FOR event IN ctx.timing %]

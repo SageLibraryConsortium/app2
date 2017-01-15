@@ -4,7 +4,7 @@
     <div class="col-md-3">
       <div class="input-group">
         <span class="input-group-addon">[% l('Show holdings at or below') %]</span>
-        <eg-org-selector selected="holdings_ou" onchange="holdings_ou_changed"></eg-org-selector>
+        <eg-org-selector selected="holdings_ou" onchange="holdings_ou_changed" sticky-setting="cat.holdings_view_ou"></eg-org-selector>
       </div>
     </div>
   </div>
@@ -39,6 +39,8 @@
       label="[% l('Request Items') %]"></eg-grid-action>
     <eg-grid-action handler="attach_to_peer_bib"
       label="[% l('Link as Conjoined to Previously Marked Bib Record') %]"></eg-grid-action>
+    <eg-grid-action handler="markLibAsVolTarget"
+      label="[% l('Choose Library for Volume/Copy Transfer Destination') %]"></eg-grid-action>
 
     <eg-grid-action handler="selectedHoldingsItemStatus" group="[% l('Show') %]"
       label="[% l('Item Status (list)') %]"></eg-grid-action>
@@ -53,7 +55,7 @@
       label="[% l('Item as Damaged') %]"></eg-grid-action>
     <eg-grid-action handler="selectedHoldingsMissing" group="[% l('Mark') %]"
       label="[% l('Item as Missing') %]"></eg-grid-action>
-    <eg-grid-action handler="markLibAsVolTarget" group="[% l('Mark') %]"
+    <eg-grid-action handler="markLibFromSelectedAsVolTarget" group="[% l('Mark') %]"
       label="[% l('Library as Volume Transfer Destination') %]"></eg-grid-action>
     <eg-grid-action handler="markVolAsItemTarget" group="[% l('Mark') %]" disabled="vols_not_shown"
       label="[% l('Volume as Item Transfer Destination') %]"></eg-grid-action>
@@ -79,8 +81,14 @@
     <eg-grid-action handler="selectedHoldingsVolCopyDelete" group="[% l('Delete') %]" disabled="copies_not_shown"
       label="[% l('Volumes and Copies') %]"></eg-grid-action>
 
-    <eg-grid-action handler="transferVolumes" group="[% l('Transfer') %]"
+    <eg-grid-action handler="transferVolumesToRecord" group="[% l('Transfer') %]"
+      label="[% l('Volumes to Previously Marked Record') %]"></eg-grid-action>
+    <eg-grid-action handler="transferVolumesToLibrary" group="[% l('Transfer') %]"
       label="[% l('Volumes to Previously Marked Library') %]"></eg-grid-action>
+    <eg-grid-action handler="transferVolumesToRecordAndLibrary" group="[% l('Transfer') %]"
+      label="[% l('Volumes to Previously Marked Record and Library') %]"></eg-grid-action>
+    <eg-grid-action handler="changeItemOwningLib" group="[% l('Transfer') %]"
+      label="[% l('Copies to Previously Marked Library') %]"></eg-grid-action>
     <eg-grid-action handler="transferItems" group="[% l('Transfer') %]"
       label="[% l('Items to Previously Marked Volume') %]"></eg-grid-action>
 
@@ -90,6 +98,19 @@
     <eg-grid-field label="[% l('Copy #') %]"          path="copy_number" flex="1" visible></eg-grid-field>
     <eg-grid-field label="[% l('Barcode') %]"         path="barcode" visible></eg-grid-field>
     <eg-grid-field label="[% l('Status') %]"          path="status.name" flex="1" visible></eg-grid-field>
+
+    <eg-grid-field label="[% l('Prefix') %]"                 path="call_number.prefix.label"></eg-grid-field>
+    <eg-grid-field label="[% l('Suffix') %]"                 path="call_number.suffix.label"></eg-grid-field>
+    <eg-grid-field label="[% l('Parts') %]"                  path="monograph_parts"></eg-grid-field>
+    <eg-grid-field label="[% l('Circulating Library') %]"    path="circ_lib.name"></eg-grid-field>
+    <eg-grid-field label="[% l('Price') %]"                  path="price"></eg-grid-field>
+    <eg-grid-field label="[% l('Circulation Modifier') %]"   path="circ_modifier"></eg-grid-field>
+    <eg-grid-field label="[% l('Copy ID') %]"                path="id"></eg-grid-field>
+    <eg-grid-field label="[% l('Circulate As MARC Type') %]" path="circ_as_type"></eg-grid-field>
+    <eg-grid-field label="[% l('Circulate') %]"              datatype="bool" path="circulate"></eg-grid-field>
+    <eg-grid-field label="[% l('Holdable') %]"               datatype="bool" path="holdable"></eg-grid-field>
+    <eg-grid-field label="[% l('Age-based Hold Protection') %]" path="age_protect.name"></eg-grid-field>
+    <eg-grid-field label="[% l('Reference') %]"              datatype="bool" path="ref"></eg-grid-field>
   
   </eg-grid>
 </div>

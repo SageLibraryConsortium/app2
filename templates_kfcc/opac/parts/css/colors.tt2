@@ -12,10 +12,10 @@
         text_greatnews = "green", # green
         text_invert = "#fff", # white
         text_match = "#c00", # deep red
-        primary = "#820024", # wine
-        primary_fade = "#820024", # wine
+        primary = "#79313f", # wine
+        primary_fade = "#864552", # lighter wine
         primary_offset = "FF9BB7", # lighter hue of wine
-        control = "#AFAFA7", # gray
+        control = "#9d9d96", # gray
         accent_light = "#ccc", #  grey (light)
         accent_lighter = "#ddd", #  grey (lighter)
         accent_lighter2 = "#d8d8d8", #  grey (lighter again)
@@ -32,6 +32,10 @@
         button_text_shadow = "#555555", # medium grey
         table_heading = "#d8d8d8", # grey-blue
         mobile_header_text = "#fff", # white
+	links = "#0971b2", #blue from klamathcc.edu
+	action_box_results = "rgba(106, 86, 135, 0.2)", # very light red
+	mobile_header = "initial",
+	mobile_header_text = "#fff"
     };
     
 %]

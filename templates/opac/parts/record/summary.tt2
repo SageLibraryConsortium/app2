@@ -77,12 +77,14 @@
             [%- IF ctx.refworks.enabled == 'true' %]
                 [%- INCLUDE 'opac/parts/record/refworks.tt2' %]
             [%- END %]
-            <div class="rdetail_aux_utils share_record">
-                <a href="[% mkurl('', {locg =>CGI.param('locg'), copy_depth =>CGI.param('copy_depth')}, 1) %]" class="no-dec">
-                     <img src="[% ctx.media_prefix %]/images/link.png" alt="[% l('Permalink') %]" />
-                     [% l('Permalink') %]
-                </a>
-            </div>
+			[% IF !ctx.is_staff %]
+				<div class="rdetail_aux_utils share_record">
+					<a href="[% mkurl('', {locg =>CGI.param('locg'), copy_depth =>CGI.param('copy_depth')}, 1) %]" class="no-dec">
+						 <img src="[% ctx.media_prefix %]/images/link.png" alt="[% l('Permalink') %]" />
+						 [% l('Permalink') %]
+					</a>
+				</div>
+			[% END %]
             [%- IF ctx.is_staff %]
             <div class="rdetail_aux_utils clear_addedcontent_cache">
                 <a href="[% ctx.media_prefix %]/opac/extras/ac/clearcache/all/r/[% ctx.bre_id | uri %]" class="no-dec" target="_blank">
@@ -310,6 +312,16 @@ IF num_uris > 0;
         [%-# Provide the 4-digit year, cleansed of '@' and other junk %]
         [%- IF attrs.copyrightYear -%]
             <meta property='copyrightYear' content='[% attrs.copyrightYear | html; %]'>
+        [%- END -%]
+        </span>
+    </li>
+    [%- END %]
+    [%- IF (ctx.badge_scores.size > 0) %]
+    <li id='rdetail_badges'>
+        <strong class='rdetail_label'>[% l("Badges:") %]</strong>
+        <ul>
+          [% FOR bscore IN ctx.badge_scores; %]
+            <li><strong>[% bscore.badge.name | html %]</strong>: [% bscore.score %] / 5.0</li>
         [%- END -%]
         </span>
     </li>

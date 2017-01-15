@@ -1,9 +1,8 @@
 <div id='oils-selfck-user-banner'></div>
 <div id='oils-selfck-logo-div'>
-<img class='oils-selfck-logo' name='logo' src='[% ctx.media_prefix %]/images/sage_self_check.png'/>
+    <img src='[% ctx.media_prefix %]/images/self_eg_logo.png'/>
 </div>
 <br/>
-Self-Check Station
 <br/>
 <div id='oils-selfck-scan-div'>
     <div id='oils-selfck-scan-text'></div>

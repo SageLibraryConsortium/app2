@@ -17,7 +17,7 @@
         [% ELSE %]
             <a href="[% mkurl(ctx.opac_root _ '/login').replace('^http:', 'https:') %]"><img src="[% ctx.media_prefix %]/images/kpac/login_btn.png"/></a>
         [% END %]
-        <a href=https://sagelib.org/help><img src="[% ctx.media_prefix %]/images/kpac/help_btn.png" alt="help" /></a>
+        <a href=http://sage.plinkit.org/web-forms/generic-contact-form><img src="[% ctx.media_prefix %]/images/kpac/help_btn.png" alt="help" /></a>
         <a href="javascript:window.print()"><img src="[% ctx.media_prefix %]/images/kpac/hp_print_btn.png" alt="print" /></a>
         <!--
         <a href="javascript:;"><img src="[% ctx.media_prefix %]/images/kpac/hp_text_size_btn.png" alt="text size" /></a>

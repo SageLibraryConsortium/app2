@@ -43,9 +43,7 @@
                     [%  FOR rec IN ctx.records;
                             attrs = {marc_xml => rec.marc_xml};
                             PROCESS get_marc_attrs args=attrs;
-                            IF CGI.param('detail_record_view')
-                                OR (show_more_details.default == 'true'
-                                OR show_more_details.default == 'hide');
+                            IF show_detail_view;
                                 attrs.title = attrs.title_extended;
                             END;
                             # note: rec.id refers to the record identifier, regardless
@@ -58,11 +56,11 @@
                                 ELSE;
                                     # for MR, bre_id refers to the master and in
                                     # this case, only, record
-                                    record_url = mkurl(ctx.opac_root _ '/record/' _ rec.bre_id);
+                                    record_url = mkurl(ctx.opac_root _ '/record/' _ rec.bre_id, { badges => rec.badges.join(',') });
                                 END;
                                 hold_type = 'M';
                             ELSE;
-                                record_url = mkurl(ctx.opac_root _ '/record/' _ rec.bre_id);
+                                record_url = mkurl(ctx.opac_root _ '/record/' _ rec.bre_id, { badges => rec.badges.join(',') });
                                 hold_type = 'T';
                             END;
                     -%]
@@ -146,9 +144,7 @@ END;
                                                             [% format.label | html %]
                                                         [% END %]
                                                     [%- END %]
-                                                    [%- UNLESS CGI.param('detail_record_view')
-                                                            OR (show_more_details.default == 'true'
-                                                            OR show_more_details.default == 'hide');
+                                                    [%- UNLESS show_detail_view;
                                                             IF attrs.pubdate;
                                                                 pubdate_clean = attrs.pubdate | html;
                                                                 l(" ([_1])", pubdate_clean);
@@ -159,6 +155,11 @@ END;
                                                         END
                                                     -%]
                                                     </div>
+                                                    [% IF rec.popularity > 0.0 %]
+                                                      <div>
+                                                        <span><strong>[% l('Popularity:') %]</strong> [% rec.popularity %] / 5.0</span>
+                                                      </div>
+                                                    [% END %]
                                                     <table 
                                                        role="presentation"
                                                        title="[% l('Record Holdings Summary') %]"
@@ -174,10 +175,7 @@ END;
                                                            [% END %]
                                                         [% END %]
 
-                                                        [%- IF CGI.param('detail_record_view')
-                                                            OR (show_more_details.default == 'true'
-                                                            OR show_more_details.default == 'hide');
-                                                        -%]
+                                                        [%- IF show_detail_view -%]
                                                         <!-- These fields are visible when viewing the results page in 'detailed' mode -->
                                                         [% UNLESS rec.mmr_id %]
                                                         <!-- Do not show publication-specific information on a metarecord search results page -->

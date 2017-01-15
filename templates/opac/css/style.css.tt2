@@ -832,6 +832,16 @@ div.result_table_utils_cont {
     
 }
 
+.myopac-hold-available {
+    color: [% css_colors.text_greatnews %];
+    font-weight: bold;
+}
+
+.myopac-hold-suspended {
+    color: [% css_colors.text_badnews %];
+    font-weight: bold;
+}
+
 #myopac_prefs_div .data_grid {
     border-collapse:collapse;
 }
@@ -903,7 +913,7 @@ div.result_table_utils_cont {
     /*padding-left:10px;*/
 }
 
-#acct_checked_main_header, #acct_holds_main_header, #acct_checked_hist_header, #acct_list_header, #acct_list_header_anon, #temp_list_holds, #acct_messages_main_header {
+#acct_checked_main_header, #acct_holds_main_header, #acct_checked_hist_header, #acct_holds_hist_header, #acct_list_header, #acct_list_header_anon, #temp_list_holds, #acct_messages_main_header {
     border-collapse: collapse;
 }
 
@@ -914,12 +924,12 @@ div.result_table_utils_cont {
 
 .hold_note_title { font-weight: bold; }
 
-#acct_checked_main_header td, #acct_holds_main_header td, #acct_checked_hist_header td, #acct_list_header td, #acct_list_header_anon td, #temp_list_holds td, #acct_messages_main_header td {
+#acct_checked_main_header td, #acct_holds_main_header td, #acct_checked_hist_header td, #acct_holds_hist_header td, #acct_list_header td, #acct_list_header_anon td, #temp_list_holds td, #acct_messages_main_header td {
     background: [% css_colors.accent_lighter2 %];
     padding: 10px;
 }
 
-#acct_checked_main_header th, #acct_holds_main_header th, #acct_checked_hist_header th, #acct_list_header th, #acct_list_header_anon th, #temp_list_holds th, #acct_messages_main_header th {
+#acct_checked_main_header th, #acct_holds_main_header th, #acct_checked_hist_header th, acct_holds_hist_header th, #acct_list_header th, #acct_list_header_anon th, #temp_list_holds th, #acct_messages_main_header th {
     text-align: left;
     padding: 0px 10px 0px 10px;
 }
@@ -1221,7 +1231,7 @@ a.dash-link:hover { text-decoration: underline !important; }
 .unread-patron-message { font-weight: bold; }
 
 #hold-items-list td { padding: 5px; margin-bottom: 20px; }
-.hold-items-list-title {
+.hold-items-list-title { 
   font-size: [% css_fonts.size_bigger %];
   margin-bottom: 20px;
 }
@@ -1768,7 +1778,7 @@ a.preflib_change {
     }
     #acct_tabs, #acct_prefs_tabs {
          display:none;
-    }
+     }
     .radio-parts-selection { width: 90%; }
 }
 
@@ -2012,10 +2022,10 @@ a.preflib_change {
         border-bottom: none;
     }
         /* Force table to not be like tables anymore */
-        table#acct_checked_main_header thead tr th {
+        table#acct_checked_main_header thead tr th, table#acct_holds_main_header thead tr th, table#acct_checked_hist_header thead tr th, #acct_holds_hist_header thead tr th {
                 display: block;
         }
-        table#acct_checked_main_header tbody tr td {
+        table#acct_checked_main_header tbody tr td, table#acct_holds_main_header tbody tr td, table#acct_checked_hist_header tbody tr td, #acct_holds_hist_header tbody tr td {
                 display: block;
         }
 
@@ -2026,9 +2036,19 @@ a.preflib_change {
                 left: -9999px;
         }
 
-        table#acct_checked_main_header tr { border: 1px solid #ddd; }
+        table#acct_checked_main_header, table#acct_holds_main_header, table#acct_checked_hist_header, #acct_holds_hist_header {
+                width: 90%;
+        }
 
-        table#acct_checked_main_header td {
+        table#acct_checked_main_header tr, table#acct_holds_main_header tr, table#acct_checked_hist_header tr { border: 1px solid #ddd; }
+
+        /* Holds history gets large white border to mimic header cell on other
+           account screens that provide visual cue for next title */
+
+        table#acct_holds_hist_header tr { border-top: 25px solid #fff; }
+
+
+        table#acct_checked_main_header td, table#acct_holds_main_header td, table#acct_checked_hist_header td, #acct_holds_hist_header td {
                 /* Behave  like a "row" */
                 border: none;
                 border-bottom: 1px solid #eee;
@@ -2036,10 +2056,11 @@ a.preflib_change {
                 padding-left: 40%;
         }
 
-        table#acct_checked_main_header td:before {
+         table#acct_checked_main_header td:before, table#acct_holds_main_header td:before, table#acct_checked_hist_header td:before, #acct_holds_hist_header td_before {
                 /* Now like a table header */
                 position: absolute;
                 /* Top/left values mimic padding */
+                top: 2px;
                 left: 2px;
                 width: 40%;
                 padding-right: 10px;
@@ -2047,48 +2068,37 @@ a.preflib_change {
         }
 
         table#acct_checked_main_header td:nth-of-type(1) { border-top: 5px solid #aaa; padding-top: 15px; background-color: #fff;}
-        table#acct_checked_main_header td:nth-of-type(2):before { content: "[% l('Title / Author') %]";}
-        table#acct_checked_main_header td:nth-of-type(3):before { content: "[% l('Renewals Left') %]"; }
-        table#acct_checked_main_header td:nth-of-type(4):before { content: "[% l('Due Date') %]"; }
-        table#acct_checked_main_header td:nth-of-type(5):before { content: "[% l('Barcode') %]"; }
-        table#acct_checked_main_header td:nth-of-type(6):before { content: "[% l('Call number') %]"; }
+        table#acct_checked_main_header td:nth-of-type(2):before { content: "[% l('Title') %]";}
+        table#acct_checked_main_header td:nth-of-type(3):before { content: "[% l('Author') %]"; }
+        table#acct_checked_main_header td:nth-of-type(4):before { content: "[% l('Renewals Left') %]"; }
+        table#acct_checked_main_header td:nth-of-type(5):before { content: "[% l('Due Date') %]"; }
+        table#acct_checked_main_header td:nth-of-type(6):before { content: "[% l('Barcode') %]"; }
+        table#acct_checked_main_header td:nth-of-type(7):before { content: "[% l('Call number') %]"; }
 
-        table#acct_holds_main_header thead tr th {
-                display: block;
-        }
-        table#acct_holds_main_header tbody tr td {
-                display: block;
-        }
-
-        table#acct_holds_main_header td {
-                /* Behave  like a "row" */
-                border: none;
-                border-bottom: 1px solid #eee;
-                position: relative;
-                padding-left: 40%;
-        }
-
-
-        table#acct_holds_main_header td:before {
-                /* Now like a table header */
-                position: absolute;
-                /* Top/left values mimic padding */
-                left: 2px;
-                width: 40%;
-                padding-right: 10px;
-                white-space: nowrap;
-        }
+     table#acct_checked_hist_header td:nth-of-type(1) { border-top: 5px solid #aaa; padding-top: 15px; background-color: #fff;}
+        table#acct_checked_hist_header td:nth-of-type(2):before { content: "[% l('Title') %]";}
+        table#acct_checked_hist_header td:nth-of-type(3):before { content: "[% l('Author') %]"; }
+        table#acct_checked_hist_header td:nth-of-type(4):before { content: "[% l('Checkout Date') %]"; }
+        table#acct_checked_hist_header td:nth-of-type(5):before { content: "[% l('Due Date') %]"; }
+        table#acct_checked_hist_header td:nth-of-type(6):before { content: "[% l('Date Returned') %]"; }
+        table#acct_checked_hist_header td:nth-of-type(7):before { content: "[% l('Barcode') %]"; }
+        table#acct_checked_hist_header td:nth-of-type(8):before { content: "[% l('Call number') %]"; }
 
         table#acct_holds_main_header td:nth-of-type(1) { border-top: 5px solid #aaa; padding-top: 15px; background-color: #fff;}
         table#acct_holds_main_header td:nth-of-type(2):before { content: "[% l('Title') %]";}
         table#acct_holds_main_header td:nth-of-type(3):before { content: "[% l('Author') %]"; }
         table#acct_holds_main_header td:nth-of-type(4):before { content: "[% l('Format') %]"; }
         table#acct_holds_main_header td:nth-of-type(5):before { content: "[% l('Pickup Location') %]"; }
-        table#acct_holds_main_header td:nth-of-type(6):before { content: "[% l('Activate') %]"; }
-        table#acct_holds_main_header td:nth-of-type(7):before { content: "[% l('Cancel on') %]"; }
-        table#acct_holds_main_header td:nth-of-type(8):before { content: "[% l('Active') %]"; }
-        table#acct_holds_main_header td:nth-of-type(9):before { content: "[% l('Status') %]"; }
+        table#acct_holds_main_header td:nth-of-type(6):before { content: "[% l('Cancel on') %]"; }
+        table#acct_holds_main_header td:nth-of-type(7):before { content: "[% l('Status') %]"; }
         table#acct_holds_main_header td.hold_notes:before { content: "[% l('Notes') %]"; }
+
+        table#acct_holds_hist_header td:nth-of-type(1):before { content: "[% l('Title') %]";}
+        table#acct_holds_hist_header td:nth-of-type(2):before { content: "[% l('Author') %]"; }
+        table#acct_holds_hist_header td:nth-of-type(3):before { content: "[% l('Format') %]"; }
+        table#acct_holds_hist_header td:nth-of-type(4):before { content: "[% l('Pickup Location') %]"; }
+        table#acct_holds_hist_header td:nth-of-type(8):before { content: "[% l('Status') %]"; }
+
 
        /*Want to see these in mobile ONLY */
        .mobile_view{
@@ -2122,9 +2132,19 @@ label[for*=expert_]
 {
     font-weight: bold;
 }  
-} 
 
 .sort_deemphasize {
     font-weight: lighter;
     font-size: 70%;
+}
+
+#results-page-depth-hint {
+    text-align: center;
+    font-style: italic;
+}
+
+#clear-history-confirm {
+  font-weight: bold;
+  color: [% css_colors.text_badnews %]; 
+  padding: 10px;
 }

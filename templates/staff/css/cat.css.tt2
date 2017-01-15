@@ -3,8 +3,17 @@
     color: red;
 }
 
+.target-record-aside {
+    font-size: 80%;
+    font-style: italic;
+}
+
 .marcrecord {
     //background-color: #f5f5f5;
+}
+
+.marcflateditor {
+    max-width: 100%;
 }
 
 .marcfastitemadd, .marctypesource {
@@ -19,12 +28,21 @@
     margin: 0px;
 }
 
+.marcedit_stacked_subfield {
+    display: block;
+    margin-left: 3em;
+}
+
 input.marcedit:focus {
     background-color: lightcyan;
 }
 
 .marcffeditor {
     max-width: 800px;
+}
+
+.fixed-field-box {
+    border: 1px solid gray;
 }
 
 .marcsfvalue {
@@ -74,6 +92,11 @@ input.marcedit:focus {
 
 .marcSubfield {
     min-width: 1em;
+}
+
+.active-physchar {
+    font-weight: bold;
+    color: red;
 }
 
 .tooltip {
@@ -164,3 +187,13 @@ grid[name="-none-"] * label { color: black; }
 .marc_tag_row {
     word-break: break-word;
 }
+
+/*
+ * Volume / Copy Editor Styles
+ * /
+
+/* Wrapping in bootstrap style can separate radio buttons from their labels. */
+.col-xs-3 {
+    white-space: nowrap;
+}
+

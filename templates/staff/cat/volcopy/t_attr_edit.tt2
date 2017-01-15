@@ -19,8 +19,15 @@
                 </div>
                 <div class="col-md-8">
                     <div class="btn-group pull-right">
-                        <label class="btn btn-default" ng-click="importTemplates()">[% l('Import') %]</label>
-                        <label class="btn btn-default" ng-click="exportTemplates()">[% l('Export') %]</label>
+                        <span class="btn btn-default btn-file">
+                            [% l('Import') %]
+                            <input type="file" eg-file-reader container="imported_templates.data">
+                        </span>
+                        <label class="btn btn-default"
+                            eg-json-exporter container="templates"
+                            default-file-name="'[% l('exported_copy_templates.json') %]'">
+                            [% l('Export') %]
+                        </label>
                     </div>
                 </div>
             </div>
@@ -83,7 +90,7 @@
             <b>[% l('Status') %]</b>
         </div>
         <div class="col-md-4">
-            <b>[% l('Statistical Catagories') %]</b>
+            <b>[% l('Statistical Categories') %]</b>
         </div>
     </div>
 
@@ -132,7 +139,7 @@
                         selected="working.circ_lib"
                         noDefault
                         label="[% l('(Unset)') %]"
-                        disableTest="cant_have_vols"
+                        disable-test="cant_have_vols"
                     ></eg-org-selector>
                 </div>
                 <div class="col-md-6" ng-class="{'bg-success': working.ref !== undefined}">
@@ -221,7 +228,7 @@
                     <b>[% l('Loan Duration') %]</b>
                 </div>
                 <div class="col-md-6">
-                    <b>[% l('Cost') %]</b>
+                    <b>[% l('Acquisition Cost') %]</b>
                 </div>
             </div>
 
@@ -370,6 +377,23 @@
                     </button>
                 </div>
             </div>
+
+            <div class="row pad-vert"></div>
+
+            <div class="row bg-info">
+                <div class="col-md-6">
+                    <b>[% l('Floating') %]</b>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6" ng-class="{'bg-success': working.floating !== undefined}">
+                    <select class="form-control"
+                        ng-disabled="!defaults.attributes.floating" ng-model="working.floating"
+                        ng-options="a.id() as a.name() for a in floating_list"
+                    ></select>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-4">
@@ -385,7 +409,7 @@
 
             <div class="row pad-vert"></div>
 
-            <div class="row" ng-repeat="sc in statcats">
+            <div class="row" ng-repeat="sc in statcats" ng-show="statcat_visible(sc.owner().id())">
                 <div class="col-xs-12">
                     <div class="row bg-info">
                         <div class="col-xs-12">

@@ -1,10 +1,19 @@
 <div id="gold-links-holder">
-    <div id="gold-links">
-        <div id="header-links">
-            <span class="opac-button-goldlinks"><a class="header-links-left" href="http://bmcc.sage.eou.edu/">[% l('BMCC Catalog Home') %]</a></span>
-            <span class="opac-button-goldlinks"><a class="header-links-right"href="http://proxy.bluecc.edu:2048/login?url=http://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s9004578&profile=ehost&defaultdb=e000xna">BMCC E-Books Collection</a></span>
-            <span class="opac-button-goldlinks"><a class="header-links-right" href="http://www.bluecc.edu/library/">[% l('BMCC Library Home Page') %]</a></span>
-            <span class="opac-button-goldlinks"><a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a></span>
-        </div>
-    </div>
+ <ul id="header-links">
+<li><a href="[% mkurl(ctx.opac_root _ '/home') %]">[% l('BMCC Catalog Home') %]</a></li>
+<li><a href="http://proxy.bluecc.edu:2048/login?url=http://search.ebscohost.com/login.aspx?authtype=ip,cpid&custid=s9004578&profile=ehost&defaultdb=e000xna">[% l('BMCC E-Books Collection') %]</a></li>
+<li><a href="https://www.bluecc.edu/library/">[% l('BMCC Library Home Page') %]</a>
+<li><a href="http://sagelib.org/new-items/new-items-lists">[% l('New Title Lists (soon)') %]</a></li>
+	[% IF ctx.get_org_setting(ctx.physical_loc || ctx.aou_tree.id, 'opac.allow_pending_user') %]
+	<li><a href="[% mkurl(ctx.opac_root _ '/register') %]">[% l('Request Library Card') %]</a></li>
+	[% END %]
+<li class="sage-dropdown">
+<a href="#" class="dropbutton">About Sage</a>
+<div class="sagedropdown-bits">
+<a href="http://batchgeo.com/map/d325cffa95d06f3d90a408592a00e3c7" target="_blank">[% l('Sage Member Map') %]</a>
+<a href="http://sagelib.org/help" target="_blank">[% l('Need Help?') %]</a>
+<a href="http://sagelib.org/about-us" target="_blank">[% l('About Sage') %]</a>
+</li>
+</div>
+ </ul>
 </div>

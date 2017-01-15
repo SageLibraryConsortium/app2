@@ -41,7 +41,7 @@ END;
             <th scope='col'>[% l("Barcode") %]</th>
             <th scope='col'>[% l("Shelving Location") %]</th>
             [%- IF ctx.is_staff %]
-            <th scope='col'>[% l("Age Hold Protection") %]</th>
+            <th scope='col'>[% l("Age Protect") %] / <br> [% l("Expires") %]</th>
             <th scope='col'>[% l("Create Date") %]</th>
             [%- END %]
             [%- IF ctx.is_staff OR serial_holdings %]
@@ -110,12 +110,7 @@ END; # FOREACH bib
                     [% IF ctx.has_perm('UPDATE_COPY', copy_info.circ_lib) 
                         OR ctx.has_perm('UPDATE_COPY', copy_info.call_number_owning_lib) %]
                         <span> | </span>
-                        <!-- XXX: copy edit is not yet supported in browser client.
-                          Enable this link when available
-                        -->
-                        <!--
-                        <a href="[% ctx.base_path %]/staff/cat/item/[% copy_info.id %]/edit">[% l('edit') %]</a>
-                        -->
+			<a target="_blank" href="[% ctx.base_path %]/staff/cat/item/[% copy_info.id %]/edit">[% l('edit') %]</a>
                     [% END %]
                   [% ELSE %]
                     <a onclick="xulG.new_tab(xulG.urls.XUL_COPY_STATUS, {}, {'from_item_details_new': true, 'barcodes': ['[%- copy_info.barcode | html | replace('\'', '\\\'') -%]']})"
@@ -136,10 +131,40 @@ END; # FOREACH bib
                 END; -%]
             </td>
             <td property="availableAtOrFrom">[% copy_info.copy_location | html %]</td>
+           [%- IF copy_info.age_protect AND copy_info.create_date;
+                  create_date = date.format(ctx.parse_datetime(copy_info.create_date), "%Y%m%d");
+                  today = date.format(date.now, "%Y%m%d");
+
+                  age_protect_age = ctx.get_crahp(copy_info.age_protect).age;
+
+                  manip = date.manip;
+                  expire_date = manip.DateCalc(create_date, age_protect_age.replace('mons', 'months')); 
+                  expire_date_format = manip.UnixDate(expire_date, DATE_FORMAT);
+                  expire_date = manip.UnixDate(expire_date, "%Y%m%d");
+
+                  expire_msg = '';
+                  age_protect_is_active = 0;
+   
+                  IF today > expire_date;
+                    date_color = 'green';
+                    age_protect = l('Expired');
+                  ELSE;
+                    date_color = 'orange';
+                    age_protect = l('Active');
+                    expire_msg = expire_date_format;
+                    age_protect_is_active = 1;
+                  END ;
+                ELSE;
+                  date_color = 'black';
+                  age_protect = l('None'); 
+                  expire_msg = '-';
+                  age_protect_is_active = 0;
+                END;
+            %]
             [%- IF ctx.is_staff %]
-            <td>
-                [% copy_info.age_protect ?
-                    ctx.get_crahp(copy_info.age_protect).name : l('None') | html %]
+            <td style='color:[% date_color | html %];'>
+                [% age_protect  | html %] <br />
+                [% expire_msg  | html %] 
             </td>
             <td>[% 
                 IF copy_info.create_date;
@@ -213,12 +238,19 @@ END; # FOREACH bib
                     );
                 ELSE;
                     '-';
-                END %]</td>
+                END %]
+            </td>
         </tr>
+        [%- IF age_protect_is_active AND !ctx.is_staff %]
+        <tr class="copy_details_offers_row age_protect_row" style="margin-top:0;">
+          <td></td>
+          <td class='age_protect' colspan='3'>This copy is new and can only be picked up at this library.</td>
+        </tr>
+        [%- END %]
 
         [% IF copy_info.notes; %]
             [% FOREACH note IN copy_info.notes; %]
-                <tr><td>&nbsp;</td><td class="copy_note" colspan="4" property="description"><strong>[% note.title | html %]:</strong> [% note.value | html %]</td></tr>
+                <tr><td class='mobile_hide'>&nbsp;</td><td class="copy_note" colspan="4" property="description"><strong>[% note.title | html %]:</strong> [% note.value | html %]</td></tr>
             [% END %]
         [% END %]
 
@@ -266,12 +298,12 @@ END; # FOREACH bib
                 [%- more_copies_limit = 50 %] [%# TODO: config %]
                 [%- IF  ctx.copy_limit != more_copies_limit AND copies.size >= ctx.copy_limit %]
                     <div class="rdetail_show_copies">
-                        <img src="[% ctx.media_prefix %]/images/plus_sign.png" alt="[% l('Show more copies icon') %]"/>
+			<i class="fa fa-plus-square faicons" aria-hidden="true" alt="[% l('Show more copies icon') %]"></i>
                         <a href="[% mkurl('', {copy_limit => more_copies_limit, copy_offset => 0}) %]">[% l('Show more copies') %]</a>
                     </div>
                 [%- ELSIF ctx.copy_limit == more_copies_limit %]
                     <div  class="rdetail_show_copies">
-                        <img src="[% ctx.media_prefix %]/images/minus_sign.png" alt="[% l('Show fewer copies icon') %]"/>
+			<i class="fa fa-minus-square faicons" aria-hidden="true" alt="[% l('Show fewer copies icon') %]"></i>
                         <a href="[% mkurl('', {copy_limit => 0, copy_offset => 0}) %]">[% l('Show fewer copies') %]</a>
                     </div>
                 [%- END %]

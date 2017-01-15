@@ -1,4 +1,4 @@
-<div id="carousels">
+<div id="carousels" class="mobile_hide">
 
 </div>
 <script language='javascript' src='/opac/common/js/utils.js'> </script>
@@ -27,7 +27,7 @@ bbags = [1383951];
 
 
 <div class='hide_me' id='hidden_bb_info'>
-  
+	
 </div>
 
 

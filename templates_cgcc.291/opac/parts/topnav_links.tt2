@@ -1,0 +1,11 @@
+<div id="gold-links-holder">
+    <div id="gold-links">
+        <div id="header-links">
+            <span class="opac-button-goldlinks"><a href="http://cgcc.sage.eou.edu/eg/opac/home?locg=176">[% l('Catalog Home') %]</a></span>
+            <span class="opac-button-goldlinks"><a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a></span>
+            <span class="opac-button-goldlinks"><a href="http://www.cgcc.edu/library">[% l('CGCC Library Home') %]</a></span>
+            <span class="opac-button-goldlinks"><a href="http://www.cgcc.edu/library/contact">[% l('Contact Us @ CGCC Library') %]</a></span>
+            <span class="opac-button-goldlinks"><a href="http://catalog.sage.eou.edu/opac/extras/browse/html-full/item-age/CGCC">[% l('Newly Added Titles') %]</a></span>
+        </div>
+    </div>
+</div>

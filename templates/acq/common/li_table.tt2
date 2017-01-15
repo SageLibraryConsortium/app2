@@ -3,9 +3,9 @@
 <script type="text/javascript" src='[% ctx.media_prefix %]/js/ui/default/acq/common/li_table.js'> </script>
 <script type="text/javascript" src='[% ctx.media_prefix %]/js/ui/default/acq/financial/claim_voucher.js'> </script>
 <div id='acq-lit-table-container'>
-    <div id='acq-lit-table-div' class='hidden'>
 
-        <!-- Line Item (bib record) list -->
+    <div> <!-- Container for actions selector and paging controls.
+           This container and the actions selector are always visible -->
         <div style="float: left;">
             <span>
                 <select id="acq-lit-li-actions-selector">
@@ -61,7 +61,8 @@
             </div>
         </div>
         <div style="clear: both;">&nbsp;</div><!-- XXX better way to end effects of float: left/right ? -->
-
+    </div>
+    <div id='acq-lit-table-div' class='hidden'>
         <table id="acq-batch-update" class="hidden"><!-- XXX freeze in place w/ CSS? -->
             <tr>
                 <th>
@@ -186,6 +187,7 @@
                                         <span name="claim_policy" class="hidden"> | [% l("claim policy:") %] <span name="claim_policy_name"></span></span>
                                         <span name='pro' class='hidden'> | <a title='[% l('Provider') %]' name='pro_link' href='javascript:void(0);'>&#x235F; </a></span>
                                         <span name='queue' class='hidden'> | <a title='[% l('Import Queue') %]' name='queue_link' href='javascript:void(0);'>[% l('&#x27AC; queue') %]</a></span>
+                                        <span name='paid' class='hidden'> | <span class="acq-existing-count-warn">[% l('Paid') %]</span></span>
                                     </td>
                                 </tr>
                             </tbody>

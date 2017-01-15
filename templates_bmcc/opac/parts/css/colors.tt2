@@ -13,7 +13,7 @@
         text_invert = "#fff", # white
         text_match = "#c00", # deep red
         primary = "#041464", # dark blue
-        primary_fade = "#041464", # medium blue
+        primary_fade = "#2956a1", # blue from website
         primary_offset = "#B7C2FC", # light blue
         control = "#A47B26", # gold
         accent_light = "#ccc", #  grey (light)
@@ -32,6 +32,10 @@
         button_text_shadow = "#555555", # medium grey
         table_heading = "#d8d8d8", # grey-blue
         mobile_header_text = "#fff", # white
+	links = "#67561d" # muted gold
+	action_box_results = "rgba(41, 86, 161, 0.2)", # very light blue
+	mobile_header = "initial",
+	mobile_header_text = "#fff"
     };
     
 %]

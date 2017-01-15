@@ -23,6 +23,61 @@
     <div class="facet_sidebar_hidden" id="facet_sidebar">
     <h3 class="sr-only">[% l('Saved Searches') %]</h3>
     [% INCLUDE "opac/parts/staff_saved_searches.tt2" %]
+    <div class="facet_box_wrapper">
+    <div class="facet_box_temp">
+        <div class="header">
+            <h4 class="title">Search Result Options</h4>
+        </div>
+        <div class="box_wrapper">
+            <div class="box">
+                <form action="[% ctx.opac_root %]/results" method="get">
+                    <div class="hidden">
+                        [% INCLUDE "opac/parts/searchbar.tt2" took_care_of_form=1 %]
+                    </div>
+                    <label class="results_header_lbl" for="opac.result.sort">
+                    [% INCLUDE "opac/parts/filtersort.tt2" value=CGI.param('sort') submit_on_change=1 %]
+                    </label><br class="clear-both" /><hr>
+                    <label class="search_options_lbl" for="limit_to_available" title="[% l('Only show items in an Available status') %]">
+                        <input type="checkbox" id="limit_to_available" name="modifier" value="available"
+                            onchange="search_modifier_onchange('available', this, true)"
+                            [% CGI.param('modifier').grep('available').size ? ' checked="checked"' : '' %] />
+                        [% l('Limit to Available Items') %]
+                    </label><br>
+                    [% IF NOT metarecords.disabled %]
+                        <label class="search_options_lbl" for="metabib_search_modifier" title="[% l('Group multiple formats and editions of the same title together in the result set') %]">
+                            <input type="checkbox" id="metabib_search_modifier"
+                                name="modifier" value="metabib"
+                                onchange="search_modifier_onchange('metabib', this, true)"
+                                [% CGI.param('modifier').grep('metabib').size ? ' checked="checked"' : '' %] />
+                            [% l('Group Formats and Editions') %]
+                        </label><br>
+                    [% END %]
+                     <label class="search_options_lbl" for='opac_result_excludeelec' title="[% l('Exclude Electronic Records from your result set') %]">
+                         <input type='checkbox' name="fi:-search_format" value="electronic"
+                             onchange="search_modifier_onchange('available', this, true)"
+                             [%- CGI.param('fi:-search_format').grep('electronic').size ? ' checked="checked"' : '' %]
+                             id='opac_result_excludeelec' />
+                         [% l("Exclude Electronic Resources") %]
+                     </label>
+		     <br>
+                    [% IF loc_value != 1 %]
+                    <label class="search_options_lbl" for="depth_zero" title="[% l('Select this option to expand your results to all libraries while retaining the priority of your selected library\'s holdings.') %]">
+                        <input type="checkbox" id="depth_zero" name="depth" value="0"
+                            onchange="this.form.submit()"
+                            [% CGI.param('depth') == '0' ? ' checked="checked"' : '' %] />
+                        [% l('Show Results from All Libraries') %]
+                    </label><br>
+                    [% END %]
+                    [% IF CGI.param('detail_record_view') %]
+                        <input type="hidden" name="detail_record_view" value="1" />
+                    [% END %]
+                     </label>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
     <h3 class="sr-only">[% l('Search Results facets') %]</h3>
     [% INCLUDE 'opac/parts/result/facets.tt2' %]
     <h3 class="sr-only">[% l('Search Results List') %]</h3>
@@ -55,11 +110,11 @@
                                 ELSE;
                                     # for MR, bre_id refers to the master and in
                                     # this case, only, record
-                                    record_url = mkurl(ctx.opac_root _ '/record/' _ rec.bre_id);
+				record_url = mkurl(ctx.opac_root _ '/record/' _ rec.bre_id, { badges => rec.badges.join(',') });
                                 END;
                                 hold_type = 'M';
                             ELSE;
-                                record_url = mkurl(ctx.opac_root _ '/record/' _ rec.bre_id);
+				record_url = mkurl(ctx.opac_root _ '/record/' _ rec.bre_id, { badges => rec.badges.join(',') });
                                 hold_type = 'T';
                             END;
                     -%]
@@ -83,6 +138,19 @@
                                                       title='tag:[% ctx.hostname %],[% date.format(date.now, '%Y') %]:biblio-record_entry/[% rec.bre_id %]'>
                                                     </abbr>
                                                     [% END %]
+                                                    [%- IF attrs.format_label;
+							 format_seen = {}; %]
+                                                    [% FOR format IN attrs.all_formats %]
+							[% label = format.label; %]
+							[%- IF NOT format_seen.exists(label); %]
+                                                     <img title="[% format.label | html %]"
+                                                       alt="[% format.label | html %]"
+                                                       class="format_icon"
+                                                       src="[% format.icon %]" />
+						     [% format_seen.$label = label; %]
+						     [% END %]
+                                                                [% END %]
+                                                        [% END %]
                                                     <a class='record_title search_link' name='record_[% rec.id %]'
                                                         href="[% record_url %]"
                                                         [% html_text_attr('title', l('Display record details for "[_1]"', attrs.title)) %]>
@@ -135,7 +203,6 @@ END;
 
                                                     </div>
                                                     <div class='result_table_title_cell'>
-                                                    
                                                     [%- UNLESS CGI.param('detail_record_view')
                                                             OR (show_more_details.default == 'true'
                                                             OR show_more_details.default == 'hide');
@@ -149,6 +216,11 @@ END;
                                                         END
                                                     -%]
                                                     </div>
+						    [% IF rec.popularity > 0.0 %]
+                                                      <div>
+                                                        <span><strong>[% l('Popularity:') %]</strong> [% rec.popularity %] / 5.0</span>
+                                                      </div>
+                                                    [% END %]
                                                     <table 
                                                        role="presentation"
                                                        title="[% l('Record Holdings Summary') %]"
@@ -361,14 +433,6 @@ END;
                                                 </div>
                                                 <div class="result_table_utils_cont">
                                                     <div class="result_table_utils">
-                                                [%- IF attrs.format_label; %]
-                                                   [% FOR format IN attrs.all_formats %]
-                                                     <img title="[% format.label | html %]"
-                                                       alt="[% format.label | html %]" class="format_icon"
-                                                       src="[% format.icon %]" />
-                                                    
-                                                   [% END %]
-                                                [%- END %]
 [%- search_ou = ctx.search_ou;
     num_holdable_copies = attrs.marc_xml.findnodes('//*[local-name()="holdings" and @has_holdable="true"]').size || 0;
     IF ctx.place_unfillable ||
@@ -376,7 +440,8 @@ END;
             && (ctx.holds_block.enabled != 'true' || attrs.org_copy_counts.$search_ou.available == 0)
         )
 %]
-                                                        <div class="results_aux_utils place_hold center_box"><a
+							<div class="result_actions">
+                                                        <div class="results_aux_utils place_hold"><a
                                                                 href="[% mkurl(ctx.opac_root _ '/place_hold',
                                                                     {hold_target => rec.id, hold_type => hold_type, 
                                                                       hold_source_page => mkurl()}, ['query','tag','subfield','term','_special','sort','page']) %]"
@@ -386,7 +451,7 @@ END;
                                                                 alt=""/><span class="result_place_hold">[% l('Place Hold') %]</span></a>
                                                         </div>
 [%- END -%]
-                                                        <div class="results_aux_utils result_util center_box">
+                                                        <div class="results_aux_utils result_util">
                                                             [%  IF ctx.user;
                                                                 INCLUDE "opac/parts/bookbag_actions.tt2";
                                                             %]
@@ -443,6 +508,7 @@ END;
                     </tbody>
                 </table>
             </div>
+		</div>
 </div>
 <div class="result_footer_nav1">
     [% ctx.results_count_header %]

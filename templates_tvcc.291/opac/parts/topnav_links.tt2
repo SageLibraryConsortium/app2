@@ -1,0 +1,10 @@
+<div id="gold-links-holder">
+    <div id="gold-links">
+        <div id="header-links">
+            <span class="opac-button-goldlinks"><a class="header-links-left" href="http://tvcc.sage.eou.edu/">[% l('TVCC Catalog Home') %]</a></span>
+            <span class="opac-button-goldlinks"><a class="header-links-right" href="http://www.tvcc.cc/current/library/ask_librarian.cfm">[% l('Ask a Librarian') %]</a></span>
+            <span class="opac-button-goldlinks"><a class="header-links-right" href="http://www.tvcc.cc/current/library/">[% l('TVCC Library Home Page') %]</a></span>
+            <span class="opac-button-goldlinks"><a href="http://sagelib.org/aboutus">[% l('About Sage') %]</a></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+                    <![if gt IE 7]>
+                    <div class="like_share">
+                        [% 
+                            ctx.og_url = mkurl(ctx.base_url _ ctx.full_path, {}, 1); 
+                            ctx.summary = attrs.summary;
+                            ctx.image_url = mkurl('http://' _ ctx.hostname _ '/opac/extras/ac/jacket/medium/r/' _ ctx.bre_id, {}, 1); 
+                            ctx.image_url_secure = mkurl('https://' _ ctx.hostname _ '/opac/extras/ac/jacket/medium/r/' _ ctx.bre_id, {}, 1);    
+                        %]
+
+                        <div class="bottom-spacer pinit-spacer">
+                            <a href="//www.pinterest.com/pin/create/button/?url=[% ctx.og_url | uri %]&media=[% ctx.image_url | uri %]&description=[% ctx.page_title | uri %]" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+                        </div>
+                        <script type="text/javascript" async src="https://assets.pinterest.com/js/pinit.js"></script>
+                        
+                        [%- IF not ctx.is_staff %]
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                              var js, fjs = d.getElementsByTagName(s)[0];
+                              if (d.getElementById(id)) return;
+                              js = d.createElement(s); js.id = id;
+                              js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1";
+                              fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script> 
+                        <div class="bottom-spacer">
+                            <div class="fb-like" data-href="[% ctx.og_url %]" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                        </div>                            
+                        [%- END %]
+                        
+                        <div class="bottom-spacer tweet-spacer">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="[% ctx.og_url %]" data-text="[% ctx.page_title | uri %]">Tweet</a>
+                        </div>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>                      
+                    </div>
+                    <![endif]>

@@ -12,8 +12,8 @@
         text_greatnews = "green", # green
         text_invert = "#fff", # white
         text_match = "#c00", # deep red
-        primary = "#003873", # blue
-        primary_fade = "#003873", # blue
+        primary = "#354c7c", # blue
+        primary_fade = "#1F396E", # blue
         primary_offset = "#59AAFF", # lighter hue of blue
         control = "#F07A00", # orange
         accent_light = "#ccc", #  grey (light)
@@ -32,6 +32,10 @@
         button_text_shadow = "#555555", # medium grey
         table_heading = "#d8d8d8", # grey-blue
         mobile_header_text = "#fff", # white
+	links = "#354c7c",
+	action_box_results = "rgba(31, 57, 110, 0.2)", # very light blue
+	mobile_header = "initial",
+	mobile_header_text = "#fff"
     };
     
 %]

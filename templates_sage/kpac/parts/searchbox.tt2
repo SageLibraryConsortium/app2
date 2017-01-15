@@ -43,27 +43,6 @@
         %]
         <span>
     </div>
-<div class="hr">&nbsp;</div>
-<!-- Item Type Filter -->
-<div class="sub_search_category">
-        <label id="search_itype_label" for="search_itype_selector">
-        [%-
-            IF search.basic_config.type == 'attr';
-                INCLUDE "opac/parts/coded_value_selector.tt2"
-                    attr=search.basic_config.group none_ok=1
-                    id='search_itype_selector'
-                    class='search_category'
-                    none_label=search.basic_config.none_label;
-            ELSIF search.basic_config.type == 'filter';
-                INCLUDE "opac/parts/filter_group_selector.tt2"
-                    filter_group=search.basic_config.group none_ok=1
-                    id='search_itype_selector'
-                    class='search_category'
-                    none_label=search.basic_config.none_label;
-            END;
-        -%]
-        </label>
-</div>
     <div class="hr">&nbsp;</div>
 <span>Showing Results For:<span>
 <div class="sub_search_category">

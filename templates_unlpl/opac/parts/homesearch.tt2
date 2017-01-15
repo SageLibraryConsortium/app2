@@ -4,7 +4,7 @@
       <div style="font-family:helvetica neue;font-size:20px;">A library catalog serving the members of the Sage Library System</div>
 </center>
 <br/>
-<hr style="border:2px solid;color:grey;">
+<hr style="border:2px solid;color:grey;width:80%;">
 [% INCLUDE "opac/parts/book_carousel.tt2" %]
 [% INCLUDE "opac/parts/flipster.tt2" %]
 </div>

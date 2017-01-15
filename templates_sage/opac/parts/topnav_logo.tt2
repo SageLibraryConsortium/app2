@@ -1,2 +1,3 @@
-<div id="topnav_logo"> <a href="http://catalog.sage.eou.edu"><img alt="[% l('Sage Library System Logo') %]" src="[% ctx.media_prefix 
-%]/images/opac_logo22.png" /></a></div>
+<div id="topnav_logo"> <a href="http://catalog.sage.eou.edu">
+<img alt="[% l('Sage Library System Logo') %]"
+style="background:#fff;border-radius:5px;" src="[% ctx.media_prefix %]/images/new_logos/Sage_Library_Leaves_TextRight.png" /></a></div>

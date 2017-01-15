@@ -1,0 +1,99 @@
+<h3 class="sr-only">[% l('Catalog Search') %]</h3>
+[% PROCESS "opac/parts/org_selector.tt2" %]
+<div id="search-wrapper" class="row">
+    [% UNLESS took_care_of_form -%]
+    <form action="[% ctx.opac_root %]/results" method="get">
+    [%- END %]
+    <div id="search-box">
+        <span class="search_catalog_lbl"><a href="[% mkurl(ctx.opac_root _ '/home', {$loc_name => loc_value}, 1) %]">[% l('New Search') %]</a></span>
+        <span class="adv_search_catalog_lbl"><a href="[% mkurl(ctx.opac_root _ '/advanced', {},  expert_search_parms.merge(browse_search_parms, facet_search_parms)) %]"
+            id="home_adv_search_link">[% l('Advanced Search') %]</a></span>
+        <span class="browse_the_catalog_lbl"><a href="[% mkurl(ctx.opac_root _ '/browse', {}, expert_search_parms.merge(general_search_parms, facet_search_parms, ['fi:has_browse_entry'])) %]">[% l('Browse the Catalog') %]</a></span>
+    </div>
+    <div class="searchbar">
+        <div class="searchbar-field">
+            <label id="search_box_label" for="search_box">[% l('Search: ') %]</label>
+            <input type="text" placeholder="What are you looking for?" id="search_box" class="search_normalize" name="query" aria-label="[%
+                    l('Enter search query:');
+                    %]" value="[% is_advanced ? ctx.naive_query_scrub(ctx.processed_search_query) : CGI.param('query') | html %]"
+                    [% IF basic_search != "f" %] autofocus [% END %] x-webkit-speech 
+            />
+        </div>
+
+        <div class="searchbar-field">
+            <label id="search_qtype_label" for="qtype">[% l('Type: ') %]</label>
+            [%- 
+                INCLUDE "opac/parts/qtype_selector.tt2" id="qtype";
+            -%]
+        </div>
+        <div class="searchbar-field">
+            <label id="search_itype_label" for="search_itype_selector">[% l('Format: ') %]</label>
+            [%-
+                IF search.basic_config.type == 'attr';
+                    INCLUDE "opac/parts/coded_value_selector.tt2"
+                        attr=search.basic_config.group none_ok=1 
+                        id='search_itype_selector'
+                        none_label=search.basic_config.none_label;
+                ELSIF search.basic_config.type == 'filter';
+                    INCLUDE "opac/parts/filter_group_selector.tt2"
+                        filter_group=search.basic_config.group none_ok=1 
+                        id='search_itype_selector'
+                        none_label=search.basic_config.none_label;
+                END;
+            -%]
+        </div>
+        <div class="searchbar-field">
+            <label id="search_locg_label" for="search_org_selector">[% l('Library: ') %]</label>
+            [%- 
+                select_lib_label = l("Select Search Library");
+                INCLUDE build_org_selector arialabel=select_lib_label 
+                  id='search_org_selector' show_loc_groups=1
+            -%]
+        </div>
+    <span class="searchbar-submit">
+        <input id='search-submit-go' type="submit" value="[% l('Search') %]" class="opac-button"
+            onclick='setTimeout(function(){$("search-submit-spinner").className=""; $("search-submit-go").className="hidden";[% IF ctx.depth_sel_button AND NOT took_care_of_form %] $("search-submit-go-depth").className="hidden";[% END %]}, 200)'/>
+        [%- IF ctx.depth_sel_button AND NOT took_care_of_form %]
+        <button id='search-submit-go-depth' type="submit" value="[% ctx.depth_sel_depth %]" name="depth" class="[% ctx.depth_sel_button_class %]"
+            onclick='setTimeout(function(){$("search-submit-spinner").className=""; $("search-submit-go").className="hidden"; $("search-submit-go-depth").className="hidden";}, 200)' title="[% ctx.depth_sel_tooltip | html %]">[% ctx.depth_sel_button_label | html %]</button>
+        [%- END %]
+        <span id="search-submit-spinner" class='hidden' alt='[% l("Search In Progress") %]'/><i class="fa fa-circle-o-notch fa-spin fa-lg" aria-hidden="true"></i></span>
+    </span>
+    </div>
+    [% IF ctx.bookbag %]
+    <div id="search-only-bookbag-container">
+        <input type="checkbox" id="search-only-bookbag" name="bookbag"
+            value="[% ctx.bookbag.id | html %]" checked="checked" />
+        <label for="search-only-bookbag">
+            [% l('Search only within the chosen list') %]
+        </label>
+    </div>
+    [% END %]
+    [% IF is_advanced || is_special %]
+    <div>
+        <input type="hidden" name="_adv" value="1" />
+        [% IF ctx.processed_search_query OR (NOT is_advanced AND NOT is_special) %]
+        <input name='page' type='hidden' value="0" />
+        [% END %]
+        [% IF is_special %]
+            <input type="hidden" name="_special" value="1" /> [%
+            number_of_expert_rows = CGI.param('tag').list.size;
+            index = 0;
+            WHILE index < number_of_expert_rows %]
+                <input type="hidden" name="tag" value="[% CGI.param('tag').list.$index %]" />
+                <input type="hidden" name="subfield" value="[% CGI.param('subfield').list.$index %]" />
+                <input type="hidden" name="term" value="[% CGI.param('term').list.$index %]" />
+                [% index = index + 1; %]
+            [% END %]
+        [% END %]
+    </div>
+    [%- END %]
+    [% UNLESS took_care_of_form %]</form>[% END %]
+    [% IF (is_advanced AND NOT is_special) AND CGI.param('qtype') %]
+    <div class="opac-auto-102">
+        [ <a href="[% mkurl(ctx.opac_root _ '/advanced') %]">[%
+            l('Refine My Advanced Search')
+        %]</a> ]
+    </div>
+    [% END %]
+</div>

@@ -1,0 +1,35 @@
+[%- 
+    USE CGI = CGI_utf8;
+    hostname = CGI.url({'-base' => 1});
+-%]
+<div id="footer-wrap">
+<div id="footer">
+    [% IF ctx.timing %]
+    <div id="timing">
+        [% FOR event IN ctx.timing %]
+        At <span class="timing-time">[% event.0 | format("%0.4f") %]</span>:
+        <span class="timing-event">[% event.1 %]</span><br />
+        [% END %]
+    </div>
+    [% END %]
+    <!--
+    <div id="copyright_text" style="margin-top: 2em;">
+        [% l('Copyright &copy; 2006-[_1] Georgia Public Library Service, and others', date.format(date.now, '%Y')) %]
+    </div>
+    -->
+    <div id="footer_logo">
+        <p><a href="http://library.eou.edu">Pierce Library</a> - <a href="http://www.eou.edu">EOU</a> - One University Boulevard - La Grande, OR 97850-2899 - Phone: 541-962-3579</p>
+        <p>[% l('Powered by') %]
+        <a href="http://evergreen-ils.org">
+            <img src="[% ctx.media_prefix %]/opac/images/eg_tiny_logo_b.png"
+                style="border:none; width: 94px; height: 16px;"
+                alt="[% l('Evergreen') %]"
+            />
+        </a>
+        <!--
+        [<a href="http://catalog.library.eou.edu/opac/en-US/skin/eou/xml/index.xml?ol=162&l=162&d=2">[% l('Previous Catalog View') %]</a>]
+        -->
+        </p>
+    </div>
+</div>
+</div>

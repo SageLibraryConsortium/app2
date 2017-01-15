@@ -4,11 +4,16 @@
 [% IF !ctx.is_staff %]
 <div id="header-wrap">
 <div id="header">
-    <div class="float-left">
+    <div class="float-left logo-wrap">
         [% INCLUDE "opac/parts/topnav_logo.tt2" %]
     </div>
+[% IF ctx.user %]
+    <div class="mobile_logout">
+	<a href="[% mkurl(ctx.opac_root _ '/logout', {}, 1) %]"class="opac-button"
+	id="logout_link_mobile">[% l('Logout') %]</a></div>
+[%- END -%]
     <div class="float-right">
-        [% IF !ctx.user %]
+        [%- IF !ctx.user %]
         <div id="your-acct-login">
             <a href="[% mkurl(ctx.opac_root _ '/myopac/main') %]" 
                 class="opac-button opac-button-header" id="home_myopac_link">
@@ -72,6 +77,7 @@
         </div>
         [% END %]
     </div>
+    [%- INCLUDE "opac/parts/locale_picker.tt2" %]
     <div class="common-no-pad"></div>
 </div>
 </div>

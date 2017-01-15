@@ -10,6 +10,7 @@
 <script src="[% ctx.media_prefix %]/js/ui/default/staff/services/ui.js"></script>
 <script src="[% ctx.media_prefix %]/js/ui/default/staff/services/user.js"></script>
 <script src="[% ctx.media_prefix %]/js/ui/default/staff/services/eframe.js"></script>
+<script src="[% ctx.media_prefix %]/js/ui/default/staff/services/date.js"></script>
 <script src="[% ctx.media_prefix %]/js/ui/default/staff/circ/services/billing.js"></script>
 <script src="[% ctx.media_prefix %]/js/ui/default/staff/circ/services/circ.js"></script>
 [% INCLUDE 'staff/circ/share/circ_strings.tt2' %]
@@ -17,6 +18,7 @@
 [% INCLUDE 'staff/circ/share/hold_strings.tt2' %]
 <script src="[% ctx.media_prefix %]/js/ui/default/staff/cat/services/record.js"></script>
 <script src="[% ctx.media_prefix %]/js/ui/default/staff/circ/patron/app.js"></script>
+<script src="[% ctx.media_prefix %]/js/ui/default/staff/circ/patron/regctl.js"></script>
 
 <!-- load the rest on demand? -->
 
@@ -42,13 +44,26 @@ angular.module('egCoreMod').run(['egStrings', function(s) {
   s.RENEW_ITEMS = "[% l('Renew Items?') %]";
   s.RENEW_ALL_ITEMS = "[% l('Renew All Items?') %]";
   s.CHECK_IN_CONFIRM = "[% l('Check In Items?') %]";
+  s.REG_INVALID_FIELDS = 
+    "[% l('Please enter valid values for all required fields.') %]"
+  s.PAYMENT_WARN_AMOUNT = "[% l('Are you sure you want to apply a payment of $[_1]?', '{{payment_amount}}') %]";
+  s.PAYMENT_WARN_AMOUNT_TITLE = "[% l('Verify Payment Amount') %]";
+  s.PAYMENT_OVER_MAX = "[% l('Payments over $[_1] are denied by policy.', '{{max_amount}}') %]";
 }]);
 </script>
 
+<!-- add room for the fixed navigation elements -->
+<style ng-if="is_patron_edit">
+  #top-content-container { padding-top: 120px; }
+</style>
+<style ng-if="!is_patron_edit">
+  #top-content-container { padding-top: 80px; }
+</style>
+
 [% END %]
 
-<div class="row">
-  <div class="col-md-3">
+<div class="row" id="patron-fixed-tabs">
+  <div class="col-md-3 patron-name-header">
     <div ng-show="patron()">
       <h4 title="{{patron().id()}}">
         <div class="flex-row">
@@ -70,10 +85,11 @@ angular.module('egCoreMod').run(['egStrings', function(s) {
               <span class="glyphicon glyphicon-resize-full"></span>
             </a>
           </div>
-        </div><!-- row -->
+        </div>
       </h4>
-    </div><!-- if patron -->
-  </div><!-- col -->
+    </div>
+  </div>
+
   <div class="col-md-9">
     <ul class="nav nav-pills nav-pills-like-tabs">
       <li ng-class="{active : tab == 'checkout', disabled : !patron()}">
@@ -109,12 +125,12 @@ angular.module('egCoreMod').run(['egStrings', function(s) {
       <li ng-class="{active : tab == 'edit', disabled : !patron()}">
         <a href="./circ/patron/{{patron().id()}}/edit">[% l('Edit') %]</a>
       </li>
-      <li class="dropdown" ng-class="{active : tab == 'other', disabled : !patron()}">
-        <a a-disabled="!patron()" href class="dropdown-toggle" data-toggle="dropdown">
+      <li uib-dropdown ng-class="{active : tab == 'other', disabled : !patron()}">
+        <a a-disabled="!patron()" href uib-dropdown-toggle>
             [% l('Other') %]
             <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu">
+        <ul uib-dropdown-menu>
           <li>
             <a href="./circ/patron/{{patron().id()}}/alerts">
               [% l('Display Alert and Messages') %]
@@ -156,6 +172,10 @@ angular.module('egCoreMod').run(['egStrings', function(s) {
         <a href="./circ/patron/search">[% l('Patron Search') %]</a>
       </li>
     </ul>
+    <div class="flex-row patron-reg-actions-bar" ng-if="is_patron_edit()">
+      [% INCLUDE 'staff/circ/patron/reg_actions.tt2' %]
+    </div>
+
   </div><!-- col -->
 </div><!-- row -->
 
