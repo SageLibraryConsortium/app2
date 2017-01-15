@@ -25,8 +25,8 @@
 angular.module('egCoreMod')
 
 .factory('egHatch',
-           ['$q','$window','$timeout','$interpolate','$http',
-    function($q , $window , $timeout , $interpolate , $http) {
+           ['$q','$window','$timeout','$interpolate','$http','$cookies',
+    function($q , $window , $timeout , $interpolate , $http , $cookies) {
 
     var service = {};
     service.msgId = 0;
@@ -301,8 +301,25 @@ angular.module('egCoreMod')
         return JSON.parse(val);
     }
 
+    service.getLoginSessionItem = function(key) {
+        var val = $cookies.get(key);
+        if (val == null) return;
+        return JSON.parse(val);
+    }
+
+    service.getSessionItem = function(key) {
+        var val = $window.sessionStorage.getItem(key);
+        if (val == null) return;
+        return JSON.parse(val);
+    }
+
+    /**
+     * @param tmp bool Store the value as a session cookie only.  
+     * tmp values are removed during logout or browser close.
+     */
     service.setItem = function(key, value) {
         var str = JSON.stringify(value);
+
         return service.setRemoteItem(key, str)['catch'](
             function(msg) {
                 if (service.hatchRequired()) {
@@ -324,13 +341,37 @@ angular.module('egCoreMod')
         });
     }
 
-    // Set the value for the given key
+    // Set the value for the given key.
+    // "Local" items persist indefinitely.
     // If the value is raw, pass it as 'value'.  If it was
     // externally JSONified, pass it via jsonified.
     service.setLocalItem = function(key, value, jsonified) {
         if (jsonified === undefined ) 
             jsonified = JSON.stringify(value);
         $window.localStorage.setItem(key, jsonified);
+    }
+
+    // Set the value for the given key.  
+    // "LoginSession" items are removed when the user logs out or the 
+    // browser is closed.
+    // If the value is raw, pass it as 'value'.  If it was
+    // externally JSONified, pass it via jsonified.
+    service.setLoginSessionItem = function(key, value, jsonified) {
+        service.addLoginSessionKey(key);
+        if (jsonified === undefined ) 
+            jsonified = JSON.stringify(value);
+        $cookies.put(key, jsonified);
+    }
+
+    // Set the value for the given key.  
+    // "Session" items are browser tab-specific and are removed when the
+    // tab is closed.
+    // If the value is raw, pass it as 'value'.  If it was
+    // externally JSONified, pass it via jsonified.
+    service.setSessionItem = function(key, value, jsonified) {
+        if (jsonified === undefined ) 
+            jsonified = JSON.stringify(value);
+        $window.sessionStorage.setItem(key, jsonified);
     }
 
     // appends the value to the existing item stored at key.
@@ -391,6 +432,27 @@ angular.module('egCoreMod')
         $window.localStorage.removeItem(key);
     }
 
+    service.removeLoginSessionItem = function(key) {
+        service.removeLoginSessionKey(key);
+        $cookies.remove(key);
+    }
+
+    service.removeSessionItem = function(key) {
+        $window.sessionStorage.removeItem(key);
+    }
+
+    /**
+     * Remove all "LoginSession" items.
+     */
+    service.clearLoginSessionItems = function() {
+        angular.forEach(service.getLoginSessionKeys(), function(key) {
+            service.removeLoginSessionItem(key);
+        });
+
+        // remove the keys cache.
+        service.removeLocalItem('eg.hatch.login_keys');
+    }
+
     // if set, prefix limits the return set to keys starting with 'prefix'
     service.getKeys = function(prefix) {
         return service.getRemoteKeys(prefix)['catch'](
@@ -421,6 +483,42 @@ angular.module('egCoreMod')
             keys.push(k);
         }
         return keys;
+    }
+
+
+    /**
+     * Array of "LoginSession" keys.
+     * Note we have to store these as "Local" items so browser tabs can
+     * share them.  We could store them as cookies, but it's more data
+     * that has to go back/forth to the server.  A "LoginSession" key name is
+     * not private, though, so it's OK if they are left in localStorage
+     * until the next login.
+     */
+    service.getLoginSessionKeys = function(prefix) {
+        var keys = [];
+        var idx = 0;
+        var login_keys = service.getLocalItem('eg.hatch.login_keys') || [];
+        angular.forEach(login_keys, function(k) {
+            // key prefix match test
+            if (prefix && k.substr(0, prefix.length) != prefix) return;
+            keys.push(k);
+        });
+        return keys;
+    }
+
+    service.addLoginSessionKey = function(key) {
+        var keys = service.getLoginSessionKeys();
+        if (keys.indexOf(key) < 0) {
+            keys.push(key);
+            service.setLocalItem('eg.hatch.login_keys', keys);
+        }
+    }
+
+    service.removeLoginSessionKey = function(key) {
+        var keys = service.getLoginSessionKeys().filter(function(k) {
+            return k != key;
+        });
+        service.setLocalItem('eg.hatch.login_keys', keys);
     }
 
     return service;

@@ -13,11 +13,11 @@ angular.module('egCoreMod')
 
             // optional hash of functions which augment or override 
             // the stock xulG functions defined below.
-            handlers : '=',
-            frame : '=',
+            handlers : '=?',
+            frame : '=?',
 
             // called after onload of each new iframe page
-            onchange : '=',
+            onchange : '=?',
             saveSpace : '@',
         },
 
@@ -115,7 +115,7 @@ angular.module('egCoreMod')
                         // HACK! for vandelay
                         if (!e) {
                             e = $scope.iframe.contentWindow.document.getElementById('vl-body-wrapper');
-                            extra = 50;
+                            extra = 10000;
                         }
 
                         if (!e) {
@@ -244,6 +244,7 @@ angular.module('egCoreMod')
                 if ($scope.handlers) {
                     $scope.handlers.reload = $scope.reload;
                     angular.forEach($scope.handlers, function(val, key) {
+                        console.log('eframe applying xulG handlers: ' + key);
                         $scope.iframe.contentWindow.xulG[key] = val;
                     });
                 }

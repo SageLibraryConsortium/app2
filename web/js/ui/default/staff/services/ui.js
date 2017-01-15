@@ -85,19 +85,19 @@ function($timeout , $parse) {
  */
 .factory('egAlertDialog', 
 
-        ['$modal','$interpolate',
-function($modal , $interpolate) {
+        ['$uibModal','$interpolate',
+function($uibModal , $interpolate) {
     var service = {};
 
     service.open = function(message, msg_scope) {
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './share/t_alert_dialog',
-            controller: ['$scope', '$modalInstance',
-                function($scope, $modalInstance) {
+            controller: ['$scope', '$uibModalInstance',
+                function($scope, $uibModalInstance) {
                     $scope.message = $interpolate(message)(msg_scope);
                     $scope.ok = function() {
                         if (msg_scope && msg_scope.ok) msg_scope.ok();
-                        $modalInstance.close()
+                        $uibModalInstance.close()
                     }
                 }
             ]
@@ -109,28 +109,31 @@ function($modal , $interpolate) {
 
 /**
  * egConfirmDialog.open("some message goes {{here}}", {
- *  here : 'foo', ok : function() {}, cancel : function() {}});
+ *  here : 'foo', ok : function() {}, cancel : function() {}},
+ *  'OK', 'Cancel');
  */
 .factory('egConfirmDialog', 
     
-       ['$modal','$interpolate',
-function($modal, $interpolate) {
+       ['$uibModal','$interpolate',
+function($uibModal, $interpolate) {
     var service = {};
 
-    service.open = function(title, message, msg_scope) {
-        return $modal.open({
+    service.open = function(title, message, msg_scope, ok_button_label, cancel_button_label) {
+        return $uibModal.open({
             templateUrl: './share/t_confirm_dialog',
-            controller: ['$scope', '$modalInstance',
-                function($scope, $modalInstance) {
+            controller: ['$scope', '$uibModalInstance',
+                function($scope, $uibModalInstance) {
                     $scope.title = $interpolate(title)(msg_scope);
                     $scope.message = $interpolate(message)(msg_scope);
+                    $scope.ok_button_label = $interpolate(ok_button_label || '')(msg_scope);
+                    $scope.cancel_button_label = $interpolate(cancel_button_label || '')(msg_scope);
                     $scope.ok = function() {
                         if (msg_scope.ok) msg_scope.ok();
-                        $modalInstance.close()
+                        $uibModalInstance.close()
                     }
                     $scope.cancel = function() {
                         if (msg_scope.cancel) msg_scope.cancel();
-                        $modalInstance.dismiss();
+                        $uibModalInstance.dismiss();
                     }
                 }
             ]
@@ -153,29 +156,125 @@ function($modal, $interpolate) {
  */
 .factory('egPromptDialog', 
     
-       ['$modal','$interpolate',
-function($modal, $interpolate) {
+       ['$uibModal','$interpolate',
+function($uibModal, $interpolate) {
     var service = {};
 
     service.open = function(message, promptValue, msg_scope) {
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './share/t_prompt_dialog',
-            controller: ['$scope', '$modalInstance',
-                function($scope, $modalInstance) {
+            controller: ['$scope', '$uibModalInstance',
+                function($scope, $uibModalInstance) {
                     $scope.message = $interpolate(message)(msg_scope);
                     $scope.args = {value : promptValue || ''};
                     $scope.focus = true;
                     $scope.ok = function() {
                         if (msg_scope.ok) msg_scope.ok($scope.args.value);
-                        $modalInstance.close()
+                        $uibModalInstance.close()
                     }
                     $scope.cancel = function() {
                         if (msg_scope.cancel) msg_scope.cancel();
-                        $modalInstance.dismiss();
+                        $uibModalInstance.dismiss();
                     }
                 }
             ]
         })
+    }
+
+    return service;
+}])
+
+/**
+ * egSelectDialog.open(
+ *    "message goes {{here}}", 
+ *    list,           // ['values','for','dropdown'],
+ *    selectedValue,  // optional
+ *    {
+ *      here : 'foo',
+ *      ok : function(value) {console.log(value)}, 
+ *      cancel : function() {console.log('prompt denied')}
+ *    }
+ *  );
+ */
+.factory('egSelectDialog', 
+    
+       ['$uibModal','$interpolate',
+function($uibModal, $interpolate) {
+    var service = {};
+
+    service.open = function(message, inputList, selectedValue, msg_scope) {
+        return $uibModal.open({
+            templateUrl: './share/t_select_dialog',
+            controller: ['$scope', '$uibModalInstance',
+                function($scope, $uibModalInstance) {
+                    $scope.message = $interpolate(message)(msg_scope);
+                    $scope.args = {
+                        list  : inputList,
+                        value : selectedValue
+                    };
+                    $scope.focus = true;
+                    $scope.ok = function() {
+                        if (msg_scope.ok) msg_scope.ok($scope.args.value);
+                        $uibModalInstance.close()
+                    }
+                    $scope.cancel = function() {
+                        if (msg_scope.cancel) msg_scope.cancel();
+                        $uibModalInstance.dismiss();
+                    }
+                }
+            ]
+        })
+    }
+
+    return service;
+}])
+
+/**
+ * Warn on page unload and give the user a chance to avoid navigating
+ * away from the current page.  
+ * Only one handler is supported per page.
+ * NOTE: we can't use an egUnloadDialog as the dialog builder, because
+ * it renders asynchronously, which allows the page to redirect before
+ * the dialog appears.
+ */
+.factory('egUnloadPrompt', [
+        '$window','egStrings', 
+function($window , egStrings) {
+    var service = {attached : false};
+
+    // attach a page/scope unload prompt
+    service.attach = function($scope, msg) {
+        if (service.attached) return;
+        service.attached = true;
+
+        // handle page change
+        $($window).on('beforeunload', function() { 
+            service.clear();
+            return msg || egStrings.EG_UNLOAD_PAGE_PROMPT_MSG;
+        });
+
+        if (!$scope) return;
+
+        // If a scope was provided, attach a scope-change handler,
+        // similar to the page-page prompt.
+        service.locChangeCancel = 
+            $scope.$on('$locationChangeStart', function(evt, next, current) {
+            if (confirm(msg || egStrings.EG_UNLOAD_CTRL_PROMPT_MSG)) {
+                // user allowed the page to change.  
+                // Clear the unload handler.
+                service.clear();
+            } else {
+                evt.preventDefault();
+            }
+        });
+    };
+
+    // remove the page unload prompt
+    service.clear = function() {
+        $($window).off('beforeunload');
+        if (service.locChangeCancel)
+            service.locChangeCancel();
+        service.attached = false;
     }
 
     return service;
@@ -213,34 +312,61 @@ function($modal, $interpolate) {
         replace: true,
         scope: {
             list: "=", // list of strings
-            selected: "="
+            selected: "=",
+            egDisabled: "=",
+            allowAll: "@",
         },
         template:
             '<div class="input-group">'+
-                '<input type="text" class="form-control" ng-model="selected" ng-change="makeOpen()">'+
+                '<input type="text" ng-disabled="egDisabled" class="form-control" ng-model="selected" ng-change="makeOpen()">'+
                 '<div class="input-group-btn" dropdown ng-class="{open:isopen}">'+
-                    '<button type="button" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>'+
+                    '<button type="button" ng-click="showAll()" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>'+
                     '<ul class="dropdown-menu dropdown-menu-right">'+
                         '<li ng-repeat="item in list|filter:selected"><a href ng-click="changeValue(item)">{{item}}</a></li>'+
+                        '<li ng-if="complete_list" class="divider"><span></span></li>'+
+                        '<li ng-if="complete_list" ng-repeat="item in list"><a href ng-click="changeValue(item)">{{item}}</a></li>'+
                     '</ul>'+
                 '</div>'+
             '</div>',
         controller: ['$scope','$filter',
             function( $scope , $filter) {
 
-                $scope.always = true;
+                $scope.complete_list = false;
                 $scope.isopen = false;
+                $scope.clickedopen = false;
+                $scope.clickedclosed = null;
+
+                $scope.showAll = function () {
+
+                    $scope.clickedopen = !$scope.clickedopen;
+
+                    if ($scope.clickedclosed === null) {
+                        if (!$scope.clickedopen) {
+                            $scope.clickedclosed = true;
+                        }
+                    } else {
+                        $scope.clickedclosed = !$scope.clickedopen;
+                    }
+
+                    if ($scope.selected.length > 0) $scope.complete_list = true;
+                    if ($scope.selected.length == 0) $scope.complete_list = false;
+                    $scope.makeOpen();
+                }
 
                 $scope.makeOpen = function () {
-                    return $scope.isopen = $filter('filter')(
+                    $scope.isopen = $scope.clickedopen || ($filter('filter')(
                         $scope.list,
                         $scope.selected
-                    ).length > 0 && $scope.selected.length > 0;
+                    ).length > 0 && $scope.selected.length > 0);
+                    if ($scope.clickedclosed) $scope.isopen = false;
                 }
 
                 $scope.changeValue = function (newVal) {
                     $scope.selected = newVal;
                     $scope.isopen = false;
+                    $scope.clickedclosed = null;
+                    $scope.clickedopen = false;
+                    if ($scope.selected.length == 0) $scope.complete_list = false;
                 }
 
             }
@@ -278,17 +404,21 @@ function($modal, $interpolate) {
             onchange : '=',
 
             // optional primary drop-down button label
-            label : '@'
+            label : '@',
+
+            // optional name of settings key for persisting
+            // the last selected org unit
+            stickySetting : '@'
         },
 
         // any reason to move this into a TT2 template?
         template : 
-            '<div class="btn-group eg-org-selector" dropdown>'
-            + '<button type="button" class="btn btn-default dropdown-toggle" ng-disabled="disable_button">'
+            '<div class="btn-group eg-org-selector" uib-dropdown>'
+            + '<button type="button" class="btn btn-default" uib-dropdown-toggle ng-disabled="disable_button">'
              + '<span style="padding-right: 5px;">{{getSelectedName()}}</span>'
              + '<span class="caret"></span>'
            + '</button>'
-           + '<ul class="dropdown-menu">'
+           + '<ul uib-dropdown-menu class="scrollable-menu">'
              + '<li ng-repeat="org in orgList" ng-hide="hiddenTest(org.id)">'
                + '<a href ng-click="orgChanged(org)" a-disabled="disableTest(org.id)" '
                  + 'style="padding-left: {{org.depth * 10 + 5}}px">'
@@ -298,8 +428,8 @@ function($modal, $interpolate) {
            + '</ul>'
           + '</div>',
 
-        controller : ['$scope','$timeout','egOrg','egAuth',
-              function($scope , $timeout , egOrg , egAuth) {
+        controller : ['$scope','$timeout','egOrg','egAuth','egCore','egStartup',
+              function($scope , $timeout , egOrg , egAuth , egCore , egStartup) {
 
             if ($scope.alldisabled) {
                 $scope.disable_button = $scope.alldisabled == 'true' ? true : false;
@@ -309,25 +439,39 @@ function($modal, $interpolate) {
 
             $scope.egOrg = egOrg; // for use in the link function
             $scope.egAuth = egAuth; // for use in the link function
+            $scope.hatch = egCore.hatch // for use in the link function
 
             // avoid linking the full fleshed tree to the scope by 
             // tossing in a flattened list.
-            $scope.orgList = egOrg.list().map(function(org) {
-                return {
-                    id : org.id(),
-                    shortname : org.shortname(), 
-                    depth : org.ou_type().depth()
-                }
+            // --
+            // Run-time code referencing post-start data should be run
+            // from within a startup block, otherwise accessing this
+            // module before startup completes will lead to failure.
+            egStartup.go().then(function() {
+
+                $scope.orgList = egOrg.list().map(function(org) {
+                    return {
+                        id : org.id(),
+                        shortname : org.shortname(), 
+                        depth : org.ou_type().depth()
+                    }
+                });
+
+                if (!$scope.selected)
+                    $scope.selected = egOrg.get(egAuth.user().ws_ou());
             });
 
             $scope.getSelectedName = function() {
-                if ($scope.selected)
+                if ($scope.selected && $scope.selected.shortname)
                     return $scope.selected.shortname();
                 return $scope.label;
             }
 
             $scope.orgChanged = function(org) {
                 $scope.selected = egOrg.get(org.id);
+                if ($scope.stickySetting) {
+                    egCore.hatch.setLocalItem($scope.stickySetting, org.id);
+                }
                 if ($scope.onchange) $scope.onchange($scope.selected);
             }
 
@@ -344,6 +488,13 @@ function($modal, $interpolate) {
                         scope[field] = false;
                 }
             );
+
+            if (scope.stickySetting) {
+                var orgId = scope.hatch.getLocalItem(scope.stickySetting);
+                if (orgId) {
+                    scope.selected = scope.egOrg.get(orgId);
+                }
+            }
 
             if (!scope.selected && !scope.nodefault)
                 scope.selected = scope.egOrg.get(scope.egAuth.user().ws_ou());
@@ -368,43 +519,158 @@ function($modal, $interpolate) {
 })
 
 /*
-http://stackoverflow.com/questions/18061757/angular-js-and-html5-date-input-value-how-to-get-firefox-to-show-a-readable-d
-
-This directive allows us to use html5 input type="date" (for Chrome) and 
-gracefully fall back to a regular ISO text input for Firefox.
-It also allows us to abstract away some browser finickiness.
+* Handy wrapper directive for uib-datapicker-popup
 */
 .directive(
-    'egDateInput',
-    function(dateFilter) {
+    'egDateInput', ['egStrings', 'egCore',
+    function(egStrings, egCore) {
         return {
-            require: 'ngModel',
-            template: '<input type="date"></input>',
-            replace: true,
-            link: function(scope, elm, attrs, ngModelCtrl) {
-
-                // since this is a date-only selector, set the time
-                // portion to 00:00:00, which should better match the
-                // user's expectations.  Note this allows us to retain
-                // the timezone.
-                function strip_time(date) {
-                    if (!date) date = new Date();
-                    date.setHours(0);
-                    date.setMinutes(0);
-                    date.setSeconds(0);
-                    date.setMilliseconds(0);
-                    return date;
-                }
-
-                ngModelCtrl.$formatters.unshift(function (modelValue) {
-                    // apply strip_time here in case the user never 
-                    // modifies the date value.
-                    return dateFilter(strip_time(modelValue), 'yyyy-MM-dd');
-                });
-                
-                ngModelCtrl.$parsers.unshift(function(viewValue) {
-                    return strip_time(new Date(viewValue));
-                });
+            scope : {
+                closeText : '@',
+                ngModel : '=',
+                ngChange : '=',
+                ngBlur : '=',
+                ngDisabled : '=',
+                ngRequired : '=',
+                hideDatePicker : '=',
+                dateFormat : '=?'
             },
+            require: 'ngModel',
+            templateUrl: './share/t_datetime',
+            replace: true,
+            link : function(scope, elm, attrs) {
+                if (!scope.closeText)
+                    scope.closeText = egStrings.EG_DATE_INPUT_CLOSE_TEXT;
+
+                if ('showTimePicker' in attrs)
+                    scope.showTimePicker = true;
+
+                var default_format = 'mediumDate';
+                egCore.org.settings(['format.date']).then(function(set) {
+                    default_format = set['format.date'];
+                    scope.date_format = (scope.dateFormat) ?
+                        scope.dateFormat :
+                        default_format;
+                });
+            }
         };
-})
+    }
+])
+
+.factory('egWorkLog', ['egCore', function(egCore) {
+    var service = {};
+
+    service.retrieve_all = function() {
+        var workLog = egCore.hatch.getLocalItem('eg.work_log') || [];
+        var patronLog = egCore.hatch.getLocalItem('eg.patron_log') || [];
+
+        return { 'work_log' : workLog, 'patron_log' : patronLog };
+    }
+
+    service.record = function(message,data) {
+        var max_entries;
+        var max_patrons;
+        if (typeof egCore != 'undefined') {
+            if (typeof egCore.env != 'undefined') {
+                if (typeof egCore.env.aous != 'undefined') {
+                    max_entries = egCore.env.aous['ui.admin.work_log.max_entries'];
+                    max_patrons = egCore.env.aous['ui.admin.patron_log.max_entries'];
+                } else {
+                    console.log('worklog: missing egCore.env.aous');
+                }
+            } else {
+                console.log('worklog: missing egCore.env');
+            }
+        } else {
+            console.log('worklog: missing egCore');
+        }
+        if (!max_entries) {
+            if (typeof egCore.org != 'undefined') {
+                if (typeof egCore.org.cachedSettings != 'undefined') {
+                    max_entries = egCore.org.cachedSettings['ui.admin.work_log.max_entries'];
+                } else {
+                    console.log('worklog: missing egCore.org.cachedSettings');
+                }
+            } else {
+                console.log('worklog: missing egCore.org');
+            }
+        }
+        if (!max_patrons) {
+            if (typeof egCore.org != 'undefined') {
+                if (typeof egCore.org.cachedSettings != 'undefined') {
+                    max_patrons = egCore.org.cachedSettings['ui.admin.patron_log.max_entries'];
+                } else {
+                    console.log('worklog: missing egCore.org.cachedSettings');
+                }
+            } else {
+                console.log('worklog: missing egCore.org');
+            }
+        }
+        if (!max_entries) {
+            max_entries = 20;
+            console.log('worklog: defaulting to max_entries = ' + max_entries);
+        }
+        if (!max_patrons) {
+            max_patrons = 10;
+            console.log('worklog: defaulting to max_patrons = ' + max_patrons);
+        }
+
+        var workLog = egCore.hatch.getLocalItem('eg.work_log') || [];
+        var patronLog = egCore.hatch.getLocalItem('eg.patron_log') || [];
+        var entry = {
+            'when' : new Date(),
+            'msg' : message,
+            'data' : data,
+            'action' : data.action,
+            'actor' : egCore.auth.user().usrname()
+        };
+        if (data.action == 'checkin') {
+            entry['item'] = data.response.params.copy_barcode;
+            entry['item_id'] = data.response.data.acp.id();
+            if (data.response.data.au) {
+                entry['user'] = data.response.data.au.family_name();
+                entry['patron_id'] = data.response.data.au.id();
+            }
+        }
+        if (data.action == 'checkout') {
+            entry['item'] = data.response.params.copy_barcode;
+            entry['user'] = data.response.data.au.family_name();
+            entry['item_id'] = data.response.data.acp.id();
+            entry['patron_id'] = data.response.data.au.id();
+        }
+        if (data.action == 'renew') {
+            entry['item'] = data.response.params.copy_barcode;
+            entry['user'] = data.response.data.au.family_name();
+            entry['item_id'] = data.response.data.acp.id();
+            entry['patron_id'] = data.response.data.au.id();
+        }
+        if (data.action == 'requested_hold'
+            || data.action == 'edited_patron'
+            || data.action == 'registered_patron'
+            || data.action == 'paid_bill') {
+            entry['patron_id'] = data.patron_id;
+        }
+        if (data.action == 'paid_bill') {
+            entry['amount'] = data.total_amount;
+        }
+
+        workLog.push( entry );
+        if (workLog.length > max_entries) workLog.shift();
+        egCore.hatch.setLocalItem('eg.work_log',workLog); // hatch JSONifies the data, so should be okay re: memory leaks?
+
+        if (entry['patron_id']) {
+            var temp = [];
+            for (var i = 0; i < patronLog.length; i++) { // filter out any matching patron
+                if (patronLog[i]['patron_id'] != entry['patron_id']) temp.push(patronLog[i]);
+            }
+            temp.push( entry );
+            if (temp.length > max_patrons) temp.shift();
+            patronLog = temp;
+            egCore.hatch.setLocalItem('eg.patron_log',patronLog);
+        }
+
+        console.log('worklog',entry);
+    }
+
+    return service;
+}]);

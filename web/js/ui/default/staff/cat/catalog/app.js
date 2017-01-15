@@ -7,7 +7,14 @@
  *
  */
 
-angular.module('egCatalogApp', ['ui.bootstrap','ngRoute','egCoreMod','egGridMod', 'egMarcMod', 'egUserMod'])
+angular.module('egCatalogApp', ['ui.bootstrap','ngRoute','ngLocationUpdate','egCoreMod','egGridMod', 'egMarcMod', 'egUserMod', 'egHoldingsMod', 'ngToast'])
+
+.config(['ngToastProvider', function(ngToastProvider) {
+  ngToastProvider.configure({
+    verticalPosition: 'bottom',
+    animation: 'fade'
+  });
+}])
 
 .config(function($routeProvider, $locationProvider, $compileProvider) {
     $locationProvider.html5Mode(true);
@@ -28,6 +35,14 @@ angular.module('egCatalogApp', ['ui.bootstrap','ngRoute','egCoreMod','egGridMod'
     }]};
 
     $routeProvider.when('/cat/catalog/index', {
+        templateUrl: './cat/catalog/t_catalog',
+        controller: 'CatalogCtrl',
+        resolve : resolver
+    });
+
+    // Jump directly to the results page.  Any URL parameter 
+    // supported by the embedded catalog is supported here.
+    $routeProvider.when('/cat/catalog/results', {
         templateUrl: './cat/catalog/t_catalog',
         controller: 'CatalogCtrl',
         resolve : resolver
@@ -190,9 +205,12 @@ function($scope , $routeParams , $location , $window , $q , egCore) {
         });
         $scope.template_list.sort();
     });
-    egCore.hatch.getItem('cat.default_bib_marc_template').then(function(template) {
-        $scope.template_name = template;
-    });
+    $scope.template_name = egCore.hatch.getSessionItem('eg.cat.last_bib_marc_template');
+    if (!$scope.template_name) {
+        egCore.hatch.getItem('cat.default_bib_marc_template').then(function(template) {
+            $scope.template_name = template;
+        });
+    }
 
     $scope.loadTemplate = function() {
         if ($scope.template_name) {
@@ -203,6 +221,7 @@ function($scope , $routeParams , $location , $window , $q , egCore) {
             ).then(function(template) {
                 $scope.marc_template = template;
                 $scope.have_template = true;
+                egCore.hatch.setSessionItem('eg.cat.last_bib_marc_template', $scope.template_name);
             });
         }
     }
@@ -226,10 +245,12 @@ function($scope , $routeParams , $location , $window , $q , egCore) {
 }])
 
 .controller('CatalogCtrl',
-       ['$scope','$routeParams','$location','$window','$q','egCore','egHolds','egCirc','egConfirmDialog',
-        'egGridDataProvider','egHoldGridActions','$timeout','$modal','holdingsSvc','egUser','conjoinedSvc',
-function($scope , $routeParams , $location , $window , $q , egCore , egHolds , egCirc,  egConfirmDialog,
-         egGridDataProvider , egHoldGridActions , $timeout , $modal , holdingsSvc , egUser , conjoinedSvc) {
+       ['$scope','$routeParams','$location','$window','$q','egCore','egHolds','egCirc','egConfirmDialog','ngToast',
+        'egGridDataProvider','egHoldGridActions','$timeout','$uibModal','holdingsSvc','egUser','conjoinedSvc',
+function($scope , $routeParams , $location , $window , $q , egCore , egHolds , egCirc , egConfirmDialog , ngToast ,
+         egGridDataProvider , egHoldGridActions , $timeout , $uibModal , holdingsSvc , egUser , conjoinedSvc) {
+
+    var holdingsSvcInst = new holdingsSvc();
 
     // set record ID on page load if available...
     $scope.record_id = $routeParams.record_id;
@@ -242,24 +263,46 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
     $scope.opac_iframe = null;
     $scope.parts_iframe = null;
 
+    $scope.search_result_index = 1;
+    $scope.search_result_hit_count = 1;
+
+    $scope.$watch(
+        'opac_iframe.dom.contentWindow.search_result_index',
+        function (n,o) {
+            if (!isNaN(parseInt(n)))
+                $scope.search_result_index = n + 1;
+        }
+    );
+
+    $scope.$watch(
+        'opac_iframe.dom.contentWindow.search_result_hit_count',
+        function (n,o) {
+            if (!isNaN(parseInt(n)))
+                $scope.search_result_hit_count = n;
+        }
+    );
+
     $scope.in_opac_call = false;
     $scope.opac_call = function (opac_frame_function, force_opac_tab) {
         if ($scope.opac_iframe) {
             if (force_opac_tab) $scope.record_tab = 'catalog';
             $scope.in_opac_call = true;
             $scope.opac_iframe.dom.contentWindow[opac_frame_function]();
+            if (opac_frame_function == 'rdetailBackToResults') {
+                $location.update_path('/cat/catalog/index');
+            }
         }
     }
 
     $scope.add_to_record_bucket = function() {
         var recId = $scope.record_id;
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './cat/catalog/t_add_to_bucket',
             animation: true,
             size: 'md',
             controller:
-                   ['$scope','$modalInstance',
-            function($scope , $modalInstance) {
+                   ['$scope','$uibModalInstance',
+            function($scope , $uibModalInstance) {
 
                 $scope.bucket_id = 0;
                 $scope.newBucketName = '';
@@ -280,7 +323,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                         'open-ils.actor.container.item.create',
                         egCore.auth.token(), 'biblio', item
                     ).then(function(resp) {
-                        $modalInstance.close();
+                        $uibModalInstance.close();
                     });
                 }
 
@@ -302,10 +345,41 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                 }
 
                 $scope.cancel = function() {
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                 }
             }]
         });
+    }
+
+    $scope.current_overlay_target     = egCore.hatch.getLocalItem('eg.cat.marked_overlay_record');
+    $scope.current_voltransfer_target = egCore.hatch.getLocalItem('eg.cat.marked_volume_transfer_record');
+    $scope.current_conjoined_target   = egCore.hatch.getLocalItem('eg.cat.marked_conjoined_record');
+
+    $scope.markConjoined = function () {
+        $scope.current_conjoined_target = $scope.record_id;
+        egCore.hatch.setLocalItem('eg.cat.marked_conjoined_record',$scope.record_id);
+        ngToast.create(egCore.strings.MARK_CONJ_TARGET);
+    };
+
+    $scope.markVolTransfer = function () {
+        ngToast.create(egCore.strings.MARK_VOL_TARGET);
+        $scope.current_voltransfer_target = $scope.record_id;
+        egCore.hatch.setLocalItem('eg.cat.marked_volume_transfer_record',$scope.record_id);
+    };
+
+    $scope.markOverlay = function () {
+        $scope.current_overlay_target = $scope.record_id;
+        egCore.hatch.setLocalItem('eg.cat.marked_overlay_record',$scope.record_id);
+        ngToast.create(egCore.strings.MARK_OVERLAY_TARGET);
+    };
+
+    $scope.clearRecordMarks = function () {
+        $scope.current_overlay_target     = null;
+        $scope.current_voltransfer_target = null;
+        $scope.current_conjoined_target   = null;
+        egCore.hatch.removeLocalItem('eg.cat.marked_volume_transfer_record');
+        egCore.hatch.removeLocalItem('eg.cat.marked_conjoined_record');
+        egCore.hatch.removeLocalItem('eg.cat.marked_overlay_record');
     }
 
     $scope.stop_unload = false;
@@ -357,6 +431,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                 $scope.conjoinedGridDataProvider.refresh();
             });
             init_parts_url();
+            $location.update_path('/cat/catalog/record/' + $scope.record_id);
         } else {
             delete $scope.record_id;
             $scope.from_route = false;
@@ -400,12 +475,12 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
 
         var conjoinedGridDataProviderRef = $scope.conjoinedGridDataProvider;
 
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './cat/catalog/t_conjoined_selector',
             animation: true,
             controller:
-                   ['$scope','$modalInstance',
-            function($scope , $modalInstance) {
+                   ['$scope','$uibModalInstance',
+            function($scope , $uibModalInstance) {
                 $scope.update = true;
 
                 $scope.peer_type = null;
@@ -424,13 +499,13 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                     });
     
                     return $q.all(promises)
-                        .then(function(){$modalInstance.close()})
+                        .then(function(){$uibModalInstance.close()})
                         .then(function(){return conjoinedSvc.fetch()})
                         .then(function(){conjoinedGridDataProviderRef.refresh()});
                 }
     
                 $scope.cancel = function($event) {
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                     $event.preventDefault();
                 }
             }]
@@ -470,10 +545,14 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
     // ------------------------------------------------------------------
     // Holdings
 
-    $scope.holdingsGridControls = {};
+    $scope.holdingsGridControls = {
+        activateItem : function (item) {
+            $scope.selectedHoldingsVolCopyEdit();
+        }
+    };
     $scope.holdingsGridDataProvider = egGridDataProvider.instance({
         get : function(offset, count) {
-            return this.arrayNotifier(holdingsSvc.copies, offset, count);
+            return this.arrayNotifier(holdingsSvcInst.copies, offset, count);
         }
     });
 
@@ -481,13 +560,13 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
         var copy_list = gatherSelectedHoldingsIds();
         if (copy_list.length == 0) return;
 
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './cat/catalog/t_add_to_bucket',
             animation: true,
             size: 'md',
             controller:
-                   ['$scope','$modalInstance',
-            function($scope , $modalInstance) {
+                   ['$scope','$uibModalInstance',
+            function($scope , $uibModalInstance) {
 
                 $scope.bucket_id = 0;
                 $scope.newBucketName = '';
@@ -515,7 +594,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                         );
 
                         return $q.all(promises).then(function() {
-                            $modalInstance.close();
+                            $uibModalInstance.close();
                         });
                     });
                 }
@@ -538,7 +617,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                 }
 
                 $scope.cancel = function() {
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                 }
             }]
         });
@@ -548,12 +627,12 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
         var copy_list = gatherSelectedHoldingsIds();
         if (copy_list.length == 0) return;
 
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './cat/catalog/t_request_items',
             animation: true,
             controller:
-                   ['$scope','$modalInstance',
-            function($scope , $modalInstance) {
+                   ['$scope','$uibModalInstance',
+            function($scope , $uibModalInstance) {
                 $scope.user = null;
                 $scope.first_user_fetch = true;
 
@@ -602,11 +681,11 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                         egCore.auth.token(), args, h.copy_list
                     );
 
-                    $modalInstance.close();
+                    $uibModalInstance.close();
                 }
 
                 $scope.cancel = function($event) {
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                     $event.preventDefault();
                 }
             }]
@@ -620,12 +699,12 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
         var holdingsGridDataProviderRef = $scope.holdingsGridDataProvider;
 
         angular.forEach(copy_list, function (cp) {
-            $modal.open({
+            $uibModal.open({
                 templateUrl: './cat/share/t_replace_barcode',
                 animation: true,
                 controller:
-                           ['$scope','$modalInstance',
-                    function($scope , $modalInstance) {
+                           ['$scope','$uibModalInstance',
+                    function($scope , $uibModalInstance) {
                         $scope.isModal = true;
                         $scope.focusBarcode = false;
                         $scope.focusBarcode2 = true;
@@ -657,11 +736,11 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                                 });
 
                             });
-                            $modalInstance.close();
+                            $uibModalInstance.close();
                         }
 
                         $scope.cancel = function($event) {
-                            $modalInstance.dismiss();
+                            $uibModalInstance.dismiss();
                             $event.preventDefault();
                         }
                     }
@@ -674,7 +753,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
     $scope.holdings_record_id_changed = function(id) {
         if ($scope.record_id != id) $scope.record_id = id;
         console.log('record id changed to ' + id + ', loading new holdings');
-        holdingsSvc.fetch({
+        holdingsSvcInst.fetch({
             rid : $scope.record_id,
             org : $scope.holdings_ou,
             copy: $scope.holdings_show_copies,
@@ -689,7 +768,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
     $scope.holdings_ou = egCore.org.get(egCore.auth.user().ws_ou());
     $scope.holdings_ou_changed = function(org) {
         $scope.holdings_ou = org;
-        holdingsSvc.fetch({
+        holdingsSvcInst.fetch({
             rid : $scope.record_id,
             org : $scope.holdings_ou,
             copy: $scope.holdings_show_copies,
@@ -703,7 +782,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
     $scope.holdings_cb_changed = function(cb,newVal,norefresh) {
         $scope[cb] = newVal;
         egCore.hatch.setItem('cat.' + cb, newVal);
-        if (!norefresh) holdingsSvc.fetch({
+        if (!norefresh) holdingsSvcInst.fetch({
             rid : $scope.record_id,
             org : $scope.holdings_ou,
             copy: $scope.holdings_show_copies,
@@ -760,6 +839,18 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
             function (item) { if (item.raw) cp_list = cp_list.concat(item.raw) }
         );
         return cp_list;
+    }
+
+    function gatherSelectedEmptyVolumeIds () {
+        var cn_id_list = [];
+        angular.forEach(
+            $scope.holdingsGridControls.selectedItems(),
+            function (item) {
+                if (item.copy_count == 0)
+                    cn_id_list.push(item.call_number.id)
+            }
+        );
+        return cn_id_list;
     }
 
     function gatherSelectedVolumeIds () {
@@ -822,6 +913,9 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
 
         if (cnList.length == 0) return;
 
+        var flags = {};
+        if (vols && copies) flags.force_delete_copies = 1;
+
         egConfirmDialog.open(
             egCore.strings.CONFIRM_DELETE_COPIES_VOLUMES,
             egCore.strings.CONFIRM_DELETE_COPIES_VOLUMES_MESSAGE,
@@ -830,9 +924,11 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
             egCore.net.request(
                 'open-ils.cat',
                 'open-ils.cat.asset.volume.fleshed.batch.update.override',
-                egCore.auth.token(), cnList, 1, {}
+                egCore.auth.token(), cnList, 1, flags
             ).then(function(update_count) {
-                $scope.holdingsGridDataProvider.refresh();
+                holdingsSvcInst.fetchAgain().then(function() {
+                    $scope.holdingsGridDataProvider.refresh();
+                });
             });
         });
     }
@@ -885,6 +981,9 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
             null, 'edit-these-copies', {
                 record_id: $scope.record_id,
                 copies: gatherSelectedHoldingsIds(),
+                raw: gatherSelectedEmptyVolumeIds().map(
+                    function(v){ return { callnumber : v } }
+                ),
                 hide_vols : hide_vols,
                 hide_copies : hide_copies
             }
@@ -912,14 +1011,41 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                 'eg.cat.item_transfer_target',
                 $scope.holdingsGridControls.selectedItems()[0].call_number.id
             );
+            ngToast.create(egCore.strings.MARK_ITEM_TARGET);
         }
     }
 
     $scope.markLibAsVolTarget = function() {
+        return $uibModal.open({
+            templateUrl: './cat/catalog/t_choose_vol_target_lib',
+            animation: true,
+            controller:
+                   ['$scope','$uibModalInstance',
+            function($scope , $uibModalInstance) {
+
+                var orgId = egCore.hatch.getLocalItem('eg.cat.volume_transfer_target') || 1;
+                $scope.org = egCore.org.get(orgId);
+                $scope.cant_have_vols = function (id) { return !egCore.org.CanHaveVolumes(id); };
+                $scope.ok = function(org) {
+                    egCore.hatch.setLocalItem(
+                        'eg.cat.volume_transfer_target',
+                        org.id()
+                    );
+                    $uibModalInstance.close();
+                }
+                $scope.cancel = function($event) {
+                    $uibModalInstance.dismiss();
+                    $event.preventDefault();
+                }
+            }]
+        });
+    }
+    $scope.markLibFromSelectedAsVolTarget = function() {
         egCore.hatch.setLocalItem(
             'eg.cat.volume_transfer_target',
             $scope.holdingsGridControls.selectedItems()[0].owner_id
         );
+        ngToast.create(egCore.strings.MARK_VOL_TARGET);
     }
 
     $scope.selectedHoldingsItemStatusDetail = function (){
@@ -933,21 +1059,61 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
         );
     }
 
-    $scope.transferVolumes = function (){
+    $scope.transferVolumesToRecord = function (){
+        var target_record = egCore.hatch.getLocalItem('eg.cat.marked_volume_transfer_record');
+        if (!target_record) return;
+        if ($scope.record_id == target_record) return;
+        var items = $scope.holdingsGridControls.selectedItems();
+        if (!items.length) return;
+
+        var vols_to_move   = {};
+        angular.forEach(items, function(item) {
+            if (!(item.call_number.owning_lib in vols_to_move)) {
+                vols_to_move[item.call_number.owning_lib] = new Array;
+            }
+            vols_to_move[item.call_number.owning_lib].push(item.call_number.id);
+        });
+
+        var promises = [];        
+        angular.forEach(vols_to_move, function(vols, owning_lib) {
+            promises.push(egCore.net.request(
+                'open-ils.cat',
+                'open-ils.cat.asset.volume.batch.transfer.override',
+                egCore.auth.token(), {
+                    docid   : target_record,
+                    lib     : owning_lib,
+                    volumes : vols
+                }
+            ));
+        });
+        $q.all(promises).then(function(success) {
+            if (success) {
+                ngToast.create(egCore.strings.VOLS_TRANSFERED);
+                holdingsSvcInst.fetchAgain().then(function() {
+                    $scope.holdingsGridDataProvider.refresh();
+                });
+            } else {
+                alert('Could not transfer volumes!');
+            }
+        });
+    }
+
+    function transferVolumes(new_record){
         var xfer_target = egCore.hatch.getLocalItem('eg.cat.volume_transfer_target');
 
         if (xfer_target) {
             egCore.net.request(
                 'open-ils.cat',
-                'open-ils.open-ils.cat.asset.volume.batch.transfer.override',
+                'open-ils.cat.asset.volume.batch.transfer.override',
                 egCore.auth.token(), {
-                    docid   : $scope.record_id,
+                    docid   : (new_record ? new_record : $scope.record_id),
                     lib     : xfer_target,
                     volumes : gatherSelectedVolumeIds()
                 }
             ).then(function(success) {
                 if (success) {
-                    holdingsSvc.fetchAgain().then(function() {
+                    ngToast.create(egCore.strings.VOLS_TRANSFERED);
+                    holdingsSvcInst.fetchAgain().then(function() {
                         $scope.holdingsGridDataProvider.refresh();
                     });
                 } else {
@@ -956,6 +1122,70 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
             });
         }
         
+    }
+
+    $scope.transferVolumesToLibrary = function() {
+        transferVolumes();
+    }
+
+    $scope.transferVolumesToRecordAndLibrary = function() {
+        var target_record = egCore.hatch.getLocalItem('eg.cat.marked_volume_transfer_record');
+        if (!target_record) return;
+        transferVolumes(target_record);
+    }
+
+    // this "transfers" selected copies to a new owning library,
+    // auto-creating volumes and deleting unused volumes as required.
+    $scope.changeItemOwningLib = function() {
+        var xfer_target = egCore.hatch.getLocalItem('eg.cat.volume_transfer_target');
+        var items = $scope.holdingsGridControls.selectedItems();
+        if (!xfer_target || !items.length) {
+            return;
+        }
+        var vols_to_move   = {};
+        var copies_to_move = {};
+        angular.forEach(items, function(item) {
+            if (item.call_number.owning_lib != xfer_target) {
+                if (item.call_number.id in vols_to_move) {
+                    copies_to_move[item.call_number.id].push(item.id);
+                } else {
+                    vols_to_move[item.call_number.id] = item.call_number;
+                    copies_to_move[item.call_number.id] = new Array;
+                    copies_to_move[item.call_number.id].push(item.id);
+                }
+            }
+        });
+    
+        var promises = [];
+        angular.forEach(vols_to_move, function(vol) {
+            promises.push(egCore.net.request(
+                'open-ils.cat',
+                'open-ils.cat.call_number.find_or_create',
+                egCore.auth.token(),
+                vol.label,
+                vol.record,
+                xfer_target,
+                vol.prefix.id,
+                vol.suffix.id,
+                vol.label_class
+            ).then(function(resp) {
+                var evt = egCore.evt.parse(resp);
+                if (evt) return;
+                return egCore.net.request(
+                    'open-ils.cat',
+                    'open-ils.cat.transfer_copies_to_volume',
+                    egCore.auth.token(),
+                    resp.acn_id,
+                    copies_to_move[vol.id]
+                );
+            }));
+        });
+        $q.all(promises).then(function() {
+            ngToast.create(egCore.strings.ITEMS_TRANSFERED);
+            holdingsSvcInst.fetchAgain().then(function() {
+                $scope.holdingsGridDataProvider.refresh();
+            });
+        });
     }
 
     $scope.transferItems = function (){
@@ -985,13 +1215,14 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                                 copy_ids,
                                 { events: ['TITLE_LAST_COPY', 'COPY_DELETE_WARNING'] }
                             ).then(function(resp) {
-                                holdingsSvc.fetchAgain().then(function() {
+                                holdingsSvcInst.fetchAgain().then(function() {
                                     $scope.holdingsGridDataProvider.refresh();
                                 });
                             });
                         });
                     } else {
-                        holdingsSvc.fetchAgain().then(function() {
+                        ngToast.create(egCore.strings.ITEMS_TRANSFERED);
+                        holdingsSvcInst.fetchAgain().then(function() {
                             $scope.holdingsGridDataProvider.refresh();
                         });
                     }
@@ -1026,7 +1257,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
 
     $scope.selectedHoldingsDamaged = function () {
         egCirc.mark_damaged(gatherSelectedHoldingsIds()).then(function() {
-            holdingsSvc.fetchAgain().then(function() {
+            holdingsSvcInst.fetchAgain().then(function() {
                 $scope.holdingsGridDataProvider.refresh();
             });
         });
@@ -1034,7 +1265,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
 
     $scope.selectedHoldingsMissing = function () {
         egCirc.mark_missing(gatherSelectedHoldingsIds()).then(function() {
-            holdingsSvc.fetchAgain().then(function() {
+            holdingsSvcInst.fetchAgain().then(function() {
                 $scope.holdingsGridDataProvider.refresh();
             });
         });
@@ -1047,12 +1278,12 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
         egCore.hatch.getItem('eg.cat.marked_conjoined_record').then(function(target_record) {
             if (!target_record) return;
 
-            return $modal.open({
+            return $uibModal.open({
                 templateUrl: './cat/catalog/t_conjoined_selector',
                 animation: true,
                 controller:
-                       ['$scope','$modalInstance',
-                function($scope , $modalInstance) {
+                       ['$scope','$uibModalInstance',
+                function($scope , $uibModalInstance) {
                     $scope.update = false;
 
                     $scope.peer_type = null;
@@ -1073,11 +1304,11 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
                             promises.push(egCore.pcrud.create(n));
                         });
     
-                        return $q.all(promises).then(function(){$modalInstance.close()});
+                        return $q.all(promises).then(function(){$uibModalInstance.close()});
                     }
     
                     $scope.cancel = function($event) {
-                        $modalInstance.dismiss();
+                        $uibModalInstance.dismiss();
                         $event.preventDefault();
                     }
                 }]
@@ -1170,6 +1401,7 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
     $scope.mark_hold_transfer_dest = function() {
         egCore.hatch.setLocalItem(
             'eg.circ.hold.title_transfer_target', $scope.record_id);
+        ngToast.create(egCore.strings.HOLD_TRANSFER_DEST_MARKED);
     }
 
     // UI presents this option as "all holds"
@@ -1193,6 +1425,19 @@ function($scope , $routeParams , $location , $window , $q , egCore , egHolds , e
         // specific page.
         if ($routeParams.record_id) {
             url = url.replace(/advanced/, '/record/' + $scope.record_id);
+        }
+
+        // Jumping directly to the results page by passing a search
+        // query via the URL.  Copy all URL params to the iframe url.
+        if ($location.path().match(/catalog\/results/)) {
+            url = url.replace(/advanced/, '/results?');
+            var first = true;
+            angular.forEach($location.search(), function(val, key) {
+                if (!first) url += '&';
+                first = false;
+                url += encodeURIComponent(key) 
+                    + '=' + encodeURIComponent(val);
+            });
         }
 
         $scope.catalog_url = url;
@@ -1299,279 +1544,6 @@ function($scope , $location , $routeParams) {
         return v == 't';
     }
 })
-
-.factory('holdingsSvc', 
-       ['egCore','$q',
-function(egCore , $q) {
-
-    var service = {
-        ongoing : false,
-        copies : [], // record search results
-        index : 0, // search grid index
-        org : null,
-        rid : null
-    };
-
-    service.flesh = {   
-        flesh : 2, 
-        flesh_fields : {
-            acp : ['status','location'],
-            acn : ['prefix','suffix','copies']
-        }
-    }
-
-    service.fetchAgain = function() {
-        return service.fetch({
-            rid: service.rid,
-            org: service.org,
-            copy: service.copy,
-            vol: service.vol,
-            empty: service.empty
-        })
-    }
-
-    // resolved with the last received copy
-    service.fetch = function(opts) {
-        if (service.ongoing) {
-            console.log('Skipping fetch, ongoing = true');
-            return $q.when();
-        }
-
-        var rid = opts.rid;
-        var org = opts.org;
-        var copy = opts.copy;
-        var vol = opts.vol;
-        var empty = opts.empty;
-
-        if (!rid) return $q.when();
-        if (!org) return $q.when();
-
-        service.ongoing = true;
-
-        service.rid = rid;
-        service.org = org;
-        service.copy = opts.copy;
-        service.vol = opts.vol;
-        service.empty = opts.empty;
-
-        service.copies = [];
-        service.index = 0;
-
-        var org_list = egCore.org.descendants(org.id(), true);
-        console.log('Holdings fetch with: rid='+rid+' org='+org_list+' copy='+copy+' vol='+vol+' empty='+empty);
-
-        return egCore.pcrud.search(
-            'acn',
-            {record : rid, owning_lib : org_list, deleted : 'f'},
-            service.flesh
-        ).then(
-            function() { // finished
-                service.copies = service.copies.sort(
-                    function (a, b) {
-                        function compare_array (x, y, i) {
-                            if (x[i] && y[i]) { // both have values
-                                if (x[i] == y[i]) { // need to look deeper
-                                    return compare_array(x, y, ++i);
-                                }
-
-                                if (x[i] < y[i]) { // x is first
-                                    return -1;
-                                } else if (x[i] > y[i]) { // y is first
-                                    return 1;
-                                }
-
-                            } else { // no orgs to compare ...
-                                if (x[i]) return -1;
-                                if (y[i]) return 1;
-                            }
-                            return 0;
-                        }
-
-                        var owner_order = compare_array(a.owner_list, b.owner_list, 0);
-                        if (!owner_order) {
-                            // now compare on CN label
-                            if (a.call_number.label < b.call_number.label) return -1;
-                            if (a.call_number.label > b.call_number.label) return 1;
-
-                            // try copy number
-                            if (a.copy_number < b.copy_number) return -1;
-                            if (a.copy_number > b.copy_number) return 1;
-
-                            // finally, barcode
-                            if (a.barcode < b.barcode) return -1;
-                            if (a.barcode > b.barcode) return 1;
-                        }
-                        return owner_order;
-                    }
-                );
-
-                // create a label using just the unique part of the owner list
-                var index = 0;
-                var prev_owner_list;
-                angular.forEach(service.copies, function (cp) {
-                    if (!prev_owner_list) {
-                        cp.owner_label = cp.owner_list.join(' ... ');
-                    } else {
-                        var current_owner_list = cp.owner_list.slice();
-                        while (current_owner_list[1] && prev_owner_list[1] && current_owner_list[0] == prev_owner_list[0]) {
-                            current_owner_list.shift();
-                            prev_owner_list.shift();
-                        }
-                        cp.owner_label = current_owner_list.join(' ... ');
-                    }
-
-                    cp.index = index++;
-                    prev_owner_list = cp.owner_list.slice();
-                });
-
-                var new_list = service.copies;
-                if (!copy || !vol) { // collapse copy rows, supply a count instead
-
-                    index = 0;
-                    var cp_list = [];
-                    var prev_key;
-                    var current_blob = { copy_count : 0 };
-                    angular.forEach(new_list, function (cp) {
-                        if (!prev_key) {
-                            prev_key = cp.owner_list.join('') + cp.call_number.label;
-                            if (cp.barcode) current_blob.copy_count = 1;
-                            current_blob.index = index++;
-                            current_blob.id_list = cp.id_list;
-                            if (cp.raw) current_blob.raw = cp.raw;
-                            current_blob.call_number = cp.call_number;
-                            current_blob.owner_list = cp.owner_list;
-                            current_blob.owner_label = cp.owner_label;
-                            current_blob.owner_id = cp.owner_id;
-                        } else {
-                            var current_key = cp.owner_list.join('') + cp.call_number.label;
-                            if (prev_key == current_key) { // collapse into current_blob
-                                current_blob.copy_count++;
-                                current_blob.id_list = current_blob.id_list.concat(cp.id_list);
-                                current_blob.raw = current_blob.raw.concat(cp.raw);
-                            } else {
-                                current_blob.barcode = current_blob.copy_count;
-                                cp_list.push(current_blob);
-                                prev_key = current_key;
-                                current_blob = { copy_count : 0 };
-                                if (cp.barcode) current_blob.copy_count = 1;
-                                current_blob.index = index++;
-                                current_blob.id_list = cp.id_list;
-                                if (cp.raw) current_blob.raw = cp.raw;
-                                current_blob.owner_label = cp.owner_label;
-                                current_blob.owner_id = cp.owner_id;
-                                current_blob.call_number = cp.call_number;
-                                current_blob.owner_list = cp.owner_list;
-                            }
-                        }
-                    });
-
-                    current_blob.barcode = current_blob.copy_count;
-                    cp_list.push(current_blob);
-                    new_list = cp_list;
-
-                    if (!vol) { // do the same for vol rows
-
-                        index = 0;
-                        var cn_list = [];
-                        prev_key = '';
-                        current_blob = { copy_count : 0 };
-                        angular.forEach(cp_list, function (cp) {
-                            if (!prev_key) {
-                                prev_key = cp.owner_list.join('');
-                                current_blob.index = index++;
-                                current_blob.id_list = cp.id_list;
-                                if (cp.raw) current_blob.raw = cp.raw;
-                                current_blob.cn_count = 1;
-                                current_blob.copy_count = cp.copy_count;
-                                current_blob.owner_list = cp.owner_list;
-                                current_blob.owner_label = cp.owner_label;
-                                current_blob.owner_id = cp.owner_id;
-                            } else {
-                                var current_key = cp.owner_list.join('');
-                                if (prev_key == current_key) { // collapse into current_blob
-                                    current_blob.cn_count++;
-                                    current_blob.copy_count += cp.copy_count;
-                                    current_blob.id_list = current_blob.id_list.concat(cp.id_list);
-                                    if (cp.raw) current_blob.raw = current_blob.raw.concat(cp.raw);
-                                } else {
-                                    current_blob.barcode = current_blob.copy_count;
-                                    current_blob.call_number = { label : current_blob.cn_count };
-                                    cn_list.push(current_blob);
-                                    prev_key = current_key;
-                                    current_blob = { copy_count : 0 };
-                                    current_blob.index = index++;
-                                    current_blob.id_list = cp.id_list;
-                                    if (cp.raw) current_blob.raw = cp.raw;
-                                    current_blob.owner_label = cp.owner_label;
-                                    current_blob.owner_id = cp.owner_id;
-                                    current_blob.cn_count = 1;
-                                    current_blob.copy_count = cp.copy_count;
-                                    current_blob.owner_list = cp.owner_list;
-                                }
-                            }
-                        });
-    
-                        current_blob.barcode = current_blob.copy_count;
-                        current_blob.call_number = { label : current_blob.cn_count };
-                        cn_list.push(current_blob);
-                        new_list = cn_list;
-    
-                    }
-                }
-
-                service.copies = new_list;
-                service.ongoing = false;
-            },
-
-            null, // error
-
-            // notify reads the stream of copies, one at a time.
-            function(cn) {
-
-                var copies = cn.copies().filter(function(cp){ return cp.deleted() == 'f' });
-                cn.copies([]);
-
-                angular.forEach(copies, function (cp) {
-                    cp.call_number(cn);
-                });
-
-                var owner_id = cn.owning_lib();
-                var owner = egCore.org.get(owner_id);
-
-                var owner_name_list = [];
-                while (owner.parent_ou()) { // we're going to skip the top of the tree...
-                    owner_name_list.unshift(owner.name());
-                    owner = egCore.org.get(owner.parent_ou());
-                }
-
-                if (copies[0]) {
-                    var flat = [];
-                    angular.forEach(copies, function (cp) {
-                        var flat_cp = egCore.idl.toHash(cp);
-                        flat_cp.owner_id = owner_id;
-                        flat_cp.owner_list = owner_name_list;
-                        flat_cp.id_list = [flat_cp.id];
-                        flat_cp.raw = [cp];
-                        flat.push(flat_cp);
-                    });
-
-                    service.copies = service.copies.concat(flat);
-                } else if (empty) {
-                    service.copies.push({
-                        owner_id   : owner_id,
-                        owner_list : owner_name_list,
-                        call_number: egCore.idl.toHash(cn),
-                        raw_call_number: cn
-                    });
-                }
-
-                return cn;
-            }
-        );
-    }
-
-    return service;
-}])
 
 .factory('conjoinedSvc', 
        ['egCore','$q',

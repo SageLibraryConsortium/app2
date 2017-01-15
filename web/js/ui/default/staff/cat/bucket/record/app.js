@@ -13,7 +13,7 @@
  */
 
 angular.module('egCatRecordBuckets', 
-    ['ngRoute', 'ui.bootstrap', 'egCoreMod', 'egUiMod', 'egGridMod', 'egMarcMod'])
+    ['ngRoute', 'ui.bootstrap', 'egCoreMod', 'egUiMod', 'egGridMod', 'egMarcMod', 'egHoldingsMod'])
 
 .config(function($routeProvider, $locationProvider, $compileProvider) {
     $locationProvider.html5Mode(true);
@@ -89,7 +89,7 @@ angular.module('egCatRecordBuckets',
                 'open-ils.actor',
                 'open-ils.actor.container.retrieve_by_class.authoritative',
                 egCore.auth.token(), egCore.auth.user().id(), 
-                'biblio', 'staff_client'
+                'biblio', ['staff_client', 'vandelay_queue']
             ).then(function(buckets) { self.allBuckets = buckets });
         },
 
@@ -242,9 +242,9 @@ angular.module('egCatRecordBuckets',
  * Hosts functions needed by all controllers.
  */
 .controller('RecordBucketCtrl',
-       ['$scope','$location','$q','$timeout','$modal',
+       ['$scope','$location','$q','$timeout','$uibModal',
         '$window','egCore','bucketSvc',
-function($scope,  $location,  $q,  $timeout,  $modal,  
+function($scope,  $location,  $q,  $timeout,  $uibModal,  
          $window,  egCore,  bucketSvc) {
 
     $scope.bucketSvc = bucketSvc;
@@ -295,13 +295,13 @@ function($scope,  $location,  $q,  $timeout,  $modal,
     }
 
     $scope.openCreateBucketDialog = function() {
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/bucket/record/t_bucket_create',
             controller: 
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.focusMe = true;
-                $scope.ok = function(args) { $modalInstance.close(args) }
-                $scope.cancel = function () { $modalInstance.dismiss() }
+                $scope.ok = function(args) { $uibModalInstance.close(args) }
+                $scope.cancel = function () { $uibModalInstance.dismiss() }
             }]
         }).result.then(function (args) {
             if (!args || !args.name) return;
@@ -319,10 +319,10 @@ function($scope,  $location,  $q,  $timeout,  $modal,
     }
 
     $scope.openEditBucketDialog = function() {
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/bucket/record/t_bucket_edit',
             controller: 
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.focusMe = true;
                 $scope.args = {
                     name : bucketSvc.currentBucket.name(),
@@ -335,9 +335,9 @@ function($scope,  $location,  $q,  $timeout,  $modal,
                     args.pub = args.pub ? 't' : 'f';
                     // close the dialog after edit has completed
                     bucketSvc.editBucket(args).then(
-                        function() { $modalInstance.close() });
+                        function() { $uibModalInstance.close() });
                 }
-                $scope.cancel = function () { $modalInstance.dismiss() }
+                $scope.cancel = function () { $uibModalInstance.dismiss() }
             }]
         })
     }
@@ -346,13 +346,13 @@ function($scope,  $location,  $q,  $timeout,  $modal,
     // opens the delete confirmation and deletes the current
     // bucket if the user confirms.
     $scope.openDeleteBucketDialog = function() {
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/bucket/record/t_bucket_delete',
             controller : 
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.bucket = function() { return bucketSvc.currentBucket }
-                $scope.ok = function() { $modalInstance.close() }
-                $scope.cancel = function() { $modalInstance.dismiss() }
+                $scope.ok = function() { $uibModalInstance.close() }
+                $scope.cancel = function() { $uibModalInstance.dismiss() }
             }]
         }).result.then(function () {
             bucketSvc.deleteBucket(bucketSvc.currentBucket.id())
@@ -365,17 +365,17 @@ function($scope,  $location,  $q,  $timeout,  $modal,
 
     // retrieves the requested bucket by ID
     $scope.openSharedBucketDialog = function() {
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/bucket/record/t_load_shared',
             controller : 
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.focusMe = true;
                 $scope.ok = function(args) { 
                     if (args && args.id) {
-                        $modalInstance.close(args.id) 
+                        $uibModalInstance.close(args.id) 
                     }
                 }
-                $scope.cancel = function() { $modalInstance.dismiss() }
+                $scope.cancel = function() { $uibModalInstance.dismiss() }
             }]
         }).result.then(function(id) {
             // RecordBucketCtrl $scope is not inherited by the
@@ -387,13 +387,13 @@ function($scope,  $location,  $q,  $timeout,  $modal,
 
     // opens the record export dialog
     $scope.openExportBucketDialog = function() {
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/bucket/record/t_bucket_export',
             controller : 
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.args = {format : 'XML', encoding : 'UTF-8'}; // defaults
-                $scope.ok = function(args) { $modalInstance.close(args) }
-                $scope.cancel = function() { $modalInstance.dismiss() }
+                $scope.ok = function(args) { $uibModalInstance.close(args) }
+                $scope.cancel = function() { $uibModalInstance.dismiss() }
             }]
         }).result.then(function (args) {
             if (!args) return;
@@ -504,9 +504,9 @@ function($scope,  $routeParams,  bucketSvc , egGridDataProvider) {
 
 .controller('ViewCtrl',
        ['$scope','$q','$routeParams','bucketSvc','egCore','$window',
-        '$timeout','egConfirmDialog','$modal','egHolds',
+        '$timeout','egConfirmDialog','$uibModal','egHolds',
 function($scope,  $q , $routeParams,  bucketSvc,  egCore,  $window,
-         $timeout,  egConfirmDialog,  $modal,  egHolds) {
+         $timeout,  egConfirmDialog,  $uibModal,  egHolds) {
 
     $scope.setTab('view');
     $scope.bucketId = $routeParams.id;
@@ -542,23 +542,25 @@ function($scope,  $q , $routeParams,  bucketSvc,  egCore,  $window,
 
     // opens the record merge dialog
     $scope.openRecordMergeDialog = function(records) {
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/bucket/record/t_merge_records',
             size: 'lg',
+            windowClass: 'eg-wide-modal',
             controller:
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.records = [];
                 $scope.lead_id = 0;
+                $scope.editing_inplace = false;
                 angular.forEach(records, function(rec) {
                     $scope.records.push({ id : rec.id });
                 });
                 $scope.ok = function() {
-                    $modalInstance.close({
+                    $uibModalInstance.close({
                         lead_id : $scope.lead_id,
                         records : $scope.records
                     });
                 }
-                $scope.cancel = function () { $modalInstance.dismiss() }
+                $scope.cancel = function () { $uibModalInstance.dismiss() }
                 $scope.use_as_lead = function(rec) {
                     if ($scope.lead_id) {
                         $scope.records.push({ id : $scope.lead_id });
@@ -573,21 +575,27 @@ function($scope,  $q , $routeParams,  bucketSvc,  egCore,  $window,
                         }
                     });
                 }
+                $scope.post_edit_inplace = function() {
+                    $scope.editing_inplace = false;
+                }
+                $scope.edit_lead_inplace = function() {
+                    $scope.editing_inplace = true;
+                }
                 $scope.edit_lead = function() {
                     var lead_id = $scope.lead_id;
-                    $modal.open({
+                    $uibModal.open({
                         templateUrl: './cat/bucket/record/t_edit_lead_record',
                         size: 'lg',
                         controller:
-                            ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                            ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                             $scope.focusMe = true;
                             $scope.record_id = lead_id;
                             $scope.dirty_flag = false;
-                            $scope.ok = function() { $modalInstance.close() }
-                            $scope.cancel = function () { $modalInstance.dismiss() }
+                            $scope.ok = function() { $uibModalInstance.close() }
+                            $scope.cancel = function () { $uibModalInstance.dismiss() }
                         }]
                     }).result.then(function() {
-                        // TODO: need a way to force a refresh of the egRecordHtml, as
+                        // TODO: need a way to force a refresh of the egRecordBreaker, as
                         // the record ID does not change
                     });
                 };
@@ -602,19 +610,19 @@ function($scope,  $q , $routeParams,  bucketSvc,  egCore,  $window,
                 args.lead_id,
                 args.records.map(function(val) { return val.id; })
             ).then(function() {
-                drawBucket();
+                $window.location.href =
+                    egCore.env.basePath + 'cat/catalog/record/' + args.lead_id;
             });
         });
     }
 
-    $scope.showAllRecords = function() {
-        // TODO: maybe show selected would be better?
+    $scope.showRecords = function(records) {
         // TODO: probably want to set a limit on the number of
         //       new tabs one could choose to open at once
-        angular.forEach(bucketSvc.currentBucket.items(), function(rec) {
+        angular.forEach(records, function(rec) {
             var url = egCore.env.basePath +
                       'cat/catalog/record/' +
-                      rec.target_biblio_record_entry();
+                      rec.id;
             $timeout(function() { $window.open(url, '_blank') });
         });
     }
@@ -662,13 +670,13 @@ function($scope,  $q , $routeParams,  bucketSvc,  egCore,  $window,
                     }
                 });
                 if (failures.length) {
-                    $modal.open({
+                    $uibModal.open({
                         templateUrl: './cat/bucket/record/t_records_not_deleted',
                         controller :
-                            ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                            ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                             $scope.failures = failures;
-                            $scope.ok = function() { $modalInstance.close() }
-                            $scope.cancel = function() { $modalInstance.dismiss() }
+                            $scope.ok = function() { $uibModalInstance.close() }
+                            $scope.cancel = function() { $uibModalInstance.dismiss() }
                             }]
                     });
                 }

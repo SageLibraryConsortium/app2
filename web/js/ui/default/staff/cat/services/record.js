@@ -75,6 +75,60 @@ angular.module('egCoreMod')
     }
 })
 
+.directive('egRecordBreaker', function() {
+    return {
+        restrict : 'AE',
+        template : '<pre>{{breaker}}</pre>',
+        scope : {
+            recordId : '=',
+            marcXml  : '@',
+        },
+        link : function(scope, element, attrs) {
+            scope.element = angular.element(element);
+
+            // kill refs to destroyed DOM elements
+            element.bind("$destroy", function() {
+                delete scope.element;
+            });
+        },
+        controller : 
+                   ['$scope','egCore',
+            function($scope , egCore) {
+
+                function loadRecordBreaker() {
+                    var xml;
+                    if ($scope.marcXml) {
+                        $scope.breaker = new MARC21.Record({ marcxml : $scope.marcXml }).toBreaker();
+                    } else {
+                        egCore.pcrud.retrieve('bre', $scope.recordId)
+                        .then(function(rec) {
+                            $scope.breaker = new MARC21.Record({ marcxml : rec.marc() }).toBreaker();
+                        });
+                    }
+                }
+
+                $scope.$watch('recordId', 
+                    function(newVal, oldVal) {
+                        if (newVal && newVal !== oldVal) {
+                            loadRecordBreaker();
+                        }
+                    }
+                );
+                $scope.$watch('marcXml', 
+                    function(newVal, oldVal) {
+                        if (newVal && newVal !== oldVal) {
+                            loadRecordBreaker();
+                        }
+                    }
+                );
+
+                if ($scope.recordId || $scope.marcXml) 
+                    loadRecordBreaker();
+            }
+        ]
+    }
+})
+
 /*
  * A record='foo' attribute is required as a storage location of the 
  * retrieved record
@@ -89,18 +143,50 @@ angular.module('egCoreMod')
         },
         templateUrl : './cat/share/t_record_summary',
         controller : 
-                   ['$scope','egCore',
-            function($scope , egCore) {
+                   ['$scope','egCore','$sce',
+            function($scope , egCore , $sce) {
 
                 function loadRecord() {
                     egCore.pcrud.retrieve('bre', $scope.recordId, {
                         flesh : 1,
                         flesh_fields : {
-                            bre : ['simple_record','creator','editor']
+                            bre : ['creator','editor']
                         }
                     }).then(function(rec) {
                         rec.owner(egCore.org.get(rec.owner()));
                         $scope.record = rec;
+                    });
+                    egCore.net.request(
+                        'open-ils.search',
+                        'open-ils.search.biblio.record.mods_slim.retrieve.authoritative',
+                        $scope.recordId
+                    ).then(function(mvr) {
+                        $scope.mvr = mvr;
+                    });
+                    $scope.bib_cn = null;
+                    $scope.bib_cn_tooltip = '';
+                    var label_class = 1;
+                    if (egCore.env.aous) 
+                        label_class = egCore.env.aous['cat.default_classification_scheme'] || 1;
+                    egCore.net.request(
+                        'open-ils.cat',
+                        'open-ils.cat.biblio.record.marc_cn.retrieve',
+                        $scope.recordId,
+                        label_class
+                    ).then(function(cn_array) {
+                        var tooltip = '';
+                        if (cn_array.length > 0) {
+                            for (var field in cn_array[0]) {
+                                $scope.bib_cn = cn_array[0][field];
+                            }
+                            for (var i in cn_array) {
+                                for (var field in cn_array[i]) {
+                                    tooltip += 
+                                        field + ' : ' + cn_array[i][field] + '<br>';
+                                }
+                            }
+                            $scope.bib_cn_tooltip = $sce.trustAsHtml(tooltip);
+                        }
                     });
                 }
 

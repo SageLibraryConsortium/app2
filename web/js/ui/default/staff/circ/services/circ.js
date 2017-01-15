@@ -5,9 +5,10 @@
 angular.module('egCoreMod')
 
 .factory('egCirc',
-
-       ['$modal','$q','egCore','egAlertDialog','egConfirmDialog',
-function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
+       ['$uibModal','$q','egCore','egAlertDialog','egConfirmDialog',
+        'egWorkLog',
+function($uibModal , $q , egCore , egAlertDialog , egConfirmDialog,
+         egWorkLog) {
 
     var service = {
         // auto-override these events after the first override
@@ -17,7 +18,9 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
     egCore.startup.go().finally(function() {
         egCore.org.settings([
-            'ui.staff.require_initials.patron_standing_penalty'
+            'ui.staff.require_initials.patron_standing_penalty',
+            'ui.admin.work_log.max_entries',
+            'ui.admin.patron_log.max_entries'
         ]).then(function(set) {
             service.require_initials = Boolean(set['ui.staff.require_initials.patron_standing_penalty']);
         });
@@ -131,7 +134,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     return service.handle_checkout_resp(evt, params, options);
                 })
                 .then(function(final_resp) {
-                    return service.munge_resp_data(final_resp)
+                    return service.munge_resp_data(final_resp,'checkout',method)
                 })
             });
         });
@@ -171,7 +174,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     return service.handle_renew_resp(evt, params, options);
                 })
                 .then(function(final_resp) {
-                    return service.munge_resp_data(final_resp)
+                    return service.munge_resp_data(final_resp,'renew',method)
                 })
             });
         });
@@ -210,14 +213,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     return service.handle_checkin_resp(evt, params, options);
                 })
                 .then(function(final_resp) {
-                    return service.munge_resp_data(final_resp)
+                    return service.munge_resp_data(final_resp,'checkin',method)
                 })
             });
         });
     }
 
     // provide consistent formatting of the final response data
-    service.munge_resp_data = function(final_resp) {
+    service.munge_resp_data = function(final_resp,worklog_action,worklog_method) {
         var data = final_resp.data = {};
 
         if (!final_resp.evt[0]) return;
@@ -255,6 +258,19 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                 data.route_to = data.acp.location().name();
             }
         }
+
+        egWorkLog.record(
+            worklog_action == 'checkout'
+            ? egCore.strings.EG_WORK_LOG_CHECKOUT
+            : (worklog_action == 'renew'
+                ? egCore.strings.EG_WORK_LOG_RENEW
+                : egCore.strings.EG_WORK_LOG_CHECKIN // worklog_action == 'checkin'
+            ),{
+                'action' : worklog_action,
+                'method' : worklog_method,
+                'response' : final_resp
+            }
+        );
 
         return final_resp;
     }
@@ -368,6 +384,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         // Other events
         switch (evt[0].textcode) {
             case 'SUCCESS':
+                egCore.audio.play('success.renew');
                 return $q.when(final_resp);
 
             case 'COPY_IN_TRANSIT':
@@ -375,18 +392,21 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             case 'PATRON_INACTIVE':
             case 'PATRON_ACCOUNT_EXPIRED':
             case 'CIRC_CLAIMS_RETURNED':
+                egCore.audio.play('warning.renew');
                 return service.exit_alert(
                     egCore.strings[evt[0].textcode],
                     {barcode : params.copy_barcode}
                 );
 
             case 'PERM_FAILURE':
+                egCore.audio.play('warning.renew.permission');
                 return service.exit_alert(
                     egCore.strings[evt[0].textcode],
                     {permission : evt[0].ilsperm}
                 );
 
             default:
+                egCore.audio.play('warning.renew.unknown');
                 return service.exit_alert(
                     egCore.strings.CHECKOUT_FAILED_GENERIC, {
                         barcode : params.copy_barcode,
@@ -415,6 +435,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                 return $q.when(final_resp);
 
             case 'ITEM_NOT_CATALOGED':
+                egCore.audio.play('warning.checkout.no_cataloged');
                 return service.precat_dialog(params, options);
 
             case 'OPEN_CIRCULATION_EXISTS':
@@ -600,20 +621,20 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     // the returned event.
     service.override_dialog = function(evt, params, options, action) {
         if (!angular.isArray(evt)) evt = [evt];
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_event_override_dialog',
             controller: 
-                ['$scope', '$modalInstance', 
-                function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', 
+                function($scope, $uibModalInstance) {
                 $scope.events = evt;
                 $scope.auto_override =
                     evt.filter(function(e){
                         return service.checkout_auto_override_after_first.indexOf(evt.textcode) > -1;
                     }).length > 0;
                 $scope.copy_barcode = params.copy_barcode; // may be null
-                $scope.ok = function() { $modalInstance.close() }
+                $scope.ok = function() { $uibModalInstance.close() }
                 $scope.cancel = function ($event) { 
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                     $event.preventDefault();
                 }
             }]
@@ -638,14 +659,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
     service.copy_not_avail_dialog = function(evt, params, options) {
         if (angular.isArray(evt)) evt = evt[0];
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_copy_not_avail_dialog',
             controller: 
-                       ['$scope','$modalInstance','copyStatus',
-                function($scope , $modalInstance , copyStatus) {
+                       ['$scope','$uibModalInstance','copyStatus',
+                function($scope , $uibModalInstance , copyStatus) {
                 $scope.copyStatus = copyStatus;
-                $scope.ok = function() {$modalInstance.close()}
-                $scope.cancel = function() {$modalInstance.dismiss()}
+                $scope.ok = function() {$uibModalInstance.close()}
+                $scope.cancel = function() {$uibModalInstance.dismiss()}
             }],
             resolve : {
                 copyStatus : function() {
@@ -678,18 +699,18 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             params.noncat = true;
             var type = egCore.env.cnct.map[params.noncat_type];
 
-            return $modal.open({
+            return $uibModal.open({
                 templateUrl: './circ/share/t_noncat_dialog',
                 controller: 
-                    ['$scope', '$modalInstance',
-                    function($scope, $modalInstance) {
+                    ['$scope', '$uibModalInstance',
+                    function($scope, $uibModalInstance) {
                     $scope.focusMe = true;
                     $scope.type = type;
                     $scope.count = 1;
                     $scope.noncatMax = noncatMax;
-                    $scope.ok = function(count) { $modalInstance.close(count) }
+                    $scope.ok = function(count) { $uibModalInstance.close(count) }
                     $scope.cancel = function ($event) { 
-                        $modalInstance.dismiss() 
+                        $uibModalInstance.dismiss() 
                         $event.preventDefault();
                     }
                 }],
@@ -710,19 +731,19 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     // Opens a dialog allowing the user to fill in pre-cat copy info.
     service.precat_dialog = function(params, options) {
 
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_precat_dialog',
             controller: 
-                ['$scope', '$modalInstance', 'circMods',
-                function($scope, $modalInstance, circMods) {
+                ['$scope', '$uibModalInstance', 'circMods',
+                function($scope, $uibModalInstance, circMods) {
                 $scope.focusMe = true;
                 $scope.precatArgs = {
                     copy_barcode : params.copy_barcode,
                     circ_modifier : circMods.length ? circMods[0].code() : null
                 };
                 $scope.circModifiers = circMods;
-                $scope.ok = function(args) { $modalInstance.close(args) }
-                $scope.cancel = function () { $modalInstance.dismiss() }
+                $scope.ok = function(args) { $uibModalInstance.close(args) }
+                $scope.cancel = function () { $uibModalInstance.dismiss() }
             }],
             resolve : {
                 circMods : function() { 
@@ -771,14 +792,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
     service.copy_in_transit_dialog = function(evt, params, options) {
         if (angular.isArray(evt)) evt = evt[0];
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_copy_in_transit_dialog',
             controller: 
-                       ['$scope','$modalInstance','transit',
-                function($scope , $modalInstance , transit) {
+                       ['$scope','$uibModalInstance','transit',
+                function($scope , $uibModalInstance , transit) {
                 $scope.transit = transit;
-                $scope.ok = function() { $modalInstance.close(transit) }
-                $scope.cancel = function() { $modalInstance.dismiss() }
+                $scope.ok = function() { $uibModalInstance.close(transit) }
+                $scope.cancel = function() { $uibModalInstance.dismiss() }
             }],
             resolve : {
                 // fetch the conflicting open transit w/ fleshed copy
@@ -822,18 +843,12 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         if (angular.isArray(evt)) evt = evt[0];
 
         if (!evt.payload.old_circ) {
-            return egCore.net.request(
-                'open-ils.search',
-                'open-ils.search.asset.copy.fleshed2.find_by_barcode',
-                params.copy_barcode
-            ).then(function(resp){
-                console.log(resp);
-                if (egCore.evt.parse(resp)) {
-                    console.error(egCore.evt.parse(resp));
-                } else {
-                   evt.payload.old_circ = resp.circulations()[0];
-                   return service.circ_exists_dialog_impl( evt, params, options );
-                }
+            return egCore.pcrud.search('circ',
+                {target_copy : evt.payload.copy.id(), checkin_time : null},
+                {limit : 1} // should only ever be 1
+            ).then(function(old_circ) {
+                evt.payload.old_circ = old_circ;
+               return service.circ_exists_dialog_impl(evt, params, options);
             });
         } else {
             return service.circ_exists_dialog_impl( evt, params, options );
@@ -845,17 +860,17 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         var openCirc = evt.payload.old_circ;
         var sameUser = openCirc.usr() == params.patron_id;
         
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_circ_exists_dialog',
             controller: 
-                       ['$scope','$modalInstance',
-                function($scope , $modalInstance) {
+                       ['$scope','$uibModalInstance',
+                function($scope , $uibModalInstance) {
                 $scope.args = {forgive_fines : false};
                 $scope.circDate = openCirc.xact_start();
                 $scope.sameUser = sameUser;
-                $scope.ok = function() { $modalInstance.close($scope.args) }
+                $scope.ok = function() { $uibModalInstance.close($scope.args) }
                 $scope.cancel = function($event) { 
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                     $event.preventDefault(); // form, avoid calling ok();
                 }
             }]
@@ -892,11 +907,11 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     }
 
     service.backdate_dialog = function(circ_ids) {
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_backdate_dialog',
             controller: 
-                       ['$scope','$modalInstance',
-                function($scope , $modalInstance) {
+                       ['$scope','$uibModalInstance',
+                function($scope , $uibModalInstance) {
 
                 var today = new Date();
                 $scope.dialog = {
@@ -912,7 +927,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
 
                 $scope.cancel = function() { 
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                 }
 
                 $scope.ok = function() { 
@@ -921,7 +936,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     service.batch_backdate(circ_ids, bd)
                     .then(
                         function() { // on complete
-                            $modalInstance.close({backdate : bd});
+                            $uibModalInstance.close({backdate : bd});
                         },
                         null,
                         function(resp) { // on response
@@ -981,11 +996,11 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     service.mark_claims_returned_dialog = function(copy_barcodes) {
         if (!copy_barcodes.length) return;
 
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_mark_claims_returned_dialog',
             controller: 
-                       ['$scope','$modalInstance',
-                function($scope , $modalInstance) {
+                       ['$scope','$uibModalInstance',
+                function($scope , $uibModalInstance) {
 
                 var today = new Date();
                 $scope.args = {
@@ -998,7 +1013,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                         $scope.args.backdate = today;
                 });
 
-                $scope.cancel = function() {$modalInstance.dismiss()}
+                $scope.cancel = function() {$uibModalInstance.dismiss()}
                 $scope.ok = function() { 
 
                     var date = $scope.args.date.toISOString().replace(/T.*/,'');
@@ -1011,7 +1026,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                         var bc = copy_barcodes.pop();
                         if (!bc) {
                             deferred.resolve();
-                            $modalInstance.close();
+                            $uibModalInstance.close();
                             return;
                         }
 
@@ -1224,12 +1239,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     case 4: /* MISSING */                                          
                     case 7: /* RESHELVING */ 
 
+                        egCore.audio.play('success.checkin');
+
                         // see if the copy location requires an alert
                         return service.handle_checkin_loc_alert(evt, params, options)
                         .then(function() {return final_resp});
 
                     case 8: /* ON HOLDS SHELF */
-
+                        egCore.audio.play('info.checkin.holds_shelf');
                         
                         if (hold) {
 
@@ -1246,6 +1263,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                                 // normally, if the hold was on the shelf at a 
                                 // different location, it would be put into 
                                 // transit, resulting in a ROUTE_ITEM event.
+                                egCore.audio.play('warning.checkin.wrong_shelf');
                                 return $q.when(final_resp);
                             }
                         } else {
@@ -1256,14 +1274,17 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                         }
 
                     case 11: /* CATALOGING */
+                        egCore.audio.play('info.checkin.cataloging');
                         evt[0].route_to = egCore.strings.ROUTE_TO_CATALOGING;
                         return $q.when(final_resp);
 
                     case 15: /* ON_RESERVATION_SHELF */
+                        egCore.audio.play('info.checkin.reservation');
                         // TODO: show booking reservation dialog
                         return $q.when(final_resp);
 
                     default:
+                        egCore.audio.play('error.checkin.unknown');
                         console.error('Unhandled checkin copy status: ' 
                             + copy.status().id() + ' : ' + copy.status().name());
                         return $q.when(final_resp);
@@ -1276,11 +1297,13 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                 ).then(function() { return final_resp });
 
             case 'ASSET_COPY_NOT_FOUND':
+                egCore.audio.play('warning.checkin.not_found');
                 return egAlertDialog.open(
                     egCore.strings.UNCAT_ALERT_DIALOG, params)
                     .result.then(function() {return final_resp});
 
             case 'ITEM_NOT_CATALOGED':
+                egCore.audio.play('warning.checkin.not_cataloged');
                 evt[0].route_to = egCore.strings.ROUTE_TO_CATALOGING;
                 if (options.no_precat_alert) 
                     return $q.when(final_resp);
@@ -1289,6 +1312,7 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     .result.then(function() {return final_resp});
 
             default:
+                egCore.audio.play('error.checkin.unknown');
                 console.warn('unhandled checkin response : ' + evt[0].textcode);
                 return $q.when(final_resp);
         }
@@ -1357,6 +1381,10 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                 print_context.patron = egCore.idl.toHash(data.patron);
             }
 
+            var sound = 'info.checkin.transit';
+            if (evt.payload.hold) sound += '.hold';
+            egCore.audio.play(sound);
+
             function print_transit() {
                 var template = data.transit ? 
                     (data.patron ? 'hold_transit_slip' : 'transit_slip') :
@@ -1374,11 +1402,11 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
             if (options.auto_print_holds_transits) 
                 return print_transit();
 
-            return $modal.open({
+            return $uibModal.open({
                 templateUrl: tmpl,
                 controller: [
-                            '$scope','$modalInstance',
-                    function($scope , $modalInstance) {
+                            '$scope','$uibModalInstance',
+                    function($scope , $uibModalInstance) {
 
                     $scope.today = new Date();
 
@@ -1387,10 +1415,10 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                         $scope[key] = val;
                     });
 
-                    $scope.ok = function() {$modalInstance.close()}
+                    $scope.ok = function() {$uibModalInstance.close()}
 
                     $scope.print = function() { 
-                        $modalInstance.close();
+                        $uibModalInstance.close();
                         print_transit();
                     }
                 }]
@@ -1422,14 +1450,14 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
         var ok = service.check_barcode(bc);
         if (ok) return $q.when();
 
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_bad_barcode_dialog',
             controller: 
-                ['$scope', '$modalInstance', 
-                function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', 
+                function($scope, $uibModalInstance) {
                 $scope.barcode = bc;
-                $scope.ok = function() { $modalInstance.close() }
-                $scope.cancel = function() { $modalInstance.dismiss() }
+                $scope.ok = function() { $uibModalInstance.close() }
+                $scope.cancel = function() { $uibModalInstance.dismiss() }
             }]
         }).result;
     }
@@ -1469,11 +1497,11 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
     }
 
     service.create_penalty = function(user_id) {
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_new_message_dialog',
             controller: 
-                   ['$scope','$modalInstance','staffPenalties',
-            function($scope , $modalInstance , staffPenalties) {
+                   ['$scope','$uibModalInstance','staffPenalties',
+            function($scope , $uibModalInstance , staffPenalties) {
                 $scope.focusNote = true;
                 $scope.penalties = staffPenalties;
                 $scope.require_initials = service.require_initials;
@@ -1481,9 +1509,9 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                 $scope.setPenalty = function(id) {
                     args.penalty = id;
                 }
-                $scope.ok = function(count) { $modalInstance.close($scope.args) }
+                $scope.ok = function(count) { $uibModalInstance.close($scope.args) }
                 $scope.cancel = function($event) { 
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                     $event.preventDefault();
                 }
             }],
@@ -1509,11 +1537,11 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
 
     // assumes, for now anyway,  penalty type is fleshed onto usr_penalty.
     service.edit_penalty = function(usr_penalty) {
-        return $modal.open({
+        return $uibModal.open({
             templateUrl: './circ/share/t_new_message_dialog',
             controller: 
-                   ['$scope','$modalInstance','staffPenalties',
-            function($scope , $modalInstance , staffPenalties) {
+                   ['$scope','$uibModalInstance','staffPenalties',
+            function($scope , $uibModalInstance , staffPenalties) {
                 $scope.focusNote = true;
                 $scope.penalties = staffPenalties;
                 $scope.require_initials = service.require_initials;
@@ -1522,9 +1550,9 @@ function($modal , $q , egCore , egAlertDialog , egConfirmDialog) {
                     note : usr_penalty.note()
                 }
                 $scope.setPenalty = function(id) { args.penalty = id; }
-                $scope.ok = function(count) { $modalInstance.close($scope.args) }
+                $scope.ok = function(count) { $uibModalInstance.close($scope.args) }
                 $scope.cancel = function($event) { 
-                    $modalInstance.dismiss();
+                    $uibModalInstance.dismiss();
                     $event.preventDefault();
                 }
             }],

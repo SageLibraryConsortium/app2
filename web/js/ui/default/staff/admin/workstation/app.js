@@ -172,6 +172,23 @@ function($scope , $window , $location , egCore , egConfirmDialog) {
         egCore.hatch.setLocalItem(
             'eg.hatch.url', $scope.hatchURL);
     }
+
+    egCore.hatch.getItem('eg.audio.disable').then(function(val) {
+        $scope.disable_sound = val;
+    });
+
+    $scope.apply_sound = function() {
+        if ($scope.disable_sound) {
+            egCore.hatch.setItem('eg.audio.disable', true);
+        } else {
+            egCore.hatch.removeItem('eg.audio.disable');
+        }
+    }
+
+    $scope.test_audio = function(sound) {
+        egCore.audio.play(sound);
+    }
+
 }])
 
 .controller('PrintConfigCtrl',
@@ -462,7 +479,7 @@ function($scope , $q , egCore) {
     }
 
     $scope.save_locally = function() {
-        egCore.hatch.storePrintTemplate(
+        egCore.print.storePrintTemplate(
             $scope.print.template_name,
             $scope.print.template_content
         );

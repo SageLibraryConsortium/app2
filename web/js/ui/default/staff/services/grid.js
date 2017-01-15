@@ -38,10 +38,11 @@ angular.module('egGridMod',
             // comma-separated list of supported or disabled grid features
             // supported features:
             //  startSelected : init the grid with all rows selected by default
+            //  allowAll : add an "All" option to row count (really 10000)
             //  -menu : don't show any menu buttons (or use space for them)
             //  -picker : don't show the column picker
             //  -pagination : don't show any pagination elements, and set
-            //                the limit to 1000
+            //                the limit to 10000
             //  -actions : don't show the actions dropdown
             //  -index : don't show the row index column (can't use "index"
             //           as the idField in this case)
@@ -132,6 +133,7 @@ angular.module('egGridMod',
 
                 $scope.showIndex = (features.indexOf('-index') == -1);
 
+                $scope.allowAll = (features.indexOf('allowAll') > -1);
                 $scope.startSelected = $scope.selectAll = (features.indexOf('startSelected') > -1);
                 $scope.showActions = (features.indexOf('-actions') == -1);
                 $scope.showPagination = (features.indexOf('-pagination') == -1);
@@ -450,7 +452,12 @@ angular.module('egGridMod',
                         grid_col.sort = col.sort || 0;
                         // all saved columns are assumed to be true
                         grid_col.visible = true;
-                        new_cols.push(grid_col);
+                        if (new_cols
+                                .filter(function (c) {
+                                    return c.name == grid_col.name;
+                                }).length == 0
+                        )
+                            new_cols.push(grid_col);
                     });
 
                     // columns which are not expressed within the saved 
@@ -1171,8 +1178,7 @@ angular.module('egGridMod',
             var idl_class = egCore.idl.classes[cols.idlClass];
 
             angular.forEach(
-                idl_class.fields.sort(
-                    function(a, b) { return a.name < b.name ? -1 : 1 }),
+                idl_class.fields,
                 function(field) {
                     if (field.virtual) return;
                     if (field.datatype == 'link' || field.datatype == 'org_unit') {
@@ -1211,6 +1217,8 @@ angular.module('egGridMod',
             } else {
                 class_obj = egCore.idl.classes[cols.idlClass];
             }
+            var idl_parent = class_obj;
+            var old_field_label = '';
 
             if (!class_obj) return;
 
@@ -1221,7 +1229,10 @@ angular.module('egGridMod',
             // path before the .*
             // an empty path_parts means expand the root class
             if (path_parts) {
+                var old_field;
                 for (var path_idx in path_parts) {
+                    old_field = idl_field;
+
                     var part = path_parts[path_idx];
                     idl_field = class_obj.field_map[part];
 
@@ -1230,7 +1241,10 @@ angular.module('egGridMod',
                     if (idl_field && idl_field['class'] && (
                         idl_field.datatype == 'link' || 
                         idl_field.datatype == 'org_unit')) {
+                        if (old_field_label) old_field_label += ' : ';
+                        old_field_label += idl_field.label;
                         class_obj = egCore.idl.classes[idl_field['class']];
+                        if (old_field) idl_parent = old_field;
                     } else {
                         if (path_idx < (path_parts.length - 1)) {
                             // we ran out of classes to hop through before
@@ -1254,25 +1268,34 @@ angular.module('egGridMod',
 
                     var col = cols.cloneFromScope(colSpec);
                     col.path = (dotpath ? dotpath + '.' + field.name : field.name);
-                    console.debug('egGrid: field: ' +field.name + '; parent field: ' + js2JSON(idl_field));
+
+                    // log line below is very chatty.  disable until needed.
+                    // console.debug('egGrid: field: ' +field.name + '; parent field: ' + js2JSON(idl_parent));
                     cols.add(col, false, true, 
-                        {idl_parent : idl_field, idl_field : field, idl_class : class_obj});
+                        {idl_parent : idl_parent, idl_field : field, idl_class : class_obj, field_parent_label : old_field_label });
                 });
 
                 cols.columns = cols.columns.sort(
                     function(a, b) {
                         if (a.explicit) return -1;
                         if (b.explicit) return 1;
+
                         if (a.idlclass && b.idlclass) {
-                            return a.idlclass < b.idlclass ? -1 : 1;
-                            return a.idlclass > b.idlclass ? 1 : -1;
-                        }
-                        if (a.path && b.path) {
-                            return a.path < b.path ? -1 : 1;
-                            return a.path > b.path ? 1 : -1;
+                            if (a.idlclass < b.idlclass) return -1;
+                            if (b.idlclass < a.idlclass) return 1;
                         }
 
-                        return a.label < b.label ? -1 : 1;
+                        if (a.path && b.path && a.path.lastIndexOf('.') && b.path.lastIndexOf('.')) {
+                            if (a.path.substring(0, a.path.lastIndexOf('.')) < b.path.substring(0, b.path.lastIndexOf('.'))) return -1;
+                            if (b.path.substring(0, b.path.lastIndexOf('.')) < a.path.substring(0, a.path.lastIndexOf('.'))) return 1;
+                        }
+
+                        if (a.label && b.label) {
+                            if (a.label < b.label) return -1;
+                            if (b.label < a.label) return 1;
+                        }
+
+                        return a.name < b.name ? -1 : 1;
                     }
                 );
 
@@ -1372,8 +1395,8 @@ angular.module('egGridMod',
 
             if (fromExpand && idl_info.idl_class) {
                 column.idlclass = '';
-                if (idl_info.idl_parent) {
-                    column.idlclass = idl_info.idl_parent.label || idl_info.idl_parent.name;
+                if (idl_info.field_parent_label && idl_info.idl_parent.label != idl_info.idl_class.label) {
+                    column.idlclass = (idl_info.field_parent_label || idl_info.idl_parent.label || idl_info.idl_parent.name);
                 } else {
                     column.idlclass += idl_info.idl_class.label || idl_info.idl_class.name;
                 }
@@ -1514,6 +1537,8 @@ angular.module('egGridMod',
                             return;
                         }
                     }
+
+                    if (!obj) return '';
 
                     var cls = obj.classname;
                     if (cls && (class_obj = egCore.idl.classes[cls])) {

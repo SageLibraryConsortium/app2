@@ -5,7 +5,14 @@
  */
 
 angular.module('egPatronApp', ['ngRoute', 'ui.bootstrap', 
-    'egCoreMod', 'egUiMod', 'egGridMod', 'egUserMod'])
+    'egCoreMod', 'egUiMod', 'egGridMod', 'egUserMod', 'ngToast'])
+
+.config(['ngToastProvider', function(ngToastProvider) {
+    ngToastProvider.configure({
+        verticalPosition: 'bottom',
+        animation: 'fade'
+    });
+}])
 
 .config(function($routeProvider, $locationProvider, $compileProvider) {
     $locationProvider.html5Mode(true);
@@ -47,7 +54,8 @@ angular.module('egPatronApp', ['ngRoute', 'ui.bootstrap',
                 'net_access_level',
                 'ident_type',
                 'ident_type2',
-                'cards'
+                'cards',
+                'groups'
             ]);
         }
 
@@ -159,7 +167,7 @@ angular.module('egPatronApp', ['ngRoute', 'ui.bootstrap',
 
     $routeProvider.when('/circ/patron/:id/edit', {
         templateUrl: './circ/patron/t_edit',
-        controller: 'PatronEditCtrl',
+        controller: 'PatronRegCtrl',
         resolve : resolver
     });
 
@@ -270,7 +278,7 @@ function($q , $timeout , $location , egCore,  egUser , $locale) {
 
         // when loading a new patron, update the last patron setting
         if (!service.current || service.current.id() != user_id)
-            egCore.hatch.setLocalItem('eg.circ.last_patron', user_id);
+            egCore.hatch.setLoginSessionItem('eg.circ.last_patron', user_id);
 
         // avoid running multiple retrievals for the same patron, which
         // can happen during dbl-click by maintaining a single running
@@ -557,6 +565,16 @@ function($q , $timeout , $location , egCore,  egUser , $locale) {
        ['$scope','$q','$location','$filter','egCore','egUser','patronSvc',
 function($scope,  $q,  $location , $filter,  egCore,  egUser,  patronSvc) {
 
+    $scope.is_patron_edit = function() {
+        return Boolean($location.path().match(/patron\/\d+\/edit$/));
+    }
+
+    // To support the fixed position patron edit actions bar,
+    // its markup has to live outside the scope of the patron 
+    // edit controller.  Insert a scope blob here that can be
+    // modifed from within the patron edit controller.
+    $scope.edit_passthru = {};
+
     // returns true if a redirect occurs
     function redirectToAlertPanel() {
 
@@ -690,6 +708,7 @@ function($scope , $location , egCore , egConfirmDialog , egUser , patronSvc) {
 
     $scope.submitBarcode = function(args) {
         $scope.bcNotFound = null;
+        $scope.optInRestricted = false;
         if (!args.barcode) return;
 
         // blur so next time it's set to true it will re-apply select()
@@ -728,6 +747,13 @@ function($scope , $location , egCore , egConfirmDialog , egUser , patronSvc) {
 
             if (evt = egCore.evt.parse(optInResp)) {
                 alert(evt); // FIXME
+                return;
+            }
+
+            if (optInResp == 2) {
+                // opt-in disallowed at this location by patron's home library
+                $scope.optInRestricted = true;
+                $scope.selectMe = true;
                 return;
             }
            
@@ -782,17 +808,27 @@ function($scope,  $q,  $routeParams,  $timeout,  $window,  $location,  egCore,
 
     // Handle URL-encoded searches
     if ($location.search().search) {
+        console.log('URL search = ' + $location.search().search);
         patronSvc.urlSearch = {search : JSON2js($location.search().search)};
 
         // why the double-JSON encoded sort?
-        patronSvc.urlSearch.sort = 
-            JSON2js(patronSvc.urlSearch.search.search_sort);
+        if (patronSvc.urlSearch.search.search_sort) {
+            patronSvc.urlSearch.sort = 
+                JSON2js(patronSvc.urlSearch.search.search_sort);
+        } else {
+            patronSvc.urlSearch.sort = [];
+        }
         delete patronSvc.urlSearch.search.search_sort;
     }
 
     var propagate;
     if (patronSvc.lastSearch) {
         propagate = patronSvc.lastSearch.search;
+        // home_ou needs to be treated specially
+        propagate.home_ou = {
+            value : patronSvc.lastSearch.home_ou,
+            group : 0
+        };
     } else if (patronSvc.urlSearch) {
         propagate = patronSvc.urlSearch.search;
     }
@@ -814,7 +850,7 @@ function($scope,  $q,  $routeParams,  $timeout,  $window,  $location,  egCore,
         // populate the search form with our cached / preexisting search info
         angular.forEach(propagate, function(val, key) {
             if (key == 'profile')
-                val.value = $scope.profiles.filter(function(p) { p.id() == val.value })[0];
+                val.value = $scope.profiles.filter(function(p) { return p.id() == val.value })[0];
             if (key == 'home_ou')
                 val.value = egCore.org.get(val.value);
             $scope.searchArgs[key] = val.value;
@@ -899,6 +935,9 @@ function($scope,  $q,  $routeParams,  $timeout,  $window,  $location,  egCore,
             return deferred.promise;
         }
 
+        // Dispay the search progress bar to indicate a search is in progress
+        $scope.show_search_progress = true;
+
         patronSvc.patrons = [];
         egCore.net.request(
             'open-ils.actor',
@@ -913,9 +952,15 @@ function($scope,  $q,  $routeParams,  $timeout,  $window,  $location,  egCore,
             fullSearch.offset
 
         ).then(
-            function() { deferred.resolve() },
+            function() {
+                // hide progress bar on 0-hits searches
+                $scope.show_search_progress = false;
+                deferred.resolve();
+            },
             null, // onerror
             function(user) {
+                // hide progress bar as soon as the first result appears.
+                $scope.show_search_progress = false;
                 patronSvc.localFlesh(user); // inline
                 patronSvc.patrons.push(user);
                 deferred.notify(user);
@@ -1038,8 +1083,8 @@ function($scope,  $q,  $routeParams,  $timeout,  $window,  $location,  egCore,
  * Manages messages
  */
 .controller('PatronMessagesCtrl',
-       ['$scope','$q','$routeParams','egCore','$modal','patronSvc','egCirc',
-function($scope , $q , $routeParams,  egCore , $modal , patronSvc , egCirc) {
+       ['$scope','$q','$routeParams','egCore','$uibModal','patronSvc','egCirc',
+function($scope , $q , $routeParams,  egCore , $uibModal , patronSvc , egCirc) {
     $scope.initTab('messages', $routeParams.id);
     var usr_id = $routeParams.id;
 
@@ -1167,26 +1212,6 @@ function($scope , $q , $routeParams,  egCore , $modal , patronSvc , egCirc) {
 
 
 /**
- * Link to patron edit UI
- */
-.controller('PatronEditCtrl',
-       ['$scope','$routeParams','$location','egCore','patronSvc',
-function($scope,  $routeParams,  $location , egCore , patronSvc) {
-    $scope.initTab('edit', $routeParams.id);
-
-    var url = $location.absUrl().replace(/\/staff.*/, '/actor/user/register');
-    url += '?usr=' + encodeURIComponent($routeParams.id);
-
-    $scope.funcs = {
-        on_save : function() {
-            patronSvc.refreshPrimary();
-        }
-    }
-
-    $scope.patron_edit_url = url;
-}])
-
-/**
  * Credentials tester
  */
 .controller('PatronVerifyCredentialsCtrl',
@@ -1284,8 +1309,8 @@ function($scope,  $routeParams , $location , egCore , patronSvc) {
 }])
 
 .controller('PatronNotesCtrl',
-       ['$scope','$routeParams','$location','egCore','patronSvc','$modal',
-function($scope,  $routeParams , $location , egCore , patronSvc , $modal) {
+       ['$scope','$routeParams','$location','egCore','patronSvc','$uibModal',
+function($scope,  $routeParams , $location , egCore , patronSvc , $uibModal) {
     $scope.initTab('other', $routeParams.id);
     var usr_id = $routeParams.id;
 
@@ -1303,15 +1328,15 @@ function($scope,  $routeParams , $location , egCore , patronSvc , $modal) {
 
     // open the new-note dialog and create the note
     $scope.newNote = function() {
-        $modal.open({
+        $uibModal.open({
             templateUrl: './circ/patron/t_new_note_dialog',
             controller: 
-                ['$scope', '$modalInstance',
-            function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance',
+            function($scope, $uibModalInstance) {
                 $scope.focusNote = true;
                 $scope.args = {};
-                $scope.ok = function(count) { $modalInstance.close($scope.args) }
-                $scope.cancel = function () { $modalInstance.dismiss() }
+                $scope.ok = function(count) { $uibModalInstance.close($scope.args) }
+                $scope.cancel = function () { $uibModalInstance.dismiss() }
             }],
         }).result.then(
             function(args) {
@@ -1349,9 +1374,9 @@ function($scope,  $routeParams , $location , egCore , patronSvc , $modal) {
 
 .controller('PatronGroupCtrl',
        ['$scope','$routeParams','$q','$window','$timeout','$location','egCore',
-        'patronSvc','$modal','egPromptDialog','egConfirmDialog',
+        'patronSvc','$uibModal','egPromptDialog','egConfirmDialog',
 function($scope,  $routeParams , $q , $window , $timeout,  $location , egCore ,
-         patronSvc , $modal , egPromptDialog , egConfirmDialog) {
+         patronSvc , $uibModal , egPromptDialog , egConfirmDialog) {
 
     var usr_id = $routeParams.id;
 
@@ -1459,18 +1484,18 @@ function($scope,  $routeParams , $q , $window , $timeout,  $location , egCore ,
             egCore.pcrud.retrieve('au', card.usr())
             .then(function(user) {
                 user.card(card);
-                $modal.open({
+                $uibModal.open({
                     templateUrl: './circ/patron/t_move_to_group_dialog',
                     controller: [
-                                '$scope','$modalInstance',
-                        function($scope , $modalInstance) {
+                                '$scope','$uibModalInstance',
+                        function($scope , $uibModalInstance) {
                             $scope.user = user;
                             $scope.selected = selected;
                             $scope.outbound = outbound;
                             $scope.ok = 
-                                function(count) { $modalInstance.close() }
+                                function(count) { $uibModalInstance.close() }
                             $scope.cancel = 
-                                function () { $modalInstance.dismiss() }
+                                function () { $uibModalInstance.dismiss() }
                         }
                     ]
                 }).result.then(function() {
@@ -1552,7 +1577,7 @@ function($scope,  $routeParams , $q , egCore , patronSvc) {
        ['$scope','$location','egCore',
 function($scope , $location , egCore) {
 
-    var id = egCore.hatch.getLocalItem('eg.circ.last_patron');
+    var id = egCore.hatch.getLoginSessionItem('eg.circ.last_patron');
     if (id) return $location.path('/circ/patron/' + id + '/checkout');
 
     $scope.no_last = true;

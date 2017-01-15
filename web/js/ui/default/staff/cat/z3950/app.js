@@ -26,8 +26,10 @@ angular.module('egCatZ3950Search',
  * List view - grid stuff
  */
 .controller('Z3950SearchCtrl',
-       ['$scope','$q','$location','$timeout','$window','egCore','egGridDataProvider','egZ3950TargetSvc','$modal',
-function($scope , $q , $location , $timeout , $window,  egCore , egGridDataProvider,  egZ3950TargetSvc,  $modal) {
+       ['$scope','$q','$location','$timeout','$window','egCore','egGridDataProvider','egZ3950TargetSvc','$uibModal',
+        'egConfirmDialog',
+function($scope , $q , $location , $timeout , $window,  egCore , egGridDataProvider,  egZ3950TargetSvc,  $uibModal,
+         egConfirmDialog) {
 
     // get list of targets
     egZ3950TargetSvc.loadTargets();
@@ -147,15 +149,15 @@ function($scope , $q , $location , $timeout , $window,  egCore , egGridDataProvi
         return egZ3950TargetSvc.rawSearchImpossible();
     }
     $scope.showRawSearchForm = function() {
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/z3950/t_raw_search',
             size: 'md',
             controller:
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 egZ3950TargetSvc.setRawSearch('');
                 $scope.focusMe = true;
-                $scope.ok = function(args) { $modalInstance.close(args) }
-                $scope.cancel = function () { $modalInstance.dismiss() }
+                $scope.ok = function(args) { $uibModalInstance.close(args) }
+                $scope.cancel = function () { $uibModalInstance.dismiss() }
             }]
         }).result.then(function (args) {
             if (!args || !args.raw_search) return;
@@ -225,7 +227,17 @@ function($scope , $q , $location , $timeout , $window,  egCore , egGridDataProvi
             function() { deferred.resolve() },
             null, // onerror
             function(result) {
-                console.debug('imported');
+                egConfirmDialog.open(
+                    egCore.strings.IMPORTED_RECORD_FROM_Z3950,
+                    egCore.strings.IMPORTED_RECORD_FROM_Z3950_AS_ID,
+                    { id : result.id() },
+                    egCore.strings.GO_TO_RECORD,
+                    egCore.strings.GO_BACK
+                ).result.then(function() {
+                    // NOTE: $location.path('/cat/catalog/record/' + result.id()) did not work
+                    // for some reason
+                    $window.location.href = egCore.env.basePath + 'cat/catalog/record/' + result.id();
+                });
             }
         );
 
@@ -239,35 +251,43 @@ function($scope , $q , $location , $timeout , $window,  egCore , egGridDataProvi
 
     $scope.spawn_editor = function() {
         var items = $scope.gridControls.selectedItems();
-        $modal.open({
+        var recId = 0;
+        $uibModal.open({
             templateUrl: './cat/z3950/t_marc_edit',
             size: 'lg',
             controller:
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.focusMe = true;
-                $scope.record_id = 0;
+                $scope.record_id = recId;
                 $scope.dirty_flag = false;
                 $scope.marc_xml = items[0]['marcxml'];
-                $scope.ok = function(args) { $modalInstance.close(args) }
-                $scope.cancel = function () { $modalInstance.dismiss() }
+                $scope.ok = function(args) { $uibModalInstance.close(args) }
+                $scope.cancel = function () { $uibModalInstance.dismiss() }
+                $scope.save_label = egCore.strings.IMPORT_BUTTON_LABEL;
+                $scope.import_record_callback = function (record_id) {
+                    recId = record_id;
+                    $scope.save_label = egCore.strings.SAVE_BUTTON_LABEL;
+                };
             }]
-        }).result.then(function (args) {
-            if (!args || !args.name) return;
+        }).result.then(function () {
+            if (recId) {
+                $window.location.href = egCore.env.basePath + 'cat/catalog/record/' + recId;
+            }
         });
     }
 
     $scope.view_marc = function() {
         var items = $scope.gridControls.selectedItems();
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/z3950/t_marc_html',
             size: 'lg',
             controller:
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.focusMe = true;
                 $scope.marc_xml = items[0]['marcxml'];
                 $scope.isbn = (items[0].isbn() || '').replace(/ .*/, '');
-                $scope.ok = function(args) { $modalInstance.close(args) }
-                $scope.cancel = function () { $modalInstance.dismiss() }
+                $scope.ok = function(args) { $uibModalInstance.close(args) }
+                $scope.cancel = function () { $uibModalInstance.dismiss() }
             }]
         }).result.then(function (args) {
             if (!args || !args.name) return;
@@ -280,28 +300,28 @@ function($scope , $q , $location , $timeout , $window,  egCore , egGridDataProvi
         var args = {
             'marc_xml' : items[0]['marcxml']
         };
-        $modal.open({
+        $uibModal.open({
             templateUrl: './cat/z3950/t_overlay',
             size: 'lg',
             controller:
-                ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                 $scope.focusMe = true;
                 $scope.overlay_target = overlay_target;
                 $scope.args = args;
-                $scope.ok = function(args) { $modalInstance.close(args) };
-                $scope.cancel = function () { $modalInstance.dismiss() };
+                $scope.ok = function(args) { $uibModalInstance.close(args) };
+                $scope.cancel = function () { $uibModalInstance.dismiss() };
                 $scope.editOverlayRecord = function() {
-                    $modal.open({
+                    $uibModal.open({
                         templateUrl: './cat/z3950/t_edit_overlay_record',
                         size: 'lg',
                         controller:
-                            ['$scope', '$modalInstance', function($scope, $modalInstance) {
+                            ['$scope', '$uibModalInstance', function($scope, $uibModalInstance) {
                             $scope.focusMe = true;
                             $scope.record_id = 0;
                             $scope.dirty_flag = false;
                             $scope.args = args;
-                            $scope.ok = function(args) { $modalInstance.close(args) }
-                            $scope.cancel = function () { $modalInstance.dismiss() }
+                            $scope.ok = function(args) { $uibModalInstance.close(args) }
+                            $scope.cancel = function () { $uibModalInstance.dismiss() }
                         }]
                     }).result.then(function (args) {
                         if (!args || !args.name) return;

@@ -30,6 +30,7 @@ var fundLabelFormat = [
 ];
 var fundSearchFormat = ['${0} (${1})', 'code', 'year'];
 var fundSearchFilter = {active : 't'};
+var fundSort = {order_by : {"acqf":"year DESC, code"}};
 
 function nodeByName(name, context) {
     return dojo.query('[name='+name+']', context)[0];
@@ -183,6 +184,7 @@ function AcqLiTable() {
                 "labelFormat": (field == 'fund') ? fundLabelFormat : null,
                 "searchFormat": (field == 'fund') ? fundSearchFormat : null,
                 "searchFilter": (field == 'fund') ? fundSearchFilter : null,
+                "searchOptions": (field == 'fund') ? fundSort : null,
                 "orgLimitPerms": (field == 'location') ? ['CREATE_PICKLIST', 'CREATE_PURCHASE_ORDER'] : [perms],
                 "dijitArgs": {
                     "required": false,
@@ -360,6 +362,7 @@ function AcqLiTable() {
     this.reset = function(keep_selectors) {
         while(self.tbody.childNodes[0])
             self.tbody.removeChild(self.tbody.childNodes[0]);
+        self.liCache = {};
         self.noteAcks = {};
         self.relCache = {};
 
@@ -774,6 +777,20 @@ function AcqLiTable() {
         dojo.query('[name=noteslink]', row)[0].onclick = function() {self.drawLiNotes(li)};
         dojo.query('[name=expand_inline_copies]', row)[0].onclick = 
             function() {self.drawInlineCopies(li.id())};
+
+        var sum;
+        if (sum = li.order_summary()) { // assignment
+            // Only show the paid label if at least one copy is invoiced.
+            // In other words, a lineitem whose every copy is canceled
+            // is not "paid off"
+            if (sum.invoice_count() > 0) {
+                if (sum.item_count() == (
+                    sum.invoice_count() + sum.cancel_count())) {
+                    // Lineitem is fully paid.  Display the paid-off label
+                    openils.Util.show(nodeByName('paid', row), 'inline');
+                }
+            }
+        }
 
         this.drawOrderIdentSelector(li, row);
 

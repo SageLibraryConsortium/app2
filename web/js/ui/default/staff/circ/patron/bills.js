@@ -4,8 +4,8 @@
 angular.module('egPatronApp')
 
 .factory('billSvc', 
-       ['$q','egCore','patronSvc',
-function($q , egCore , patronSvc) {
+       ['$q','egCore','egWorkLog','patronSvc',
+function($q , egCore , egWorkLog , patronSvc) {
 
     var service = {};
 
@@ -13,7 +13,7 @@ function($q , egCore , patronSvc) {
     service.fetchBillSettings = function() {
         if (service.settings) return $q.when(service.settings);
         return egCore.org.settings(
-            ['ui.circ.billing.uncheck_bills_and_unfocus_payment_box']
+            ['ui.circ.billing.uncheck_bills_and_unfocus_payment_box','ui.circ.billing.amount_warn','ui.circ.billing.amount_limit']
         ).then(function(s) {return service.settings = s});
     }
 
@@ -39,6 +39,24 @@ function($q , egCore , patronSvc) {
             patronSvc.current.last_xact_id()
         ).then(function(resp) {
             console.debug('payments: ' + js2JSON(resp));
+            var total = 0; angular.forEach(payments,function(p) { total += p[1]; });
+            var msg;
+            switch(type) {
+                case 'cash_payment' : msg = egCore.strings.EG_WORK_LOG_CASH_PAYMENT; break;
+                case 'check_payment' : msg = egCore.strings.EG_WORK_LOG_CHECK_PAYMENT; break;
+                case 'credit_card_payment' : msg = egCore.strings.EG_WORK_LOG_CREDIT_CARD_PAYMENT; break;
+                case 'credit_payment' : msg = egCore.strings.EG_WORK_LOG_CREDIT_PAYMENT; break;
+                case 'work_payment' : msg = egCore.strings.EG_WORK_LOG_WORK_PAYMENT; break;
+                case 'forgive_payment' : msg = egCore.strings.EG_WORK_LOG_FORGIVE_PAYMENT; break;
+                case 'goods_payment' : msg = egCore.strings.EG_WORK_LOG_GOODS_PAYMENT; break;
+            }
+            egWorkLog.record(
+                msg,{
+                    'action' : 'paid_bill',
+                    'patron_id' : service.userId,
+                    'total_amount' : total
+                }
+            );
             if (evt = egCore.evt.parse(resp)) 
                 return alert(evt);
 
@@ -112,10 +130,10 @@ function($q , egCore , patronSvc) {
  */
 .controller('PatronBillsCtrl',
        ['$scope','$q','$routeParams','egCore','egConfirmDialog','$location',
-        'egGridDataProvider','billSvc','patronSvc','egPromptDialog','$modal',
+        'egGridDataProvider','billSvc','patronSvc','egPromptDialog', 'egAlertDialog',
         'egBilling',
 function($scope , $q , $routeParams , egCore , egConfirmDialog , $location,
-         egGridDataProvider , billSvc , patronSvc , egPromptDialog , $modal,
+         egGridDataProvider , billSvc , patronSvc , egPromptDialog, egAlertDialog,
          egBilling) {
 
     $scope.initTab('bills', $routeParams.id);
@@ -130,6 +148,9 @@ function($scope , $q , $routeParams , egCore , egConfirmDialog , $location,
     $scope.annotate_payment = false;
     $scope.receipt_count = 1;
     $scope.receipt_on_pay = false;
+    $scope.warn_amount = 1000;
+    $scope.max_amount = 100000;
+    $scope.amount_verified = false;
 
     // pre-define list-returning funcs in case we access them
     // before the grid instantiates
@@ -378,6 +399,12 @@ function($scope , $q , $routeParams , egCore , egConfirmDialog , $location,
             // arrive, manually de-select everything.
             $scope.gridControls.selectItems([]);
         }
+        if (s['ui.circ.billing.amount_warn']) {
+            $scope.warn_amount = Number(s['ui.circ.billing.amount_warn']);
+        }
+        if (s['ui.circ.billing.amount_limit']) {
+            $scope.max_amount = Number(s['ui.circ.billing.amount_limit']);
+        }
     });
 
     $scope.gridControls.allItemsRetrieved = function() {
@@ -426,6 +453,37 @@ function($scope , $q , $routeParams , egCore , egConfirmDialog , $location,
     }
 
     $scope.applyPayment = function() {
+
+        if ($scope.payment_amount > $scope.max_amount ) {
+            egAlertDialog.open(
+                egCore.strings.PAYMENT_OVER_MAX,
+                {   max_amount : ''+$scope.max_amount,
+                    ok : function() {
+                        $scope.payment_amount = 0;
+                    }
+                }
+            );
+            return;
+        }
+
+        if (($scope.payment_amount > $scope.warn_amount) && ($scope.amount_verified == false)) {
+            egConfirmDialog.open(
+                egCore.strings.PAYMENT_WARN_AMOUNT_TITLE, egCore.strings.PAYMENT_WARN_AMOUNT,
+                {   payment_amount : ''+$scope.payment_amount,
+                    ok : function() {
+                        $scope.amount_verfied = true;
+                        $scope.applyPayment();
+                    },
+                    cancel : function() {
+                        $scope.payment_amount = 0;
+                    }
+                }
+            );
+            return;
+        }
+
+        $scope.amount_verfied = false;
+
         if ($scope.annotate_payment) {
             egPromptDialog.open(
                 egCore.strings.ANNOTATE_PAYMENT_MSG, '',
