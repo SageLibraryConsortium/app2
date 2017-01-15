@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Edition">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Floating">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Holdable">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Age-based Hold Protection">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Hold Shelf Location">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Holds/Transit">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Circ Library">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Patron">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Price">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Acquisition Cost">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "Previous Circ Group">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Pub Date">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Publisher">

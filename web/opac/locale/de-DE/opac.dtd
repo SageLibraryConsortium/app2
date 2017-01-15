@@ -139,9 +139,9 @@ Wollen Sie wirklich fortfahren?
 <!ENTITY myopac.bookbag.no.items "Die gewählte Büchermappe enthält keine Eintrag">
 <!ENTITY myopac.bookbag.remove "Diesen Eintrag entfernen?">
 <!ENTITY myopac.remove.link "entfernen">
-<!ENTITY myopac.publish.text "Eine Büchermappe teilen, bedeutet das der Inhalt der Büchermappe für andere sichtbar wird.
-Um die öffentliche Ansicht der geteilten Büchermappe zu sehen, klicken Sie auf den &quot;Ansehen&quot; link in der
-&quot;Geteilt&quot; Spalte der Büchermappen-Liste, die sich in der oberen Bildschirmseite befindet.">
+<!ENTITY myopac.publish.text 'Eine Büchermappe teilen, bedeutet das der Inhalt der Büchermappe für andere sichtbar wird.
+Um die öffentliche Ansicht der geteilten Büchermappe zu sehen, klicken Sie auf den "Ansehen" link in der
+"Geteilt" Spalte der Büchermappen-Liste, die sich in der oberen Bildschirmseite befindet.'>
 <!ENTITY myopac.item.confirm "Wollen Sie wirklich den Eintrag der Bücherliste entfernen.">
 <!ENTITY myopac.publish.confirm "Wenn Sie diese Büchermappe teilen, wird ihr Inhalt
  für die anderen sichtbar. Wollen Sie fortfahren?">
@@ -619,8 +619,8 @@ Wir empfehlen, dass Sie diesen Titel aus allen betroffenen Büchermappen entfern
 <!ENTITY common.hold.exists.override "Es gibt bereits eine Reservierung für diesen Gegenstand. Wollen Sie Ihn trotzdem reservieren?">
 <!ENTITY common.hold.age_protect.override "This hold may take extra time to fill due to library policies. Would you like to create the hold anyway?">
 <!ENTITY common.hold.place_unfillable.override "The requested hold cannot currently be filled. You have permission to place the hold regardless, but should only do so if you believe the hold will eventually be filled. Would you like to create the hold anyway?">
-<!ENTITY common.hold.barred "GAST GESPERRT. Bitte prüfen Sie die Notizen im 
-Bereich &quot;Mitarbeiternotizen&quot;Ihrer Seite &quot;Mein Zugang&quot; oder sprechen Sie mit Ihrer Ortsbibliothek.">
+<!ENTITY common.hold.barred 'GAST GESPERRT. Bitte prüfen Sie die Notizen im 
+Bereich "Mitarbeiternotizen"Ihrer Seite "Mein Zugang" oder sprechen Sie mit Ihrer Ortsbibliothek.'>
 <!ENTITY common.hold.item.invalid "Diese Reservierung ist ungültig. Möglicherweise wurde das 
 Reservierungsziel aus dem System gelöscht. Bitte brechen Sie die Reservierung ab 
 und legen eine neue an.">

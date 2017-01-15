@@ -141,9 +141,9 @@ Haluatko varmasti jatkaa?">
 <!ENTITY myopac.bookbag.no.items "Valitussa kirjahyllyssä ei ole niteitä...">
 <!ENTITY myopac.bookbag.remove "Poistetaanko tämä nide?">
 <!ENTITY myopac.remove.link "poista">
-<!ENTITY myopac.publish.text "Jaettu kirjahylly tarkoittaa, että kirjahyllyn sisältö näkyy muille. 
-Näet jaetun kirjahyllyn julkisen näkymän napsauttamalla &quot;Näytä&quot;-linkkiä
-kirjahyllyluettelon &quot;Jaetut&quot;-sarakkeessa tämän sivun yläreunassa.">
+<!ENTITY myopac.publish.text 'Jaettu kirjahylly tarkoittaa, että kirjahyllyn sisältö näkyy muille. 
+Näet jaetun kirjahyllyn julkisen näkymän napsauttamalla "Näytä"-linkkiä
+kirjahyllyluettelon "Jaetut"-sarakkeessa tämän sivun yläreunassa.'>
 <!ENTITY myopac.item.confirm "Haluatko varmasti poistaa tämän kirjahyllyniteen?">
 <!ENTITY myopac.publish.confirm "Tämän kirjahyllyn jakaminen tarkoittaa, että 
 muut voivat nähdä kirjahyllyn sisällön. Haluatko varmasti jakaa kirjahyllyn?">
@@ -621,8 +621,8 @@ Suosittelemme, että poistat tämän nimekkeen kaikista kirjahyllyistä, joihin 
 <!ENTITY common.hold.exists.override "Pyydetystä niteestä on jo varaus. Haluatko varata tästä huolimatta?">
 <!ENTITY common.hold.age_protect.override "Tämän varauksen täyttämiseen saattaa kulua aikaa kirjastosäännöistä johtuen. Haluatko tehdä varauksen tästä huolimatta?">
 <!ENTITY common.hold.place_unfillable.override "Pyydettyä varausta ei voida täyttää tällä hetkellä. Sinulla on tästä huolimatta oikeus tehdä varaus, mutta sinun kannattaa toimia näin ainoastaan, jos uskot, että varaus täytetään ennen pitkää. Haluatko kaikesta huolimatta tehdä varauksen?">
-<!ENTITY common.hold.barred "ASIAKAS LAINAUSKIELLOSSA. Katso ilmoitukset &quot;Oma tili&quot;-sivun osiosta 
-&quot;Henkilökunnan ilmoitukset&quot; tai ota yhteyttä kirjastoosi.">
+<!ENTITY common.hold.barred 'ASIAKAS LAINAUSKIELLOSSA. Katso ilmoitukset "Oma tili"-sivun osiosta 
+"Henkilökunnan ilmoitukset" tai ota yhteyttä kirjastoosi.'>
 <!ENTITY common.hold.item.invalid "Varaus ei enää ole voimassa. On todennäköistä, että 
 varauksen kohde on poistettu järjestelmästä. Peru tämä varaus ja
 tee uusi.">

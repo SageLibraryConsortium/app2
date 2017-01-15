@@ -26,7 +26,7 @@
 <!ENTITY common.logout "התנתק">
 <!ENTITY common.physical "Physical Description">
 <!ENTITY common.pubdate "תאריך פרסום">
-<!ENTITY common.publisher "מו&quot;ל">
+<!ENTITY common.publisher 'מו"ל'>
 <!ENTITY common.results "תוצאות">
 <!ENTITY common.select "בחר">
 <!ENTITY common.status "מצב">
@@ -163,7 +163,7 @@ avoid using bookbags all together.  Thank you.">
 	================================================================= -->
 
 <!ENTITY myopac.checked.out "Total items out:">
-<!ENTITY myopac.checked.overdue "פריטים סה&quot;כ איחור:">
+<!ENTITY myopac.checked.overdue 'פריטים סה"כ איחור:'>
 <!ENTITY myopac.checked.renew "חידוש פריטים נבחרים">
 <!ENTITY myopac.checked.renewing "חידוש ...">
 <!ENTITY myopac.checked.renew.remaining "חידושים נותרים">
@@ -181,7 +181,7 @@ avoid using bookbags all together.  Thank you.">
 	================================================================= -->
 
 <!ENTITY myopac.fines.title "Summary">
-<!ENTITY myopac.fines.owed "סה&quot;כ חייב">
+<!ENTITY myopac.fines.owed 'סה"כ חייב'>
 <!ENTITY myopac.fines.paid "הכולל ששולם">
 <!ENTITY myopac.fines.balance "יתרת חייבים">
 <!ENTITY myopac.fines.status "טוען...">
@@ -239,9 +239,9 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY myopac.prefs.font.regular "גופן קבוע">
 <!ENTITY myopac.prefs.font.large "גופן גדול">
 <!ENTITY myopac.prefs.holds.notify "ברירת מחדל החזק ההודעה שיטה">
-<!ENTITY myopac.prefs.holds.both "השתמש טלפון ודוא&quot;ל">
+<!ENTITY myopac.prefs.holds.both 'השתמש טלפון ודוא"ל'>
 <!ENTITY myopac.prefs.holds.phone "טלפון השתמש רק">
-<!ENTITY myopac.prefs.holds.email "דוא&quot;ל השתמש רק">
+<!ENTITY myopac.prefs.holds.email 'דוא"ל השתמש רק'>
 <!ENTITY myopac.prefs.search.location "חיפוש מיקום ברירת מחדל">
 <!ENTITY myopac.prefs.search.home "תמיד החיפוש ספריית הבית שלי כברירת מחדל.">
 <!ENTITY myopac.prefs.search.range "חיפוש ברירת מחדל טווח">
@@ -269,8 +269,8 @@ If an item has already been selected to fulfill the hold, it will not be suspend
 <!ENTITY myopac.summary.password.current "הזן את הסיסמה הנוכחית:">
 <!ENTITY myopac.summary.password.new "הזן סיסמה חדשה:">
 <!ENTITY myopac.summary.password.reenter "הזן מחדש סיסמה חדשה:">
-<!ENTITY myopac.summary.email "כתובת דוא&quot;ל">
-<!ENTITY myopac.summary.email.new "הכנס את כתובת הדוא&quot;ל החדש:">
+<!ENTITY myopac.summary.email 'כתובת דוא"ל'>
+<!ENTITY myopac.summary.email.new 'הכנס את כתובת הדוא"ל החדש:'>
 <!ENTITY myopac.summary.id.primary "ההזדהות הראשונית">
 <!ENTITY myopac.summary.barcode "ברקוד פעילים">
 <!ENTITY myopac.summary.home "דף הבית הספריה">

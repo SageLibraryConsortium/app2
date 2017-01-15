@@ -2198,7 +2198,7 @@
 <!ENTITY staff.server.admin.copy_locations.editor.circulate "Circular">
 <!ENTITY staff.server.admin.copy_locations.editor.edit "Editar">
 <!ENTITY staff.server.admin.copy_locations.editor.delete "Excluir">
-<!ENTITY staff.server.admin.copy_locations.editor.help.holdable "Se a localização do exemplar é &quot;Reservável&quot;, os exemplares de tal localização podem receber reservas.">
+<!ENTITY staff.server.admin.copy_locations.editor.help.holdable 'Se a localização do exemplar é "Reservável", os exemplares de tal localização podem receber reservas.'>
 <!ENTITY staff.server.admin.copy_locations.editor.delete.confirm "Tem certeza de que deseja apagar a localização do exemplar selecionado? PS: Se existirem exemplares associados a esta localização, a operação de excluir irá falhar.">
 <!ENTITY staff.server.admin.copy_locations.editor.prefix "Label prefix">
 <!ENTITY staff.server.admin.copy_locations.editor.suffix "Label suffix">
@@ -2257,7 +2257,7 @@
 <!ENTITY staff.server.admin.non_cat_types.submit "Submeter">
 <!ENTITY staff.server.admin.non_cat_types.cancel "Cancelar">
 <!ENTITY staff.server.admin.non_cat_types.delete.confirm "Você tem certeza que deseja excluir o tipo não-catalogado selecionado?">
-<!ENTITY staff.server.admin.non_cat_types.in_house.help "Se o sinalizador &quot;Interno&quot; é definido para um tipo não-catalogado, itens que circulam com esse tipo irão criar empréstimos &quot;Interno&quot;. Isso é ideal para uso de computadores, &quot;aluguel&quot; de salas, etc">
+<!ENTITY staff.server.admin.non_cat_types.in_house.help 'Se o sinalizador "Interno" é definido para um tipo não-catalogado, itens que circulam com esse tipo irão criar empréstimos "Interno". Isso é ideal para uso de computadores, "aluguel" de salas, etc'>
 <!ENTITY staff.server.admin.non_cat_types.update.success "Tipo não-catalogado  foi atualizado com sucesso">
 <!ENTITY staff.server.admin.non_cat_types.name_exists "Já existe um tipo não-catalogado para o nome selecionado">
 <!ENTITY staff.server.admin.index.title "Administrador do Sistema Local">
@@ -2308,20 +2308,20 @@
 <!ENTITY staff.server.admin.org_settings.default_price "Preço padrão de Item">
 <!ENTITY staff.server.admin.org_settings.from_address "Enviando avisos por email para leitores">
 <!ENTITY staff.server.admin.org_settings.bounce_note "Falha no envio de email retornarão para este endereço">
-<!ENTITY staff.server.admin.org_settings.apply_all.note "I. &quot;Aplicar a todos os locais&quot; irá forçar a nova definição para ser aplicada a todos os locais no seletor de local.">
+<!ENTITY staff.server.admin.org_settings.apply_all.note 'I. "Aplicar a todos os locais" irá forçar a nova definição para ser aplicada a todos os locais no seletor de local.'>
 <!ENTITY staff.server.admin.org_settings.update_success "Atualizado com sucesso.">
 <!ENTITY staff.server.admin.org_settings.apply_all.confirm "Isto irá atualizar a configuração de todas as localizações listados no menu suspenso. Você tem certeza de que deseja continuar?">
 
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval "Reservas: Intervalo para Alerta de Expiração">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval.desc "Montante de tempo antes da expiração de uma reserva para que o leitor seja alertado">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval "Reservas: Intervalo para Alerta de Expiração">
-<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc "Montante de tempo após uma reserva ser feita que a reserva expirará. Por exemplo &quot;100 dias&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc 'Montante de tempo após uma reserva ser feita que a reserva expirará. Por exemplo "100 dias"'>
 <!ENTITY staff.server.admin.org_settings.global.credit.allow "Permite pagamento por cartão de crédito">
 <!ENTITY staff.server.admin.org_settings.global.credit.allow.desc "Se habilitado, leitores poderão pagar multas acumuladas nesta localização por cartão de crédito">
 <!ENTITY staff.server.admin.org_settings.global.default_locale "Local Padrão">
 <!ENTITY staff.server.admin.org_settings.circ.void_overdue_on_lost "Anular multas de atraso quando os itens estão marcados como perdido">
 <!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft "Reservas: Intervalo de fracasso leve">
-<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc "Quanto tempo de espera para permitir que itens remotos sejam oportunamente separados para uma reserva. Exemplo &quot;5 dias&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc 'Quanto tempo de espera para permitir que itens remotos sejam oportunamente separados para uma reserva. Exemplo "5 dias"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.hard "Reservas: Limite Máximo">
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.soft "Reservas: Limite Mínimo">
 <!ENTITY staff.server.admin.org_settings.opac.barcode_regex "Formato do código de barras do leitor">
@@ -2329,7 +2329,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max "Saídas máximas anteriormente exibidas">
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max.desc "Este é o número máximo de circulações anteriores que o cliente administrativo irá mostrar quando estiver analisando os detalhes de item">
 <!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval "Alterar situação do intervalo de reposição na prateleira">
-<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc "Montante de tempo que se espera antes de mudar um item da situação &quot;repondo&quot; para &quot;disponível&quot;. Exemplos &quot;1 dia&quot;, &quot;6 horas&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc 'Montante de tempo que se espera antes de mudar um item da situação "repondo" para "disponível". Exemplos "1 dia", "6 horas"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval "Reservas: Espera Estimada (Dias)">
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval.desc "Quando se prediz o período de tempo que um leitor estará esperando por uma reserva a ser cumprido, isto é o número de dias padrão/médio que se assume para que um item esteja disponível para empréstimo.">
 <!ENTITY staff.server.admin.org_settings.circ.block_renews_for_holds "Holds: Block Renewal of Items Needed for Holds">
@@ -2341,7 +2341,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password "Auto-verificação: Requer senha do leitor">
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password.desc "Se verdadeiro, será requisitada a senha para os leitores além do seus nomes de usuário/código-de-barras para se conectarem a interface de auto-verificação">
 <!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold "Limiar da Idade Juveníl">
-<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc "A idade na qual um usuário não é mais considerado um jovem. Por exemplo, &quot;18 anos &quot;.">
+<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc 'A idade na qual um usuário não é mais considerado um jovem. Por exemplo, "18 anos ".'>
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty "Não excluir automaticamente registros bibliográficos vazios">
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty.desc "Não excluir automaticamente um registro bibliográfico quando todas os exemplares associados foram excluídos">
 <!ENTITY staff.server.admin.org_settings.cat.bib.alert_on_empty "Alerta sobre registros bibliográficos vazios">
@@ -2699,7 +2699,7 @@
 <!ENTITY staff.circ.print_list.top_ui.default.accesskey "P">
 <!ENTITY staff.circ.print_list.top_ui.save.label "Salvar Localmente">
 <!ENTITY staff.circ.print_list.top_ui.save.accesskey "S">
-<!ENTITY staff.circ.print_list.top_ui.description "Esteja certo de &quot;Salvar Localmente&quot; antes de exportar">
+<!ENTITY staff.circ.print_list.top_ui.description 'Esteja certo de "Salvar Localmente" antes de exportar'>
 <!ENTITY staff.circ.print_list.top_ui.description.export.label "Exportar">
 <!ENTITY staff.circ.print_list.top_ui.description.export.accesskey "E">
 <!ENTITY staff.circ.print_list.top_ui.description.import.label "Import">
@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Edição">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Floating">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Reservável">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Age-based Hold Protection">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Localização na Estante da Reserva">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Reservas/Trânsito">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Circ Library">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Patron">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Preço">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Acquisition Cost">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "Previous Circ Group">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Data de Pub">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Editora">

@@ -272,7 +272,7 @@
 <!ENTITY staff.auth.verify.retrieve.accesskey "Z">
 <!ENTITY staff.auth.change_type.label "Nový typ přihlašování:">
 <!ENTITY staff.auth.change_type.accesskey "N">
-<!ENTITY staff.auth.change_type_description "Dočasná přihlášení do systému vyprší po několoka minutách bez aktivity. Přihlášení personálu jsou stejná, jako počáteční přihlášení do služebního klienta. Trvalé přihlášení zruší existující přihlašovací relaci a nahradí ji novou.">
+<!ENTITY staff.auth.change_type_description "Dočasné přihlášení do systému vyprší po několoka minutách bez aktivity. Přihlášení personálu je stejné, jako počáteční přihlášení do služebního klienta. Trvalé přihlášení zruší existující přihlašovací relaci a nahradí ji novou.">
 <!ENTITY staff.auth.change_type_staff "Personál">
 <!ENTITY staff.auth.change_type_temporary "Dočasné">
 <!ENTITY staff.auth.change_type_permanent "Trvalé">
@@ -334,7 +334,7 @@
 
 <!ENTITY staff.bibs_abreast.view_bib "Zobrazit bib. záznam">
 <!ENTITY staff.bibs_abreast.edit_bib "Editovat bib. záznam">
-<!ENTITY staff.bibs_abreast.holdings "Kknihovní fond">
+<!ENTITY staff.bibs_abreast.holdings "Knihovní fond">
 
 <!ENTITY staff.cat.opac.add_bucket.accesskey "s">
 <!ENTITY staff.cat.opac.add_bucket.label "Přidat do skupiny">
@@ -398,7 +398,7 @@
 <!ENTITY staff.cat.popup.edit.record.window.key "">
 <!ENTITY staff.cat.popup.edit_record.tab "Editovat záznam (panel)">
 <!ENTITY staff.cat.popup.edit_record.window "Editovat záznam (okno)">
-<!ENTITY staff.cat.record_buckets.merge_records.merge_lead "Sloučit tyto záznamy? (Nejdříve vyber &quot;řídící&quot; záznam)">
+<!ENTITY staff.cat.record_buckets.merge_records.merge_lead 'Sloučit tyto záznamy? (Nejdříve vyber "řídící" záznam)'>
 <!ENTITY staff.cat.record_buckets.merge_records.button.label "Sloučit">
 <!ENTITY staff.cat.record_buckets.merge_records.button.accesskey "S">
 <!ENTITY staff.cat.record_buckets.merge_records.cancel_button.label "Storno">
@@ -795,18 +795,18 @@
 <!ENTITY staff.main.menu.admin.server_admin.conify.sms_carrier.label "SMS operátor">
 <!ENTITY staff.main.menu.admin.server_admin.conify.z3950_source.label "Z39.50 servery">
 <!ENTITY staff.main.menu.admin.server_admin.conify.org_unit_proximity_adjustment.label "Nastavení proximity organizační jednotky">
-<!ENTITY staff.main.menu.admin.server_admin.conify.z3950_index_field_map.label "Z39.50 Index Field Maps">
+<!ENTITY staff.main.menu.admin.server_admin.conify.z3950_index_field_map.label "Mapy indexovaných polí Z39.50">
 <!ENTITY staff.main.menu.admin.server_admin.conify.circulation_modifier.label "Modifikátory výpůjček">
 <!ENTITY staff.main.menu.admin.server_admin.conify.org_unit_setting_type "Typy nastavení organizační jednotky">
 <!ENTITY staff.main.menu.admin.server_admin.conify.import_match_set "Sady shod importu">
 <!ENTITY staff.main.menu.admin.server_admin.conify.usr_setting_type "Typy uživatelských nastavení">
 <!ENTITY staff.main.menu.admin.server_admin.conify.config_hard_due_date "Změny v půjčování k pevnému datu">
 <!ENTITY staff.main.menu.admin.server_admin.conify.config_rule_circ_duration "Pravidla délky výpůjček">
-<!ENTITY staff.main.menu.admin.server_admin.conify.config_best_hold_order "Pořadí pro třídění &quot;nejvýhodnějších rezervací&quot;">
+<!ENTITY staff.main.menu.admin.server_admin.conify.config_best_hold_order 'Pořadí pro řazení "nejvýhodnějších rezervací"'>
 <!ENTITY staff.main.menu.admin.server_admin.conify.vandelay_import_bib_trash_group "Pole k odebrání při importu MARCu">
 <!ENTITY staff.main.menu.admin.server_admin.conify.config_rule_recurring_fine "Pravidla pokut">
 <!ENTITY staff.main.menu.admin.server_admin.conify.config_rule_max_fine "Limity pokut">
-<!ENTITY staff.main.menu.admin.server_admin.conify.config_rule_age_hold_protect "Doba hájení před rezervací">
+<!ENTITY staff.main.menu.admin.server_admin.conify.config_rule_age_hold_protect "Doba ochrany před rezervacemi">
 <!ENTITY staff.main.menu.admin.server_admin.conify.config_circ_weights "Váhy pro výpůjčky">
 <!ENTITY staff.main.menu.admin.server_admin.conify.config_hold_weights "Váhy pro zachycení rezervací">
 <!ENTITY staff.main.menu.admin.server_admin.conify.config_weight_assoc "Asociace vah">
@@ -1404,7 +1404,7 @@
 <!ENTITY staff.marc.LDR.blvl.field_size "1">
 <!ENTITY staff.marc.LDR.blvl.field_start_pos "7">
 <!ENTITY staff.marc.LDR.blvl.help "http://www.oclc.org/bibformats/en/fixedfield/blvl.shtm">
-<!ENTITY staff.marc.LDR.blvl.short "BLvl"> 
+<!ENTITY staff.marc.LDR.blvl.short "BibUr"> 
 <!ENTITY staff.marc.LDR.ctrl.desc "Typ kontroly">
 <!ENTITY staff.marc.LDR.ctrl.field "LDR">
 <!ENTITY staff.marc.LDR.ctrl.field_end_pos "8">
@@ -1655,7 +1655,7 @@
 <!ENTITY staff.patron_display.trigger_event.checkbox_filter.complete.accesskey "k">
 <!ENTITY staff.patron_display.trigger_event.checkbox_filter.error.label "Chyba">
 <!ENTITY staff.patron_display.trigger_event.checkbox_filter.error.accesskey "b">
-<!ENTITY staff.patron_editor_interface_label "Editovat čtenáře">
+<!ENTITY staff.patron_editor_interface_label "Upravit údaje o čtenáři">
 <!ENTITY staff.patron_interface_label "čtenář ">
 <!ENTITY staff.patron_navbar.bills "Poplatky">
 <!ENTITY staff.patron_navbar.bills.accesskey "B">
@@ -1764,7 +1764,7 @@
 <!ENTITY staff.serial.sdist_editor.notes.accesskey "n">
 <!ENTITY staff.serial.sdist_editor.distribution.value "Distribuce">
 <!ENTITY staff.serial.sdist_editor.libopt.label "Specifické předvolby knihovny">
-<!ENTITY staff.serial.sdist_editor.libopt.desc "Pozor: Změna &quot;vlastnické knihovny&quot; zruší nastavení všech těchto hodnot">
+<!ENTITY staff.serial.sdist_editor.libopt.desc 'Pozor: Změna "vlastnické knihovny" zruší nastavení všech těchto hodnot'>
 <!ENTITY staff.serial.serctrl_view.label "Standardní zobrazení správy seriálů">
 <!ENTITY staff.serial.siss_editor.modify.label "Upravit číslování /chronologii">
 <!ENTITY staff.serial.siss_editor.modify.accesskey "U">
@@ -1800,14 +1800,14 @@
 <!ENTITY staff.serial.manage_dists.actions.select_obj.desc "Prosím, zvolte objekt pro úpravy">
 <!ENTITY staff.serial.manage_dists.actions.cmd_add_sstr.label "Přidat řadu exemplářů">
 <!ENTITY staff.serial.manage_items.actions.cmd_claim_items.label "Reklamovat jednotku">
-<!ENTITY staff.serial.manage_items.actions.cmd_set_items_not_held.label "Nastavit &quot;Není vlastněno&quot;">
-<!ENTITY staff.serial.manage_items.actions.cmd_set_items_not_published.label "Nastavit &quot;Nebylo publikováno&quot;">
+<!ENTITY staff.serial.manage_items.actions.cmd_set_items_not_held.label 'Nastavit "Není vlastněno"'>
+<!ENTITY staff.serial.manage_items.actions.cmd_set_items_not_published.label 'Nastavit "Nebylo publikováno"'>
 <!ENTITY staff.serial.manage_dists.actions.cmd_delete_sstr.label "Smazat řadu exemplářů">
 <!ENTITY staff.serial.manage_items.actions.cmd_edit_items.label "Upravit  vlastnosti  exempláře">
 <!ENTITY staff.serial.manage_items.actions.cmd_edit_items.accesskey "e">
 <!ENTITY staff.serial.manage_items.actions.cmd_delete_items.label "Smazat exempláře">
 <!ENTITY staff.serial.manage_items.actions.cmd_delete_items.accesskey "l">
-<!ENTITY staff.serial.manage_items.actions.cmd_reset_items.label "Znovu nastavit exempláře jako &quot;očekávané&quot;">
+<!ENTITY staff.serial.manage_items.actions.cmd_reset_items.label 'Znovu nastavit exempláře jako "očekávané"'>
 <!ENTITY staff.serial.manage_items.actions.cmd_view_sdist_notes.label "Zobrazit pozn. k distribuci">
 <!ENTITY staff.serial.manage_items.actions.cmd_view_sdist_notes.accesskey "t">
 <!ENTITY staff.serial.manage_items.actions.cmd_view_sitem_notes.label "Zobrazit pozn. k exemplářům">
@@ -1856,7 +1856,7 @@
 <!ENTITY staff.serial.patternwiz.previous.btn "Předchozí">
 <!ENTITY staff.serial.patternwiz.next.btn "Další">
 <!ENTITY staff.serial.patternwiz.use_enum.label "Použít číslování">
-<!ENTITY staff.serial.patternwiz.use_enum.desc "&quot;v.&quot; and &quot;no.&quot; (&quot;roč.&quot; a &quot;č.&quot;) jsou obvyklá označení první a druhé úrovně číslování.">
+<!ENTITY staff.serial.patternwiz.use_enum.desc '"v." and "no." ("roč." a "č.") jsou obvyklá označení první a druhé úrovně číslování.'>
 <!ENTITY staff.serial.patternwiz.enum_row.enum_capt "Označení číslování">
 <!ENTITY staff.serial.patternwiz.enum_row.units_per_higher_lvl "Jednotky pro vyšší úroveň">
 <!ENTITY staff.serial.patternwiz.enum_row.number_cont "Kontinuita číslování">
@@ -2058,7 +2058,7 @@
 <!ENTITY staff.server.admin.offline.xacts.execute.label "Proces">
 <!ENTITY staff.server.admin.offline.xacts.upload.label "Nahrát">
 <!ENTITY staff.server.admin.offline.xacts.status.label "Přenosové soubory nahrány">
-<!ENTITY staff.server.admin.offline.xacts.status.desc "Transakce z této pracovní stanice byly nahrány, ale nebyly zpracovány. Pokud jsou zde uvedeny všechny předpokládané pracovní stanice, použijte výše zobrazené tlačítko &quot;Zpracovat&quot;">
+<!ENTITY staff.server.admin.offline.xacts.status.desc 'Transakce z této pracovní stanice byly nahrány, ale nebyly zpracovány. Pokud jsou zde uvedeny všechny předpokládané pracovní stanice, použijte výše zobrazené tlačítko "Zpracovat"'>
 <!ENTITY staff.server.admin.offline.xacts.errors.label "Výjimky">
 <!ENTITY staff.server.admin.offline.xacts.errors.desc "Všechny transakce z této relace byly zpracovány. Pokud se vyskytly nějaké chyby, jsou uvedeny níže.">
 <!ENTITY staff.server.admin.offline.xacts.export.label "Seznam exportu">
@@ -2198,7 +2198,7 @@
 <!ENTITY staff.server.admin.copy_locations.editor.circulate "Půjčovat">
 <!ENTITY staff.server.admin.copy_locations.editor.edit "Upravit">
 <!ENTITY staff.server.admin.copy_locations.editor.delete "Smazat">
-<!ENTITY staff.server.admin.copy_locations.editor.help.holdable "Pokud je pro umístění aktivována volba &quot;Lze rezervovat&quot;, exempláře v  tomto umístění mohou být rezervovány.">
+<!ENTITY staff.server.admin.copy_locations.editor.help.holdable 'Pokud je pro umístění aktivována volba "Lze rezervovat", exempláře v  tomto umístění mohou být rezervovány.'>
 <!ENTITY staff.server.admin.copy_locations.editor.delete.confirm "Opravdu chcete smazat označené umístění exemplářů? Pozn.: Jestliže jsou k umístění přiřazeny exempláře, umístění NEBUDE smazáno.">
 <!ENTITY staff.server.admin.copy_locations.editor.prefix "Prefix etikety">
 <!ENTITY staff.server.admin.copy_locations.editor.suffix "Sufix etikety">
@@ -2257,7 +2257,7 @@
 <!ENTITY staff.server.admin.non_cat_types.submit "Potvrdit">
 <!ENTITY staff.server.admin.non_cat_types.cancel "Storno">
 <!ENTITY staff.server.admin.non_cat_types.delete.confirm "Opravdu chcete smazat označené nekatalogizované typy?">
-<!ENTITY staff.server.admin.non_cat_types.in_house.help "Pokud  je aktivována volba &quot;prezenční&quot;, exempláře, které jsou vypůjčovány daný tento typ, vytvoří &quot;prezenční&quot; výpůjčky. To je ideální pro využívání počítačů,  &quot;pronajímání&quot; místností atd.">
+<!ENTITY staff.server.admin.non_cat_types.in_house.help 'Pokud  je aktivována volba "prezenční", exempláře, které jsou vypůjčovány daný tento typ, vytvoří "prezenční" výpůjčky. To je ideální pro využívání počítačů,  "pronajímání" místností atd.'>
 <!ENTITY staff.server.admin.non_cat_types.update.success "Nekatalogizovaný typ byl úspěšně aktualizován">
 <!ENTITY staff.server.admin.non_cat_types.name_exists "Nekatalogizovaný typ s tímto jménem již existuje.">
 <!ENTITY staff.server.admin.index.title "Administrace lokálního systému">
@@ -2278,9 +2278,9 @@
 <!ENTITY staff.server.admin.index.testing "(Testování)">
 <!ENTITY staff.server.admin.index.hold_pull_list_classic "Seznam požadavků na rezervace (klasický)">
 <!ENTITY staff.server.admin.index.reports "Zprávy">
-<!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.label "Doba změny statusu na &quot;Ztraceno&quot;">
+<!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.label 'Doba změny statusu na "Ztraceno"'>
 <!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.accesskey "">
-<!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.description "Vyberte uživatelský profil a výpůjční knihovnu pro které chcete nastavit dobu změny ze statutu  &quot;S uplynulou výpůjční lhůtou&quot; na &quot;Ztraceno&quot;. Pamatujte, že toto nastavení ovlivní také podřízené skupiny a podřízené jednotky, které dědí vlastnosti &quot;rodičů&quot;.">
+<!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.description 'Vyberte uživatelský profil a výpůjční knihovnu pro které chcete nastavit dobu změny ze statutu  "S uplynulou výpůjční lhůtou" na "Ztraceno". Pamatujte, že toto nastavení ovlivní také podřízené skupiny a podřízené jednotky, které dědí vlastnosti "rodičů".'>
 <!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.user_profile "Profil uživatele">
 <!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.circ_lib "Výpůjční knihovna">
 <!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.confirm "Opravdu toto chcete?">
@@ -2308,28 +2308,28 @@
 <!ENTITY staff.server.admin.org_settings.default_price "Přednastavená cena exemplářů">
 <!ENTITY staff.server.admin.org_settings.from_address "E-mailová adresa pro zasílání upozornění čtenáři">
 <!ENTITY staff.server.admin.org_settings.bounce_note "Nedoručené e-maily budou vráceny na tuto adresu">
-<!ENTITY staff.server.admin.org_settings.apply_all.note "I. Při volbě &quot;Použít na všechna umístění&quot; bude nové nastavení aplikováno na všechna umístění v rozbalovanícm menu.">
+<!ENTITY staff.server.admin.org_settings.apply_all.note 'I. Při volbě "Použít na všechna umístění" bude nové nastavení aplikováno na všechna umístění v rozbalovanícm menu.'>
 <!ENTITY staff.server.admin.org_settings.update_success "Aktualizace proběhla úspěšně">
 <!ENTITY staff.server.admin.org_settings.apply_all.confirm "Tímto aktualizujete nastavení pro všechna umístění v rozbalovacím menu. Opravdu chcete pokračovat?">
 
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval "Rezervace: Interval pro upozornění o vypršení">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval.desc "Časové období před vypršením rezervace">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval "Rezervace: Interval pro vypršení">
-<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc "Doba od zadaní rezervace, po jejímž uplynutí rezervace vyprší. Příklad: &quot;100 days&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc 'Doba od zadaní rezervace, po jejímž uplynutí rezervace vyprší. Příklad: "100 days"'>
 <!ENTITY staff.server.admin.org_settings.global.credit.allow "Povolit platby kreditní kartou">
 <!ENTITY staff.server.admin.org_settings.global.credit.allow.desc "Pokud je tato volba aktivní, čtenáři budou moci v této knihovně platit vzniklé pokuty prostřednictvím kreditní karty.">
 <!ENTITY staff.server.admin.org_settings.global.default_locale "Standardní lokalizace">
 <!ENTITY staff.server.admin.org_settings.circ.void_overdue_on_lost "Zrušit pokuty za pozdní vrácení, pokud jsou exempláře označeny jako ztracené">
 <!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft "Rezervace: Měkký interval pro pozdržení">
-<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc "Jak dlouho čekat než bude povoleno výhodné zachycení vzdálených jednotek pro rezervaci? Příklad: &quot;5 days&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc 'Jak dlouho čekat než bude povoleno výhodné zachycení vzdálených jednotek pro rezervaci? Příklad: "5 days"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.hard "Rezervace: Pevná hranice">
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.soft "Rezervace: Tolerantní hranice">
 <!ENTITY staff.server.admin.org_settings.opac.barcode_regex "Formát čárového kódu čtenáře">
 <!ENTITY staff.server.admin.org_settings.opac.barcode_regex.desc "Regulární výraz definující formát čárového kódů čtenářů">
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max "Maximální počet pro zobrazení předchozích výpůjček">
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max.desc "Dosáhli jste maximálního počtu zobrazení předchozích výpůjček, které může program zobrazit při  prohlížení detailů exempláře.">
-<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval "Upravit  interval změny statutu exempláře z &quot; vráceno, dosud nezařazeno&quot; na &quot; dostupné&quot;">
-<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc "Doba, po kterou se čeká než se změní status jednotky z  &quot; k zařazení na regál&quot;  na &quot; dostupné. Příklady: 1 day&quot;, &quot;6 hours&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval 'Upravit  interval změny statutu exempláře z " vráceno, dosud nezařazeno" na " dostupné"'>
+<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc 'Doba, po kterou se čeká než se změní status jednotky z  " k zařazení na regál"  na " dostupné. Příklady: 1 day", "6 hours"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval "Rezervace: předpokládaná doba čekání (dny)">
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval.desc "Toto je výchozí / průměrné nastavení předpokládaného počtu dní za které bude exemplář půjčen, v případě, že odhadujeme dobu, po kterou bude čtenář čekat na splnění rezervace.">
 <!ENTITY staff.server.admin.org_settings.circ.block_renews_for_holds "Rezervace: Zakázat prodloužení exemplářů potřebných pro splnění rezervací">
@@ -2341,7 +2341,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password "Samoobslužný výpůjční protokol: Požadovatpo čtenáři heslo">
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password.desc "Je-li tato hodnota nastavena jako pravdivá, čtenáři budou muset  v rozhraní samoobslužné výpůjční stanice zadávat kromě svého uživatelského jména/čárového kódu také své heslo">
 <!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold "Hranice zletilosti">
-<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc "Věk, v němž již uživatel není považován za nezletilého. Například &quot;18 years&quot;.">
+<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc 'Věk, v němž již uživatel není považován za nezletilého. Například "18 years".'>
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty "Nemazat automaticky prázdné bibliografické záznamy">
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty.desc "Nemazat automaticky bibliografický záznam, pokud jsou smazány všechny připojené kopie.">
 <!ENTITY staff.server.admin.org_settings.cat.bib.alert_on_empty "Upozornění u prázdných bibliografických záznamů">
@@ -2369,7 +2369,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.restore_overdue_on_lost_return "Výpůjčky: Obnovit pokuty za pozdní vrácení při vrácení ztraceného exempláře">
 <!ENTITY staff.server.admin.org_settings.circ.restore_overdue_on_lost_return.desc "Při vrácení ztraceného exempláře obnovit pokuty za pozdě vrácené exempláře (zpozdné)">
 <!ENTITY staff.server.admin.org_settings.circ.lost_immediately_available "Výpůjčky: Ztracené exempláře využitelné při vracení">
-<!ENTITY staff.server.admin.org_settings.circ.lost_immediately_available.desc "Exempláře označené jako ztracené je možné po vrácení ihned využít, místo aby se nejdříve vrátily &quot;domů&quot;.">
+<!ENTITY staff.server.admin.org_settings.circ.lost_immediately_available.desc 'Exempláře označené jako ztracené je možné po vrácení ihned využít, místo aby se nejdříve vrátily "domů".'>
 <!ENTITY staff.server.admin.org_settings.opac.allow_pending_address "OPAC: Povolit nevyřízené adresy">
 <!ENTITY staff.server.admin.org_settings.opac.allow_pending_address.desc "Je-li tato volba aktivována, čtenáři mohou vytvářet a editovat své adresy. Adresy jsou ponechány v nevyřízeném stavu, dokud personál nepotvrdí změny">
 <!ENTITY staff.server.admin.org_settings.ui.circ.show_billing_tab_on_bills "Pokud má čtenář nevyřízené platby, zobrazit nejdříve kartu s poplatky">
@@ -2455,7 +2455,7 @@
 <!ENTITY staff.circ.checkin_overlay.sel_backdate.accesskey "Z">
 <!ENTITY staff.circ.checkin_overlay.sel_mark_items_damaged.label "Označit exemplář jako poškozený">
 <!ENTITY staff.circ.checkin_overlay.sel_mark_items_damaged.accesskey "p">
-<!ENTITY staff.circ.checkin_overlay.sel_mark_missing_pieces.label "Označit exempláře jako Nezvěstné kusy&quot;">
+<!ENTITY staff.circ.checkin_overlay.sel_mark_missing_pieces.label 'Označit exempláře jako Nezvěstné kusy"'>
 <!ENTITY staff.circ.checkin_overlay.sel_mark_missing_pieces.accesskey "M">
 <!ENTITY staff.circ.checkin_overlay.sel_transit_abort.label "Zrušit přepravu">
 <!ENTITY staff.circ.checkin_overlay.sel_spine.label "Tisk hřbetního štítku">
@@ -2699,7 +2699,7 @@
 <!ENTITY staff.circ.print_list.top_ui.default.accesskey "V">
 <!ENTITY staff.circ.print_list.top_ui.save.label "Místní uložení">
 <!ENTITY staff.circ.print_list.top_ui.save.accesskey "M">
-<!ENTITY staff.circ.print_list.top_ui.description "Jste si jisti &quot;Místní uložením! před exportem">
+<!ENTITY staff.circ.print_list.top_ui.description 'Jste si jisti "Místní uložením! před exportem'>
 <!ENTITY staff.circ.print_list.top_ui.description.export.label "Export">
 <!ENTITY staff.circ.print_list.top_ui.description.export.accesskey "E">
 <!ENTITY staff.circ.print_list.top_ui.description.import.label "Importovat">
@@ -2802,7 +2802,7 @@
 <!ENTITY staff.circ.holds.save_columns "Uložit sloupce">
 <!ENTITY staff.circ.holds.save_columns.accesskey "">
 <!ENTITY staff.hold_list.cancel_hold_dialog.title "Zrušit rezervaci">
-<!ENTITY staff.hold_list.cancel_hold_dialog.header "Zrušit rezervaci">
+<!ENTITY staff.hold_list.cancel_hold_dialog.header "Zrušení rezervace">
 <!ENTITY staff.hold_list.cancel_hold_dialog.description "Důvody a poznámky">
 <!ENTITY staff.hold_list.cancel_hold_dialog.cancel_btn.label "Ne">
 <!ENTITY staff.hold_list.cancel_hold_dialog.cancel_btn.accesskey "N">
@@ -3135,7 +3135,7 @@
 <!ENTITY staff.cat.spine_labels.close_window.label "Zavřít okno">
 <!ENTITY staff.cat.spine_labels.close_window.accesskey "Z">
 <!ENTITY staff.cat.spine_labels.font_size.label "Velikost fontu ( v palcích)">
-<!ENTITY staff.cat.spine_labels.font_weight.label "Řez písma (&quot;normální nebo &quot;tučné&quot;)">
+<!ENTITY staff.cat.spine_labels.font_weight.label 'Řez písma ("normální nebo "tučné")'>
 <!ENTITY staff.cat.spine_labels.spine_label.label "Hřbetní štítek">
 <!ENTITY staff.cat.spine_labels.spine_label.left_margin.label "Levý okraj (počet znaků):">
 <!ENTITY staff.cat.spine_labels.spine_label.label_width.label "Štítek na šířku (počet znaků)">
@@ -3198,7 +3198,7 @@
 <!ENTITY staff.cat.z3950.save_creds.label "Uložit jako výchozí nastavení">
 <!ENTITY staff.cat.z3950.save_creds.accesskey "s">
 <!ENTITY staff.cat.z3950.query.label "Dotaz">
-<!ENTITY staff.cat.z3950.query.description "Tip: Klikněte na popisek  vyhledávacího pole a pak na tlačítko &quot;Uložit jako výchozí nastavení&quot;. Při každém dalším otevření formuláře bude kurzor automaticky umístěn v tomto poli.">
+<!ENTITY staff.cat.z3950.query.description 'Tip: Klikněte na popisek  vyhledávacího pole a pak na tlačítko "Uložit jako výchozí nastavení". Při každém dalším otevření formuláře bude kurzor automaticky umístěn v tomto poli.'>
 <!ENTITY staff.cat.z3950.clear.label "Vymazat formulář">
 <!ENTITY staff.cat.z3950.clear.accesskey "V">
 <!ENTITY staff.cat.z3950.search.label "Hledat">
@@ -3319,7 +3319,7 @@
 <!ENTITY staff.patron.bill_interface.actions.accesskey "a">
 <!ENTITY staff.patron.bill_interface.add_billing.label "Naúčtovat k vybrané transakci další poplatek">
 <!ENTITY staff.patron.bill_interface.add_billing.accesskey "b">
-<!ENTITY staff.patron.bill_interface.void_all_billings.label "Zrušit všechny platby">
+<!ENTITY staff.patron.bill_interface.void_all_billings.label "Zrušit všechny poplatky">
 <!ENTITY staff.patron.bill_interface.void_all_billings.accesskey "V">
 <!ENTITY staff.patron.bill_interface.refund.label "Vrátit">
 <!ENTITY staff.patron.bill_interface.refund.accesskey "r">
@@ -3487,7 +3487,7 @@
 <!ENTITY staff.patron.holds_overlay.show_cancelled_holds.accesskey "">
 <!ENTITY staff.patron.holds_overlay.show_uncancelled_holds.label "Zobrazit zrušené a poté obnovené rezervace">
 <!ENTITY staff.patron.holds_overlay.show_uncancelled_holds.accesskey "">
-<!ENTITY staff.patron.info_group.clone.label "Registrovat nového člena skupiny pomocí &quot;klonování&quot; údajů vybraného čtenáře">
+<!ENTITY staff.patron.info_group.clone.label 'Registrovat nového člena skupiny pomocí "klonování" údajů vybraného čtenáře'>
 <!ENTITY staff.patron.info_group.clone.accesskey "n">
 <!ENTITY staff.patron.info_group.remove.accesskey "r">
 <!ENTITY staff.patron.info_group.remove.label "Odeber vybrané čtenáře ze skupiny">
@@ -3627,8 +3627,8 @@
 <!ENTITY staff.patron.ue.value.label "Hodnota">
 <!ENTITY staff.patron.ue.no_surveys_for_location.label "Pro tuto organizační jednotku nebyly vytvořeny žádné průzkumy.">
 <!ENTITY staff.patron.ue.message1.label "Nyní můžete uložit uživatele do databáze.">
-<!ENTITY staff.patron.ue.message2.label "Pro zobrazení nebo tisk přehledu změn klikněte na odkaz &quot;Zobrazit přehled&quot;">
-<!ENTITY staff.patron.ue.message3.label "Pro uložení uživatele klikněte na tlačítko &quot;Uložit uživatele&quot;">
+<!ENTITY staff.patron.ue.message2.label 'Pro zobrazení nebo tisk přehledu změn klikněte na odkaz "Zobrazit přehled"'>
+<!ENTITY staff.patron.ue.message3.label 'Pro uložení uživatele klikněte na tlačítko "Uložit uživatele"'>
 <!ENTITY staff.patron.ue.view_summary.label "Zobrazit přehled">
 <!ENTITY staff.patron.ue.back.label "Zpět">
 <!ENTITY staff.patron.ue.forward.label "Vpřed">
@@ -3644,7 +3644,7 @@
 <!ENTITY staff.patron.ue.survey.label "Průzkum">
 <!ENTITY staff.patron.ue.question.label "Dotaz">
 <!ENTITY staff.patron.ue.answer.label "Odpověď">
-<!ENTITY staff.patron.ue.bad_dob.label "Pole &quot;Datum narození&quot; není správně vyplněno. Správný formát data je RRRR-MM-DD">
+<!ENTITY staff.patron.ue.bad_dob.label 'Pole "Datum narození" není správně vyplněno. Správný formát data je RRRR-MM-DD'>
 <!ENTITY staff.patron.ue.bad_username.label "Uživatelské jméno není platné">
 <!ENTITY staff.patron.ue.bad_passwords.label "Heslo nesouhlasí nebo je neplatné">
 <!ENTITY staff.patron.ue.bad_firstname.label "Křestní jméno není správně vyplněno">
@@ -3652,7 +3652,7 @@
 <!ENTITY staff.patron.ue.bad_lastname.label "Příjmení není správně vyplněno">
 <!ENTITY staff.patron.ue.bad_barcode.label "Čárový kód není platný">
 <!ENTITY staff.patron.ue.duplicate_barcode.label "Zvolený čárový kód již v databázi existuje">
-<!ENTITY staff.patron.ue.new_barcode_warn.label "Tímto bude deaktivován existující čárový kód uživatele! Pokud chcete pokračovat, vložte níže nový čárový kód. Pokud nechcete pokračovat, klikněte na tlačítko &quot;Storno&quot;">
+<!ENTITY staff.patron.ue.new_barcode_warn.label 'Tímto bude deaktivován existující čárový kód uživatele! Pokud chcete pokračovat, vložte níže nový čárový kód. Pokud nechcete pokračovat, klikněte na tlačítko "Storno"'>
 <!ENTITY staff.patron.ue.no_ident.label "Musíte vybrat alespoň jeden typ identifikačního dokladu">
 <!ENTITY staff.patron.ue.bad_ident_dl.label "Neplatné číslo občanského průkazu">
 <!ENTITY staff.patron.ue.bad_ident_ssn.label "Neplatné číslo. Čislo by mělo být zadáno ve formátu 111-22-3333">
@@ -3681,7 +3681,7 @@
 <!ENTITY staff.patron.ue.cancel_confirm.label "Opravdu chcete zrušit editaci? Zrušením přijdete o všechny neuložené změny v záznamu uživatele, které jste dosud provedli.">
 <!ENTITY staff.patron.ue.juv_guardian.label "Tento čtenář je mladší 18 let. Zadejte prosím jméno rodiče nebo zákonného zástupce.">
 <!ENTITY staff.patron.ue.bad_date.label "Zadali jste budoucí nebo neplatné datum. Správný formát data je RRRR-MM-DD">
-<!ENTITY staff.patron.ue.made_barred.label "Uveďte prosím v poli &quot;Upozornění pro čtenáře&quot; poznámku, proč má čtenář omezené transakce.">
+<!ENTITY staff.patron.ue.made_barred.label 'Uveďte prosím v poli "Upozornění pro čtenáře" poznámku, proč má čtenář omezené transakce.'>
 <!ENTITY staff.patron.items_overlay.sel_clip.label "Kopírovat do schránky">
 <!ENTITY staff.patron.items_overlay.sel_clip.accesskey "K">
 <!ENTITY staff.patron.items_overlay.sel_bucket.label "Přidat do skupiny exemplářů">
@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Vydání">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Pohyblivý exemplář">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Lze rezervovat">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Dočasná ochrana před rezervacemi">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Umístění regálu s rezervacemi">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Rezervace / přeprava">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Výpůjční knihovna">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Čtenář">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Cena">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Akviziční cena">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "Předchozí výpůjční skupina">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Datum vydání">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Vydavatel">
@@ -3798,7 +3800,7 @@
 <!ENTITY staff.printing.set_default "Natavit výchozí tiskárnu a vytisknout zkušební stránku">
 <!ENTITY staff.printing.page_settings "Nastavení stránky">
 <!ENTITY staff.printing.context.header "Tiskový kontext">
-<!ENTITY staff.printing.context.desc "Ve služebním klientu mohou být pro různé kontexty tisku nastaveny různé tiskárny (např. výpůjční protokol, tisk štítků atd.). Pokud pro daný tiskový kontext nebylo nic nastaveno, služební klient se vrátí zpět k &quot;výchozímu&quot; tiskovému kontextu.">
+<!ENTITY staff.printing.context.desc 'Ve služebním klientu mohou být pro různé kontexty tisku nastaveny různé tiskárny (např. výpůjční protokol, tisk štítků atd.). Pokud pro daný tiskový kontext nebylo nic nastaveno, služební klient se vrátí zpět k "výchozímu" tiskovému kontextu.'>
 <!ENTITY staff.printing.context.radio.default.label "Výchozí nastavení">
 <!ENTITY staff.printing.context.radio.receipt.label "Potvrezní">
 <!ENTITY staff.printing.context.radio.label.label "Štítek">
@@ -3807,15 +3809,15 @@
 <!ENTITY staff.printing.normal_settings.header "Normální nastavení">
 <!ENTITY staff.printing.advanced_settings.header "Pokročilá nastavení">
 <!ENTITY staff.printing.advanced.mozilla_print "Použít výchozí tiskovou strategii (Mozilla Print)">
-<!ENTITY staff.printing.advanced.mozilla_print.print_silent "Při použití &quot;Mozilla Print&quot; tisknout &quot;potichu&quot;.">
+<!ENTITY staff.printing.advanced.mozilla_print.print_silent 'Při použití "Mozilla Print" tisknout "potichu".'>
 <!ENTITY staff.printing.advanced.dos_print "Použít alternativní tiskovou strategii (DOS LPT1 tisk)">
 <!ENTITY staff.printing.advanced.custom_print "Použít alternativní tiskovou strategii (uživatelský / externí tisk)">
 <!ENTITY staff.printing.advanced.dos_print.warning.header "Poznámka k DOS LPT1 tisku">
-<!ENTITY staff.printing.advanced.dos_print.warning.text "Tato tisková strategie bude ignorovat nastavení tiskárny v &quot;Normálním natavení&quot;. Ve Windows musíte namapovat tiskárnu na port LPT1 v menu  Start -&gt; Tiskárny a fax -&gt;  Vaše tiskárna -&gt; kliknutí pravým tlačítkem, Vlastnosti -&gt; Porty.  Také dojde ke  ztrátě   HTML stylů jako je např. řez nebo velikost písma a nebudou fungovat některé složité šablony které využívají Javascript. Data budou poslána na tiskárnu jako prostý text.  Tato možnost je zde kvůli zděděným systémům; strategie volitelného/externího tisku je flexibilnější.">
+<!ENTITY staff.printing.advanced.dos_print.warning.text "Tato tisková strategie bude ignorovat nastavení tiskárny v sekci &quot;běžné nastavení&quot;. Ve Windows musíte přiřadit tiskárně port LPT1 v menu Start -&gt; Tiskárny a faxy -&gt; vaše tiskárna -&gt; kliknout pravým tlačítkem, Vlastnosti -&gt; Porty. Přijdete také o HTML styl, např. řez a velikost písma, nebudou také fungovat šablony používající Javascript. Data jsou posílána na tiskárnu v textovém režimu. Tato  volba je zde z právních důvodů. Strategie Přizpůsobení/externí tisk je flexibilnějí.">
 <!ENTITY staff.printing.advanced.custom_print.warning.header "Poznámka k uživatelskému / externímu tisku">
-<!ENTITY staff.printing.advanced.custom_print.warning.text "Tato tisková strategie bude ignorovat nastavení tiskárny v &quot;normálním nastavení&quot;. Pokročilé  šablony, které využívají Javascript nemusí pracovat správně, i když externí nástroj může přijmout soubor receipt.html">
+<!ENTITY staff.printing.advanced.custom_print.warning.text "Tato tisková strategie bude ingorovat nastavení tiskárny v  seckci &quot;Normální nastavení&quot;. Pokročilé šablony používající Javascript nemusí fungovat ani když  soubor receipt.html může být přijat externím nástrojem.">
 <!ENTITY staff.printing.advanced.html_templates.warning.header "Také">
-<!ENTITY staff.printing.advanced.html_templates.warning.text 'Pokud používate tiskovou šablonu pro tiskovou strategii DOS LPT1 nebo pro přizpůsobenou/externí tiskovou strategii (s "potvrzen.txt"), klient se pokusí převést jakékoliv HTML tagy na text. Tento proces však nemusí být bezchybný a pokud používáte stategii tisku prostého textu,  byste měli zvážit přepracování šablon do prostého textu. Pokud však používáte tiskovou strategii prostého textu spolu s HTML tagy, můžete do atributu "hex" pro jakýkoliv element zahrnout speciální dvoučíselné hecadecimální kódy znaků. Tyto kódy budou konvertovány na aktuální znaky a vloženy na místo tagu.  Npříklad  &lt;p hex="0C"&gt;Hello World&lt;/p&gt; bude interpretováno jako přechod na novou stránku + Hello World. &lt;p&gt;Hello World&lt;/p hex="0C"&gt; bude interpretován jako Hello World + přechod na novou stránku'>
+<!ENTITY staff.printing.advanced.html_templates.warning.text "If using Receipt Templates with either the DOS LPT1 Print strategy or the Custom/External Print strategy (with &quot;receipt.txt&quot;), the client will try to translate any HTML markup to text, but this process may be imperfect, and for the best fidelity you should consider reworking your templates to be plain text if you are using a plain text print strategy.  However, if using a plain text print strategy with HTML markup, you may include special character codes in 2-digit hexadecimal in a &quot;hex&quot; attribute for any given element.  Such codes will be converted to actual characters and inserted at the place of the tag.  For example, &lt;p hex=&quot;0C&quot;&gt;Hello World&lt;/p&gt; will translate to form feed control character + Hello World. &lt;p&gt;Hello World&lt;/p hex=&quot;0C&quot;&gt; will translate to Hello World + form feed control character.">
 <!ENTITY staff.client.portal.title "Portál služebního  klienta Evergreenu">
 <!ENTITY staff.client.portal.tab_name "Portál">
 <!ENTITY staff.client.portal.welcome "Vítejte v Evergreenu">

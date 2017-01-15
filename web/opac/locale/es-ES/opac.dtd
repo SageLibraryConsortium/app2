@@ -113,11 +113,11 @@ La primera copia disponible le será enviada.">
 <!ENTITY common.googlechromeframe.install "Instalar ahora!">
 <!ENTITY common.googlechromeframe.dontask "No me preguntes otra vez">
 
-<!ENTITY home.js.disabled "JavaScript must be enabled in order for you to use the regular Evergreen Catalog.
-However, it seems JavaScript is either disabled or not supported by your browser.
-To use the regular Evergreen Catalog, enable JavaScript by changing your browser options, then
+<!ENTITY home.js.disabled "JavaScript debe estar habilitado, para que pueda utilizar el catálogo regular de Evergreen. 
+Sin embargo, parece que JavaScript está deshabilitado o no soportado por su navegador. 
+Para utilizar el Catálogo regular de Evergreen, habilite JavaScript cambiando las opciones de su navegador, a continuación, 
 <a style='color: blue; text-decoration: underline;' href='/'>try again</a>.
-<br/><br/>Alternatively, you can use the basic HTML-only catalog: ">
+<br/><br/> Como alternativa, puede utilizar el código HTML de sólo básica catálogo: ">
 <!--	================================================================= 
 	 MyOPAC bookbag page
 	================================================================= -->
@@ -141,17 +141,16 @@ To use the regular Evergreen Catalog, enable JavaScript by changing your browser
 <!ENTITY myopac.bookbag.no.items "El guarda libros seleccionado no contiene elementos...">
 <!ENTITY myopac.bookbag.remove "¿Eliminar este elemento?">
 <!ENTITY myopac.remove.link "eliminar">
-<!ENTITY myopac.publish.text "Compartir un guarda libros significa que el contenido del guarda libros será visible a otros. 
-Para acceder a la vista pública de un guarda libros compartido, haga clic en &quot;Ver&quot; líguese con 
-la columna &quot;Compartido&quot; de la lista de guarda libros en la parte superior de esta página.">
+<!ENTITY myopac.publish.text 'Compartir un guarda libros significa que el contenido del guarda libros será visible a otros. 
+Para acceder a la vista pública de un guarda libros compartido, haga clic en "Ver" líguese con 
+la columna "Compartido" de la lista de guarda libros en la parte superior de esta página.'>
 <!ENTITY myopac.item.confirm "¿Está seguro de que desea eliminar este elemento del guarda libros?">
 <!ENTITY myopac.publish.confirm "Compartir este guarda libros permitirá que el contenido 
 del guarda libros sea visto por otros. ¿Seguro que desea compartir este guarda libros?">
 <!ENTITY myopac.unpublish.confirm "¿Seguro que desea ocultar este guarda libros?">
 <!ENTITY myopac.update.success "El guarda libros fue actualizado exitosamente?">
 <!ENTITY myopac.updated.success "Porta libros actualizado exitosamente">
-<!ENTITY myopac.create.warning "Precaución: Añadir elementos al porta libros crea una liga entre usted y los 
-elementos en la base de datos. El contenido del porta libros NO es visible 
+<!ENTITY myopac.create.warning "Precaución: Añadir elementos al porta libros crea una liga entre usted y los elementos en la base de datos. El contenido del porta libros NO es visible 
 públicamente a menos que el porta libros sea compartido. Sin embargo, si prefiere no 
 tener una liga entre su registro y un o unos elementos en particular, 
 le sugerimos que no coloque dichos elementos en un porta libros o que 
@@ -411,9 +410,9 @@ Vea por favor a un bibliotecario para renovar su cuenta.">
 <!ENTITY sidebar.relevantSeries.headerLabel "Series relevantes">
 <!ENTITY sidebar.relevantReviews.headerLabel "Revisiones">
 <!ENTITY sidebar.quick.search "Búsqueda rápida">
-<!ENTITY sidebar.authority.browse "Authority Browse">
+<!ENTITY sidebar.authority.browse "Autoridad Navegar">
 <!ENTITY sidebar.copy.not.found "No se encontró ninguna copia con ese código de barras">
-<!ENTITY sidebar.copy.not.cataloged "The copy with the requested barcode is not cataloged">
+<!ENTITY sidebar.copy.not.cataloged "La copia con el código de barras solicitado no está catalogado">
 <!--	================================================================= 
 		Search formats
 		================================================================= -->
@@ -440,7 +439,7 @@ Vea por favor a un bibliotecario para renovar su cuenta.">
 <!ENTITY opac.title.advanced "El árbol de hoja perenne Avanzó la Búsqueda">
 <!ENTITY opac.title.reqitems "Artículos des hoja perenne de Petición">
 <!ENTITY opac.title.cnbrowse "El Número de hoja perenne de la Llamada Hojea">
-<!ENTITY opac.title.authbrowse "Evergreen Authority Record Browse">
+<!ENTITY opac.title.authbrowse "Evergreen Autoridad de Registro Navegar">
 
 
 <!ENTITY opac.holds.forMe "Coloque este asidero para yo mismo">
@@ -453,7 +452,7 @@ Vea por favor a un bibliotecario para renovar su cuenta.">
 <!ENTITY opac.holds.pickupLocation "Ubicación de fonocaptor">
 <!ENTITY opac.holds.success "Tenga fue colocado exitosamente">
 <!ENTITY opac.holds.failure "Tenga no fue colocado exitosamente">
-<!ENTITY opac.hold.has_parts "The system was not able to place the requested hold.  The item requested has multiple parts to choose from.  Try selecting a specific part for the hold.">
+<!ENTITY opac.hold.has_parts "El sistema no fue capaz de poner la reservación solicitada. El elemento solicitado tiene varias partes para elegir. Pruebe a seleccionar una parte específica de la bodega.">
 <!--	================================================================= 
 	Advanced
 	================================================================= -->
@@ -498,7 +497,7 @@ Vea por favor a un bibliotecario para renovar su cuenta.">
 <!ENTITY rdetail.cn.location "Ubicación">
 <!ENTITY rdetail.cn.hold.age "Envejézcase la Protección del Asidero">
 <!ENTITY rdetail.cn.genesis "Fecha de creación">
-<!ENTITY rdetail.cn.active "Active Date">
+<!ENTITY rdetail.cn.active "Fecha Activa">
 <!ENTITY rdetail.cn.holdable "Sostenible">
 <!ENTITY rdetail.cn.due "Fecha de vencimiento">
 <!ENTITY rdetail.cn.more "más información...">
@@ -567,7 +566,7 @@ Recomendamos que quite este título e cualquier bookbags que puede haber sido a�
 <!ENTITY rdetail.noneAvailable " * No hay copias en esta ubicación">
 <!ENTITY rdetail.summary.online "Recursos en línea">
 <!ENTITY rdetail.summary.subjects "Asuntos">
-<!ENTITY rdetail.summary.issues_held "Issues Held">
+<!ENTITY rdetail.summary.issues_held "Ejemplares apartados">
 
 <!ENTITY result.sort_by "El tipo Resulta por Aplicabilidad">
 <!ENTITY result.sort_by.title "El tipo Resulta por Título">
@@ -602,9 +601,9 @@ Recomendamos que quite este título e cualquier bookbags que puede haber sido a�
 <!ENTITY common.call.number.label "Llame el Número">
 <!ENTITY common.isbn.label "ISBN:">
 <!ENTITY common.issn.label "ISSN:">
-<!ENTITY common.mono_parts.label "Monograph Parts:">
+<!ENTITY common.mono_parts.label "Partes de la monografía:">
 <!ENTITY common.copy.barcode.label "Copiar código de barras:">
-<!ENTITY common.issuance_label.label "Issuance Label:">
+<!ENTITY common.issuance_label.label "Etiqueta de Emisión:">
 <!ENTITY common.hold.place "Coloque el asidero para mi cuenta">
 <!ENTITY common.hold.check "Comprobación para la posibilidad de tiene cumplimiento...">
 <!ENTITY common.hold.create "Cree / Redacta un Asidero">
@@ -612,17 +611,17 @@ Recomendamos que quite este título e cualquier bookbags que puede haber sido a�
 <!ENTITY common.hold.type.label "Tenga Tipo">
 <!ENTITY common.hold.volume "Asidero de volumen">
 <!ENTITY common.hold.copy "Copie el Asidero">
-<!ENTITY common.hold.issuance "Issuance Hold">
+<!ENTITY common.hold.issuance "Retención de Emisión">
 <!ENTITY common.hold.advanced "Opciones avanzadas de Asidero">
 <!ENTITY common.hold.delivery "Seleccione por favor una ubicación física donde su asidero puede ser entregado">
 <!ENTITY common.hold.checked_out "Este tema ya está desprotegido.">
-<!ENTITY common.hold.checked_out.override "This item is already checked out.  Would you like to place the hold anyway?">
+<!ENTITY common.hold.checked_out.override "Este objeto ya está afuera. ¿Quieres poner la reservación de todos modos?">
 <!ENTITY common.hold.exists "Un asidero ya existe en el artículo solicitado.">
 <!ENTITY common.hold.exists.override "Un asidero ya existe en el artículo solicitado. ¿Querría crear el asidero de todos modos?">
-<!ENTITY common.hold.age_protect.override "This hold may take extra time to fill due to library policies. Would you like to create the hold anyway?">
-<!ENTITY common.hold.place_unfillable.override "The requested hold cannot currently be filled. You have permission to place the hold regardless, but should only do so if you believe the hold will eventually be filled. Would you like to create the hold anyway?">
-<!ENTITY common.hold.barred "El PATROCINADOR IMPIDIO. Vea por favor cualquier nota en la sección de 
-&quot;Notas de Personal&quot; de su &quot;Mi Cuenta&quot; página o contacte su biblioteca local">
+<!ENTITY common.hold.age_protect.override "Esta retención puede tardar más tiempo para llenar debido a las políticas de la biblioteca. ¿Le gustaría crear la bodega de todos modos?">
+<!ENTITY common.hold.place_unfillable.override "La retención solicitada no puede actualmente ser llenado. Usted tiene permiso para poner la reservación independientemente, pero sólo debe hacerlo si cree que la espera con el tiempo se llena. ¿Le gustaría crear la bodega de todos modos?">
+<!ENTITY common.hold.barred 'El PATROCINADOR IMPIDIO. Vea por favor cualquier nota en la sección de 
+"Notas de Personal" de su "Mi Cuenta" página o contacte su biblioteca local'>
 <!ENTITY common.hold.item.invalid "Este asidero ya no es válido. Es probable que el 
 objetivo para el asidero fue borrado del sistema. Cancele por favor este asidero y 
 coloque uno nuevo.">
@@ -664,8 +663,8 @@ Deberá cambiar su contraseña.">
 <!ENTITY login.password.strength "La contraseña proporcionado no es suficiente fuerte.">
 <!ENTITY login.barcode.inactive "El barcode que es utilizado para entrar es marcado como inactivo. Contacte por favor su biblioteca local.">
 <!ENTITY login.account.inactive "Esta cuenta ha sido desactivada. Contacte por favor su biblioteca local.">
-<!ENTITY login.failed "Login failed. The username or password provided was not valid.
-Passwords are case-sensitive.  Check your Caps-Lock key and try again or contact your local library.">
+<!ENTITY login.failed "Error de inicio de sesion. El nombre de usuario o contraseña proporcionada no es válida. 
+Las contraseñas son sensibles a las mayúsculas. Compruebe su clave de bloqueo de mayúsculas y vuelva a intentarlo o póngase en contacto con su biblioteca local_">
 <!ENTITY button.go "Vaya!">
 <!--	================================================================= 
 	Slimpac Simple Search
@@ -735,9 +734,9 @@ Passwords are case-sensitive.  Check your Caps-Lock key and try again or contact
 <!ENTITY circ.fail_part.asset.copy.status "El articulo no puede circular en este momento.">
 <!ENTITY circ.fail_part.circ.holds.target_skip_me "La biblioteca dueña del titulo no permite apartados">
 <!ENTITY circ.fail_part.config.circ_matrix_circ_mod_test "El usuario tiene demasiados préstamos de este tipo de material">
-<!ENTITY circ.fail_part.config.circ_matrix_test.available_copy_hold_ratio "The available item-to-hold ratio is too low">
+<!ENTITY circ.fail_part.config.circ_matrix_test.available_copy_hold_ratio "La relacion del elemento disponible a tener es demasiado baja.">
 <!ENTITY circ.fail_part.config.circ_matrix_test.circulate "Normas de circulacion rechazan este articulo como no circulatable.">
-<!ENTITY circ.fail_part.config.circ_matrix_test.total_copy_hold_ratio "The total item-to-hold ratio is too low">
+<!ENTITY circ.fail_part.config.circ_matrix_test.total_copy_hold_ratio "La proporcion total de la pieza a tener es demasiada baja.">
 <!ENTITY circ.fail_part.config.hold_matrix_test.holdable "Las reglas de apartado rechazan este ejemplar como no-apartable">
 <!ENTITY circ.fail_part.config.hold_matrix_test.max_holds "El usuario ha superado el numero máximo de solicitudes.">
 <!ENTITY circ.fail_part.config.rule_age_hold_protect.prox "El tema es demasiado nuevo para transitar este momento.">

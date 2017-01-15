@@ -2257,7 +2257,7 @@
 <!ENTITY staff.server.admin.non_cat_types.submit "Подтвердить">
 <!ENTITY staff.server.admin.non_cat_types.cancel "Отменить">
 <!ENTITY staff.server.admin.non_cat_types.delete.confirm "Вы уверены, что хотите удалить выбранный некаталогизированный тип?">
-<!ENTITY staff.server.admin.non_cat_types.in_house.help "Если флажок &quot;Для домашнего пользования&quot; установлен на некаталогизированный тип, единицы которые циркулируются как этот тип будут создавать &quot;Для домашнего пользования&quot; циркуляции. Это идеально для компьютерного пользования, квартирных &quot;rentals&quot;, итд.">
+<!ENTITY staff.server.admin.non_cat_types.in_house.help 'Если флажок "Для домашнего пользования" установлен на некаталогизированный тип, единицы которые циркулируются как этот тип будут создавать "Для домашнего пользования" циркуляции. Это идеально для компьютерного пользования, квартирных "rentals", итд.'>
 <!ENTITY staff.server.admin.non_cat_types.update.success "Некаталогизированный тип  удачно обновлен">
 <!ENTITY staff.server.admin.non_cat_types.name_exists "Некаталогизированный тип с выбранным именем уже существует.">
 <!ENTITY staff.server.admin.index.title "Администрирование Местный системны">
@@ -2308,20 +2308,20 @@
 <!ENTITY staff.server.admin.org_settings.default_price "Цена единицы по умолчанию">
 <!ENTITY staff.server.admin.org_settings.from_address "Отправка адреса эл почты для заметок патрона">
 <!ENTITY staff.server.admin.org_settings.bounce_note "Неудачи пересылки Email-ов будут возвращены на этот адрес">
-<!ENTITY staff.server.admin.org_settings.apply_all.note "I. &quot;Применить ко всем направлениям&quot; силой поставит новые настройки чтобы были применены для всех местоположений в открывающем для местоположений.">
+<!ENTITY staff.server.admin.org_settings.apply_all.note 'I. "Применить ко всем направлениям" силой поставит новые настройки чтобы были применены для всех местоположений в открывающем для местоположений.'>
 <!ENTITY staff.server.admin.org_settings.update_success "Обновление удалось.">
 <!ENTITY staff.server.admin.org_settings.apply_all.confirm "это обновит настройки для для всех приведенных в открывающем меню местоположений. Вы уверены что хотите продолжить?">
 
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval "Хранения: интервал тревоги просрочки">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval.desc "Значение времени перед тем как хранения истекаети после чего патрон должен быть предупрежден">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval "Хранения: интервал просрочки">
-<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc "Значение времени после чего ставится хранение и истекает хранение. Например &quot;100 дней&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc 'Значение времени после чего ставится хранение и истекает хранение. Например "100 дней"'>
 <!ENTITY staff.server.admin.org_settings.global.credit.allow "Разрешить оплату по кредит карте">
 <!ENTITY staff.server.admin.org_settings.global.credit.allow.desc "Если включен, патроны смогут выплатить штрафы заработанные в этом местоположении с помощью кредит карты">
 <!ENTITY staff.server.admin.org_settings.global.default_locale "Место по умолчанию">
 <!ENTITY staff.server.admin.org_settings.circ.void_overdue_on_lost "Уничтожай просроченные штрафы когда единицы отмечены как потерянные">
 <!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft "Хранения: Soft stalling Интервал">
-<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc "Как долго ожидать перед разрешением захвата удаленных единиц для хранения. Пример &quot;5 дней&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc 'Как долго ожидать перед разрешением захвата удаленных единиц для хранения. Пример "5 дней"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.hard "Хранения: твердый переплет">
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.soft "Хранения: мягкий переплет">
 <!ENTITY staff.server.admin.org_settings.opac.barcode_regex "Формат штрих кода патрона">
@@ -2329,7 +2329,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max "Максимум прежных выдач отображен">
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max.desc "Это максимальное число прежних циркуляций отображаемый клиентом персонала когда изучаются детали единицы">
 <!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval "Изменить статус интервала для полки">
-<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc "Значение времени ожидания перед изменением статуса единицы из &quot;reshelving&quot; в &quot;доступный&quot;.  Примеры &quot;1 день&quot;, &quot;6 часов&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc 'Значение времени ожидания перед изменением статуса единицы из "reshelving" в "доступный".  Примеры "1 день", "6 часов"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval "Хранения: Планируемое ожидание (Дни)">
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval.desc "При прогнозировании времени  пользователю придется ждать пока  хранение заполнится, это по умолчанию/среднее число дней для выдачи единицы">
 <!ENTITY staff.server.admin.org_settings.circ.block_renews_for_holds "Holds: Block Renewal of Items Needed for Holds">
@@ -2341,7 +2341,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password "Самовыдача: Требует пароля патрона">
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password.desc "Если верно, пользователям надо будет ввести свои пароли в добавок  своим регистрационным именам и штрих кодам чтобы войти в интерфейс самовыдачи">
 <!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold "Порог подросткового возраста">
-<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc "Возраст, в котором пользователь считается несовершеннолетним. Например, &quot;18 лет&quot;.">
+<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc 'Возраст, в котором пользователь считается несовершеннолетним. Например, "18 лет".'>
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty "Не удаляйте автоматически пустые библ. записи">
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty.desc "Не удаляйте автоматически библ. запись когда все прикрепленные копии удалены">
 <!ENTITY staff.server.admin.org_settings.cat.bib.alert_on_empty "Оповещение на пустые библиотечные записи">
@@ -2708,7 +2708,7 @@
 <!ENTITY staff.circ.print_list.line_item.label "Строка единицы">
 <!ENTITY staff.circ.print_list.footer.label "Колонтитул">
 <!ENTITY staff.main.data.loading "Загрузка даты...">
-<!ENTITY staff.main.ws_info.entry "Введите название рабочей станции и организации для регистрации этого клиента под.Эта информация будет использоваться для статистики и аудита, а также для определения &quot;места&quot;, где происходит регистрация приема и выдачи">
+<!ENTITY staff.main.ws_info.entry 'Введите название рабочей станции и организации для регистрации этого клиента под.Эта информация будет использоваться для статистики и аудита, а также для определения "места", где происходит регистрация приема и выдачи'>
 <!ENTITY staff.main.ws_info.name "Название рабочей станции">
 <!ENTITY staff.main.ws_info.organization "Организация">
 <!ENTITY staff.main.ws_info.register_btn.label "Регистр">
@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Издание">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Floating">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Хранимый">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Age-based Hold Protection">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Право полочного хранения">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Хранения/Транзит">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Circ Library">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Patron">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Цена">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Acquisition Cost">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "Previous Circ Group">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Дата издания">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Издатель">

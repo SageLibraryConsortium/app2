@@ -140,9 +140,9 @@ Are you sure you wish to continue?">
 <!ENTITY myopac.bookbag.no.items "The selected bookbag contains no items...">
 <!ENTITY myopac.bookbag.remove "Remove this item?">
 <!ENTITY myopac.remove.link "remove">
-<!ENTITY myopac.publish.text "Sharing a Bookbag means that the contents of the Bookbag will be visible to others. 
-To see the public view of a shared Bookbag, click the &quot;View&quot; link in the 
-&quot;Shared&quot; column of the Bookbag list at the top of this page.">
+<!ENTITY myopac.publish.text 'Sharing a Bookbag means that the contents of the Bookbag will be visible to others. 
+To see the public view of a shared Bookbag, click the "View" link in the 
+"Shared" column of the Bookbag list at the top of this page.'>
 <!ENTITY myopac.item.confirm "Are you sure you wish to remove this bookbag item?">
 <!ENTITY myopac.publish.confirm "Sharing this bookbag will allow the contents 
 of the bookback to be seen by others.  Are you sure you wish to share this bookbag?">
@@ -620,8 +620,8 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY common.hold.exists.override "A hold already exists on the requested item. Would you like to create the hold anyway?">
 <!ENTITY common.hold.age_protect.override "This hold may take extra time to fill due to library policies. Would you like to create the hold anyway?">
 <!ENTITY common.hold.place_unfillable.override "The requested hold cannot currently be filled. You have permission to place the hold regardless, but should only do so if you believe the hold will eventually be filled. Would you like to create the hold anyway?">
-<!ENTITY common.hold.barred "PATRON BARRED. Please see any notes in the 
-&quot;Staff Notes&quot; section of your &quot;My Account&quot; page or contact your local library.">
+<!ENTITY common.hold.barred 'PATRON BARRED. Please see any notes in the 
+"Staff Notes" section of your "My Account" page or contact your local library.'>
 <!ENTITY common.hold.item.invalid "This hold is no longer valid. It's likely that the 
 target for the hold was deleted from the system.  Please cancel this hold and 
 place a new one.">

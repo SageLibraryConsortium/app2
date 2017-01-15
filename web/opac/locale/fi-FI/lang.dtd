@@ -1856,7 +1856,7 @@
 <!ENTITY staff.serial.patternwiz.previous.btn "Edellinen">
 <!ENTITY staff.serial.patternwiz.next.btn "Seuraava">
 <!ENTITY staff.serial.patternwiz.use_enum.label "Käytä numerointitasoja?">
-<!ENTITY staff.serial.patternwiz.use_enum.desc "&quot;v.&quot; ja &quot;no.&quot; ovat yleiset ensimmäiset numerointitasot.">
+<!ENTITY staff.serial.patternwiz.use_enum.desc '"v." ja "no." ovat yleiset ensimmäiset numerointitasot.'>
 <!ENTITY staff.serial.patternwiz.enum_row.enum_capt "Numerointitaso">
 <!ENTITY staff.serial.patternwiz.enum_row.units_per_higher_lvl "Yksiköitä ylempää tasoa kohti">
 <!ENTITY staff.serial.patternwiz.enum_row.number_cont "Numeroinnin jatkuvuus">
@@ -2257,7 +2257,7 @@
 <!ENTITY staff.server.admin.non_cat_types.submit "Lähetä">
 <!ENTITY staff.server.admin.non_cat_types.cancel "Peruuta">
 <!ENTITY staff.server.admin.non_cat_types.delete.confirm "Haluatko varmasti tuhota valitun ei-luetteloidun tyypin?">
-<!ENTITY staff.server.admin.non_cat_types.in_house.help "Jos &quot;kirjaston sisäinen&quot; merkintä on asetettu ei-luetteloidulle tyypille, tällä tyypillä lainattavat niteet luovat &quot;kirjaston sisäisiä&quot; lainoja. Tämä soveltuu hyvin tietokonekäyttöön, &quot;huonevuokrauksiin&quot; jne.">
+<!ENTITY staff.server.admin.non_cat_types.in_house.help 'Jos "kirjaston sisäinen" merkintä on asetettu ei-luetteloidulle tyypille, tällä tyypillä lainattavat niteet luovat "kirjaston sisäisiä" lainoja. Tämä soveltuu hyvin tietokonekäyttöön, "huonevuokrauksiin" jne.'>
 <!ENTITY staff.server.admin.non_cat_types.update.success "Ei-luetteloitu tyyppi päivitetty onnistuneesti">
 <!ENTITY staff.server.admin.non_cat_types.name_exists "Samanniminen ei-luetteloitu tyyppi on jo olemassa.">
 <!ENTITY staff.server.admin.index.title "Paikallinen järjestelmän ylläpito">
@@ -2308,20 +2308,20 @@
 <!ENTITY staff.server.admin.org_settings.default_price "Niteen oletushinta">
 <!ENTITY staff.server.admin.org_settings.from_address "Sähköpostiosoite asiakkaan ilmoituksille">
 <!ENTITY staff.server.admin.org_settings.bounce_note "Sähköpostien perillemenon virheilmoitukset palautetaan tähän osoitteeseen">
-<!ENTITY staff.server.admin.org_settings.apply_all.note "I. &quot;Ota käyttöön kaikissa toimipisteissä&quot; pakottaa uuden asetuksen kaikkiin toimipisteisiin, jotka näkyvät toimipistevalikossa.">
+<!ENTITY staff.server.admin.org_settings.apply_all.note 'I. "Ota käyttöön kaikissa toimipisteissä" pakottaa uuden asetuksen kaikkiin toimipisteisiin, jotka näkyvät toimipistevalikossa.'>
 <!ENTITY staff.server.admin.org_settings.update_success "Päivitys onnistui.">
 <!ENTITY staff.server.admin.org_settings.apply_all.confirm "Tämä päivittää asetuksen kaikkiin toimipisteisiin, jotka näkyvät valikossa. Haluatko varmasti jatkaa?">
 
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval "Varaukset: Vanhentumishuomautuksen aikaväli">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval.desc "Aika, jolloin asiakasta huomautetaan ennen varauksen vanhentumista">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval "Varaukset: Vanhentumisen aikaväli">
-<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc "Aika, jonka jälkeen varaus vanhentuu. Esimerkiksi &quot;100 päivää&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc 'Aika, jonka jälkeen varaus vanhentuu. Esimerkiksi "100 päivää"'>
 <!ENTITY staff.server.admin.org_settings.global.credit.allow "Salli luottokorttimaksut">
 <!ENTITY staff.server.admin.org_settings.global.credit.allow.desc "Jos käytössä, asiakkaat voivat maksaa tässä toimipisteessä kertyneitä maksuja luottokortilla">
 <!ENTITY staff.server.admin.org_settings.global.default_locale "Oletuskieli">
 <!ENTITY staff.server.admin.org_settings.circ.void_overdue_on_lost "Mitätöi myöhästymismaksut, kun niteet merkitään kadonneiksi">
 <!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft "Varaukset: Joustava viivytysväli">
-<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc "Kuinka kauan odotetaan, ennen kuin muualla olevat niteet voidaan tilaisuuden tullen kiinnittää varatuiksi.  Esimerkiksi &quot;5 päivää&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc 'Kuinka kauan odotetaan, ennen kuin muualla olevat niteet voidaan tilaisuuden tullen kiinnittää varatuiksi.  Esimerkiksi "5 päivää"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.hard "Varaukset: Kova raja">
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.soft "Varaukset: Joustava raja">
 <!ENTITY staff.server.admin.org_settings.opac.barcode_regex "Asiakastunnuksen muoto">
@@ -2329,7 +2329,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max "Aiempien lainojen näytettävä enimmäismäärä">
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max.desc "Tämä on enimmäismäärä, jonka ohjelman henkilökuntaversio näyttää aiempia lainoja nidetietoja tutkittaessa">
 <!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval "Muuta uudelleenhyllytystilan aikaväliä">
-<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc "Odotusaika ennen kuin niteen tila muutetaan &quot;uudelleenhyllytettävästä&quot; &quot;saataville&quot;. Esimerkiksi &quot;1 päivä&quot;, &quot;6 tuntia&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc 'Odotusaika ennen kuin niteen tila muutetaan "uudelleenhyllytettävästä" "saataville". Esimerkiksi "1 päivä", "6 tuntia"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval "Varaukset: Arvioitu odotusaika (päivää)">
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval.desc "Kun asiakkaan tekemän varauksen kiinnittymisaikaa ennakoidaan, tämä on oletusarvo / keskimääräinen arvio siitä, kuinka kauan nide on lainassa.">
 <!ENTITY staff.server.admin.org_settings.circ.block_renews_for_holds "Varaukset: Estä varatun aineiston uusinta">
@@ -2341,7 +2341,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password "Itselainaus: Vaadi asiakkaan salasana">
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password.desc "Jos tosi, asiakkaiden on syötettävä salasanansa käyttäjätunnuksensa ohella kirjautuessaan itselainaukseen">
 <!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold "Nuorisoikäraja">
-<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc "Ikä, jolloin käyttäjää ei enää lasketa kuuluvaksi nuorisoon. Esimerkiksi &quot;18 vuotta&quot;.">
+<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc 'Ikä, jolloin käyttäjää ei enää lasketa kuuluvaksi nuorisoon. Esimerkiksi "18 vuotta".'>
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty "Älä automaattisesti tuhota tyhjiä bibliografisia tietueita">
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty.desc "Älä automaattisesti tuhoa bibliografista tietuetta, kun kaikki tietueen niteet on tuhottu">
 <!ENTITY staff.server.admin.org_settings.cat.bib.alert_on_empty "Huomautus tyhjistä bibliografisista tietueista">
@@ -3135,7 +3135,7 @@
 <!ENTITY staff.cat.spine_labels.close_window.label "Sulje ikkuna">
 <!ENTITY staff.cat.spine_labels.close_window.accesskey "C">
 <!ENTITY staff.cat.spine_labels.font_size.label "Fonttikoko (pisteinä):">
-<!ENTITY staff.cat.spine_labels.font_weight.label "Fontin paksuus (&quot;normaali&quot; tai &quot;lihavoitu&quot;):">
+<!ENTITY staff.cat.spine_labels.font_weight.label 'Fontin paksuus ("normaali" tai "lihavoitu"):'>
 <!ENTITY staff.cat.spine_labels.spine_label.label "Selkätarra">
 <!ENTITY staff.cat.spine_labels.spine_label.left_margin.label "Vasen marginaali (merkkejä):">
 <!ENTITY staff.cat.spine_labels.spine_label.label_width.label "Nimekkeen leveys (merkkejä):">
@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Painos">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Kelluva">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Varattavissa">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Age-based Hold Protection">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Varauksen hyllysijainti">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Varaukset/kuljetus">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Kotiosasto">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Asiakas">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Hinta">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Acquisition Cost">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "Viimeistä edellinen lainaaja">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Julkaisupäivä">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Julkaisija">
@@ -3811,9 +3813,9 @@
 <!ENTITY staff.printing.advanced.dos_print "Käytä vaihtoehtoista tulostusstrategiaa (DOS LPT1 -tulostus)">
 <!ENTITY staff.printing.advanced.custom_print "Käytä vaihtoehtoista tulostusstrategiaa (Mukautettu/ulkoinen tulostus)">
 <!ENTITY staff.printing.advanced.dos_print.warning.header "Ilmoitus DOS LPT1 -tulostuksesta">
-<!ENTITY staff.printing.advanced.dos_print.warning.text "This print strategy will ignore the printer settings in the &quot;Normal Settings&quot; section. In Windows, you must map your printer to the LPT1 port, under Start Menu -&gt; Printers and Faxes -&gt; your printer -&gt; right-click, Properties -&gt; Ports. Also, HTML styling such as different font weights and sizes will be lost, and any advanced templates using Javascript will not work.  Data is sent to the printer as simple text.  This option is here for legacy purposes, and the Custom/External Print strategy is more flexible.">
+<!ENTITY staff.printing.advanced.dos_print.warning.text "Tämä tulostusstrategia jättää huomiotta &quot;Normaaliasetukset&quot;-osiossa määritetyt tulostusasetukset. Windowsissa tulostin on kartoitettava LPT1-porttiin kohdassa Aloitusvalikko -&gt; Tulostimet ja faksit -&qt; käytettävä tulostin -&qt; oikea napsautus, Ominaisuudet -&gt; Portit. Lisäksi HTML-muotoilut, esimerkiksi erilaiset fonttien paksuudet ja koot menetetään, eivätkä JavaScriptiä hyödyntävät mallineet toimi.  Tiedot lähetetään tulostimelle muotoilemattomana tekstinä.  Tämä toiminto on tarjolla yhteensopivuussyistä, ja mukautettu/ulkoinen tulostusstrategia on joustavampi valinta.">
 <!ENTITY staff.printing.advanced.custom_print.warning.header "Ilmoitus mukautetusta/ulkoisesta tulostuksesta">
-<!ENTITY staff.printing.advanced.custom_print.warning.text "This print strategy will ignore the printer settings in the &quot;Normal Settings&quot; section. Advanced templates using Javascript may not work, even if the external tool can take the receipt.html file.">
+<!ENTITY staff.printing.advanced.custom_print.warning.text "Tämä tulostusstrategia jättää huomiotta &quot;Normaaliasetukset&quot;-osiossa määritetyt tulostusasetukset. JavaScriptiä hyödyntävät mallineet eivät välttämättä toimi, vaikka ulkoinen työkalu voisi lukea receipt.html-tiedostoa.">
 <!ENTITY staff.printing.advanced.html_templates.warning.header "Myös...">
 <!ENTITY staff.printing.advanced.html_templates.warning.text "If using Receipt Templates with either the DOS LPT1 Print strategy or the Custom/External Print strategy (with &quot;receipt.txt&quot;), the client will try to translate any HTML markup to text, but this process may be imperfect, and for the best fidelity you should consider reworking your templates to be plain text if you are using a plain text print strategy.  However, if using a plain text print strategy with HTML markup, you may include special character codes in 2-digit hexadecimal in a &quot;hex&quot; attribute for any given element.  Such codes will be converted to actual characters and inserted at the place of the tag.  For example, &lt;p hex=&quot;0C&quot;&gt;Hello World&lt;/p&gt; will translate to form feed control character + Hello World. &lt;p&gt;Hello World&lt;/p hex=&quot;0C&quot;&gt; will translate to Hello World + form feed control character.">
 <!ENTITY staff.client.portal.title "Evergreen-ohjelman henkilökuntaversion portaali">

@@ -115,8 +115,7 @@ Bude Vám dodán první dostupný exemplář.">
 <!ENTITY common.googlechromeframe.install "Instalovat nyní!">
 <!ENTITY common.googlechromeframe.dontask "Již se mě znovu neptat">
 
-<!ENTITY home.js.disabled "Abyste mohli používat běžný katalog Evergreenu, musí být povolen JavaScript. 
-Vypadá to však, že JavaScript buď není povolen nebo není podporován vaším prohlížečem. 
+<!ENTITY home.js.disabled "Abyste mohli používat běžný katalog Evergreenu, musí být povolen JavaScript. Vypadá to však, že JavaScript buď není povolen nebo není podporován vaším prohlížečem. 
 Pro používání běžného katalogu Evergrrenu povolte JavaScript v nastavení vašeho prohlížeče, poté 
 <a style='color: blue; text-decoration: underline;' href='/'>zkuste opakovat akci</a>. 
 <br/><br/>Případně můžete také použít základní katalog (pouze  HTML): ">
@@ -143,9 +142,9 @@ Pro používání běžného katalogu Evergrrenu povolte JavaScript v nastavení
 <!ENTITY myopac.bookbag.no.items "Zvolený seznam knih neobsahuje žádné položky...">
 <!ENTITY myopac.bookbag.remove "Odstranit tuto položku?">
 <!ENTITY myopac.remove.link "Odebrat">
-<!ENTITY myopac.publish.text "Sdílet seznam knih znamená, že jeho obsah bude viditelný pro ostatní. 
-Pro zobrazení veřejně sdíleného seznamu klikněte na odkaz &quot;Zobrazit&quot; ve 
-sloupci &quot;Sdílené&quot; seznamu knih nahoře na této stránce.">
+<!ENTITY myopac.publish.text 'Sdílet seznam knih znamená, že jeho obsah bude viditelný pro ostatní. 
+Pro zobrazení veřejně sdíleného seznamu klikněte na odkaz "Zobrazit" ve 
+sloupci "Sdílené" seznamu knih nahoře na této stránce.'>
 <!ENTITY myopac.item.confirm "Opravdu chcete odebrat tuto položku ze seznamu?">
 <!ENTITY myopac.publish.confirm "Sdílením tohoto seznamu knih povolíte ostatním,  
 aby viděli jeho obsah.  Opravdu chcete seznam sdílet?">
@@ -624,8 +623,8 @@ Doporučujeme vám odebrat tento titul ze seznamů knih, do kterých byl přidá
 <!ENTITY common.hold.exists.override "Na požadovaný exemplář již existuje rezervace. Chtěli byste přesto rezervaci vytvořit?">
 <!ENTITY common.hold.age_protect.override "Splnění této rezervace může - s ohledem na nastavená pravidla - trvat velmi dlouho. Chcete přesto zadat tuto rezervaci?">
 <!ENTITY common.hold.place_unfillable.override "V současné době nemůže být požadovaná rezervace splněna. Pokud máte důvod se domnívat, že rezervace by časem mohla být splněna, můžete rezervaci zadat. Chcete zadat rezervaci za těchto podmínek?">
-<!ENTITY common.hold.barred "ČTENÁŘSKÉ TRANSAKCE JSOU OMEZENY. Zkontrolujte prosím poznámky 
-v sekci &quot;Zprávy z knihovny&quot;  na stránce &quot;Moje konto&quot; nebo kontaktujte svou knihovnu.">
+<!ENTITY common.hold.barred 'ČTENÁŘSKÉ TRANSAKCE JSOU OMEZENY. Zkontrolujte prosím poznámky 
+v sekci "Zprávy z knihovny"  na stránce "Moje konto" nebo kontaktujte svou knihovnu.'>
 <!ENTITY common.hold.item.invalid "Tato rezervace již není platná. Je pravděpodobné, že 
 cíl rezervace byl smazán ze systému. Zrušte prosím tuto rezervaci 
 a vytvořte novou.">

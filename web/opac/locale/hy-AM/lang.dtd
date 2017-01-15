@@ -1856,7 +1856,7 @@
 <!ENTITY staff.serial.patternwiz.previous.btn "Նախորդը">
 <!ENTITY staff.serial.patternwiz.next.btn "Հաջորդը">
 <!ENTITY staff.serial.patternwiz.use_enum.label "Օգտագործե՞լ համարակալումը">
-<!ENTITY staff.serial.patternwiz.use_enum.desc "&quot;v.&quot; և &quot;no.&quot; հաճախ օտագործվող առաջին և երկրորդ մակարդակների համարակուլմներ են։">
+<!ENTITY staff.serial.patternwiz.use_enum.desc '"v." և "no." հաճախ օտագործվող առաջին և երկրորդ մակարդակների համարակուլմներ են։'>
 <!ENTITY staff.serial.patternwiz.enum_row.enum_capt "Համարակալման որսում">
 <!ENTITY staff.serial.patternwiz.enum_row.units_per_higher_lvl "Միավորներ ըստ ավելի բարձր մակարդակի">
 <!ENTITY staff.serial.patternwiz.enum_row.number_cont "Հաշվարկման հաջորդականություն">
@@ -2257,7 +2257,7 @@
 <!ENTITY staff.server.admin.non_cat_types.submit "Գրանցել">
 <!ENTITY staff.server.admin.non_cat_types.cancel "Չեղյալ անել">
 <!ENTITY staff.server.admin.non_cat_types.delete.confirm "Վստա՞հ ես որ ուզում ես ջնջել ընտրված չմուտքագրվող տեսակը">
-<!ENTITY staff.server.admin.non_cat_types.in_house.help "Եթե &quot;In-House&quot; դրոշակը դրված է չմուտքագրվող տեսակի վրա, նյութերը որ սպասարկվում են որպես այդ տեսակ կստեղծեն &quot;In-House&quot; սպասարկումներ: Սա իդեալական է համակարգչից օգտվելու, տնային &quot;տրումների&quot;,և այլն համար">
+<!ENTITY staff.server.admin.non_cat_types.in_house.help 'Եթե "In-House" դրոշակը դրված է չմուտքագրվող տեսակի վրա, նյութերը որ սպասարկվում են որպես այդ տեսակ կստեղծեն "In-House" սպասարկումներ: Սա իդեալական է համակարգչից օգտվելու, տնային "տրումների",և այլն համար'>
 <!ENTITY staff.server.admin.non_cat_types.update.success "Չքարտագրվող տեսակը հաջողությամբ թարմացված է:">
 <!ENTITY staff.server.admin.non_cat_types.name_exists "Ընտրված անււնով չքարտագրվող տեսակը գոյություն ունի:">
 <!ENTITY staff.server.admin.index.title "Տեղային համակարգի ադմինիստրացիա">
@@ -2308,14 +2308,14 @@
 <!ENTITY staff.server.admin.org_settings.default_price "Լռակյաց նյութի գին">
 <!ENTITY staff.server.admin.org_settings.from_address "Ուղարկվում է ընթերցողի նշումների համար էլ փոստի հասցեն">
 <!ENTITY staff.server.admin.org_settings.bounce_note "Էլ փոստի ձախողումների դեպքում կվերադարձվի այս հասցեն">
-<!ENTITY staff.server.admin.org_settings.apply_all.note "I. &quot;Կիրառիր բոլոր տեղաբաշխումների վրա&quot; կստիպի որ նոր պարամետրերը կիրառվեն բոլոր տեղաբաշխումների վրա հենց հանձնելու տեղաբաշխումից:">
+<!ENTITY staff.server.admin.org_settings.apply_all.note 'I. "Կիրառիր բոլոր տեղաբաշխումների վրա" կստիպի որ նոր պարամետրերը կիրառվեն բոլոր տեղաբաշխումների վրա հենց հանձնելու տեղաբաշխումից:'>
 <!ENTITY staff.server.admin.org_settings.update_success "Թարմացումը հաջողվեց">
 <!ENTITY staff.server.admin.org_settings.apply_all.confirm "Սա կթարմացնի բացվող ցուցակում նշված բոլոր տեղաբաշխումների պարամետրերը: Վստա՞հ ես որ ցանկանում էս շարունակել:">
 
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval "Պահումներ։ Ժամկետը անցնելու զգուշացման տիրույթ">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval.desc "Մինչ պահման լրանալը ժամանակի այն մեծությունը որից հետո ընթերցողը զգուշացվում է">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval "Պահումներ. ժամկետը լրանալու միջակայք">
-<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc "Մինչ պահման ժամկետի լրանալը ժամանակի մեծությունը որից հետո պահումը կահարվում է։ Օրինակ &quot;100 օր&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc 'Մինչ պահման ժամկետի լրանալը ժամանակի մեծությունը որից հետո պահումը կահարվում է։ Օրինակ "100 օր"'>
 <!ENTITY staff.server.admin.org_settings.global.credit.allow "Թույլատրիր վճարումներ կրեդիտ քարտով">
 <!ENTITY staff.server.admin.org_settings.global.credit.allow.desc "Եթե թույլատրված է, ընթերցողները ի վիճակի կլինեն վճարել կրեդիտ քարտով այս կետում կուտակված տուգանքները։">
 <!ENTITY staff.server.admin.org_settings.global.default_locale "Լռակյած տեղային արժեք">
@@ -3135,7 +3135,7 @@
 <!ENTITY staff.cat.spine_labels.close_window.label "Փակիր պատուհանը">
 <!ENTITY staff.cat.spine_labels.close_window.accesskey "Փ">
 <!ENTITY staff.cat.spine_labels.font_size.label "Ֆոնտի չափ (միավորներով):">
-<!ENTITY staff.cat.spine_labels.font_weight.label "Ֆոնտի քաշ (&quot;նորմալ&quot; կամ &quot;թավ&quot;):">
+<!ENTITY staff.cat.spine_labels.font_weight.label 'Ֆոնտի քաշ ("նորմալ" կամ "թավ"):'>
 <!ENTITY staff.cat.spine_labels.spine_label.label "Կողի պիտակ">
 <!ENTITY staff.cat.spine_labels.spine_label.left_margin.label "Ձախ եզր (նիշերով):">
 <!ENTITY staff.cat.spine_labels.spine_label.label_width.label "Պիտակի հաստություն (նիշերով):">
@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Հրատարակություն">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Լողացող">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Պահվող">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Age-based Hold Protection">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Պահման դարակի տեղաբաշխում">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Պահումներ/Տրանզիտ">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Տացքի գրադարան">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Ընթերցող">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Գին">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Acquisition Cost">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "տացքի նախորդ խումբ">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Հրատ ամսաթիվ">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Հրատարակիչ">
@@ -3811,9 +3813,9 @@
 <!ENTITY staff.printing.advanced.dos_print "Օգտագործիր տպելու այլընտրանքային մարտավարությունը (DOS LPT1 Print)">
 <!ENTITY staff.printing.advanced.custom_print "Օգտագործիր տպելու այլընտրանքային մարտավարությունը (Custom/External Print)">
 <!ENTITY staff.printing.advanced.dos_print.warning.header "Նշում DOS LPT1 Print մասին">
-<!ENTITY staff.printing.advanced.dos_print.warning.text "This print strategy will ignore the printer settings in the &quot;Normal Settings&quot; section. In Windows, you must map your printer to the LPT1 port, under Start Menu -&gt; Printers and Faxes -&gt; your printer -&gt; right-click, Properties -&gt; Ports. Also, HTML styling such as different font weights and sizes will be lost, and any advanced templates using Javascript will not work.  Data is sent to the printer as simple text.  This option is here for legacy purposes, and the Custom/External Print strategy is more flexible.">
+<!ENTITY staff.printing.advanced.dos_print.warning.text "Տպելու այս մարտավարությունը կանտեսի տպիչի կարգաբերումները &quot;նորմալ կարգաբերումներ&quot; բաժնից։ Ուինդոզում, դու պետք է ուղղորդես քո տպիչը LPT1 պորտին, օգտվելով Start Menu -&gt; Printers and Faxes -&gt; your printer -&gt; աջ սեղմում։ Properties -&gt; Ports. Նաև HTML ոճը շ՝ ասենք տարբեր ֆոնտերի քաշեր և չափեր, կկորեն, և Javascrip օգտագործող ձևերը չեն աշխատի։ Տվայլները ուղարկվում են տպիչին հասարակ տեքստի տեսքով։">
 <!ENTITY staff.printing.advanced.custom_print.warning.header "Նշում Custom/External Print համար">
-<!ENTITY staff.printing.advanced.custom_print.warning.text "This print strategy will ignore the printer settings in the &quot;Normal Settings&quot; section. Advanced templates using Javascript may not work, even if the external tool can take the receipt.html file.">
+<!ENTITY staff.printing.advanced.custom_print.warning.text "Տպելու այս մարտավարությունը կանտեսի տպիչի կարգաբերումները &quot;Նորմալ կարգաբերումներ&quot; բաժնից։ Խորացված ձևերը որոնք օգտագործում են Javascript կարող է չաշխատեն, նույնիսկ եթե արտաքին գործիքը կվերցնի receipt.html ֆայլը։">
 <!ENTITY staff.printing.advanced.html_templates.warning.header "Նաև...">
 <!ENTITY staff.printing.advanced.html_templates.warning.text "If using Receipt Templates with either the DOS LPT1 Print strategy or the Custom/External Print strategy (with &quot;receipt.txt&quot;), the client will try to translate any HTML markup to text, but this process may be imperfect, and for the best fidelity you should consider reworking your templates to be plain text if you are using a plain text print strategy.  However, if using a plain text print strategy with HTML markup, you may include special character codes in 2-digit hexadecimal in a &quot;hex&quot; attribute for any given element.  Such codes will be converted to actual characters and inserted at the place of the tag.  For example, &lt;p hex=&quot;0C&quot;&gt;Hello World&lt;/p&gt; will translate to form feed control character + Hello World. &lt;p&gt;Hello World&lt;/p hex=&quot;0C&quot;&gt; will translate to Hello World + form feed control character.">
 <!ENTITY staff.client.portal.title "Էվերգրին աշխատակազմի հաճախորդի պորտալ">

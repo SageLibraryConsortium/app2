@@ -107,7 +107,7 @@ O primeiro exemplar disponível lhe será enviado.">
 <!-- Regular / Large -->
 <!ENTITY common.textsize.separator "/"> 
 <!ENTITY common.textsize.large "Grande">
-<!ENTITY common.googlechromeframe.why "Instalar o plugin &quot;Google Chrome Frame&quot; para Internet Explorer vai melhorar sua experiencia com o Evisualizargreen com mais velocidade e recursos avançados!. Ou simplesmente, use o navegador Google Chrome que você terá uma melhor experiência de navegação..">
+<!ENTITY common.googlechromeframe.why 'Instalar o plugin "Google Chrome Frame" para Internet Explorer vai melhorar sua experiencia com o Evisualizargreen com mais velocidade e recursos avançados!. Ou simplesmente, use o navegador Google Chrome que você terá uma melhor experiência de navegação..'>
 <!ENTITY common.googlechromeframe.install "Instalar Agora!">
 <!ENTITY common.googlechromeframe.dontask "Não perguntar novamente">
 
@@ -139,7 +139,7 @@ Para usar o Catálogo  Evergreen padrão, habilite o JavaScript alterando as op�
 <!ENTITY myopac.bookbag.no.items "A lista de Prediletos selecionada não contem itens...">
 <!ENTITY myopac.bookbag.remove "Removisualizar este item?">
 <!ENTITY myopac.remove.link "retirar">
-<!ENTITY myopac.publish.text "Compartilhar uma lista de prediletos significa que o conteúdo desta será visível para os outros.  Para visualizar a visão pública de uma lista de prediletos, clique em &quot;Visualizar&quot;, da coluna &quot;Compartilhado&quot; da lista de lista de Prediletos no topo desta página.">
+<!ENTITY myopac.publish.text 'Compartilhar uma lista de prediletos significa que o conteúdo desta será visível para os outros.  Para visualizar a visão pública de uma lista de prediletos, clique em "Visualizar", da coluna "Compartilhado" da lista de lista de Prediletos no topo desta página.'>
 <!ENTITY myopac.item.confirm "Você tem certeza que deseja retirar este item da lista de prediletos?">
 <!ENTITY myopac.publish.confirm "Compartilhando esta lista de prediletos permitirá que o conteúdo n desta seja visto por outras pessoas. Tem certeza de que deseja compartilhar?">
 <!ENTITY myopac.unpublish.confirm "Você tem certeza que deseja ocultar esta lista de prediletos?">
@@ -613,7 +613,7 @@ Recomendamos que você remova este título das bookbags que ele fora incluído."
 <!ENTITY common.hold.exists.override "Já existe uma reserva para o item solicitado. Você gostaria de criar a reserva de qualquer maneira?">
 <!ENTITY common.hold.age_protect.override "Esta reserva pode demorar mais tempo para preencher devido às políticas da biblioteca. Gostaria mesmo assim de solicitar a reserva?">
 <!ENTITY common.hold.place_unfillable.override "A reserva solicitada não pode atualmente ser completada. Independentemente você tem permissão para fazer a reserva, mas você só deve fazê-la se você acreditar que a reserva acabará sendo completada. Gostaria de criar a reserva de qualquer maneira?">
-<!ENTITY common.hold.barred "USUÁRIO BARRADO. Por favor veja as observações na seção &quot;Observações da Administração&quot; de sua página  &quot;Minha Conta&quot; ou contacte sua biblioteca local.">
+<!ENTITY common.hold.barred 'USUÁRIO BARRADO. Por favor veja as observações na seção "Observações da Administração" de sua página  "Minha Conta" ou contacte sua biblioteca local.'>
 <!ENTITY common.hold.item.invalid "Esta reserva não é mais válida. É provável que o destino para a reserva foi excluído do sistema. Por favor cancelar esta reserva e crie uma nova.">
 <!ENTITY common.hold.patron.invalid "O código de barras de usuário fornecido para receber a reserva é inválido.">
 <!-- Was (??), perhaps change to a button or icon? -->

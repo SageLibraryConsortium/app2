@@ -2,70 +2,70 @@
 		Some generic stuff 
 		================================================================= -->
 <!ENTITY lang.version "remote v1">
-<!ENTITY lang.description "English">
+<!ENTITY lang.description "الإنجليزية">
 <!ENTITY lang.author "PINES">
 <!ENTITY common.all "All">
 <!ENTITY common.currency "$">
-<!ENTITY common.language "Language: ">
-<!ENTITY common.name "Name">
+<!ENTITY common.language "اللغة: ">
+<!ENTITY common.name "الاسم">
 <!ENTITY common.none "None">
-<!ENTITY common.title "Title">
-<!ENTITY common.author "Author">
-<!ENTITY common.authors "Authors">
-<!ENTITY common.callnumber "Call Number">
-<!ENTITY common.edition "Edition">
-<!ENTITY common.subject "Subject">
-<!ENTITY common.series "Series">
-<!ENTITY common.keyword "Keyword">
+<!ENTITY common.title "العنوان">
+<!ENTITY common.author "المؤلف">
+<!ENTITY common.authors "المؤلفون">
+<!ENTITY common.callnumber "رقم الطلب">
+<!ENTITY common.edition "الطبعة">
+<!ENTITY common.subject "الموضوع">
+<!ENTITY common.series "السلسلة">
+<!ENTITY common.keyword "الكلمة المفتاحية">
 <!ENTITY common.type "Search Type">
-<!ENTITY common.isbn "ISBN">
+<!ENTITY common.isbn "الرقم الدولي المعياري">
 <!ENTITY common.format "Format">
 <!-- Message displayed while search results are loading -->
-<!ENTITY common.loading "Loading..."> 
-<!ENTITY common.login "Login">
-<!ENTITY common.logout "Log Out">
-<!ENTITY common.physical "Physical Description">
-<!ENTITY common.pubdate "Publication Date">
-<!ENTITY common.publisher "Publisher">
-<!ENTITY common.results "Results">
+<!ENTITY common.loading "جاري التحميل..."> 
+<!ENTITY common.login "تسجيل الدخول">
+<!ENTITY common.logout "تسجيل الخروج">
+<!ENTITY common.physical "الوطف المادي">
+<!ENTITY common.pubdate "تاريخ النشر">
+<!ENTITY common.publisher "الناشر">
+<!ENTITY common.results "النتائج">
 <!ENTITY common.select "Select">
-<!ENTITY common.status "Status">
+<!ENTITY common.status "الحالة">
 <!ENTITY common.at "at">
 <!ENTITY common.of "of">
 <!ENTITY common.no "No">
 <!ENTITY common.yes "Yes">
-<!ENTITY common.cancel "Cancel">
-<!ENTITY common.library "Library">
-<!ENTITY common.username "Username">
-<!ENTITY common.password "Password">
-<!ENTITY common.submit "Submit">
-<!ENTITY common.close "close">
+<!ENTITY common.cancel "إلغاء">
+<!ENTITY common.library "المكتبة">
+<!ENTITY common.username "اسم المستخدم">
+<!ENTITY common.password "كلمة المرور">
+<!ENTITY common.submit "إرسال">
+<!ENTITY common.close "إغلاق">
 <!ENTITY common.and "and">
 <!ENTITY common.user_not_found "User not found">
-<!ENTITY opac.advanced.wizard.title "Advanced Search">
-<!ENTITY common.nowSearching "Now searching ">
+<!ENTITY opac.advanced.wizard.title "بحث متقدّم">
+<!ENTITY common.nowSearching "جاري البحث ">
 <!ENTITY common.ofAtLeast " of about ">
 <!ENTITY common.relevancy "Match Score: ">
 <!ENTITY common.tips "Tips:">
 <!ENTITY common.tips.tip1 "Click on a folder icon in the sidebar to access related quick searches">
 <!ENTITY common.tips.tip2 "If you don't find what you want try expanding your search using the range selector at the right of the search bar">
-<!ENTITY common.org.openAll "Expand All">
-<!ENTITY common.org.closeAll "Close All">
-<!ENTITY common.org.cancel "Cancel">
+<!ENTITY common.org.openAll "فتح الكل">
+<!ENTITY common.org.closeAll "إغلاق الكل">
+<!ENTITY common.org.cancel "إلغاء">
 <!ENTITY common.org.loading "Loading library selector...">
 <!ENTITY common.org.note "Tip:">
 <!ENTITY common.org.notetext "Click on a location's name to select it.  Click on the folder icons to expand a section.">
-<!ENTITY opac.login.login "Login">
+<!ENTITY opac.login.login "تسجيل الدخول">
 <!ENTITY opac.basic "Basic Catalog (HTML only)">
-<!ENTITY common.password_criteria  "The password must be at least 7 characters in length, 
-	contain at least one letter (a-z/A-Z), 
-	and contain at least one number.">
+<!ENTITY common.password_criteria  "يجب أن تكون كلمة المرور لا يقل عن 7 أحرف، 
+تحتوي على حرف واحد على الأقل حرف، 
+ويحتوي على رقم واحد على الأقل.">
 <!ENTITY common.a2z.title "Title: A to Z">
 <!ENTITY common.z2a.title "Title: Z to A">
 <!ENTITY common.a2z.author "Author: A to Z">
 <!ENTITY common.z2a.author "Author: Z to A">
-<!ENTITY common.new2old.pubdate "Date: Newest to Oldest">
-<!ENTITY common.old2new.pubdate "Date: Oldest to Newest">
+<!ENTITY common.new2old.pubdate "التاريخ: من الأحدث إلى الأقدم">
+<!ENTITY common.old2new.pubdate "التاريخ: من الأقدم إلى الأحدث">
 
 <!ENTITY opac.style.reddish "Reddish">
 
@@ -87,10 +87,10 @@
 		================================================================= -->
 
 <!ENTITY ilsevent.0 "Operation Succeeded">
-<!ENTITY ilsevent.1000 "Login failed.  The username or password entered was incorrect.">
+<!ENTITY ilsevent.1000 "فشل تسجيل الدخول.  اسم المستخدم أو كلمة المرور  غير صحيحة.">
 <!ENTITY ilsevent.1001 "Login session has timed out or does not exist">
-<!ENTITY ilsevent.1002 "User was not found in the database">
-<!ENTITY ilsevent.1200 "The given username already exists in the database">
+<!ENTITY ilsevent.1002 "لم يتم العثور على المستخدم في قاعدة البيانات">
+<!ENTITY ilsevent.1200 "اسم المستخدم موجود مسبقا في قاعدة البيانات">
 <!ENTITY ilsevent.5000 "Permission Denied">
 <!ENTITY ilsperm.CREATE_HOLD "User is not allowed to create holds for other users at this location">
 <!--	================================================================= 
@@ -101,7 +101,7 @@
 <!ENTITY common.cn.loading "Loading Callnumber Page...">
 <!ENTITY common.cn.browsing "You are now browsing">
 <!ENTITY common.cn.previous "&lt;&lt; Previous Page">
-<!ENTITY common.cn.shelf "Shelf Browser">
+<!ENTITY common.cn.shelf "تصفح الرف">
 <!ENTITY common.cn.next "Next Page &gt;&gt;">
 
 <!ENTITY common.textsize.title "Text Size: ">
@@ -376,7 +376,7 @@ Please see a librarian to renew your account.">
 <!ENTITY navigate.titleResults "My Title Results">
 <!ENTITY navigate.facetRefine "Refine your search">
 <!ENTITY navigate.title.details "My Title Details">
-<!ENTITY navigate.record.details "Record Details">
+<!ENTITY navigate.record.details "بينات الوعاء">
 <!--	================================================================= 
 	Footer
 	================================================================= -->
@@ -447,7 +447,7 @@ Please see a librarian to renew your account.">
 <!ENTITY opac.holds.forMe "Place this hold for myself">
 <!ENTITY opac.holds.xulRecipient "Enter recipient barcode">
 <!ENTITY opac.holds.recipient "Recipient">
-<!ENTITY opac.holds.placeHold "Place Hold">
+<!ENTITY opac.holds.placeHold "حجز">
 <!ENTITY opac.holds.exportRefWorks "Export to RefWorks">
 <!ENTITY opac.holds.contactPhone "Contact telephone number">
 <!ENTITY opac.holds.contactEmail "Contact email address">
@@ -504,7 +504,7 @@ Please see a librarian to renew your account.">
 <!ENTITY rdetail.cn.due "Due Date">
 <!ENTITY rdetail.cn.more "more info...">
 <!ENTITY rdetail.cn.less "less info">
-<!ENTITY rdetail.cn.hold "place hold">
+<!ENTITY rdetail.cn.hold "حجز">
 <!ENTITY rdetail.cn.reserve "book now">
 <!ENTITY rdetail.cn.multi_home "linked titles">
 <!ENTITY rdetail.cn.disabled "- Disabled -">
@@ -546,7 +546,7 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY rdetail.copyInfo.print "Print Call Numbers for this library">
 <!ENTITY rdetail.copyInfo.details "Copy Details">
 <!ENTITY rdetail.copyInfo.browse "Browse Call Numbers">
-<!ENTITY rdetail.copyInfo.hold "Place Hold">
+<!ENTITY rdetail.copyInfo.hold "حجز">
 <!ENTITY rdetail.extras.summary "Copy Summary">
 <!ENTITY rdetail.extras.browser "Shelf Browser">
 <!ENTITY rdetail.extras.bib_summary "Summary">
@@ -576,7 +576,7 @@ We recommend that you remove this title from any bookbags it may have been added
 <!ENTITY result.sort_by.pubdate "Sort Results by Publication Date">
 
 <!ENTITY result.limit2avail "Limit to Available">
-<!ENTITY result.info.copies "Available copies / Total copies">
+<!ENTITY result.info.copies "النسخ المتاحة">
 <!ENTITY result.info.no.items "No items with the selected format were found in this location.">
 <!ENTITY result.info.format.items "Listed below are all items in the catalog with the chosen format.">
 <!ENTITY result.info.show "Show records for">

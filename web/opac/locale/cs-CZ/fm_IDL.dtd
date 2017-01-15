@@ -48,7 +48,7 @@
 <!ENTITY field.rocit.ref.label "Příruční knihovna">
 <!ENTITY field.acqfsb.amount.label "Bilance po čerpání prostředků">
 <!ENTITY class.atenv.label "Položky prostředí spuštěných událostí">
-<!ENTITY class.cit.label "Typ identifikačního dokladu">
+<!ENTITY field.acqftr.id.label "ID přesunu finančního fondu">
 <!ENTITY field.uvus.id.label "ID selektora URL">
 <!ENTITY field.ahr.bib_rec.label "Bibliografický záznam (odkaz)">
 <!ENTITY field.ahopl.bib_rec.label "Bibliografický záznam (odkaz)">
@@ -59,8 +59,8 @@
 <!ENTITY field.asc.sip_field.label "Pole SIP">
 <!ENTITY field.actsc.sip_field.label "Pole SIP">
 <!ENTITY class.abaafm.label "Přehled polí osy pro prohlížení autorit">
-<!ENTITY class.bravm.label "Přehled hodnot atributů rezervace">
-<!ENTITY field.bravm.id.label "Přehled hodnot atributů rezervace">
+<!ENTITY field.vii.parts_data.label "Data částí">
+<!ENTITY field.viiad.parts_data.label "Data částí">
 <!ENTITY class.mrs.label "Třídící hodnoty záznamu">
 <!ENTITY field.rccc.call_number.label "Signatura (odkaz)">
 <!ENTITY field.circ.checkin_lib.label "Vráceno v knihovně">
@@ -127,6 +127,7 @@
 <!ENTITY field.combahr.holdable_formats.label "Rezervovatelný formát (pro M-typy rezervace)">
 <!ENTITY field.aahr.holdable_formats.label "Rezervovatelný formát (pro M-typy rezervace)">
 <!ENTITY class.acqie.label "Položka faktury">
+<!ENTITY field.acqfdeb.invoice_entry.label "Položka faktury">
 <!ENTITY field.vibtf.grp.label "Skupina">
 <!ENTITY field.pgpt.grp.label "Skupina">
 <!ENTITY field.acplgm.lgroup.label "Skupina">
@@ -155,7 +156,7 @@
 <!ENTITY field.acqscl.item.label "Exemplář seriálu">
 <!ENTITY field.afs.id.label "ID sady polí">
 <!ENTITY field.afscv.fieldset.label "ID sady polí">
-<!ENTITY class.acqpa.label "Adresa dodavatele">
+<!ENTITY field.aufh.circ_lib.label "Knihovna nesplňující požadavek">
 <!ENTITY field.acqlia.id.label "ID hodnoty atributu">
 <!ENTITY class.ahcm.label "Přehled rezervovaných exemplářů">
 <!ENTITY class.arn.label "Poznámka k autoritnímu záznamu">
@@ -175,6 +176,7 @@
 <!ENTITY field.jub.lineitem_notes.label "Poznámky k položce">
 <!ENTITY field.ahtc.hold.label "Rezervace vyžadující přepravu">
 <!ENTITY field.aout.name.label "Název typu organizační jednotky">
+<!ENTITY field.rhcrpbapd.copy_count_at_or_below.label "Počet rezervovatelných exemplářů v knihovně pro vyzvednutní a jv jejích podřízených jednotkách)">
 <!ENTITY field.bre.metarecord.label "Metazáznam">
 <!ENTITY class.mmr.label "Metazáznam">
 <!ENTITY field.rsr.metarecord.label "Metazáznam">
@@ -229,6 +231,7 @@
 <!ENTITY class.actscecm.label "Položky statistických kategorií uživatelů">
 <!ENTITY field.aoa.san.label "SAN">
 <!ENTITY field.acqpro.san.label "SAN">
+<!ENTITY field.rp.require_horizon.label "Požadovat Horizont">
 <!ENTITY class.ccls.label "Sestava výpůjčních limitů">
 <!ENTITY class.asc.label "Aktivní statistická kategorie">
 <!ENTITY field.ahopl.usr_alias.label "Alias uživatele">
@@ -341,6 +344,8 @@
 <!ENTITY class.ascecm.label "Přehled statistických kategorií exemplářů">
 <!ENTITY field.aws.toolbars.label "Nástrojové lišty">
 <!ENTITY field.atev.add_time.label "Čas přidání">
+<!ENTITY field.auch.due_date.label "K vrácení dne">
+<!ENTITY field.rocit.due_date.label "K vrácení dne">
 <!ENTITY field.cmc.buoyant.label "Buoyant?">
 <!ENTITY field.asvq.responses.label "Odpovědi">
 <!ENTITY field.asv.responses.label "Odpovědi">
@@ -349,13 +354,16 @@
 <!ENTITY field.acpl.circulate.label "Lze půjčovat?">
 <!ENTITY field.sunit.stat_cat_entry_copy_maps.label "Přehled položek statistických kategorií">
 <!ENTITY field.acp.stat_cat_entry_copy_maps.label "Přehled položek statistických kategorií">
-<!ENTITY field.cbc.padding.label "Odsazení">
+<!ENTITY field.rb.popularity_parameter.label "Parametr popularity">
+<!ENTITY class.bravm.label "Přehled hodnot atributů rezervace">
+<!ENTITY field.bravm.id.label "Přehled hodnot atributů rezervace">
 <!ENTITY field.atcol.module.label "Jméno modulu">
 <!ENTITY field.atval.module.label "Jméno modulu">
 <!ENTITY field.atreact.module.label "Jméno modulu">
 <!ENTITY field.atclean.module.label "Jméno modulu">
 <!ENTITY field.acqpo.amount_estimated.label "Odhadovvaná částka">
 <!ENTITY class.ccnbin.label "Poznámka k položce skupiny signatur">
+<!ENTITY field.acplg.location_maps.label "Mapování umístění exemplářů">
 <!ENTITY field.vqbr.create_time.label "Čas vytvoření">
 <!ENTITY field.vqar.create_time.label "Čas vytvoření">
 <!ENTITY field.acqfdeb.create_time.label "Čas vytvoření">
@@ -367,6 +375,8 @@
 <!ENTITY field.uvs.create_time.label "Čas vytvoření">
 <!ENTITY field.cfdfs.create_time.label "Čas vytvoření">
 <!ENTITY class.coustl.label "Log Typů nastavení organizačních jednotek">
+<!ENTITY class.rrbs.label "statistické označení popularity">
+<!ENTITY class.rb.label "statistické označení popularity">
 <!ENTITY field.combcirc.usr_birth_year.label "Rok narození čtenáře">
 <!ENTITY field.acirc.usr_birth_year.label "Rok narození čtenáře">
 <!ENTITY field.combahr.usr_birth_year.label "Rok narození čtenáře">
@@ -422,13 +432,15 @@
 <!ENTITY field.acqmapinv.purchase_order.label "ID Objednávky">
 <!ENTITY field.sunit.age_protect.label "Dočasné omezení rezervací">
 <!ENTITY field.acp.age_protect.label "Dočasné omezení rezervací">
-<!ENTITY field.cmrcfld.repeatable.label "Opakovatelné">
-<!ENTITY field.brt.name.label "Typ jména zdroje">
+<!ENTITY field.vii.error_detail.label "Detaily chyby importu">
+<!ENTITY field.vqbr.error_detail.label "Detaily chyby importu">
+<!ENTITY field.vqar.error_detail.label "Detaily chyby importu">
 <!ENTITY class.sunit.label "Jednotka">
 <!ENTITY field.sitem.unit.label "Jednotka">
 <!ENTITY class.cst.label "Blokace / penále">
 <!ENTITY class.csp.label "Blokace / penále">
 <!ENTITY field.ausp.standing_penalty.label "Blokace / penále">
+<!ENTITY class.rhcrpbapd.label "Poměr rezervace/exemplář na bibliografikcýh záznam a knihovnu (a její podřízené jednotky) ">
 <!ENTITY field.circ.checkin_staff.label "Pracovník výpůjčního protokolu">
 <!ENTITY field.combcirc.checkin_staff.label "Pracovník výpůjčního protokolu">
 <!ENTITY field.acirc.checkin_staff.label "Pracovník výpůjčního protokolu">
@@ -443,6 +455,7 @@
 <!ENTITY field.ccmlsm.fallthrough.label "Nezdařené">
 <!ENTITY class.srlu.label "Uživatelé seznamu předběžných příjemců">
 <!ENTITY field.mrd.pub_status.label "Status publikování">
+<!ENTITY field.rb.importance_interval.label "Interval důležitosti">
 <!ENTITY field.aufhmxl.max.label "Max Loop">
 <!ENTITY field.atev.async_output.label "Asynchroonní výstup">
 <!ENTITY class.ccnbt.label "Typ skupiny signatur">
@@ -473,6 +486,7 @@
 <!ENTITY field.circ.target_copy.label "Půjčovaný exemplář">
 <!ENTITY field.combcirc.target_copy.label "Půjčovaný exemplář">
 <!ENTITY field.acirc.target_copy.label "Půjčovaný exemplář">
+<!ENTITY field.auch.target_copy.label "Půjčovaný exemplář">
 <!ENTITY field.rodcirc.target_copy.label "Půjčovaný exemplář">
 <!ENTITY class.cubt.label "Typ uživatelského seznamu">
 <!ENTITY field.atul.template_output.label "Výstup šablony události">
@@ -488,6 +502,7 @@
 <!ENTITY field.atc.prev_dest.label "Předchozí cíl">
 <!ENTITY class.acnc.label "Klasfikační schéma signatur">
 <!ENTITY class.aufh.label "Nesplněné rezervace">
+<!ENTITY field.acp.holds_count.label "Má rezervace">
 <!ENTITY field.rhcrpbap.holds_at_pickup_library.label "Aktivní rezervace v knihovně pro vyzvednutí">
 <!ENTITY field.ahopl.usr_suffix.label "Suffix uživatele">
 <!ENTITY field.ahr.behind_desk.label "U výpůjčního pultu">
@@ -498,6 +513,7 @@
 <!ENTITY class.rccbs.label "Klasický otevřený souhrn transakcí">
 <!ENTITY field.artc.prev_hop.label "Předchozí zastavení">
 <!ENTITY field.ahtc.prev_hop.label "Předchozí zastavení">
+<!ENTITY field.rrbs.badge.label "Znak">
 <!ENTITY field.acqpa.address_type.label "Typ adresy">
 <!ENTITY field.ahr.cut_in_line.label "Začátek fronty">
 <!ENTITY field.ahopl.cut_in_line.label "Začátek fronty">
@@ -571,8 +587,8 @@
 <!ENTITY field.sre.edit_date.label "Datum editace">
 <!ENTITY field.acqlid.claims.label "Reklamace">
 <!ENTITY class.ppl.label "Seznam oprávnění">
-<!ENTITY field.atevdef.hook.label "Hák">
-<!ENTITY field.atul.hook.label "Hák">
+<!ENTITY field.atevdef.hook.label "Háček">
+<!ENTITY field.atul.hook.label "Háček">
 <!ENTITY field.bmpc.id.label "Dočasné ID">
 <!ENTITY class.acqinv.label "Faktura">
 <!ENTITY field.acqie.invoice.label "Faktura">
@@ -612,6 +628,7 @@
 <!ENTITY field.rlcd.id.label "ID záznamu">
 <!ENTITY field.rhcrpb.id.label "ID záznamu">
 <!ENTITY field.rhcrpbap.id.label "ID záznamu">
+<!ENTITY field.rhcrpbapd.id.label "ID záznamu">
 <!ENTITY field.siss.holding_link_id.label "ID odkazu vlastnictví">
 <!ENTITY field.sdist.index_summary.label "Rejstříky časopisů">
 <!ENTITY class.sisum.label "Rejstříky časopisů">
@@ -625,6 +642,7 @@
 <!ENTITY class.acrlid.label "Detail položky k reklamaci">
 <!ENTITY field.acqdf.name.label "Jméno vzorce">
 <!ENTITY field.circ.usr.label "Čtenář">
+<!ENTITY field.combcirc.usr.label "Čtenář">
 <!ENTITY field.ancc.patron.label "Čtenář">
 <!ENTITY field.rodcirc.usr.label "Čtenář">
 <!ENTITY field.mb.adjustments.label "Přizpůsobení">
@@ -641,10 +659,11 @@
 <!ENTITY field.qfs.id.label "ID signatury funkce">
 <!ENTITY field.atc.dest.label "Cíl">
 <!ENTITY field.iatc.dest.label "Cíl">
-<!ENTITY field.ahopl.copy_location_order_position.label "Pořadí umístění peo řazení">
+<!ENTITY field.ahopl.copy_location_order_position.label "Pořadí lokací  pro řazení">
 <!ENTITY class.mfp.label "Prominutí platby">
 <!ENTITY field.vqbr.imported_as.label "Cílový záznam">
 <!ENTITY field.vqar.imported_as.label "Cílový záznam">
+<!ENTITY field.rb.last_calc.label "Čas posledního obnovení">
 <!ENTITY field.acn.uris.label "URI">
 <!ENTITY class.acqfat.label "Celkem přiděleno prostředků">
 <!ENTITY field.rocit.stat_cat_2_value.label "Zděděná hodnota statistické kategorie 2">
@@ -657,6 +676,7 @@
 <!ENTITY field.stgsc.value.label "Hodnota statistické kategorie">
 <!ENTITY field.acqftr.transfer_time.label "Čas přesunu">
 <!ENTITY class.mfr.label "Flattened MARC Fields">
+<!ENTITY field.rp.require_importance.label "Požadovat důležitost">
 <!ENTITY class.acpn.label "Poznámka k exempláři">
 <!ENTITY field.cmc.a_weight.label "Váha A">
 <!ENTITY field.cbho.aprox.label "Výpůjční knihovny nastavené v proximitě knihoven pro vyzvedenutí">
@@ -664,6 +684,7 @@
 <!ENTITY field.iatc.persistant_transfer.label "Je trvalý? (nepoužito)">
 <!ENTITY field.aou.fiscal_calendar.label "Fiskální kalendář">
 <!ENTITY class.acqfc.label "Fiskální kalendář">
+<!ENTITY field.vmp.update_bib_source.label "Aktualizovat bibliografický zdroj">
 <!ENTITY class.qseq.label "Sekvence dotazu">
 <!ENTITY field.qxp.operator.label "Operátor">
 <!ENTITY field.xop.operator.label "Operátor">
@@ -671,6 +692,7 @@
 <!ENTITY field.acqct.code.label "Kód měny">
 <!ENTITY class.coust.label "Typ nastavení organizační jednotky">
 <!ENTITY field.ancc.duedate.label "Virtuální datum / čas vrácení">
+<!ENTITY field.rb.src_filter.label "Filtr bibiliografického záznamu">
 <!ENTITY field.circ.unrecovered.label "Neuhrazené pohledávky">
 <!ENTITY field.bresv.unrecovered.label "Neuhrazené pohledávky">
 <!ENTITY field.mbt.unrecovered.label "Neuhrazené pohledávky">
@@ -682,7 +704,7 @@
 <!ENTITY field.combcirc.copy_owning_lib.label "Knihovna vlastnící exemplář">
 <!ENTITY field.acirc.copy_owning_lib.label "Knihovna vlastnící exemplář">
 <!ENTITY field.aua.replaces.label "Nahrazuje">
-<!ENTITY field.uvs.selectors.label "Selektor URL">
+<!ENTITY field.uvs.selectors.label "Selektory URL">
 <!ENTITY field.ahopl.is_staff_hold.label "Rezervováno personálem?">
 <!ENTITY class.auml.label "Zpráva uživatele (omezený přístup)">
 <!ENTITY field.acqlisum.delay_count.label "Počet zdržených">
@@ -729,6 +751,7 @@
 <!ENTITY field.ccmm.user_home_ou.label "Domovská knihovna uživatele">
 <!ENTITY field.ancc.id.label "ID nekatalogizované výpůjčky">
 <!ENTITY field.vms.mtype.label "Typ sady shod">
+<!ENTITY field.rp.func.label "Population Function">
 <!ENTITY field.bresv.xact_start.label "Datum / čas začátku transakce">
 <!ENTITY field.mbt.xact_start.label "Datum / čas začátku transakce">
 <!ENTITY field.rccbs.xact_start.label "Datum / čas začátku transakce">
@@ -742,7 +765,7 @@
 <!ENTITY class.cub.label "Uživatelský seznam">
 <!ENTITY field.sunit.dummy_isbn.label "Neplatné ISBN">
 <!ENTITY field.acp.dummy_isbn.label "Neplatné ISBN">
-<!ENTITY field.ath.key.label "Klíč háku">
+<!ENTITY field.ath.key.label "Klíč háčku">
 <!ENTITY field.cmrcfld.marc_format.label "Formát MARC">
 <!ENTITY field.cmrcsubfld.marc_format.label "Formát MARC">
 <!ENTITY field.acn.label.label "Štítek signatury">
@@ -777,7 +800,10 @@
 <!ENTITY field.stgma.row_id.label "ID řádku">
 <!ENTITY field.stgba.row_id.label "ID řádku">
 <!ENTITY field.stgsc.row_id.label "ID řádku">
+<!ENTITY field.stgs.row_id.label "ID řádku">
 <!ENTITY field.siss.caption_and_pattern.label "Označení / schéma">
+<!ENTITY field.rp.description.label "Popis">
+<!ENTITY field.rb.description.label "Popis">
 <!ENTITY field.vie.description.label "Popis">
 <!ENTITY field.vqbrad.description.label "Popis">
 <!ENTITY field.vqarad.description.label "Popis">
@@ -817,16 +843,13 @@
 <!ENTITY field.cfdi.description.label "Popis">
 <!ENTITY field.uvu.fragment.label "Zlomek">
 <!ENTITY field.acqpl.entry_count.label "Počet položek">
-<!ENTITY field.aufh.circ_lib.label "Knihovna nesplňující požadavek">
+<!ENTITY class.acqpa.label "Adresa dodavatele">
 <!ENTITY class.mtfe.label "Položky pole názvu">
 <!ENTITY class.clm.label "Jazyky">
 <!ENTITY field.crad.filter.label "Filtrovat?">
 <!ENTITY field.brsrc.attr_maps.label "ATributy zdrojů">
 <!ENTITY field.bra.attr_maps.label "ATributy zdrojů">
 <!ENTITY field.brav.attr_maps.label "ATributy zdrojů">
-<!ENTITY field.vii.error_detail.label "Detaily chyby importu">
-<!ENTITY field.vqbr.error_detail.label "Detaily chyby importu">
-<!ENTITY field.vqar.error_detail.label "Detaily chyby importu">
 <!ENTITY field.asv.usr_summary.label "Zobrazit přehled uživatele">
 <!ENTITY field.rccc.stat_cat_1_value.label "Hodnota zděděné statistické kategorie 2">
 <!ENTITY field.qfr.parent_relation.label "ID nadřazené relace">
@@ -879,6 +902,7 @@
 <!ENTITY class.cbs.label "Bibliografický zdroj">
 <!ENTITY field.circ.checkin_scan_time.label "Datum / čas vrácení">
 <!ENTITY field.acirc.checkin_scan_time.label "Datum / čas vrácení">
+<!ENTITY field.rb.horizon_age.label "Age Horizon">
 <!ENTITY field.acqinv.payment_auth.label "Autorizace platby">
 <!ENTITY class.mwp.label "Platba prací">
 <!ENTITY class.acirc.label "Stará výpůjčka (bez čtenáře)">
@@ -887,6 +911,7 @@
 <!ENTITY class.acqfsrcb.label "Bilace finančního zdroje">
 <!ENTITY class.pugm.label "Přehled skupin uživatelů">
 <!ENTITY field.cbho.approx.label "Nastavená lokace zachycení pro proximitu knihovny pro vyzvednutí">
+<!ENTITY field.cmrcfld.repeatable.label "Opakovatelné">
 <!ENTITY field.cmrcsubfld.repeatable.label "Opakovatelné">
 <!ENTITY field.aua.street2.label "Ulice (2)">
 <!ENTITY field.aal.street2.label "Ulice (2)">
@@ -995,6 +1020,7 @@
 <!ENTITY field.atul.user_data.label "Data uživatele události">
 <!ENTITY field.aoupa.item_circ_lib.label "Výpůjční knihovna exempláře">
 <!ENTITY field.rhcrpbap.copy_count_everywhere.label "Počet rezervovatelných exemplářů všude">
+<!ENTITY field.rhcrpbapd.copy_count_everywhere.label "Počet rezervovatelných exemplářů všude">
 <!ENTITY field.sunit.notes.label "Poznámky o exempláři">
 <!ENTITY field.acp.notes.label "Poznámky o exempláři">
 <!ENTITY field.vii.deposit.label "Vklad">
@@ -1028,8 +1054,7 @@
 <!ENTITY field.asce.stat_cat.label "Statistická kategorie">
 <!ENTITY field.asc.required.label "Požadováno">
 <!ENTITY field.actsc.required.label "Požadováno">
-<!ENTITY field.acqfs.summary.label "Souhrn">
-<!ENTITY field.acqf.summary.label "Souhrn">
+<!ENTITY class.rp.label "Parametr statistické popularity">
 <!ENTITY field.rccc.dewey_range_hundreds.label "Rozsahy Dewyho třídění - stovky">
 <!ENTITY class.qxp.label "Výraz">
 <!ENTITY field.qsi.expression.label "Výraz">
@@ -1048,6 +1073,7 @@
 <!ENTITY field.rocit.dewey_block_hundreds.label "Dewyho třídění - stovky">
 <!ENTITY field.pgt.perm_interval.label "Doba trvání registrace">
 <!ENTITY class.acqliat.label "Text upozornění k položce">
+<!ENTITY field.rrbs.score.label "Rozsah">
 <!ENTITY class.mrd.label "Popis základního záznamu">
 <!ENTITY field.chmm.transit_range.label "Rozsah přepravy">
 <!ENTITY field.ahopl.issuance_label.label "Označení číslování / chronologie">
@@ -1078,9 +1104,8 @@
 <!ENTITY field.acqii.title.label "Jméno titulu nebo exempláře">
 <!ENTITY class.acqafcb.label "Celkem ze všech fondů">
 <!ENTITY class.i18n_l.label "Lokalizace">
-<!ENTITY field.rmsr.quality.label "Celková kvalita záznamu">
-<!ENTITY field.rssr.quality.label "Celková kvalita záznamu">
-<!ENTITY field.rsr.quality.label "Celková kvalita záznamu">
+<!ENTITY field.rb.recalc_interval.label "Interval přepočítání">
+<!ENTITY field.rb.circ_mod_filter.label "Filtr modifikátoru výpůjčky">
 <!ENTITY field.sunit.detailed_contents.label "Detaily obsahu">
 <!ENTITY field.vii.id.label "ID importu exempláře">
 <!ENTITY field.vmsq.svf.label "Atribut záznamu">
@@ -1096,7 +1121,7 @@
 <!ENTITY field.rccc.language.label "Jazyk exempláře">
 <!ENTITY class.acqlisum.label "Přehled položky">
 <!ENTITY class.vqarad.label "Definice atributů autoritních záznamů ve frontě">
-<!ENTITY field.cbho.cut.label 'Stav "vmáčknutí" rezervace do fornty'>
+<!ENTITY field.cbho.cut.label 'Stav "vmáčknutí" rezervace do fronty'>
 <!ENTITY field.aout.opac_label.label "Označení v OPACu">
 <!ENTITY field.atevdef.usr_field.label "Pole pro souhlas uživatele s posíláním e-mailů">
 <!ENTITY field.au.survey_responses.label "Odpovědi z průzkumu">
@@ -1149,7 +1174,7 @@
 <!ENTITY field.aur.eg_bib.label "Bibliografický záznam">
 <!ENTITY field.clfm.code.label "Kód LitF">
 <!ENTITY field.cifm.value.label "Forma popisné jednotky">
-<!ENTITY field.acqftr.id.label "ID přesunu finančního fondu">
+<!ENTITY class.cit.label "Typ identifikačního dokladu">
 <!ENTITY field.ahr.requestor.label "Žádající uživatel">
 <!ENTITY field.ahopl.requestor.label "Žádající uživatel">
 <!ENTITY field.alhr.requestor.label "Žádající uživatel">
@@ -1163,13 +1188,14 @@
 <!ENTITY field.ocirclist.long_overdue.label "Dlouhodobě nevrácené dokumenty">
 <!ENTITY field.rocit.owning_lib_name.label "Jméno vlastnící knihovny">
 <!ENTITY class.cmfinm.label "Metabib Field to Indexing Normalizer Map">
+<!ENTITY field.rrbs.record.label "Záznam">
 <!ENTITY field.vqbra.record.label "Záznam">
 <!ENTITY field.vqara.record.label "Záznam">
 <!ENTITY field.ssr.record.label "Záznam">
 <!ENTITY field.bmpc.record.label "Záznam">
 <!ENTITY field.acqfsum.encumbrance_total.label "Zatížení celkem">
 <!ENTITY field.aal.match_all.label "Odpovídá všem polím">
-<!ENTITY class.ath.label "Bod háku spouštěče (triggeru)">
+<!ENTITY class.ath.label "Bod háčku spouštěče (triggeru)">
 <!ENTITY field.rhcrpb.hold_copy_ratio.label "Poměr rezervace/exempláře">
 <!ENTITY field.bresv.return_time.label "Čas vrácení">
 <!ENTITY field.qdt.is_composite.label "Je složeninou">
@@ -1245,7 +1271,8 @@
 <!ENTITY field.qsf.subfield_type.label "Typ podpole">
 <!ENTITY field.acqfsrcct.amount.label "Kredit ve finančním zdroji celkem">
 <!ENTITY class.mct.label "Sledování kolekcí">
-<!ENTITY field.qsi.grouped_by.label "Je sekupen podle">
+<!ENTITY field.qsi.grouped_by.label "Je seskupen podle">
+<!ENTITY field.rb.fixed_rating.label "Pevné hodnocení">
 <!ENTITY field.cmrcfld.tag.label "Označení pole MARCu">
 <!ENTITY field.cmrcsubfld.tag.label "Označení pole MARCu">
 <!ENTITY field.crad.tag.label "Označení pole MARCu">
@@ -1281,6 +1308,8 @@
 <!ENTITY field.acqedim.translate_time.label "Čas překladu">
 <!ENTITY class.acqfdt.label "Debet z fondu celkem">
 <!ENTITY field.vmp.name.label "Název">
+<!ENTITY field.rp.name.label "Název">
+<!ENTITY field.rb.name.label "Název">
 <!ENTITY field.viiad.name.label "Název">
 <!ENTITY field.vbq.name.label "Název">
 <!ENTITY field.vaq.name.label "Název">
@@ -1340,6 +1369,7 @@
 <!ENTITY field.bre.language.label "Kód jazyka">
 <!ENTITY field.au.ws_ou.label "Organizační jednotka pracovní stanice">
 <!ENTITY class.vmp.label "Profil sloučení pro import bib záznamů">
+<!ENTITY field.rhcrpbapd.holds_at_or_below.label "Aktivovat rezervace v knihovně pro vyzvednutí a jejích podřízených jednotkách">
 <!ENTITY field.qseq.seq_no.label "Číslo sekvence">
 <!ENTITY field.qsf.seq_no.label "Číslo sekvence">
 <!ENTITY field.qfpd.seq_no.label "Číslo sekvence">
@@ -1413,6 +1443,7 @@
 <!ENTITY field.aahr.selection_ou.label "Místo výběru">
 <!ENTITY field.atenv.collector.label "Sběratel">
 <!ENTITY class.acqafet.label "Zatížení fondu celkem">
+<!ENTITY field.afs.name.label "Název souboru polí">
 <!ENTITY field.pgt.children.label "Podřízené skupiny">
 <!ENTITY field.accs.last_checkin_time.label "Čas poslední výpůjčky">
 <!ENTITY field.bre.tcn_value.label "Hodnota kontrolního čísla záznamu (TCN)">
@@ -1533,9 +1564,10 @@
 <!ENTITY field.stgma.row_date.label "Row Date">
 <!ENTITY field.stgba.row_date.label "Row Date">
 <!ENTITY field.stgsc.row_date.label "Row Date">
+<!ENTITY field.stgs.row_date.label "Row Date">
 <!ENTITY class.qobi.label "Seřadit dle položek">
 <!ENTITY class.cblvl.label "Přehled bibliografických úrovní">
-<!ENTITY class.murav.label "Nekontorlované hodnotyx atributů záznamu">
+<!ENTITY class.murav.label "Nekontrolované hodnoty atributů záznamu">
 <!ENTITY field.vmp.replace_spec.label "Nahradit specifikaci">
 <!ENTITY class.mcp.label "Platba v hotovosti">
 <!ENTITY field.mdp.cash_payment.label "Platba v hotovosti">
@@ -1571,13 +1603,16 @@
 <!ENTITY field.chmw.request_ou.label "Žádající knihovna">
 <!ENTITY field.chmm.request_ou.label "Žádající knihovna">
 <!ENTITY field.bresv.request_lib.label "Žádající knihovna">
+<!ENTITY field.hasholdscount.count.label "Počet rezervací">
 <!ENTITY field.asvr.usr.label "Odpovídající uživatel">
 <!ENTITY class.atval.label "Validátor stavu spouštěče">
 <!ENTITY class.cmrcfld.label "Pole MARC">
+<!ENTITY class.hasholdscount.label "Exemplář má počet rezervací">
 <!ENTITY class.acqexr.label "Směnný kurz">
 <!ENTITY field.qxp.table_alias.label "Alternativní název tabulky">
 <!ENTITY field.qfr.table_alias.label "Alternativní název tabulky">
 <!ENTITY field.xcol.table_alias.label "Alternativní název tabulky">
+<!ENTITY field.stgs.value.label "Hodnota uživatelského nastavení">
 <!ENTITY field.vbq.complete.label "Dokončit">
 <!ENTITY field.vaq.complete.label "Dokončit">
 <!ENTITY field.acqinv.complete.label "Dokončit">
@@ -1586,6 +1621,7 @@
 <!ENTITY field.stgma.complete.label "Dokončit">
 <!ENTITY field.stgba.complete.label "Dokončit">
 <!ENTITY field.stgsc.complete.label "Dokončit">
+<!ENTITY field.stgs.complete.label "Dokončit">
 <!ENTITY field.cnct.id.label "ID nekatalogizovaného typu">
 <!ENTITY field.qdt.id.label "ID datového typu">
 <!ENTITY field.atevdef.cleanup_failure.label "Vyčištění po neúspěšné akci">
@@ -1614,9 +1650,11 @@
 <!ENTITY field.crad.sorter.label "Třídník?">
 <!ENTITY class.sasum.label "Souhrny všech čísel">
 <!ENTITY class.ahrcc.label "Důvod zrušení žádosti o rezervaci">
+<!ENTITY field.rb.scope.label "Rozsah">
 <!ENTITY field.ccmm.renewals.label "Obejití prodloužení">
 <!ENTITY field.acn.label_sortkey.label "Klíč třídění signatur">
 <!ENTITY class.moucs.label "Otevřít přehled výpůjček uživatele">
+<!ENTITY field.auch.source_circ.label "Source Circulation">
 <!ENTITY field.acqf.propagate.label "Rozšířit">
 <!ENTITY field.acqfsum.propagate.label "Rozšířit">
 <!ENTITY field.circ.aaactsc_entries.label "Položky archivovaných čtenářských statistických kategorií">
@@ -1642,6 +1680,7 @@
 <!ENTITY field.ahtc.persistant_transfer.label "Je trvalý?">
 <!ENTITY class.cwa.label "Asociace váhy matice">
 <!ENTITY field.au.net_access_level.label "Přístup k internetu">
+<!ENTITY field.combcirc.active_circ.label "Připojit aktivní výpůjčky">
 <!ENTITY class.xsubq.label "Výraz poddotazu">
 <!ENTITY field.qfs.return_type.label "Typ návratu">
 <!ENTITY field.mcrp.payment_type.label "Způsob platby">
@@ -1686,12 +1725,13 @@
 <!ENTITY field.bre.identifier_field_entries.label "Položky polí indexovaných identifikátorů">
 <!ENTITY field.acsaf.sub_entries.label "Podřízené položky">
 <!ENTITY field.cza.truncation.label "Zkrácení">
-<!ENTITY class.cbfp.label "Definice idnetifikačních postupů">
+<!ENTITY class.cbfp.label "Definice identifikačních postupů">
 <!ENTITY class.acqclet.label "Typ reklamační události">
 <!ENTITY field.acqcle.type.label "Typ reklamační události">
 <!ENTITY field.acqscle.type.label "Typ reklamační události">
 <!ENTITY field.afs.applied_time.label "Čas aplikace">
 <!ENTITY class.acqipm.label "Platební metoda">
+<!ENTITY field.rp.require_percentile.label "Požadovat percentil">
 <!ENTITY class.asva.label "Odpověď průzkumu">
 <!ENTITY class.mra.label "Atributy záznamu SVF">
 <!ENTITY field.ahr.transit.label "Přeprava">
@@ -1730,6 +1770,7 @@
 <!ENTITY class.acqfsb.label "Bilance útraty z fondu">
 <!ENTITY field.mrd.lit_form.label "LitF">
 <!ENTITY field.rhcrpbap.everywhere_ratio.label "Poměr rezervací a exemplářů všude">
+<!ENTITY field.rhcrpbapd.everywhere_ratio.label "Poměr rezervací a exemplářů všude">
 <!ENTITY field.auss.query_type.label "Typ dotazu">
 <!ENTITY field.acqfet.amount.label "Celková výše dluhu">
 <!ENTITY field.aua.valid.label "Platná adresa?">
@@ -1753,6 +1794,7 @@
 <!ENTITY field.acqpoi.estimated_cost.label "Odhadovaná cena">
 <!ENTITY field.crahp.prox.label "Povolená blízkost">
 <!ENTITY field.atb.layout.label "Rozvržení">
+<!ENTITY field.stgs.setting.label "Kód uživatelského nastavení">
 <!ENTITY field.cmrcfld.hidden.label "Skryté?">
 <!ENTITY field.cmrcsubfld.hidden.label "Skryté?">
 <!ENTITY field.mbt.grocery.label "Poplatky za zboží a služby (odkaz)">
@@ -1881,13 +1923,14 @@
 <!ENTITY field.acqinv.items.label "Položky faktury">
 <!ENTITY field.au.groups.label "Dodatečná skupina oprávnění">
 <!ENTITY class.cbrebn.label "Poznámka k položkám skupiny bibliografických záznamů">
+<!ENTITY field.rhcrpbapd.hold_copy_ratio_at_or_below_ou.label "Poměr rezervace/exemplář v knihovně pro vyzvednutí a jejích podřízených jednotkách">
 <!ENTITY field.accs.last_stop_fines.label "Čas zastavení pokut">
 <!ENTITY field.ahr.request_lib.label "Žádající knihovna">
 <!ENTITY field.ahopl.request_lib.label "Žádající knihovna">
 <!ENTITY field.alhr.request_lib.label "Žádající knihovna">
 <!ENTITY field.combahr.request_lib.label "Žádající knihovna">
 <!ENTITY field.aahr.request_lib.label "Žádající knihovna">
-<!ENTITY field.acplg.location_maps.label "Mapování umístění exemplářů">
+<!ENTITY field.rb.discard.label "Discard Value Count">
 <!ENTITY field.srlu.department.label "Oddělení">
 <!ENTITY class.cubin.label "Poznámka k uživatelskému seznamu">
 <!ENTITY field.acqliat.id.label "ID textu upozornění">
@@ -1973,6 +2016,7 @@
 <!ENTITY field.bresv.fine_interval.label "Interval pokut">
 <!ENTITY field.rodcirc.fine_interval.label "Interval pokut">
 <!ENTITY field.circ.checkin_workstation.label "Vráceno na pracovní stanici">
+<!ENTITY field.combcirc.checkin_workstation.label "Vráceno na pracovní stanici">
 <!ENTITY field.acirc.checkin_workstation.label "Vráceno na pracovní stanici">
 <!ENTITY field.acqfc.years.label "Roky">
 <!ENTITY class.aua.label "Adresa uživatele">
@@ -1989,6 +2033,7 @@
 <!ENTITY field.acqmapinv.lineitem.label "ID položky">
 <!ENTITY field.aba.maps.label "Přehled polí autorit">
 <!ENTITY class.cnal.label "Přístup k internetu">
+<!ENTITY field.rb.importance_scale.label "Škála důležitosti">
 <!ENTITY field.cmrcfld.fixed_field.label "Pole pevné délky">
 <!ENTITY field.vii.opac_visible.label "Zobrazit v OPACu">
 <!ENTITY field.viiad.opac_visible.label "Zobrazit v OPACu">
@@ -2142,8 +2187,13 @@
 <!ENTITY class.alhr.label "Naposledy zachycená žádost o rezervaci">
 <!ENTITY field.combahr.phone_notify.label "Upozornění telefonem?">
 <!ENTITY field.aahr.phone_notify.label "Upozornění telefonem?">
+<!ENTITY field.cbc.padding.label "Odsazení">
+<!ENTITY field.rb.importance_age.label "Horizont důležitosti">
 <!ENTITY field.rccbs.usr.label "Uživatel (odkaz)">
 <!ENTITY class.ssubn.label "Poznámka k předplatnému">
+<!ENTITY field.rrbs.id.label "ID">
+<!ENTITY field.rp.id.label "ID">
+<!ENTITY field.rb.id.label "ID">
 <!ENTITY field.vibtg.id.label "ID">
 <!ENTITY field.vqbrad.id.label "ID">
 <!ENTITY field.vqarad.id.label "ID">
@@ -2180,6 +2230,7 @@
 <!ENTITY field.pgpt.id.label "ID">
 <!ENTITY field.ausp.id.label "ID">
 <!ENTITY field.auss.id.label "ID">
+<!ENTITY field.auch.id.label "ID">
 <!ENTITY field.acplg.id.label "ID">
 <!ENTITY field.acplgm.id.label "ID">
 <!ENTITY field.sre.id.label "ID">
@@ -2368,6 +2419,7 @@
 <!ENTITY field.mbt.payment_total.label "Placeno celkem">
 <!ENTITY field.rodcirc.payment_total.label "Placeno celkem">
 <!ENTITY class.aalink.label "Authority to Authority Linking">
+<!ENTITY field.brt.name.label "Typ jména zdroje">
 <!ENTITY field.vii.copy_number.label "Číslo exempláře">
 <!ENTITY field.viiad.copy_number.label "Číslo exempláře">
 <!ENTITY field.acn.notes.label "Poznámky">
@@ -2452,11 +2504,12 @@
 <!ENTITY class.scap.label "Označení a schéma">
 <!ENTITY field.uvu.query.label "Dotaz">
 <!ENTITY field.rccc.demographic_general_division.label "Věk čtenáře - demografický">
-<!ENTITY field.rsr.corporate_subject.label "Korporativní zázhlaví jako předmět (normalizováno)">
+<!ENTITY field.rsr.corporate_subject.label "Korporativní záhlaví jako předmět (normalizováno)">
 <!ENTITY field.cbho.priority.label "Priorita rezervací">
 <!ENTITY field.pgt.hold_priority.label "Priorita rezervací">
 <!ENTITY class.vqbr.label "Bib záznam ve frontě">
 <!ENTITY field.uvuv.id.label "ID verifikace">
+<!ENTITY class.auch.label "Historie výpůjček uživatele">
 <!ENTITY field.acqfs.name.label "Název finančního zdroje">
 <!ENTITY class.acqdfe.label "Položka distribučního vzorce">
 <!ENTITY field.aua.id.label "ID adresy">
@@ -2473,6 +2526,7 @@
 <!ENTITY field.stgma.usrname.label "Jméno uživatele">
 <!ENTITY field.stgba.usrname.label "Jméno uživatele">
 <!ENTITY field.stgsc.usrname.label "Jméno uživatele">
+<!ENTITY field.stgs.usrname.label "Jméno uživatele">
 <!ENTITY field.actsc.default_entries.label "Výchozí položky">
 <!ENTITY field.actsce.default_entries.label "Výchozí položky">
 <!ENTITY field.aur.other_info.label "Další informace">
@@ -2496,7 +2550,7 @@
 <!ENTITY field.rccbs.profile_group.label "Skupina uživatelských oprávnění">
 <!ENTITY class.actscsf.label "SIP identifikátor  polí statistických kategorií">
 <!ENTITY class.ascsf.label "SIP identifikátor  polí statistických kategorií">
-<!ENTITY field.au.performed_circulations.label "Vypůjčka uskutečněna jako personál">
+<!ENTITY field.au.performed_circulations.label "Výpůjčka uskutečněna jako personál">
 <!ENTITY field.asvr.id.label "ID odpovědi">
 <!ENTITY field.asva.id.label "ID odpovědi">
 <!ENTITY class.ahrn.label "Poznámka k požadavku na rezervaci">
@@ -2623,6 +2677,7 @@
 <!ENTITY field.acqfc.id.label "ID fiskálního kalendáře">
 <!ENTITY field.ssub.record_entry.label "Položka bibliografického záznamu">
 <!ENTITY field.rhcrpbap.holds_everywhere.label "Aktivní rezervace všude">
+<!ENTITY field.rhcrpbapd.holds_everywhere.label "Aktivní rezervace všude">
 <!ENTITY field.au.usrgroup.label "Rodinná vazba nebo jiná skupina">
 <!ENTITY field.acqii.fund_debit.label "Zůstatek fondu">
 <!ENTITY field.acqpoi.fund_debit.label "Zůstatek fondu">
@@ -2660,7 +2715,7 @@
 <!ENTITY field.rmobbcol.billing_types.label "Typy poplatků">
 <!ENTITY field.rmobbhol.billing_types.label "Typy poplatků">
 <!ENTITY field.uvu.domain.label "Doména">
-<!ENTITY class.iatc.label "Mezisystémový přesun exempláře">
+<!ENTITY class.iatc.label "Přesun exempláře mezi systémy">
 <!ENTITY class.acqlisumi.label "Souhrn fakturovatelných položek">
 <!ENTITY field.acqclp.name.label "Název reklamační politiky">
 <!ENTITY class.atclean.label "Vyčištění spouštěče událostí">
@@ -2701,6 +2756,7 @@
 <!ENTITY field.auact.usr.label "Uživatel">
 <!ENTITY field.ausp.usr.label "Uživatel">
 <!ENTITY field.aua.usr.label "Uživatel">
+<!ENTITY field.auch.usr.label "Uživatel">
 <!ENTITY field.bresv.usr.label "Uživatel">
 <!ENTITY field.ac.usr.label "Uživatel">
 <!ENTITY field.mg.usr.label "Uživatel">
@@ -2730,6 +2786,7 @@
 <!ENTITY field.mraf.attr.label "Atribut">
 <!ENTITY field.uvu.url_selector.label "Selektor URL">
 <!ENTITY field.acqmapinv.po_item.label "ID položky objednávky">
+<!ENTITY class.xisnull.label "Výraz IS NULL">
 <!ENTITY class.acqdf.label "Distribuční vzorec">
 <!ENTITY field.acqdfa.formula.label "Distribuční vzorec">
 <!ENTITY field.acsaf.main_entry.label "Hlavní položka">
@@ -2756,6 +2813,7 @@
 <!ENTITY field.aahr.pickup_lib.label "Knihovna, v níž bude exemplář připraven k vyzvednutí">
 <!ENTITY field.aur.pickup_lib.label "Knihovna, v níž bude exemplář připraven k vyzvednutí">
 <!ENTITY field.rhcrpbap.pickup_lib.label "Knihovna, v níž bude exemplář připraven k vyzvednutí">
+<!ENTITY field.rhcrpbapd.pickup_lib_or_desc.label "Knihovna, v níž bude exemplář připraven k vyzvednutí">
 <!ENTITY field.actsced.stat_cat_entry.label "Výchozí hodnota položky">
 <!ENTITY field.bre.keyword_field_entries.label "Položky polí indexovaných klíčových slov">
 <!ENTITY class.rxbt.label "Naúčtované poplatky celkem">
@@ -2785,6 +2843,8 @@
 <!ENTITY field.alhr.shelf_expire_time.label "Expirace rezervací na regále s rezervacemi">
 <!ENTITY field.combahr.shelf_expire_time.label "Expirace rezervací na regále s rezervacemi">
 <!ENTITY field.aahr.shelf_expire_time.label "Expirace rezervací na regále s rezervacemi">
+<!ENTITY field.acqfs.summary.label "Souhrn">
+<!ENTITY field.acqf.summary.label "Souhrn">
 <!ENTITY field.bpbcm.target_copy.label "Cílový exemplář">
 <!ENTITY field.vii.import_error.label "Chyba importu">
 <!ENTITY field.vqbr.import_error.label "Chyba importu">
@@ -2799,10 +2859,10 @@
 <!ENTITY field.crahp.age.label "Stáří exempláře">
 <!ENTITY field.au.ident_type.label "Primární identifikační doklad">
 <!ENTITY field.stgu.ident_type.label "Primární identifikační doklad">
-<!ENTITY field.rccbs.total_owed.label "Celkem naúčtováno">
-<!ENTITY field.rmocbbol.billed.label "Celkem naúčtováno">
-<!ENTITY field.rmocbbcol.billed.label "Celkem naúčtováno">
-<!ENTITY field.rmocbbhol.billed.label "Celkem naúčtováno">
+<!ENTITY field.rccbs.total_owed.label "Celková účtovaná částka">
+<!ENTITY field.rmocbbol.billed.label "Celková účtovaná částka">
+<!ENTITY field.rmocbbcol.billed.label "Celková účtovaná částka">
+<!ENTITY field.rmocbbhol.billed.label "Celková účtovaná částka">
 <!ENTITY field.mp.account_adjustment.label "Detaily úpravy účtu">
 <!ENTITY field.mbp.account_adjustment.label "Detaily úpravy účtu">
 <!ENTITY field.mndp.account_adjustment.label "Detaily úpravy účtu">
@@ -2816,7 +2876,7 @@
 <!ENTITY field.sisum.textual_holdings.label "Textové údaje o vlastnictví">
 <!ENTITY field.rhrr.hold_type.label "Typ rezervačního požadavku">
 <!ENTITY class.bpt.label "Typ rovnocenného bibliografického záznamu">
-<!ENTITY field.acqpo.lineitems.label "Položka">
+<!ENTITY field.acqpo.lineitems.label "Položky">
 <!ENTITY field.atenv.event_def.label "Definice události">
 <!ENTITY field.atev.event_def.label "Definice události">
 <!ENTITY field.atevparam.event_def.label "Definice události">
@@ -3103,12 +3163,16 @@
 <!ENTITY field.acplo.id.label "ID pořadí umístění">
 <!ENTITY field.aal.billing_address.label "Adresa trvalého bydliště">
 <!ENTITY field.aou.billing_address.label "Adresa trvalého bydliště">
+<!ENTITY field.rmsr.quality.label "Celková kvalita záznamu">
+<!ENTITY field.rssr.quality.label "Celková kvalita záznamu">
+<!ENTITY field.rsr.quality.label "Celková kvalita záznamu">
 <!ENTITY field.aurt.label.label "Označení typu">
 <!ENTITY field.acqedim.jedi.label "Tělo zprávy JEDI">
 <!ENTITY class.mg.label "Transakce zboží a služeb">
 <!ENTITY field.cmsa.alias.label "Alias (RegVýr)">
 <!ENTITY field.aur.phone_notify.label "Telefonické upozornění">
 <!ENTITY field.circ.parent_circ.label "Rodičovská výpůjčka">
+<!ENTITY field.combcirc.parent_circ.label "Rodičovská výpůjčka">
 <!ENTITY field.acirc.parent_circ.label "Rodičovská výpůjčka">
 <!ENTITY field.qseq.child_query.label "Podřízený dotaz">
 <!ENTITY field.acqinv.shipper.label "Dopravce">
@@ -3219,6 +3283,7 @@
 <!ENTITY field.uvuv.res_time.label "Čas výsledku">
 <!ENTITY field.acqlid.recv_time.label "Datum skutečného příjmu">
 <!ENTITY field.acpl.hold_verify.label "Pro zachycení rezervace je požadováno ověření">
+<!ENTITY field.bre.mattrs.label "Atributy SVF">
 <!ENTITY field.rccbs.last_payment_ts.label "Datum / čas platby">
 <!ENTITY field.cuat.egroup.label "Skupina aktivity">
 <!ENTITY class.ccbn.label "Poznámka ke skupině exemplářů">
@@ -3290,6 +3355,7 @@
 <!ENTITY field.rlc.id.label "ID exempláře">
 <!ENTITY field.circbyyr.copy.label "ID exempláře">
 <!ENTITY field.rocit.id.label "ID exempláře">
+<!ENTITY field.hasholdscount.id.label "ID exempláře">
 <!ENTITY field.atev.target.label "ID cíle">
 <!ENTITY class.acsbfmfm.label "Authority Control Set Bib Field to Metabib Field Map">
 <!ENTITY field.cbc.padding_end.label "Odsadit na konci">
@@ -3298,6 +3364,7 @@
 <!ENTITY field.acqii.author.label "Autor">
 <!ENTITY field.acqpoi.author.label "Autor">
 <!ENTITY field.rocit.author.label "Autor">
+<!ENTITY field.rb.percentile.label "Percentil">
 <!ENTITY class.rmsr.label "Rychlé výtahy ze zjednodušených záznamů">
 <!ENTITY field.ahr.cancel_cause.label "Důvod zrušení">
 <!ENTITY field.ahopl.cancel_cause.label "Důvod zrušení">
@@ -3338,6 +3405,7 @@
 <!ENTITY field.acqpro.default_claim_policy.label "Standardní reklamační politika">
 <!ENTITY field.sasum.summary_type.label "Typ souhrnu">
 <!ENTITY field.qsi.id.label "Zvolit ID exempláře">
+<!ENTITY field.auch.checkin_time.label "Čas vrácení">
 <!ENTITY field.acqie.inv_item_count.label "Počet položek faktury">
 <!ENTITY class.ccpbt.label "Typ skupiny exemplářů">
 <!ENTITY field.scap.subscription.label "Předplatné">
@@ -3345,7 +3413,7 @@
 <!ENTITY field.ssubn.subscription.label "Předplatné">
 <!ENTITY field.sdist.subscription.label "Předplatné">
 <!ENTITY field.siss.subscription.label "Předplatné">
-<!ENTITY field.afs.name.label "Název souboru polí">
+<!ENTITY field.combcirc.aged_circ.label "Připojené zastaralé výpůjčky">
 <!ENTITY field.acqlia.order_ident.label "Starší identifikátor">
 <!ENTITY field.mrd.bib_level.label "BLvl">
 <!ENTITY field.mravl.vlist.label "Vektor">
@@ -3377,6 +3445,7 @@
 <!ENTITY field.ausp.stop_date.label "Datum zastavení">
 <!ENTITY field.aua.pending.label "Nevyřízeno">
 <!ENTITY field.acqftr.src_fund.label "Zdrojový fond">
+<!ENTITY field.auch.xact_start.label "Čas vypůjčení">
 <!ENTITY class.au.label "Uživalel knihovního systému">
 <!ENTITY field.acqpro.phone.label "Telefon">
 <!ENTITY field.acqpc.phone.label "Telefon">
@@ -3411,6 +3480,7 @@
 <!ENTITY class.ccb.label "Skupina exemplářů">
 <!ENTITY field.qsi.column_alias.label "Alternativní název sloupce">
 <!ENTITY class.czifm.label "Z39.50 Index Field Map">
+<!ENTITY class.stgs.label "Úroveň uživatelských nastavení">
 <!ENTITY field.aur.email_notify.label "Upozornění e-mailem">
 <!ENTITY field.mcrp.payment.label "Platby (odkaz)">
 <!ENTITY field.mwp.payment.label "Platby (odkaz)">
@@ -3422,13 +3492,13 @@
 <!ENTITY class.aur.label "Akviziční požadavky uživatelů">
 <!ENTITY field.asva.responses.label "Odpovědi na tuto otázku">
 <!ENTITY class.chmw.label "Váhy matic pro rezervace">
-<!ENTITY class.xisnull.label "Výraz IS NULL">
+<!ENTITY field.rb.loc_grp_filter.label "Filtr skupiny lokace">
 <!ENTITY field.ssub.expected_date_offset.label "Očekávaná odchylka data">
 <!ENTITY field.rmsr.publisher.label "Nakladatel (normalizováno)">
 <!ENTITY field.rssr.publisher.label "Nakladatel (normalizováno)">
 <!ENTITY field.rsr.publisher.label "Nakladatel (normalizováno)">
 <!ENTITY field.ccmm.grace_period.label "Obejití lhůty odkladu">
-<!ENTITY field.rocit.due_date.label "K vrácení dne">
+<!ENTITY field.rb.attr_filter.label "Filtr atributu">
 <!ENTITY field.aum.id.label "ID zprávy">
 <!ENTITY field.auml.id.label "ID zprávy">
 <!ENTITY field.acqpro.edi_default.label "Výchozí hodnota EDI">
@@ -3443,6 +3513,7 @@
 <!ENTITY field.ssub.end_date.label "Datum ukončení">
 <!ENTITY class.brsrc.label "Zdroj">
 <!ENTITY field.bram.resource.label "Zdroj">
+<!ENTITY field.combcirc.checkin_scan_time.label "Přijato k vrácení">
 <!ENTITY field.aoupa.hold_pickup_lib.label "Knihovna pro vyzvednutí rezervace">
 <!ENTITY field.cam.value.label "Čtenářské určení">
 <!ENTITY field.vii.circ_as_type.label "Půjčovat jako typ MARC">
@@ -3553,6 +3624,7 @@
 <!ENTITY field.sdist.bind_call_number.label "Signatura vazby">
 <!ENTITY field.atevdef.reactor.label "Reaktor">
 <!ENTITY field.atul.reactor.label "Reaktor">
+<!ENTITY field.rb.weight.label "Váha">
 <!ENTITY field.cmf.weight.label "Váha">
 <!ENTITY class.mbt.label "Zúčtovatelné transakce">
 <!ENTITY field.mp.xact.label "Zúčtovatelné transakce">

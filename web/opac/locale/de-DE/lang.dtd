@@ -2341,7 +2341,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password "Selfcheck: Require patron password">
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password.desc "If true, patrons will be required to enter their password in addition to their username/barcode to log into the selfcheck interface">
 <!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold "Juvenile Age Threshold">
-<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc "Das Alter, ab dem ein Benutzer nicht mehr als Jugendlicher behandelt wird. Zum Beispiel &quot;18 Jahre&quot;.">
+<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc 'Das Alter, ab dem ein Benutzer nicht mehr als Jugendlicher behandelt wird. Zum Beispiel "18 Jahre".'>
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty "Nicht automatisch leere Bibliothekseinträge löschen">
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty.desc 'Do not automatically delete a bib record when all attached copies are deleted'>
 <!ENTITY staff.server.admin.org_settings.cat.bib.alert_on_empty 'Alert on empty bib records'>
@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Auflage">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Floating">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Holdable">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Age-based Hold Protection">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Hold Shelf Location">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Holds/Transit">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Circ Library">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Patron">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Price">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Acquisition Cost">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "Previous Circ Group">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Pub Date">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Verlag">

@@ -2257,7 +2257,7 @@
 <!ENTITY staff.server.admin.non_cat_types.submit "Submit">
 <!ENTITY staff.server.admin.non_cat_types.cancel "Cancel">
 <!ENTITY staff.server.admin.non_cat_types.delete.confirm "Are you sure you wish to delete the selected non-catalogued type?">
-<!ENTITY staff.server.admin.non_cat_types.in_house.help "If the &quot;In-House&quot; flag is set on a non-catalogued type, items that circulate as that type will create &quot;In-House&quot; circulations.  This is ideal for computer use, room &quot;rentals&quot;, etc.">
+<!ENTITY staff.server.admin.non_cat_types.in_house.help 'If the "In-House" flag is set on a non-catalogued type, items that circulate as that type will create "In-House" circulations.  This is ideal for computer use, room "rentals", etc.'>
 <!ENTITY staff.server.admin.non_cat_types.update.success "Non-catalogued type successfully updated">
 <!ENTITY staff.server.admin.non_cat_types.name_exists "A non-catalogued type with the selected name already exists.">
 <!ENTITY staff.server.admin.index.title "Local System Administration">
@@ -2308,20 +2308,20 @@
 <!ENTITY staff.server.admin.org_settings.default_price "Default Item Price">
 <!ENTITY staff.server.admin.org_settings.from_address "Sending email address for patron notices">
 <!ENTITY staff.server.admin.org_settings.bounce_note "Email delivery failures will be returned this address">
-<!ENTITY staff.server.admin.org_settings.apply_all.note "I. &quot;Apply to all Locations&quot; will force the new setting to be applied to all locations in the location dropdown.">
+<!ENTITY staff.server.admin.org_settings.apply_all.note 'I. "Apply to all Locations" will force the new setting to be applied to all locations in the location dropdown.'>
 <!ENTITY staff.server.admin.org_settings.update_success "Update succeeded.">
 <!ENTITY staff.server.admin.org_settings.apply_all.confirm "This will update the setting for all of the locations listed in the dropdown menu. Are you sure you wish to continue?">
 
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval "Holds: Expire Alert Interval">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval.desc "Amount of time before a hold expires at which point the patron should be alerted">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval "Holds: Expire Interval">
-<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc "Amount of time after a hold is placed before the hold expires.  Example &quot;100 days&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc 'Amount of time after a hold is placed before the hold expires.  Example "100 days"'>
 <!ENTITY staff.server.admin.org_settings.global.credit.allow "Allow Credit Card Payments">
 <!ENTITY staff.server.admin.org_settings.global.credit.allow.desc "If enabled, patrons will be able to pay fines accrued at this location via credit card">
 <!ENTITY staff.server.admin.org_settings.global.default_locale "Default Locale">
 <!ENTITY staff.server.admin.org_settings.circ.void_overdue_on_lost "Void overdue fines when items are marked lost">
 <!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft "Holds: Soft stalling interval">
-<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc "How long to wait before allowing remote items to be opportunisticaly captured for a hold.  Example &quot;5 days&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_stalling.soft.desc 'How long to wait before allowing remote items to be opportunisticaly captured for a hold.  Example "5 days"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.hard "Holds: Hard boundary">
 <!ENTITY staff.server.admin.org_settings.circ.hold_boundary.soft "Holds: Soft boundary">
 <!ENTITY staff.server.admin.org_settings.opac.barcode_regex "Patron barcode format">
@@ -2329,7 +2329,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max "Maximum previous checkouts displayed">
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max.desc "This is maximum number of previous circulations the staff client will display when investigating item details">
 <!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval "Change reshelving status interval">
-<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc "Amount of time to wait before changing an item from &quot;reshelving&quot; status to &quot;available&quot;.  Examples &quot;1 day&quot;, &quot;6 hours&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc 'Amount of time to wait before changing an item from "reshelving" status to "available".  Examples "1 day", "6 hours"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval "Holds: Estimated Wait (Days)">
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval.desc "When predicting the amount of time a patron will be waiting for a hold to be fulfilled, this is the default/average number of days to assume an item will be checked out.">
 <!ENTITY staff.server.admin.org_settings.circ.block_renews_for_holds "Holds: Block Renewal of Items Needed for Holds">
@@ -2341,7 +2341,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password "Selfcheck: Require patron password">
 <!ENTITY staff.server.admin.org_settings.circ.selfcheck.require_patron_password.desc "If true, patrons will be required to enter their password in addition to their username/barcode to log into the selfcheck interface">
 <!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold "Juvenile Age Threshold">
-<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc "The age at which a user is no long considered a juvenile.  For example, &quot;18 years&quot;.">
+<!ENTITY staff.server.admin.org_settings.global.juvenile_age_threshold.desc 'The age at which a user is no long considered a juvenile.  For example, "18 years".'>
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty "Do not automatically delete empty bib records">
 <!ENTITY staff.server.admin.org_settings.cat.bib.keep_on_empty.desc "Do not automatically delete a bib record when all attached copies are deleted">
 <!ENTITY staff.server.admin.org_settings.cat.bib.alert_on_empty "Alert on empty bib records">
@@ -3135,7 +3135,7 @@
 <!ENTITY staff.cat.spine_labels.close_window.label "Close Window">
 <!ENTITY staff.cat.spine_labels.close_window.accesskey "C">
 <!ENTITY staff.cat.spine_labels.font_size.label "Font size (in points):">
-<!ENTITY staff.cat.spine_labels.font_weight.label "Font weight (&quot;normal&quot; or &quot;bold&quot;):">
+<!ENTITY staff.cat.spine_labels.font_weight.label 'Font weight ("normal" or "bold"):'>
 <!ENTITY staff.cat.spine_labels.spine_label.label "Spine Label">
 <!ENTITY staff.cat.spine_labels.spine_label.left_margin.label "Left Margin (in characters):">
 <!ENTITY staff.cat.spine_labels.spine_label.label_width.label "Label Width (in characters):">
@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Edition">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Floating">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Holdable">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Age-based Hold Protection">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Hold Shelf Location">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Holds/Transit">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Circ Library">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Patron">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Price">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Acquisition Cost">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "Previous Circ Group">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Pub Date">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Publisher">

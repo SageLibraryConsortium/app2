@@ -698,7 +698,7 @@
 <!ENTITY staff.main.auth.debug.clear.accesskey "C">
 <!ENTITY staff.main.auth.debug.javascript "Console JavaScript">
 <!ENTITY staff.main.auth.debug.javascript.accesskey "J">
-<!ENTITY staff.main.auth.debug.debugger "Débugger">
+<!ENTITY staff.main.auth.debug.debugger "Débogueur">
 <!ENTITY staff.main.auth.debug.debugger.accesskey "D">
 <!ENTITY staff.main.auth.debug.inspector "Inspecteur DOM">
 <!ENTITY staff.main.auth.debug.inspector.accesskey "I">
@@ -2283,7 +2283,7 @@
 <!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.description "Choisir le profil d’utilisateur et la bibliothèque de prêt des articles en retard que vous voulez faire passer à l’état Perdu. N.B. : Les descendants de ces valeurs (sous-groupes, bibliothèques auxiliaires) seront aussi touchés.">
 <!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.user_profile "Profil d’utilisateur">
 <!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.circ_lib "Bibliothèque de prêt">
-<!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.confirm "Êtes-vous certain?">
+<!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.confirm "Êtes-vous sûr(e) ?">
 <!ENTITY staff.server.admin.index.age_overdue_circulations_to_lost.action "File de vieillissement">
 <!ENTITY staff.server.admin.index.cash_reports "Relevés de caisse">
 <!ENTITY staff.server.admin.index.transits "Transits">
@@ -2315,7 +2315,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval "Articles mis en réserve: Intervalle d'alerte d'expiration">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_alert_interval.desc "Montant de temps avant une demande de mise en réserve devient expiré et le devrait être averti">
 <!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval "Articles mis en réserve: Intervalle d'expiration">
-<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc "Montant de temps après un article est mis en réserve avant que la demande soit expiré. Exemple &quot;100 jours&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.hold_expire_interval.desc 'Montant de temps après un article est mis en réserve avant que la demande soit expiré. Exemple "100 jours"'>
 <!ENTITY staff.server.admin.org_settings.global.credit.allow "Permettre les paiements par carte de crédit">
 <!ENTITY staff.server.admin.org_settings.global.credit.allow.desc "Si ceci est activé, les clients pourront payer leurs amendes accumulé à cet endroit avec une carte de crédit">
 <!ENTITY staff.server.admin.org_settings.global.default_locale "Localisation par défaut">
@@ -2329,7 +2329,7 @@
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max "Nombre maximum de sorties d'articles affichées">
 <!ENTITY staff.server.admin.org_settings.circ.item_checkout_history.max.desc "Ceci est le nombre maximale de prêts précédents que le client pour les membres personnel affichera lorsque les détails au sujet de l'article sont examinés">
 <!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval "Modifier l'intervalle du statut de la remise des documents sur les rayons">
-<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc "Temps d&apos;attente avant de changer le status d&apos;un article de &quot;remise des documents sur les rayons&quot; à &quot;disponible&quot;. Examples &quot;1 jour&quot;, &quot;6 heures&quot;">
+<!ENTITY staff.server.admin.org_settings.circ.reshelving_complete.interval.desc 'Temps d&apos;attente avant de changer le status d&apos;un article de "remise des documents sur les rayons" à "disponible". Examples "1 jour", "6 heures"'>
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval "Articles mis en réserve: temps d'attente estimé (jours)">
 <!ENTITY staff.server.admin.org_settings.circ.hold_estimate_wait_interval.desc "Dans le cadre de la prédication du temps d’attente de l’usager pour un article mis en attente, il s’agit du nombre de jour par défaut ou en moyenne qu’on suppose que l’article sera prêté.">
 <!ENTITY staff.server.admin.org_settings.circ.block_renews_for_holds "Mise en attente : Bloquer le renouvèlement des articles mis en attente.">
@@ -3753,6 +3753,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Edition.label "Édition">
 <!ENTITY staff.circ.alternate_copy_summary.Floating.label "Flottant">
 <!ENTITY staff.circ.alternate_copy_summary.Holdable.label "Mise en réserve possible">
+<!ENTITY staff.circ.alternate_copy_summary.Age_Protect.label "Age-based Hold Protection">
 <!ENTITY staff.circ.alternate_copy_summary.Hold_Shelf_Location.label "Emplacement du rayon de mise en attente">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.label "Mises en attente/Transit">
 <!ENTITY staff.circ.alternate_copy_summary.Holds_Transit.accesskey "">
@@ -3765,6 +3766,7 @@
 <!ENTITY staff.circ.alternate_copy_summary.Circ_Library.label "Bibliothèque de prêt">
 <!ENTITY staff.circ.alternate_copy_summary.Patron_Name.label "Usager">
 <!ENTITY staff.circ.alternate_copy_summary.Price.label "Prix">
+<!ENTITY staff.circ.alternate_copy_summary.Cost.label "Acquisition Cost">
 <!ENTITY staff.circ.alternate_copy_summary.Previous_Circ_Group.label "Groupe de prêt précédent">
 <!ENTITY staff.circ.alternate_copy_summary.Pub_Date.label "Date de publication">
 <!ENTITY staff.circ.alternate_copy_summary.Publisher.label "Éditeur">

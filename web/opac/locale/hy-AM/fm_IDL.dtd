@@ -48,7 +48,7 @@
 <!ENTITY field.rocit.ref.label "Տեղեկատու">
 <!ENTITY field.acqfsb.amount.label "Հետո ծախսածի բալանս">
 <!ENTITY class.atenv.label "Եռակապ իրադարձության միջավայրի մուտք">
-<!ENTITY class.cit.label "Փոխճանաչման տեսակ">
+<!ENTITY field.acqftr.id.label "Բյուջեի փոխանցման ID">
 <!ENTITY field.uvus.id.label "URL-ի ընրման ID">
 <!ENTITY field.ahr.bib_rec.label "Մատեն գրառման կապ">
 <!ENTITY field.ahopl.bib_rec.label "Մատեն գրառման կապ">
@@ -59,8 +59,8 @@
 <!ENTITY field.asc.sip_field.label "SIP դաշտ">
 <!ENTITY field.actsc.sip_field.label "SIP դաշտ">
 <!ENTITY class.abaafm.label "Հեղինակավորի դիտման առանցքի դաշտի քարտեզ">
-<!ENTITY class.bravm.label "Նախնական պահման բաղադրիչի արժեքի քարտեզ">
-<!ENTITY field.bravm.id.label "Նախնական պահման բաղադրիչի արժեքի քարտեզ">
+<!ENTITY field.vii.parts_data.label "Parts Data">
+<!ENTITY field.viiad.parts_data.label "Parts Data">
 <!ENTITY class.mrs.label "Record Sort Values">
 <!ENTITY field.rccc.call_number.label "Դասիչի կապ">
 <!ENTITY field.circ.checkin_lib.label "Ընդունող գրադարան">
@@ -127,6 +127,7 @@
 <!ENTITY field.combahr.holdable_formats.label "Պահման ձևաչափեր (M-դասի պահումների համար)">
 <!ENTITY field.aahr.holdable_formats.label "Պահման ձևաչափեր (M-դասի պահումների համար)">
 <!ENTITY class.acqie.label "Հաշվի մուտք">
+<!ENTITY field.acqfdeb.invoice_entry.label "Հաշվի մուտք">
 <!ENTITY field.vibtf.grp.label "Խումբ">
 <!ENTITY field.pgpt.grp.label "Խումբ">
 <!ENTITY field.acplgm.lgroup.label "Խումբ">
@@ -155,7 +156,7 @@
 <!ENTITY field.acqscl.item.label "Պարբերական նյութ">
 <!ENTITY field.afs.id.label "Դաշտի բազմության ID">
 <!ENTITY field.afscv.fieldset.label "Դաշտի բազմության ID">
-<!ENTITY class.acqpa.label "Մատակարարի հասցե">
+<!ENTITY field.aufh.circ_lib.label "Չիրականացնող գրադարան">
 <!ENTITY field.acqlia.id.label "Բնութագրիչի արժեքի ID">
 <!ENTITY class.ahcm.label "Օրինակի պահման քարտեզ">
 <!ENTITY class.arn.label "Հեղինակավոր գրառման նշում">
@@ -175,6 +176,7 @@
 <!ENTITY field.jub.lineitem_notes.label "Հավասարեցված նյութի նշումներ">
 <!ENTITY field.ahtc.hold.label "Պահումը պահանջւմ է տրանզիտ">
 <!ENTITY field.aout.name.label "Տեսակի անուն">
+<!ENTITY field.rhcrpbapd.copy_count_at_or_below.label "Holdable Copy Count at Pickup Library and its Descendants">
 <!ENTITY field.bre.metarecord.label "Մետագրառում">
 <!ENTITY class.mmr.label "Մետագրառում">
 <!ENTITY field.rsr.metarecord.label "Մետագրառում">
@@ -229,6 +231,7 @@
 <!ENTITY class.actscecm.label "Օգտագործիր վիճակագրական դասի մուտքը">
 <!ENTITY field.aoa.san.label "SAN">
 <!ENTITY field.acqpro.san.label "SAN">
+<!ENTITY field.rp.require_horizon.label "Require Horizon">
 <!ENTITY class.ccls.label "Տացքի սահմանափակման կարգաբերում">
 <!ENTITY class.asc.label "Արժեքավոր վիճակագրական դաս">
 <!ENTITY field.ahopl.usr_alias.label "Օգտվողի ահազանգեր">
@@ -341,6 +344,8 @@
 <!ENTITY class.ascecm.label "Վիճակագրական դասի մուտքի պատճենի քարտեզ">
 <!ENTITY field.aws.toolbars.label "Գործիքաշարներ">
 <!ENTITY field.atev.add_time.label "Ավելացրու ժամ">
+<!ENTITY field.auch.due_date.label "Վերադարձի ամսաթիվ">
+<!ENTITY field.rocit.due_date.label "Վերադարձի ամսաթիվ">
 <!ENTITY field.cmc.buoyant.label "Լողացո՞ղ">
 <!ENTITY field.asvq.responses.label "Արձագանքներ">
 <!ENTITY field.asv.responses.label "Արձագանքներ">
@@ -349,13 +354,16 @@
 <!ENTITY field.acpl.circulate.label "Կարո՞ղ է սպասարկել">
 <!ENTITY field.sunit.stat_cat_entry_copy_maps.label "Stat-Cat մուտքի քարտեզներ">
 <!ENTITY field.acp.stat_cat_entry_copy_maps.label "Stat-Cat մուտքի քարտեզներ">
-<!ENTITY field.cbc.padding.label "Լրացում">
+<!ENTITY field.rb.popularity_parameter.label "Popularity Parameter">
+<!ENTITY class.bravm.label "Նախնական պահման բաղադրիչի արժեքի քարտեզ">
+<!ENTITY field.bravm.id.label "Նախնական պահման բաղադրիչի արժեքի քարտեզ">
 <!ENTITY field.atcol.module.label "Մոդուլի անուն">
 <!ENTITY field.atval.module.label "Մոդուլի անուն">
 <!ENTITY field.atreact.module.label "Մոդուլի անուն">
 <!ENTITY field.atclean.module.label "Մոդուլի անուն">
 <!ENTITY field.acqpo.amount_estimated.label "Amount Estimated">
 <!ENTITY class.ccnbin.label "Դասիչ. Փնջի նյութի նշում">
+<!ENTITY field.acplg.location_maps.label "Պատճենի տեղաբաշխման քարտեզավորումներ">
 <!ENTITY field.vqbr.create_time.label "Ստեղծման ժամ">
 <!ENTITY field.vqar.create_time.label "Ստեղծման ժամ">
 <!ENTITY field.acqfdeb.create_time.label "Ստեղծման ժամ">
@@ -367,6 +375,8 @@
 <!ENTITY field.uvs.create_time.label "Ստեղծման ժամ">
 <!ENTITY field.cfdfs.create_time.label "Ստեղծման ժամ">
 <!ENTITY class.coustl.label "Կազմակերպչական միավորի կարգաբերման տեսակի լոգ">
+<!ENTITY class.rrbs.label "Statistical Popularity Badge">
+<!ENTITY class.rb.label "Statistical Popularity Badge">
 <!ENTITY field.combcirc.usr_birth_year.label "Ընթերցողի ծննդյան ամսաթիվ">
 <!ENTITY field.acirc.usr_birth_year.label "Ընթերցողի ծննդյան ամսաթիվ">
 <!ENTITY field.combahr.usr_birth_year.label "Ընթերցողի ծննդյան ամսաթիվ">
@@ -422,13 +432,15 @@
 <!ENTITY field.acqmapinv.purchase_order.label "Գնման պատվերի ID">
 <!ENTITY field.sunit.age_protect.label "տարիքի պահման պաշտպանություն">
 <!ENTITY field.acp.age_protect.label "տարիքի պահման պաշտպանություն">
-<!ENTITY field.cmrcfld.repeatable.label "Repeatabl?">
-<!ENTITY field.brt.name.label "Պաշարի տեսակի անուն">
+<!ENTITY field.vii.error_detail.label "Ներմուծման սխալի մանրամասներ">
+<!ENTITY field.vqbr.error_detail.label "Ներմուծման սխալի մանրամասներ">
+<!ENTITY field.vqar.error_detail.label "Ներմուծման սխալի մանրամասներ">
 <!ENTITY class.sunit.label "Միավոր">
 <!ENTITY field.sitem.unit.label "Միավոր">
 <!ENTITY class.cst.label "Մշտական տուգանք">
 <!ENTITY class.csp.label "Մշտական տուգանք">
 <!ENTITY field.ausp.standing_penalty.label "Մշտական տուգանք">
+<!ENTITY class.rhcrpbapd.label "Hold/Copy Ratio per Bib and Pickup Library (and Descendants) ">
 <!ENTITY field.circ.checkin_staff.label "Ընդունող աշխատակազմ">
 <!ENTITY field.combcirc.checkin_staff.label "Ընդունող աշխատակազմ">
 <!ENTITY field.acirc.checkin_staff.label "Ընդունող աշխատակազմ">
@@ -443,6 +455,7 @@
 <!ENTITY field.ccmlsm.fallthrough.label "Գահավիժել">
 <!ENTITY class.srlu.label "Շրջանառու ցուցակի օգտվող">
 <!ENTITY field.mrd.pub_status.label "Pub Status">
+<!ENTITY field.rb.importance_interval.label "Importance Interval">
 <!ENTITY field.aufhmxl.max.label "Մաքս խոշորացում">
 <!ENTITY field.atev.async_output.label "Ասինխրոն ելք">
 <!ENTITY class.ccnbt.label "Դասիչի փնջի տեսակ">
@@ -473,6 +486,7 @@
 <!ENTITY field.circ.target_copy.label "Սպասարկվող նյութ">
 <!ENTITY field.combcirc.target_copy.label "Սպասարկվող նյութ">
 <!ENTITY field.acirc.target_copy.label "Սպասարկվող նյութ">
+<!ENTITY field.auch.target_copy.label "Սպասարկվող նյութ">
 <!ENTITY field.rodcirc.target_copy.label "Սպասարկվող նյութ">
 <!ENTITY class.cubt.label "Օգտվողի փնջի տեսակ">
 <!ENTITY field.atul.template_output.label "Իրադարձության ձևանմուշի ելք">
@@ -488,6 +502,7 @@
 <!ENTITY field.atc.prev_dest.label "Նախորդ գտնվելու վայր">
 <!ENTITY class.acnc.label "Դասիչի դասակարգման սխեմա">
 <!ENTITY class.aufh.label "Չկատարված թիրախ պահումներ">
+<!ENTITY field.acp.holds_count.label "Մաքս պահումներ">
 <!ENTITY field.rhcrpbap.holds_at_pickup_library.label "Ակտիվ պահումներ վերցնելու գրադարանում">
 <!ENTITY field.ahopl.usr_suffix.label "Օգտվողի վերջածանց">
 <!ENTITY field.ahr.behind_desk.label "Դարակի հետևում">
@@ -498,6 +513,7 @@
 <!ENTITY class.rccbs.label "Դասական բաց տրանզակցիայի համառոտագրություն">
 <!ENTITY field.artc.prev_hop.label "Նախորդ կանգ">
 <!ENTITY field.ahtc.prev_hop.label "Նախորդ կանգ">
+<!ENTITY field.rrbs.badge.label "Badge">
 <!ENTITY field.acqpa.address_type.label "Հասցեի տեսակ">
 <!ENTITY field.ahr.cut_in_line.label "Հարցման սկիզբ">
 <!ENTITY field.ahopl.cut_in_line.label "Հարցման սկիզբ">
@@ -612,6 +628,7 @@
 <!ENTITY field.rlcd.id.label "Գրառման ID">
 <!ENTITY field.rhcrpb.id.label "Գրառման ID">
 <!ENTITY field.rhcrpbap.id.label "Գրառման ID">
+<!ENTITY field.rhcrpbapd.id.label "Գրառման ID">
 <!ENTITY field.siss.holding_link_id.label "Պահման կապի ID">
 <!ENTITY field.sdist.index_summary.label "Ցուցիչի սպասարկման համառոտագրություն">
 <!ENTITY class.sisum.label "Ցուցիչի սպասարկման համառոտագրություն">
@@ -625,6 +642,7 @@
 <!ENTITY class.acrlid.label "Պատրաստ պահանջագրի մանրամասներ">
 <!ENTITY field.acqdf.name.label "Բանաձևի անուն">
 <!ENTITY field.circ.usr.label "Ընթերցող">
+<!ENTITY field.combcirc.usr.label "Ընթերցող">
 <!ENTITY field.ancc.patron.label "Ընթերցող">
 <!ENTITY field.rodcirc.usr.label "Ընթերցող">
 <!ENTITY field.mb.adjustments.label "Adjustments">
@@ -645,6 +663,7 @@
 <!ENTITY class.mfp.label "Ներված վճարում">
 <!ENTITY field.vqbr.imported_as.label "Վերջնական թիրախ գրառում">
 <!ENTITY field.vqar.imported_as.label "Վերջնական թիրախ գրառում">
+<!ENTITY field.rb.last_calc.label "Last Refresh Time">
 <!ENTITY field.acn.uris.label "URIs">
 <!ENTITY class.acqfat.label "Բյուջեի բաշխման ընդհանուր գումար">
 <!ENTITY field.rocit.stat_cat_2_value.label "Legacy Stat Cat 2 արժեք">
@@ -657,6 +676,7 @@
 <!ENTITY field.stgsc.value.label "Վիճակագրական դասի արժեք">
 <!ENTITY field.acqftr.transfer_time.label "Փոխանցման ժամ">
 <!ENTITY class.mfr.label "Հարթեցված ՄԵԸՔ դաշտեր">
+<!ENTITY field.rp.require_importance.label "Require Importance">
 <!ENTITY class.acpn.label "Նմուշի նշում">
 <!ENTITY field.cmc.a_weight.label "A քաշ">
 <!ENTITY field.cbho.aprox.label "Adjusted Circ Lib to Pickup Lib Proximity">
@@ -664,6 +684,7 @@
 <!ENTITY field.iatc.persistant_transfer.label "Մշտակա՞ն է (չի օգտագործված)">
 <!ENTITY field.aou.fiscal_calendar.label "Ֆինանսական օրացույց">
 <!ENTITY class.acqfc.label "Ֆինանսական օրացույց">
+<!ENTITY field.vmp.update_bib_source.label "Update Bib. Source">
 <!ENTITY class.qseq.label "Հերթի հաջորդականություն">
 <!ENTITY field.qxp.operator.label "Օպերատոր">
 <!ENTITY field.xop.operator.label "Օպերատոր">
@@ -671,6 +692,7 @@
 <!ENTITY field.acqct.code.label "Արտարժույթի կոդ">
 <!ENTITY class.coust.label "Կազմակերպչական միավորի կարգաբերման տեսակ">
 <!ENTITY field.ancc.duedate.label "Վերադարձի վիրտուլ օր/ժամ">
+<!ENTITY field.rb.src_filter.label "Bib Source Filter">
 <!ENTITY field.circ.unrecovered.label "Չվերադարձված պարտք">
 <!ENTITY field.bresv.unrecovered.label "Չվերադարձված պարտք">
 <!ENTITY field.mbt.unrecovered.label "Չվերադարձված պարտք">
@@ -729,6 +751,7 @@
 <!ENTITY field.ccmm.user_home_ou.label "Օգտվողի տնային գրադարան">
 <!ENTITY field.ancc.id.label "Չքարտագրվող սպասարկման ID">
 <!ENTITY field.vms.mtype.label "Համընկնման բազմության տեսակ">
+<!ENTITY field.rp.func.label "Population Function">
 <!ENTITY field.bresv.xact_start.label "Տրանզակցիայի սկզբի օր/ժամ">
 <!ENTITY field.mbt.xact_start.label "Տրանզակցիայի սկզբի օր/ժամ">
 <!ENTITY field.rccbs.xact_start.label "Տրանզակցիայի սկզբի օր/ժամ">
@@ -777,7 +800,10 @@
 <!ENTITY field.stgma.row_id.label "Տողի ID">
 <!ENTITY field.stgba.row_id.label "Տողի ID">
 <!ENTITY field.stgsc.row_id.label "Տողի ID">
+<!ENTITY field.stgs.row_id.label "Տողի ID">
 <!ENTITY field.siss.caption_and_pattern.label "Որսալ/նմուշ">
+<!ENTITY field.rp.description.label "Նկարագրություն">
+<!ENTITY field.rb.description.label "Նկարագրություն">
 <!ENTITY field.vie.description.label "Նկարագրություն">
 <!ENTITY field.vqbrad.description.label "Նկարագրություն">
 <!ENTITY field.vqarad.description.label "Նկարագրություն">
@@ -817,16 +843,13 @@
 <!ENTITY field.cfdi.description.label "Նկարագրություն">
 <!ENTITY field.uvu.fragment.label "Հատված">
 <!ENTITY field.acqpl.entry_count.label "Մուտքի հաշվիչ">
-<!ENTITY field.aufh.circ_lib.label "Չիրականացնող գրադարան">
+<!ENTITY class.acqpa.label "Մատակարարի հասցե">
 <!ENTITY class.mtfe.label "Վերնագրի դաշտի մուտք">
 <!ENTITY class.clm.label "Լեզվի քարտեզ">
 <!ENTITY field.crad.filter.label "Զտե՞լ">
 <!ENTITY field.brsrc.attr_maps.label "Պաշարի բնութագրիչի քարտեզ">
 <!ENTITY field.bra.attr_maps.label "Պաշարի բնութագրիչի քարտեզ">
 <!ENTITY field.brav.attr_maps.label "Պաշարի բնութագրիչի քարտեզ">
-<!ENTITY field.vii.error_detail.label "Ներմուծման սխալի մանրամասներ">
-<!ENTITY field.vqbr.error_detail.label "Ներմուծման սխալի մանրամասներ">
-<!ENTITY field.vqar.error_detail.label "Ներմուծման սխալի մանրամասներ">
 <!ENTITY field.asv.usr_summary.label "Արտածիր օգտվողի համառոտագրությունում">
 <!ENTITY field.rccc.stat_cat_1_value.label "Legacy CAT1 արժեք">
 <!ENTITY field.qfr.parent_relation.label "Ծնող կապի ID">
@@ -879,6 +902,7 @@
 <!ENTITY class.cbs.label "Մատեն. աղբյուր">
 <!ENTITY field.circ.checkin_scan_time.label "Հետ ընդունման սկանի ամսաթիվ/ժամ">
 <!ENTITY field.acirc.checkin_scan_time.label "Հետ ընդունման սկանի ամսաթիվ/ժամ">
+<!ENTITY field.rb.horizon_age.label "Age Horizon">
 <!ENTITY field.acqinv.payment_auth.label "Վճարման Auth">
 <!ENTITY class.mwp.label "Աշխատանքային վճարում">
 <!ENTITY class.acirc.label "Տարիքային (ընթերցողից անկախ) սպասարկում">
@@ -887,6 +911,7 @@
 <!ENTITY class.acqfsrcb.label "Ֆինանսավորման աղբյուրի հաշվեկշիռ">
 <!ENTITY class.pugm.label "Օգտվողի խմբի քարտեզ">
 <!ENTITY field.cbho.approx.label "Adjusted Capture Location to Pickup Lib Proximity">
+<!ENTITY field.cmrcfld.repeatable.label "Repeatable?">
 <!ENTITY field.cmrcsubfld.repeatable.label "Repeatable?">
 <!ENTITY field.aua.street2.label "Փողոց (2)">
 <!ENTITY field.aal.street2.label "Փողոց (2)">
@@ -995,6 +1020,7 @@
 <!ENTITY field.atul.user_data.label "Իրադարձության օգտվողի տվյալ">
 <!ENTITY field.aoupa.item_circ_lib.label "Նյութի Circ Lib">
 <!ENTITY field.rhcrpbap.copy_count_everywhere.label "Պահման պատճենի հաշվիչ ամենուր">
+<!ENTITY field.rhcrpbapd.copy_count_everywhere.label "Պահման պատճենի հաշվիչ ամենուր">
 <!ENTITY field.sunit.notes.label "Օրինակի նշումներ">
 <!ENTITY field.acp.notes.label "Օրինակի նշումներ">
 <!ENTITY field.vii.deposit.label "Դեպոզիտ">
@@ -1028,8 +1054,7 @@
 <!ENTITY field.asce.stat_cat.label "Վիճակ դաս">
 <!ENTITY field.asc.required.label "Պահանջված">
 <!ENTITY field.actsc.required.label "Պահանջված">
-<!ENTITY field.acqfs.summary.label "Ամփոփում">
-<!ENTITY field.acqf.summary.label "Ամփոփում">
+<!ENTITY class.rp.label "Statistical Popularity Parameter">
 <!ENTITY field.rccc.dewey_range_hundreds.label "Դյուի տիրույթ - Հարյուրյակներ">
 <!ENTITY class.qxp.label "Արտահայտություն">
 <!ENTITY field.qsi.expression.label "Արտահայտություն">
@@ -1048,6 +1073,7 @@
 <!ENTITY field.rocit.dewey_block_hundreds.label "Դյուի հարյուրներ">
 <!ENTITY field.pgt.perm_interval.label "Օգտվողի ժամկետանցության տիրույթ">
 <!ENTITY class.acqliat.label "Գծային նյութի ահազանգման տեքմտ">
+<!ENTITY field.rrbs.score.label "Score">
 <!ENTITY class.mrd.label "Հիմնական գրառման նկարագրիչ">
 <!ENTITY field.chmm.transit_range.label "Տրանզիտի տիրույթ">
 <!ENTITY field.ahopl.issuance_label.label "Տրման պիտակ">
@@ -1078,9 +1104,8 @@
 <!ENTITY field.acqii.title.label "Վերնագրի կամ նյութի անուն">
 <!ENTITY class.acqafcb.label "Բոլոր բյուջեների համակցման ընդհանուր">
 <!ENTITY class.i18n_l.label "Տեղային">
-<!ENTITY field.rmsr.quality.label "Գրառման ընդհանրական որակ">
-<!ENTITY field.rssr.quality.label "Գրառման ընդհանրական որակ">
-<!ENTITY field.rsr.quality.label "Գրառման ընդհանրական որակ">
+<!ENTITY field.rb.recalc_interval.label "Recalculation Interval">
+<!ENTITY field.rb.circ_mod_filter.label "Circ Mod Filter">
 <!ENTITY field.sunit.detailed_contents.label "Մանրամասն բովանդակություն">
 <!ENTITY field.vii.id.label "Ներմուծված նյութի ID">
 <!ENTITY field.vmsq.svf.label "Գրառման բաղկացուցիչ">
@@ -1149,7 +1174,7 @@
 <!ENTITY field.aur.eg_bib.label "Մատեն գրառում">
 <!ENTITY field.clfm.code.label "LitF կոդ">
 <!ENTITY field.cifm.value.label "Նյութի կաղապար">
-<!ENTITY field.acqftr.id.label "Բյուջեի փոխանցման ID">
+<!ENTITY class.cit.label "Փոխճանաչման տեսակ">
 <!ENTITY field.ahr.requestor.label "Պահանջող օգտվող">
 <!ENTITY field.ahopl.requestor.label "Պահանջող օգտվող">
 <!ENTITY field.alhr.requestor.label "Պահանջող օգտվող">
@@ -1163,6 +1188,7 @@
 <!ENTITY field.ocirclist.long_overdue.label "Երկար ուշացում">
 <!ENTITY field.rocit.owning_lib_name.label "Տնօրինող գրադ անուն">
 <!ENTITY class.cmfinm.label "Metabib դաշտից նորմալացված ինդեքսների քարտեզ">
+<!ENTITY field.rrbs.record.label "Գրառում">
 <!ENTITY field.vqbra.record.label "Գրառում">
 <!ENTITY field.vqara.record.label "Գրառում">
 <!ENTITY field.ssr.record.label "Գրառում">
@@ -1246,6 +1272,7 @@
 <!ENTITY field.acqfsrcct.amount.label "Ընդհանուր կրեդիտներ ֆինանսավորման աղբյուրին">
 <!ENTITY class.mct.label "հավաքածուի վերահսկիչ">
 <!ENTITY field.qsi.grouped_by.label "խմբավորված է ըստ">
+<!ENTITY field.rb.fixed_rating.label "Fixed Rating">
 <!ENTITY field.cmrcfld.tag.label "MARC ցուցիչ">
 <!ENTITY field.cmrcsubfld.tag.label "MARC ցուցիչ">
 <!ENTITY field.crad.tag.label "MARC ցուցիչ">
@@ -1281,6 +1308,8 @@
 <!ENTITY field.acqedim.translate_time.label "Տրանսլիացիայի ժամանակ">
 <!ENTITY class.acqfdt.label "Գումարային դեբետ բյուջեից">
 <!ENTITY field.vmp.name.label "Անուն">
+<!ENTITY field.rp.name.label "Անուն">
+<!ENTITY field.rb.name.label "Անուն">
 <!ENTITY field.viiad.name.label "Անուն">
 <!ENTITY field.vbq.name.label "Անուն">
 <!ENTITY field.vaq.name.label "Անուն">
@@ -1340,6 +1369,7 @@
 <!ENTITY field.bre.language.label "Լեզվի կոդ">
 <!ENTITY field.au.ws_ou.label "Աշխ կայանի Կազմ միավոր">
 <!ENTITY class.vmp.label "Մատեն ներմուծման ձուլման պրոֆայլ">
+<!ENTITY field.rhcrpbapd.holds_at_or_below.label "Active Holds at Pickup Library and its Descendants">
 <!ENTITY field.qseq.seq_no.label "Հաջորդականության համար">
 <!ENTITY field.qsf.seq_no.label "Հաջորդականության համար">
 <!ENTITY field.qfpd.seq_no.label "Հաջորդականության համար">
@@ -1413,6 +1443,7 @@
 <!ENTITY field.aahr.selection_ou.label "Ընտրելու տեղ">
 <!ENTITY field.atenv.collector.label "Հավաքող">
 <!ENTITY class.acqafet.label "Բոլոր բյուջեների կուտակված ընդհանուրը">
+<!ENTITY field.afs.name.label "Դաշտի բազմության անուն">
 <!ENTITY field.pgt.children.label "Երեխա խմբեր">
 <!ENTITY field.accs.last_checkin_time.label "Վերջին ընդունման ժամ">
 <!ENTITY field.bre.tcn_value.label "TCN արժեք">
@@ -1533,6 +1564,7 @@
 <!ENTITY field.stgma.row_date.label "Ամսաթվի շարք">
 <!ENTITY field.stgba.row_date.label "Ամսաթվի շարք">
 <!ENTITY field.stgsc.row_date.label "Ամսաթվի շարք">
+<!ENTITY field.stgs.row_date.label "Ամսաթվի շարք">
 <!ENTITY class.qobi.label "Պատվեր ըստ նյութի">
 <!ENTITY class.cblvl.label "Մատեն մակարդակի քարտեզ">
 <!ENTITY class.murav.label "Uncontrolled Record Attribute Values">
@@ -1571,13 +1603,16 @@
 <!ENTITY field.chmw.request_ou.label "Հարցրու գրադարան">
 <!ENTITY field.chmm.request_ou.label "Հարցրու գրադարան">
 <!ENTITY field.bresv.request_lib.label "Հարցրու գրադարան">
+<!ENTITY field.hasholdscount.count.label "Holds Count">
 <!ENTITY field.asvr.usr.label "Արձագանքող օգտվող">
 <!ENTITY class.atval.label "Տրիգերի վիճակի ստուգում">
 <!ENTITY class.cmrcfld.label "MARC Fields">
+<!ENTITY class.hasholdscount.label "Copy Has Holds Count">
 <!ENTITY class.acqexr.label "Փոխանակման արժեք">
 <!ENTITY field.qxp.table_alias.label "Աղյուսակի կեղծանուն">
 <!ENTITY field.qfr.table_alias.label "Աղյուսակի կեղծանուն">
 <!ENTITY field.xcol.table_alias.label "Աղյուսակի կեղծանուն">
+<!ENTITY field.stgs.value.label "Օգտվողի կարգաբերման տեսակ">
 <!ENTITY field.vbq.complete.label "Ավարտվեց">
 <!ENTITY field.vaq.complete.label "Ավարտվեց">
 <!ENTITY field.acqinv.complete.label "Ավարտվեց">
@@ -1586,6 +1621,7 @@
 <!ENTITY field.stgma.complete.label "Ավարտվեց">
 <!ENTITY field.stgba.complete.label "Ավարտվեց">
 <!ENTITY field.stgsc.complete.label "Ավարտվեց">
+<!ENTITY field.stgs.complete.label "Ավարտվեց">
 <!ENTITY field.cnct.id.label "Չքարտագրվող տեսակ ID">
 <!ENTITY field.qdt.id.label "Տվյալի տեսակի ID">
 <!ENTITY field.atevdef.cleanup_failure.label "Ձախողված մաքրում">
@@ -1614,9 +1650,11 @@
 <!ENTITY field.crad.sorter.label "Տեսակավորի՞չ">
 <!ENTITY class.sasum.label "Բոլոր համարների համառոտագրություններ">
 <!ENTITY class.ahrcc.label "Պահման հարցման չեղյալ անելու պատճառ">
+<!ENTITY field.rb.scope.label "Scope">
 <!ENTITY field.ccmm.renewals.label "Թարմացումների վերագրում">
 <!ENTITY field.acn.label_sortkey.label "Դասիչի դասակարգման բանալի">
 <!ENTITY class.moucs.label "Բաց օգտվողի տացքերի համառոտագրությունը">
+<!ENTITY field.auch.source_circ.label "Source Circulation">
 <!ENTITY field.acqf.propagate.label "Բազմացնել">
 <!ENTITY field.acqfsum.propagate.label "Բազմացնել">
 <!ENTITY field.circ.aaactsc_entries.label "Արխիվավորված հաճախորդի վիճակագրության-քարտագրման մուտքեր">
@@ -1642,6 +1680,7 @@
 <!ENTITY field.ahtc.persistant_transfer.label "Շարունակակա՞ն է">
 <!ENTITY class.cwa.label "Քաշերի մատրիցայի կապակցում">
 <!ENTITY field.au.net_access_level.label "Ինտերնետ հասանելիության մակարդակ">
+<!ENTITY field.combcirc.active_circ.label "Linked Active Circulation">
 <!ENTITY class.xsubq.label "Ենթահերթի արտահայտություն">
 <!ENTITY field.qfs.return_type.label "Վերադարձի տեսակ">
 <!ENTITY field.mcrp.payment_type.label "Վճարի տեսակ">
@@ -1692,6 +1731,7 @@
 <!ENTITY field.acqscle.type.label "Պահանջագրի իրադարձության տեսակ">
 <!ENTITY field.afs.applied_time.label "Կիրառված ժամ">
 <!ENTITY class.acqipm.label "Հաշվի վճարման ձևաչափ">
+<!ENTITY field.rp.require_percentile.label "Require Percentile">
 <!ENTITY class.asva.label "Հարցախույզի պատասխան">
 <!ENTITY class.mra.label "SVF գրառման բաղկացուցիչ">
 <!ENTITY field.ahr.transit.label "Տրանզիտ">
@@ -1730,6 +1770,7 @@
 <!ENTITY class.acqfsb.label "Ծախսած բյուջեի հաշվեկշիռ">
 <!ENTITY field.mrd.lit_form.label "LitF">
 <!ENTITY field.rhcrpbap.everywhere_ratio.label "պահման/Պատճենի գործակից ամենուր">
+<!ENTITY field.rhcrpbapd.everywhere_ratio.label "պահման/Պատճենի գործակից ամենուր">
 <!ENTITY field.auss.query_type.label "Հարցման տեսակ">
 <!ENTITY field.acqfet.amount.label "Գումարային աջակցության մեծություն">
 <!ENTITY field.aua.valid.label "Հասցեն ճի՞շտ է">
@@ -1753,6 +1794,7 @@
 <!ENTITY field.acqpoi.estimated_cost.label "Գնահատված արժեք">
 <!ENTITY field.crahp.prox.label "Թույլատրված մոտարկում">
 <!ENTITY field.atb.layout.label "Դասավորություն">
+<!ENTITY field.stgs.setting.label "Օգտվողի կարգաբերման տեսակ">
 <!ENTITY field.cmrcfld.hidden.label "Hidden?">
 <!ENTITY field.cmrcsubfld.hidden.label "Hidden?">
 <!ENTITY field.mbt.grocery.label "Grocery Billing link">
@@ -1881,13 +1923,14 @@
 <!ENTITY field.acqinv.items.label "Հաշվի կետեր">
 <!ENTITY field.au.groups.label "Լրացուցիչ իրավասության խումբ">
 <!ENTITY class.cbrebn.label "Մատենագիտական գրառման մուտքի փնջի նշում">
+<!ENTITY field.rhcrpbapd.hold_copy_ratio_at_or_below_ou.label "Hold/Copy Ratio at Pickup Library and its Descendants">
 <!ENTITY field.accs.last_stop_fines.label "Վերջին կանգի տուգանքներ">
 <!ENTITY field.ahr.request_lib.label "Առաջարկող գրադարան">
 <!ENTITY field.ahopl.request_lib.label "Առաջարկող գրադարան">
 <!ENTITY field.alhr.request_lib.label "Առաջարկող գրադարան">
 <!ENTITY field.combahr.request_lib.label "Առաջարկող գրադարան">
 <!ENTITY field.aahr.request_lib.label "Առաջարկող գրադարան">
-<!ENTITY field.acplg.location_maps.label "Պատճենի տեղաբաշխման քարտեզավորումներ">
+<!ENTITY field.rb.discard.label "Discard Value Count">
 <!ENTITY field.srlu.department.label "Բաժանմունք">
 <!ENTITY class.cubin.label "Օգտվողի փնջի նյութի նշում">
 <!ENTITY field.acqliat.id.label "Ահանզանգման տեքստի ID">
@@ -1973,6 +2016,7 @@
 <!ENTITY field.bresv.fine_interval.label "Տուգանքի տիրույթ">
 <!ENTITY field.rodcirc.fine_interval.label "Տուգանքի տիրույթ">
 <!ENTITY field.circ.checkin_workstation.label "Հետ ընդունման աշխատանքային կայան">
+<!ENTITY field.combcirc.checkin_workstation.label "Հետ ընդունման աշխատանքային կայան">
 <!ENTITY field.acirc.checkin_workstation.label "Հետ ընդունման աշխատանքային կայան">
 <!ENTITY field.acqfc.years.label "Տարիներ">
 <!ENTITY class.aua.label "Օգտվողի հասցե">
@@ -1989,6 +2033,7 @@
 <!ENTITY field.acqmapinv.lineitem.label "Գծային նյութի ID">
 <!ENTITY field.aba.maps.label "Հեղինակավոր դաշտի քարտեզներ">
 <!ENTITY class.cnal.label "Ցանցի մատչելիության մակարդակ">
+<!ENTITY field.rb.importance_scale.label "Importance Scale">
 <!ENTITY field.cmrcfld.fixed_field.label "Սևեռված դաշտ">
 <!ENTITY field.vii.opac_visible.label "ՀՕԱՔը տեսանելի է">
 <!ENTITY field.viiad.opac_visible.label "ՀՕԱՔը տեսանելի է">
@@ -2142,8 +2187,13 @@
 <!ENTITY class.alhr.label "Վերջին որսված պահման առաջարկ">
 <!ENTITY field.combahr.phone_notify.label "Ծանուցե՞լ հեռախոսով">
 <!ENTITY field.aahr.phone_notify.label "Ծանուցե՞լ հեռախոսով">
+<!ENTITY field.cbc.padding.label "Լրացում">
+<!ENTITY field.rb.importance_age.label "Importance Horizon">
 <!ENTITY field.rccbs.usr.label "Օգտվողի կապ">
 <!ENTITY class.ssubn.label "Բաժանորդագրության նշում">
+<!ENTITY field.rrbs.id.label "ID">
+<!ENTITY field.rp.id.label "ID">
+<!ENTITY field.rb.id.label "ID">
 <!ENTITY field.vibtg.id.label "ID">
 <!ENTITY field.vqbrad.id.label "ID">
 <!ENTITY field.vqarad.id.label "ID">
@@ -2180,6 +2230,7 @@
 <!ENTITY field.pgpt.id.label "ID">
 <!ENTITY field.ausp.id.label "ID">
 <!ENTITY field.auss.id.label "ID">
+<!ENTITY field.auch.id.label "ID">
 <!ENTITY field.acplg.id.label "ID">
 <!ENTITY field.acplgm.id.label "ID">
 <!ENTITY field.sre.id.label "ID">
@@ -2368,6 +2419,7 @@
 <!ENTITY field.mbt.payment_total.label "Վճարման ընդհանուրներ">
 <!ENTITY field.rodcirc.payment_total.label "Վճարման ընդհանուրներ">
 <!ENTITY class.aalink.label "Հեղինակավորը հեղինակավորին կապ">
+<!ENTITY field.brt.name.label "Պաշարի տեսակի անուն">
 <!ENTITY field.vii.copy_number.label "Պատճենի համար">
 <!ENTITY field.viiad.copy_number.label "Պատճենի համար">
 <!ENTITY field.acn.notes.label "Նշումներ">
@@ -2457,6 +2509,7 @@
 <!ENTITY field.pgt.hold_priority.label "Պահման առաջնահերթություն">
 <!ENTITY class.vqbr.label "Հարցված մատեն գրառում">
 <!ENTITY field.uvuv.id.label "Նույնականացման ID">
+<!ENTITY class.auch.label "User Checkout History">
 <!ENTITY field.acqfs.name.label "Ֆինանսավորման աղբյուրի անուն">
 <!ENTITY class.acqdfe.label "Բաշխման բանաձևի մուտք">
 <!ENTITY field.aua.id.label "Հասցեի ID">
@@ -2473,6 +2526,7 @@
 <!ENTITY field.stgma.usrname.label "Օգտվողի անուն">
 <!ENTITY field.stgba.usrname.label "Օգտվողի անուն">
 <!ENTITY field.stgsc.usrname.label "Օգտվողի անուն">
+<!ENTITY field.stgs.usrname.label "Օգտվողի անուն">
 <!ENTITY field.actsc.default_entries.label "Լռակյաց մուտքեր">
 <!ENTITY field.actsce.default_entries.label "Լռակյաց մուտքեր">
 <!ENTITY field.aur.other_info.label "Այլ տեղեկատվություն">
@@ -2623,6 +2677,7 @@
 <!ENTITY field.acqfc.id.label "Ֆինանսական օրացույցի ID">
 <!ENTITY field.ssub.record_entry.label "Մատենագիտական գրառման մուտք">
 <!ENTITY field.rhcrpbap.holds_everywhere.label "Ակտիվ պահումներ ամենուրեք">
+<!ENTITY field.rhcrpbapd.holds_everywhere.label "Ակտիվ պահումներ ամենուրեք">
 <!ENTITY field.au.usrgroup.label "Ընտանեական կապ կամ այլ խումբ">
 <!ENTITY field.acqii.fund_debit.label "Բյուջեի դեբետ">
 <!ENTITY field.acqpoi.fund_debit.label "Բյուջեի դեբետ">
@@ -2701,6 +2756,7 @@
 <!ENTITY field.auact.usr.label "Օգտվող">
 <!ENTITY field.ausp.usr.label "Օգտվող">
 <!ENTITY field.aua.usr.label "Օգտվող">
+<!ENTITY field.auch.usr.label "Օգտվող">
 <!ENTITY field.bresv.usr.label "Օգտվող">
 <!ENTITY field.ac.usr.label "Օգտվող">
 <!ENTITY field.mg.usr.label "Օգտվող">
@@ -2730,6 +2786,7 @@
 <!ENTITY field.mraf.attr.label "Բաղադրիչներ">
 <!ENTITY field.uvu.url_selector.label "URL ընտրիչ">
 <!ENTITY field.acqmapinv.po_item.label "Նյութի գնման պատվերի ID">
+<!ENTITY class.xisnull.label "Սա դատարկ արտահայտություն է">
 <!ENTITY class.acqdf.label "Բաշխման բանաձև">
 <!ENTITY field.acqdfa.formula.label "Բաշխման բանաձև">
 <!ENTITY field.acsaf.main_entry.label "Հիմնական մուտք">
@@ -2756,6 +2813,7 @@
 <!ENTITY field.aahr.pickup_lib.label "Ստանալու գրադարան">
 <!ENTITY field.aur.pickup_lib.label "Ստանալու գրադարան">
 <!ENTITY field.rhcrpbap.pickup_lib.label "Ստանալու գրադարան">
+<!ENTITY field.rhcrpbapd.pickup_lib_or_desc.label "Ստանալու գրադարան">
 <!ENTITY field.actsced.stat_cat_entry.label "Լռակյաց մուտքի արժեք">
 <!ENTITY field.bre.keyword_field_entries.label "Ինդեքսավորված բանալի բառի դաշտի մուտքեր">
 <!ENTITY class.rxbt.label "Տրանզակցիայի հաշիվների գումարներ">
@@ -2785,6 +2843,8 @@
 <!ENTITY field.alhr.shelf_expire_time.label "Դարակի ժամկետի լրանալու ժամ">
 <!ENTITY field.combahr.shelf_expire_time.label "Դարակի ժամկետի լրանալու ժամ">
 <!ENTITY field.aahr.shelf_expire_time.label "Դարակի ժամկետի լրանալու ժամ">
+<!ENTITY field.acqfs.summary.label "Ամփոփում">
+<!ENTITY field.acqf.summary.label "Ամփոփում">
 <!ENTITY field.bpbcm.target_copy.label "Թիրախի պատճեն">
 <!ENTITY field.vii.import_error.label "Ներմուծման սխալ">
 <!ENTITY field.vqbr.import_error.label "Ներմուծման սխալ">
@@ -3103,12 +3163,16 @@
 <!ENTITY field.acplo.id.label "Տեղաբաշխման պատվերի ID">
 <!ENTITY field.aal.billing_address.label "Հաշիվ ներկայացնելու հասցե">
 <!ENTITY field.aou.billing_address.label "Հաշիվ ներկայացնելու հասցե">
+<!ENTITY field.rmsr.quality.label "Գրառման ընդհանրական որակ">
+<!ENTITY field.rssr.quality.label "Գրառման ընդհանրական որակ">
+<!ENTITY field.rsr.quality.label "Գրառման ընդհանրական որակ">
 <!ENTITY field.aurt.label.label "Տեսակի պիտակ">
 <!ENTITY field.acqedim.jedi.label "JEDI հաղորդման մարմին">
 <!ENTITY class.mg.label "Grocery Transaction">
 <!ENTITY field.cmsa.alias.label "Կեղծ (RegExp)">
 <!ENTITY field.aur.phone_notify.label "Հեռախոսով զգուշացում">
 <!ENTITY field.circ.parent_circ.label "Ծնող սպասարկում">
+<!ENTITY field.combcirc.parent_circ.label "Ծնող սպասարկում">
 <!ENTITY field.acirc.parent_circ.label "Ծնող սպասարկում">
 <!ENTITY field.qseq.child_query.label "Երեխաի հարցում">
 <!ENTITY field.acqinv.shipper.label "Բեռնաառաքիչ">
@@ -3219,6 +3283,7 @@
 <!ENTITY field.uvuv.res_time.label "Արդյունքի ժամանակ">
 <!ENTITY field.acqlid.recv_time.label "Ստացման ակտուլ ամսաթիվ">
 <!ENTITY field.acpl.hold_verify.label "Պահման որսումը պահանջում է ստւգում">
+<!ENTITY field.bre.mattrs.label "SVF բաղկացուցիչներ">
 <!ENTITY field.rccbs.last_payment_ts.label "Վերջին վճարման օր/ժամ">
 <!ENTITY field.cuat.egroup.label "Գործողության խումբ">
 <!ENTITY class.ccbn.label "Պատճենի փնջի նշում">
@@ -3290,6 +3355,7 @@
 <!ENTITY field.rlc.id.label "Պատճենի ID">
 <!ENTITY field.circbyyr.copy.label "Պատճենի ID">
 <!ENTITY field.rocit.id.label "Պատճենի ID">
+<!ENTITY field.hasholdscount.id.label "Պատճենի ID">
 <!ENTITY field.atev.target.label "Թիրախի ID">
 <!ENTITY class.acsbfmfm.label "Հեղինակավորի վերահսկումը տեղադրել է Bibդաշտը Metabib դաշտի քարտեզին">
 <!ENTITY field.cbc.padding_end.label "Լրացում ավարտին">
@@ -3298,6 +3364,7 @@
 <!ENTITY field.acqii.author.label "Հեղինակ">
 <!ENTITY field.acqpoi.author.label "Հեղինակ">
 <!ENTITY field.rocit.author.label "Հեղինակ">
+<!ENTITY field.rb.percentile.label "Percentile">
 <!ENTITY class.rmsr.label "Պարզ գրառման արագ ընդլայնում">
 <!ENTITY field.ahr.cancel_cause.label "Չեղյալ անելու պատճառ">
 <!ENTITY field.ahopl.cancel_cause.label "Չեղյալ անելու պատճառ">
@@ -3338,6 +3405,7 @@
 <!ENTITY field.acqpro.default_claim_policy.label "Պահանջ դնելու լռակյաց քաղաքականություն">
 <!ENTITY field.sasum.summary_type.label "Համառոտագրության տեսակ">
 <!ENTITY field.qsi.id.label "Ընտրիր նյութի ID">
+<!ENTITY field.auch.checkin_time.label "Checkin Time">
 <!ENTITY field.acqie.inv_item_count.label "Նյութի ինվոյսի հաշվիչ">
 <!ENTITY class.ccpbt.label "Պատճենի փնջի տեսակ">
 <!ENTITY field.scap.subscription.label "Բաժանորդագրություն">
@@ -3345,7 +3413,7 @@
 <!ENTITY field.ssubn.subscription.label "Բաժանորդագրություն">
 <!ENTITY field.sdist.subscription.label "Բաժանորդագրություն">
 <!ENTITY field.siss.subscription.label "Բաժանորդագրություն">
-<!ENTITY field.afs.name.label "Դաշտի բազմության անուն">
+<!ENTITY field.combcirc.aged_circ.label "Linked Aged Circulation">
 <!ENTITY field.acqlia.order_ident.label "Պատվերի բնութագրիչ">
 <!ENTITY field.mrd.bib_level.label "BLvl">
 <!ENTITY field.mravl.vlist.label "Vector">
@@ -3377,6 +3445,7 @@
 <!ENTITY field.ausp.stop_date.label "Կանգնեցման ամսաթիվ">
 <!ENTITY field.aua.pending.label "Սպասող">
 <!ENTITY field.acqftr.src_fund.label "Սկզբնաղբյուր բյուջե">
+<!ENTITY field.auch.xact_start.label "Checkout Time">
 <!ENTITY class.au.label "ԻԳՀ (ILS) օգտվող">
 <!ENTITY field.acqpro.phone.label "Հեռախոս">
 <!ENTITY field.acqpc.phone.label "Հեռախոս">
@@ -3411,6 +3480,7 @@
 <!ENTITY class.ccb.label "Պատճենիր փուջը">
 <!ENTITY field.qsi.column_alias.label "Սյունակի կեղծանուն">
 <!ENTITY class.czifm.label "Z39.50 ցուցիչի դաշտի քարտեզ">
+<!ENTITY class.stgs.label "Օգտվողի կարգաբերման տեսակ">
 <!ENTITY field.aur.email_notify.label "Էլ փոստ հիշեցում">
 <!ENTITY field.mcrp.payment.label "Վճարի կապ">
 <!ENTITY field.mwp.payment.label "Վճարի կապ">
@@ -3422,13 +3492,13 @@
 <!ENTITY class.aur.label "Օգտվողի գնման պահանջ">
 <!ENTITY field.asva.responses.label "Արձագանքներ օգտագործելով այս պատասխանը">
 <!ENTITY class.chmw.label "Պահման մատրիցայի քաշ">
-<!ENTITY class.xisnull.label "Սա դատարկ արտահայտություն է">
+<!ENTITY field.rb.loc_grp_filter.label "Location Group Filter">
 <!ENTITY field.ssub.expected_date_offset.label "Սպասվող ամսաթվի շեղում">
 <!ENTITY field.rmsr.publisher.label "Հրատարակիչ (նորմալացված)">
 <!ENTITY field.rssr.publisher.label "Հրատարակիչ (նորմալացված)">
 <!ENTITY field.rsr.publisher.label "Հրատարակիչ (նորմալացված)">
 <!ENTITY field.ccmm.grace_period.label "Գրավչության ժամկետի վերագրում">
-<!ENTITY field.rocit.due_date.label "Վերադարձի ամսաթիվ">
+<!ENTITY field.rb.attr_filter.label "Բաղկացուցիչի արժեք">
 <!ENTITY field.aum.id.label "Message ID">
 <!ENTITY field.auml.id.label "Message ID">
 <!ENTITY field.acqpro.edi_default.label "EDI լռակյաց">
@@ -3443,6 +3513,7 @@
 <!ENTITY field.ssub.end_date.label "Ավարտի ամսաթիվ">
 <!ENTITY class.brsrc.label "Պաշար">
 <!ENTITY field.bram.resource.label "Պաշար">
+<!ENTITY field.combcirc.checkin_scan_time.label "Հետ ընդունման սկանի ամսաթիվ/ժամ">
 <!ENTITY field.aoupa.hold_pickup_lib.label "Պահման ստանալու գրադ">
 <!ENTITY field.cam.value.label "Լսարան">
 <!ENTITY field.vii.circ_as_type.label "Սպասարկիր որպես ՄԵԸՔ տեսակ">
@@ -3553,6 +3624,7 @@
 <!ENTITY field.sdist.bind_call_number.label "Կազմի դասիչի համար">
 <!ENTITY field.atevdef.reactor.label "Ռեակտոր">
 <!ENTITY field.atul.reactor.label "Ռեակտոր">
+<!ENTITY field.rb.weight.label "Քաշ">
 <!ENTITY field.cmf.weight.label "Քաշ">
 <!ENTITY class.mbt.label "Վճարվող տրանզակցիաներ">
 <!ENTITY field.mp.xact.label "Վճարվող տրանզակցիաներ">
