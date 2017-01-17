@@ -167,8 +167,8 @@
         END;
         args.author = (args.authors.size) ? args.authors.0 : '';
 
-        # Include subfields 'abnp' to generate a more comprehensive title display in search results
-        titresults = xml.findnodes('//*[@tag="245"]/*[@code="a" or @code="b" or @code="n" or @code="p"]');
+        # Include subfields 'abhnp' to generate a more comprehensive title display in search results
+        titresults = xml.findnodes('//*[@tag="245"]/*[@code="a" or @code="b" or @code="h" or @code="n" or @code="p"]');
         titresults_content = [];
             FOR sub IN titresults; titresults_content.push(sub.textContent); END;
         args.title = titresults_content.join(" ");
