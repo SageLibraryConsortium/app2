@@ -1,10 +1,4 @@
 @charset "UTF-8";
-/*@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700';*/
-/*@import url('https://fonts.googleapis.com/css?family=Merriweather');*/
-/*@import url('https://fonts.googleapis.com/css?family=Open+Sans');*/
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,800">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather">
-
 [%-
     PROCESS "opac/parts/css/colors.tt2";
 %]
@@ -100,7 +94,7 @@ img {
         max-width: 85rem;
 }
 #topnav_logo {
-    margin: 1.4em 0;
+    margin: 1.2em 0;
 }
 #topnav_logo img {
     max-width:250px;
@@ -491,12 +485,14 @@ margin-left:1.5em;
 }
 #adv_search_filters {
     position: relative;
+    margin-top: 1em;
 }
 #adv_search_rows {
     border-bottom: none;
 }
 .adv_filter_block {
-    padding: 15px;
+    /*padding: 15px;*/
+    padding-bottom:1em;
     float: left;
     clear: both;
 }
@@ -1411,13 +1407,24 @@ div#facet_sidebar {
 .advanced_div {
     padding-top: 15px;
 }
+select#numeric_qtype,
+select#numeric_search_library,
+select#expert_search_library {
+    font-size:14px;
+    margin-bottom:5px;
+    margin-top:5px;
+}
+select#pickup_lib,
+select[name=sms_carrier] {
+    font-size:13px;
+}
 #adv_global_search {
     width: 100%;
 }
 #adv_global_search select {
-    width: 13em;
-    font-size: 13px;
-    font-family: "Open Sans", Arial;
+    width: 18em;
+    font-size: 14px;
+    font-family: "Open Sans", Arial, sans-serif;
 }
 #adv_global_addrow td {
     padding-top: 7px;
@@ -1593,7 +1600,7 @@ a.dash-link:hover {
     padding-left: 2em;
 }
 .expert-search-row {
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
 #adv_expert_row label {
     font-weight: bold;
