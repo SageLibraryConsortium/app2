@@ -35,7 +35,8 @@ body {
     margin: 0;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: #242729;
+    color:#000;
+    /*color: #242729;*/
     background: [% css_colors.primary_fade %];
     -webkit-font-smoothing: antialiased;
     /*Chrome - Sage */
@@ -1415,6 +1416,12 @@ select#expert_search_library {
     margin-top:5px;
 }
 select#pickup_lib,
+select#acct_messages_actions,
+select#acct_holds_actions,
+select#opac.default_search_location,
+select#opac.default_pickup_location,
+select#opac.lists_per_page,
+select#opac.hits_per_page,
 select[name=sms_carrier] {
     font-size:13px;
 }
