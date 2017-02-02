@@ -131,8 +131,15 @@ END; # FOREACH bib
                 END; -%]
             </td>
             <td property="availableAtOrFrom">[% copy_info.copy_location | html %]</td>
-           [%- IF copy_info.age_protect AND copy_info.create_date;
-                  create_date = date.format(ctx.parse_datetime(copy_info.create_date), "%Y%m%d");
+            [%-
+                IF ctx.get_org_setting(copy_info.circ_lib, 'circ.holds.age_protect.active_date') == 1;
+                  disp_date = copy_info.active_date ? copy_info.active_date : copy_info.create_date;
+                ELSE;
+                  disp_date = copy_info.create_date;
+                END;
+
+                IF copy_info.age_protect AND disp_date;
+                  create_date = date.format(ctx.parse_datetime(disp_date), "%Y%m%d");
                   today = date.format(date.now, "%Y%m%d");
 
                   age_protect_age = ctx.get_crahp(copy_info.age_protect).age;
