@@ -87,6 +87,13 @@ url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodH
     float: left;
 }
 
+.self-check-receipts {
+    background-color:#ddd;
+    border-radius:5px;
+    border: 1px solid #ccc;
+    padding:5px;
+}
+
 #oils-selfck-summary-div {
     width: 28%;
     float: right;
