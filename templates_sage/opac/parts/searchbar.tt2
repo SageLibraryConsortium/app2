@@ -57,7 +57,7 @@
         <button id='search-submit-go-depth' type="submit" value="[% ctx.depth_sel_depth %]" name="depth" class="[% ctx.depth_sel_button_class %]"
             onclick='setTimeout(function(){$("search-submit-spinner").className=""; $("search-submit-go").className="hidden"; $("search-submit-go-depth").className="hidden";}, 200)' title="[% ctx.depth_sel_tooltip | html %]">[% ctx.depth_sel_button_label | html %]</button>
         [%- END %]
-        <span id="search-submit-spinner" class='hidden' alt='[% l("Search In Progress") %]'/><i class="fa fa-circle-o-notch fa-spin fa-lg" aria-hidden="true"></i></span>
+        <img id='search-submit-spinner' src='/opac/images/progressbar_green.gif' class='hidden' alt='[% l("Search In Progress") %]'/>
     </span>
     </div>
     [% IF ctx.bookbag %]

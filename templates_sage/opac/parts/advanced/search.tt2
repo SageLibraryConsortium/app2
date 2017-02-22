@@ -37,7 +37,7 @@
         <span>
             <input id='search-submit-go' type="submit" value="[% l('Search') %]" title="[% l('Search') %]" class="opac-button"
                 onclick='setTimeout(function(){$("search-submit-spinner").className=""; $("search-submit-go").className="hidden"}, 2000)' style="margin:0;"/>
-<span id="search-submit-spinner" class='hidden' alt='[% l("Advanced Search In Progress") %]'/><i class="fa fa-circle-o-notch fa-spin fa-lg" aria-hidden="true"></i></span>
+            <img id='search-submit-spinner' src='/opac/images/progressbar_green.gif' class='hidden' alt="[% l('Search in progress icon') %]"/>
         </span>
 
         <a href="[% mkurl(ctx.opac_root _ '/advanced', {$loc_name => loc_value}, 1) %]"
