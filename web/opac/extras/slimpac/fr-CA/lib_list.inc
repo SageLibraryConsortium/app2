@@ -79,7 +79,6 @@
 <option value='UMSCH'>&#160;&#160;&#160;Umatilla County Schools</option>
 <option value='UM-HHS'>&#160;&#160;&#160;&#160;&#160;&#160;Hermiston High School Library</option>
 <option value='UM-MCHS'>&#160;&#160;&#160;&#160;&#160;&#160;McLoughlin High School Library</option>
-<option value='UM-PHS'>&#160;&#160;&#160;&#160;&#160;&#160;Pendleton High School Library</option>
 <option value='UM-SSS'>&#160;&#160;&#160;&#160;&#160;&#160;Stanfield Secondary School Library</option>
 <option value='UMSPC'>&#160;&#160;&#160;Umatilla County Special Libraries</option>
 <option value='UM-TAM'>&#160;&#160;&#160;&#160;&#160;&#160;Tamastslikt Cultural Institute Library</option>
