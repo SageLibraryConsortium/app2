@@ -1617,8 +1617,3 @@ function($scope , $routeParams , $window , $location , egCore) {
     $scope.user_perms_url = url;
 }])
 
-// add in techlogic code
-var origTitle=document.title;
-$('form').on('submit', function() {document.getElementById('patron-checkout-barcode').blur();document.title=origTitle;});
-$('body').on('blur','#patron-checkout-barcode' ,function() {document.title=origTitle;});
-$('body').on('focus', '#patron-checkout-barcode',function() {document.title=origTitle+' (RFID: Off)';});
