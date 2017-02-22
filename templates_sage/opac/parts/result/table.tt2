@@ -52,14 +52,15 @@
                             [% l('Group Formats and Editions') %]
                         </label><br>
                     [% END %]
+                    [% IF ctx.exclude_electronic_checkbox %]
                      <label class="search_options_lbl" for='opac_result_excludeelec' title="[% l('Exclude Electronic Records from your result set') %]">
-                         <input type='checkbox' name="fi:-search_format" value="electronic"
-                             onchange="search_modifier_onchange('available', this, true)"
-                             [%- CGI.param('fi:-search_format').grep('electronic').size ? ' checked="checked"' : '' %]
-                             id='opac_result_excludeelec' />
+                         <input type='checkbox' id='opac.result.excludeelec' name="fi:-search_format" value="electronic"
+                             onchange="exclude_onchange(this)"
+                             [%- CGI.param('fi:-search_format').grep('electronic').size ? ' checked="checked"' : '' %] />
                          [% l("Exclude Electronic Resources") %]
                      </label>
 		     <br>
+                    [% END %]
                     [% IF loc_value != 1 %]
                     <label class="search_options_lbl" for="depth_zero" title="[% l('Select this option to expand your results to all libraries while retaining the priority of your selected library\'s holdings.') %]">
                         <input type="checkbox" id="depth_zero" name="depth" value="0"
