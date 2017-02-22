@@ -2,10 +2,10 @@
  <ul id="header-links">
 <li><a href="[% mkurl(ctx.opac_root _ '/home') %]">[% l('Catalog Home') %]</a></li>
 <li><a href="https://catalog.sage.eou.edu/eg/kpac/home">[% l('Kids Catalog') %]</a></li>
-<li><a href="http://sagelib.org/new-items/new-items-lists">[% l('New Title Lists') %]</a></li>
+<li><a href="https://sagelib.org/new-items/new-items-lists">[% l('New Title Lists') %]</a></li>
 <li><a href="http://www.fantasticfiction.co.uk" target="_blank">[% l('Fantastic Fiction') %]</a></li>
-<li><a href="http://library2go.lib.overdrive.com" target="_blank">[% l('Library2Go') %]</a></li>
-<li><a href="http://sagelib.org/help" target="_blank">[% l('Need Help?') %]</a></li>
+<li><a href="https://library2go.overdrive.com" target="_blank">[% l('Library2Go') %]</a></li>
+<li><a href="https://sagelib.org/help" target="_blank">[% l('Need Help?') %]</a></li>
 	[% IF ctx.get_org_setting(ctx.physical_loc || ctx.aou_tree.id, 'opac.allow_pending_user') %]
 	<li><a href="[% mkurl(ctx.opac_root _ '/register') %]">[% l('Request Library Card') %]</a></li>
 	[% END %]
@@ -13,7 +13,6 @@
 <a href="#" class="dropbutton">About Sage</a>
 <div class="sagedropdown-bits">
 <a href="http://batchgeo.com/map/d325cffa95d06f3d90a408592a00e3c7" target="_blank">[% l('Sage Member Map') %]</a>
-<a href="https://sagelib.org/help" target="_blank">[% l('Need Help?') %]</a>
 <a href="http://sagelib.org/about-us" target="_blank">[% l('About Sage') %]</a>
 </li>
 </div>
