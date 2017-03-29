@@ -288,19 +288,17 @@
         args.pubinfo = (args.pubinfos.size) ? args.pubinfos.0 : '';
 
         args.series = [];
-        FOR sub IN xml.findnodes('//*[@tag="800" and @ind1="1"]/*[@code="t"]');
-           args.series.push(sub.textContent);
-        END;
-        FOR sub IN xml.findnodes('//*[@tag="830" and @ind1="1"]/*[@code="a"]');
+	series_hunt = xml.findnodes('//*[@tag="800" and @ind1="1"]/*[@code="t"]') ||
+	      xml.findnodes('//*[@tag="830"]/*[@code="a"]')
+        FOR sub IN series_hunt;
            args.series.push(sub.textContent);
         END;
         args.series = (args.series.size) ? args.series.0 : '';
 
         args.seriesnumber = [];
-        FOR sub IN xml.findnodes('//*[@tag="800" and @ind1="1"]/*[@code="v"]');
-           args.seriesnumber.push(sub.textContent);
-        END;
-        FOR sub IN xml.findnodes('//*[@tag="830" and @ind1="1"]/*[@code="v"]');
+	seriesno_hunt = xml.findnodes('//*[@tag="800" and @ind1="1"]/*[@code="v"]') ||
+	      xml.findnodes('//*[@tag="830"]/*[@code="v"]');
+        FOR sub IN seriesno_hunt;
            args.seriesnumber.push(sub.textContent);
         END;
         args.seriesnumber = (args.seriesnumber.size) ? args.seriesnumber.0 : '';
